@@ -1,0 +1,150 @@
+---
+title: "Notas Proyecto Integrador"
+author: "Matías Roqueta"
+format:
+  pdf:
+    include-in-header: 
+      text: |
+        \usepackage[bitheight=7ex,bitwidth=1.1em]{bytefield}
+  html: 
+    theme: darkly
+jupyter: julia-1.7
+---
+
+## Transmisión OFDM en el estándar IEEE 802.11a
+
+- PSDU: PHY Service Data Unit
+- PPDU: PHY Protocol Data Unit
+
+Transmitir una trama implica tomar una PSDU y codificarla en una PPDU que se transmite por el canal inalámbrico.
+
+<!-- \begin{center}
+\begin{bytefield}[bitformatting={\footnotesize\bfseries}]{40} 
+\bitheader{0, 4, 5, 17, 18, 24, 40}\\
+\bitbox{4}{RATE\\4 bits} & 
+\bitbox{1}{\rotatebox{-90}{RES}} & 
+\bitbox{12}{LENGTH\\12 bits} & 
+\bitbox{1}{\rotatebox{-90}{PAR}} & 
+\bitbox{6}{Tail\\6 bits} & 
+\bitbox{16}{SERVICE\\16 bits}
+\bitbox[]{2}{$\cdots$}
+\end{bytefield}
+\end{center} -->
+
+```{julia}
+#| echo: false
+#| output: false
+
+using Kroki
+using Base: Fix1, Fix2
+
+Diagram(:packetdiag, """
+{
+  default_linecolor = white
+  default_node_color = none
+  default_textcolor = white
+  colwidth = 40
+  node_height = 50
+  node_width = 18
+  default_fontsize = 18
+  scale_interval = 8
+  * RATE [len=4, label="RATE\n4 bits"]
+  * RES [len=1, rotate=90]
+  * LENGTH [len=12, label="LENGTH\n12 bits"]
+  * PAR [len=1, rotate=90]
+  * TAIL [len=6, label="TAIL\n6 bits"]
+  * SERVICE [len=16, label="SERVICE\n16 bits"]
+}""") |> Fix2(render, "svg") |> Fix1(write, "Images/packet.svg")
+```
+
+![PHY Preamble en el estándar 802.11a](Images/packet.svg)
+
+
+Los primeros 24 bits corresponden un símbolo OFDM, llamado SIGNAL. Se transmite:
+
+- PHY Preamble: 12 símbolos OFDM
+- SIGNAL: 1 símbolo OFDM
+- DATA: N símbolos OFDM
+
+### PHY Preamble
+El PHY Preamble consiste en:
+
+- 10 iteraciones de una _short training sequence_ 
+- 2 iteraciones de una _long training sequence_
+
+### PHY Header
+
+Todo se construye a partir del TXVECTOR
+
+- RATE, LENGTH: Obtenidos del TXVECTOR codificados por un código convolucional a tasa 1/2, y asigados un único símbolo ODFM con codificación BPSK.
+
+## Sincronización OFDM
+
+## Modelo Canal OFDM
+
+Para transmitir datos en un canal OFDM con $N_C$ canales, se necesita subdividir en tramas de longitud $N$
+
+- $N$: Longitud en símbolos de una trama
+- $L$: Longitud en símbolos de la ISI
+- $N_C$: Número de subcanales. Para no tener ISI se necesita $N_C = N+L-1$
+
+En función de $N_C$ y $L$, a los $N$ símbolos se le agrega un prefijo cíclico antes de ser transmitidos
+
+Ej con $N=5$ y $L=4$ entonces $N_C=8$
+
+$$
+\begin{bmatrix}
+x_2 \\ x_3 \\ x_4 \\ x_0 \\ x_1 \\ x_2 \\ x_3 \\ x_4
+\end{bmatrix} = 
+\begin{bmatrix}
+0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 & 1 \\
+\end{bmatrix}
+\begin{bmatrix}
+x_0 \\ x_1 \\ x_2 \\ x_3 \\ x_4
+\end{bmatrix}
+$$
+
+```{julia}
+#| echo: false
+#| output: false
+
+Diagram(:blockdiag, """
+{
+  default_fontsize = 20
+  node_height = 70
+  node_width = 100
+  default_group_color = none
+  default_linecolor = white
+  default_textcolor = white
+  default_node_color = none
+
+  IFFT [label="IFFT"]
+  CY [label="Cyclic\nPrefix"]
+  CH [label="Channel"]
+  RP [label="Remove\nPrefix"]
+  FFT [label="FFT"]
+  TX [label="TX", width=70, shape=circle]
+  RX [label="RX", width=70, shape=circle]
+
+  
+  TX -> IFFT 
+  group{ 
+    IFFT -> CY 
+  group {
+    orientation = portrait
+    CY -> CH -> RP [thick]
+  }
+  RP -> FFT
+  }
+  FFT -> RX
+}""") |> Fix2(render, "svg") |> Fix1(write, "Images/channel.svg")
+```
+
+![Estructura de un canal OFDM](Images/channel.svg)
