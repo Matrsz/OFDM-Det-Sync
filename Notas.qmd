@@ -4,7 +4,7 @@ author: "Matías Roqueta"
 format:
   html: 
     embed-resources: true
-    theme: darkly
+    theme: superhero
 jupyter: julia-1.7
 ---
 
@@ -12,6 +12,20 @@ jupyter: julia-1.7
 
 - PSDU: PHY Service Data Unit
 - PPDU: PHY Protocol Data Unit
+
+### TXVECTOR
+
+El TXVECTOR es una serie de parámetros provistos por la capa MAC a la capa PHY para transmitir un PSDU. Mínimamente contiene los parámetros **DATARATE** Y **LENGTH**. En particular para OFDM contiene
+
+| Parámetro | Valores | Descripción |
+| --- | --- | --- |
+| LENGTH | 1 - 4095 | El número de octetos que la capa MAC necesita transmitir |
+| DATARATE | Distintas tasas según el espacio entre canales (20, 10 o 5 MHz) | La tasa de bits a la que se transmitirá la PSDU |
+| SERVICE | Null | Siempre es Null |
+| TXPWR_LEVEL_INDEX | 1-8 | Cual de los posibles TxPowerLevel definidos en la MIB serán usados en la transmisión |
+| TIME_OF_DEPARTURE_REQUESTED | False o True | Determina si la capa MAC solicita tiempo de primer transmisión a la capa PHY |
+| CH_BANDWIDTH_IN_NON_HT | Opcional: CBW20, CBW40, CBW80, CBW160, O CBW80+80 | Si está presente, modifica los primeros 7 bits de la secuencia de entrelazado |
+| DYN_BANDWIDTH_IN_NON_HT | Opcional: Static o Dynamic | Si es presente, modifica los primeros 7 bits de la secuencia de entrelazado |
 
 Transmitir una trama implica tomar una PSDU y codificarla en una PPDU que se transmite por el canal inalámbrico.
 
@@ -54,14 +68,35 @@ Diagram(:packetdiag, """
 }""") |> Fix2(render, "svg") |> Fix1(write, "Images/packet.svg")
 ```
 
-![PHY Preamble en el estándar 802.11a](Images/packet.svg)
-
+![PHY Header en el estándar 802.11a. RATE, un bit reservado, LENGTH, un bit de paridad, y TAIL corresponden al símbolo SIGNAL.](Images/packet.svg)
 
 Los primeros 24 bits corresponden un símbolo OFDM, llamado SIGNAL. Se transmite:
 
 - PHY Preamble: 12 símbolos OFDM
 - SIGNAL: 1 símbolo OFDM
 - DATA: N símbolos OFDM
+
+```{julia}
+#| echo: false
+#| output: false
+
+Diagram(:packetdiag, """
+{
+  default_linecolor = white
+  default_node_color = none
+  default_textcolor = white
+  colwidth = 3
+  node_height = 50
+  node_width = 300
+  default_fontsize = 18
+  scale_interval = 1
+  * PREAMBLE [len=1, label="PHY Preamble: 12 simbolos"]
+  * SIGNAL [len=1, label="SIGNAL: 1 simbolo\nBPSK, Tasa = 1/2"]
+  * DATA [len=1, label="DATA: N simbolos\nMod. y tasa según SIGNAL"]
+}""") |> Fix2(render, "svg") |> Fix1(write, "Images/packet2.svg")
+```
+
+![PHY Preamble en el estándar 802.11a](Images/packet2.svg)
 
 ### PHY Preamble
 El PHY Preamble consiste en:
@@ -73,7 +108,14 @@ El PHY Preamble consiste en:
 
 Todo se construye a partir del TXVECTOR
 
-- RATE, LENGTH: Obtenidos del TXVECTOR codificados por un código convolucional a tasa 1/2, y asigados un único símbolo ODFM con codificación BPSK.
+- RATE, LENGTH: Obtenidos del TXVECTOR, se le agrega un bit de paridad par y un TAIL de 000000. Son codificados por un código convolucional a tasa 1/2, y asigados un único símbolo ODFM llamado SIGNAL que es transmitido con codificación BPSK.
+- A partir de RATE del TXVECTOR se calcula
+  - $R$: la tasa de codificación
+  - $N_{DBPS}$: el número de bits _de datos_ por símbolo OFDM
+  - $N_{CBPS}$: el número de bits _codificados_ por símbolo OFDM
+  - $N_{BPSC}$: el número de bits por sub-portadora OFDM
+- El PSDU se concatena a SERVICE de TXVECTOR. Se extiende con bits 0 (mínimo 6) hasta completar N símbolos OFDM. Esto es la secuencia de símbolos DATA.
+
 
 ## Sincronización OFDM
 
@@ -107,6 +149,7 @@ x_2 \\ x_3 \\ x_4 \\ x_0 \\ x_1 \\ x_2 \\ x_3 \\ x_4
 x_0 \\ x_1 \\ x_2 \\ x_3 \\ x_4
 \end{bmatrix}
 $$
+
 
 ```{julia}
 #| echo: false
@@ -145,3 +188,10 @@ Diagram(:blockdiag, """
 ```
 
 ![Estructura de un canal OFDM](Images/channel.svg)
+
+
+Esto se podría interpretar como una operación $\mathbf{\bar x} = \mathbf C \mathbf x$, en donde
+
+- $\mathbf x$: Vector de símbolos a transmitir
+- $\mathbf{\bar x}$: Vector de símbolos con prefijo cíclico
+- $\mathbf C$: Matrix prefijo cíclico
