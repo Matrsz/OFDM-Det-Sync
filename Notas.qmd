@@ -123,33 +123,22 @@ Todo se construye a partir del TXVECTOR
 
 Para transmitir datos en un canal OFDM con $N_C$ canales, se necesita subdividir en tramas de longitud $N$
 
-- $N$: Longitud en símbolos de una trama
+- $N_C$: Longitud en símbolos de datos de una trama
 - $L$: Longitud en símbolos de la ISI
-- $N_C$: Número de subcanales. Para no tener ISI se necesita $N_C = N+L-1$
+- $N_T$: Longitud de símbolos transmitidos por el canal. Para no tener ISI se necesita $N_T = N_C+L-1$
 
-En función de $N_C$ y $L$, a los $N$ símbolos se le agrega un prefijo cíclico antes de ser transmitidos
+La transmisión de datos en un canal OFDMA sigue el siguiente método:
 
-Ej con $N=5$ y $L=4$ entonces $N_C=8$
-
-$$
-\begin{bmatrix}
-x_2 \\ x_3 \\ x_4 \\ x_0 \\ x_1 \\ x_2 \\ x_3 \\ x_4
-\end{bmatrix} = 
-\begin{bmatrix}
-0 & 0 & 1 & 0 & 0 \\
-0 & 0 & 0 & 1 & 0 \\
-0 & 0 & 0 & 0 & 1 \\
-1 & 0 & 0 & 0 & 0 \\
-0 & 1 & 0 & 0 & 0 \\
-0 & 0 & 1 & 0 & 0 \\
-0 & 0 & 0 & 1 & 0 \\
-0 & 0 & 0 & 0 & 1 \\
-\end{bmatrix}
-\begin{bmatrix}
-x_0 \\ x_1 \\ x_2 \\ x_3 \\ x_4
-\end{bmatrix}
-$$
-
+- A un vector de datos $\mathbf{\tilde x}$ de longitud $N_C$ se le aplica la transformada inversa de Fourier, obteniendo 
+$$\mathbf x = \mathcal F^{-1}[\mathbf{\tilde x}]$$
+- A $\mathbf x$ se le agregan $L-1$ símbolos de prefijo cíclico, obteniendo el vector $\mathbf{\bar x}$ de longitud $N_T$.
+$$ \mathbf{\bar x} = \begin{bmatrix}x_{N_C-L+1} & \cdots & x_{N_C-1} & x_0 & \cdots & x_{N_C-1} \end{bmatrix} $$
+- El vector $\mathbf{\bar x}$ se transmite por el canal $\mathbf h$, obteniendo 
+$$\mathbf{\bar y} = \mathbf h \ast \mathbf{\bar x} + \mathbf w$$
+- Se ignora el prefijo de $\mathbf{\bar y}$, quedándose únicamente con los últimos $N_C$ símbolos
+$$\mathbf y = \begin{bmatrix}\bar y_L & \cdots & \bar y_{N_C+L-1}\end{bmatrix}$$
+- A $\mathbf y$ se le aplica la transformada de Fourier, obteniendo el vector final recibido
+$$\mathbf{\tilde y} = \mathcal F[\mathbf{y}]$$
 
 ```{julia}
 #| echo: false
@@ -172,7 +161,6 @@ Diagram(:blockdiag, """
   FFT [label="FFT"]
   TX [label="TX", width=70, shape=circle]
   RX [label="RX", width=70, shape=circle]
-
   
   TX -> IFFT 
   group{ 
@@ -189,9 +177,55 @@ Diagram(:blockdiag, """
 
 ![Estructura de un canal OFDM](Images/channel.svg)
 
+La relación final entre el vector transmitido $\mathbf{\tilde x}$, el vector recibido $\mathbf{\tilde y}$, y el canal $\mathbf h$ es
+$$
+  \mathbf{\tilde y} = \mathbf{\tilde h}^\star \mathbf{\tilde x} + \mathbf{\tilde w}
+$$
+En donde (asumo, porque el Tse no es super explícito al respecto) que $\mathbf{\tilde h} = \mathcal F[\mathbf h]$. Efectivamente se usa la identidad
+$$
+  \mathbf y = \mathbf h \ast \mathbf x + \mathbf w \longleftrightarrow \mathbf{\tilde y} = \mathbf{\tilde h}^\star \mathbf{\tilde x} + \mathbf{\tilde w}
+$$
 
-Esto se podría interpretar como una operación $\mathbf{\bar x} = \mathbf C \mathbf x$, en donde
+### Prefijos cíclicos
 
-- $\mathbf x$: Vector de símbolos a transmitir
-- $\mathbf{\bar x}$: Vector de símbolos con prefijo cíclico
-- $\mathbf C$: Matrix prefijo cíclico
+Esto no está en el Tse, pero agregar o quitar prefijos cíclicos podría ser interpretado como operaciones matriciales
+
+Ej con $N_C=5$ y $L=4$ entonces $N_T=8$
+
+- Agregar prefijo: 
+$$
+\begin{bmatrix}
+x_2 \\ x_3 \\ x_4 \\ x_0 \\ x_1 \\ x_2 \\ x_3 \\ x_4
+\end{bmatrix} = 
+\begin{bmatrix}
+0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 & 1 \\
+1 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 & 1 \\
+\end{bmatrix}
+\begin{bmatrix}
+x_0 \\ x_1 \\ x_2 \\ x_3 \\ x_4
+\end{bmatrix}
+$$
+
+- Quitar prefijo: 
+$$\begin{bmatrix}
+y_3 \\ y_4 \\ y_5 \\ y_6 \\ y_7
+\end{bmatrix} = 
+\begin{bmatrix}
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
+\end{bmatrix}
+\begin{bmatrix}
+y_0 \\ y_1 \\ y_2 \\ y_3 \\ y_4 \\ y_5 \\ y_6 \\ y_7
+\end{bmatrix}
+$$
+
+Ya que los demás procedimientos, FFT, IFFT, convolución circular, eventualmente códigos de corrección de errores, eventualmente entrelazado (tampoco lo menciona el Tse), etc son operaciones matriciales, esta interpretación puede resultar útil

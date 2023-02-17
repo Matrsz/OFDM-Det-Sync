@@ -25,7 +25,6 @@ Prefix"]
   FFT [label="FFT"]
   TX [label="TX", width=70, shape=circle]
   RX [label="RX", width=70, shape=circle]
-
   
   TX -&gt; IFFT 
   group{ 
