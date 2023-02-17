@@ -24,8 +24,8 @@ El TXVECTOR es una serie de parámetros provistos por la capa MAC a la capa PHY 
 | SERVICE | Null | Siempre es Null |
 | TXPWR_LEVEL_INDEX | 1-8 | Cual de los posibles TxPowerLevel definidos en la MIB serán usados en la transmisión |
 | TIME_OF_DEPARTURE_REQUESTED | False o True | Determina si la capa MAC solicita tiempo de primer transmisión a la capa PHY |
-| CH_BANDWIDTH_IN_NON_HT | Opcional: CBW20, CBW40, CBW80, CBW160, O CBW80+80 | Si está presente, modifica los primeros 7 bits de la secuencia de entrelazado |
-| DYN_BANDWIDTH_IN_NON_HT | Opcional: Static o Dynamic | Si es presente, modifica los primeros 7 bits de la secuencia de entrelazado |
+| CH_BANDWIDTH_IN_NON_HT | Opcional: CBW20, CBW40, CBW80, CBW160, O CBW80+80 | Si está presente, modifica los primeros 7 bits de la secuencia de _scrambling_ |
+| DYN_BANDWIDTH_IN_NON_HT | Opcional: Static o Dynamic | Si es presente, modifica los primeros 7 bits de la secuencia de _scrambling_ |
 
 Transmitir una trama implica tomar una PSDU y codificarla en una PPDU que se transmite por el canal inalámbrico.
 
@@ -99,10 +99,24 @@ Diagram(:packetdiag, """
 ![PHY Preamble en el estándar 802.11a](Images/packet2.svg)
 
 ### PHY Preamble
-El PHY Preamble consiste en:
+El PHY Preamble se utiliza para motivos de sincronismo, consiste en:
 
 - 10 iteraciones de una _short training sequence_ 
 - 2 iteraciones de una _long training sequence_
+
+### Short Training Symbol
+El _short training symbol_ consiste en 12 subportadoras moduladas por los elementos de la secuencia $S$ del siguiente aspecto.
+$$
+S_{-26,26} = \sqrt{\frac{13}{6}}\begin{bmatrix} 0 & 0 & 1+j & 0 & 0 & 0 & –1–j & 0 & 0 & \cdots \end{bmatrix}
+$$
+Solo los índices múltiplos de 4 tienen señal (que puede ser "$j+1$" o "$-j-1$"), el factor multiplicativo normaliza la potencia media del símbolo OFDM, ya que este usa 12 de las 52 subportadoras: -24, -20, -16, -12, -8, -4, 4, 8, 12, 16, 20, 24.
+
+### Long Training Symbol
+El _long training symbol_ consiste en 53 subportadoras (las 52 disponibles más el valor 0 en continua), moduladas por los elementos de la secuencia $L$ del siguiente aspecto:
+$$
+L_{-26,26} = \begin{bmatrix} 1 & 1 & –1 & –1 & 1 & 1 & –1 & 1 & \cdots \end{bmatrix}
+$$
+
 
 ### PHY Header
 
@@ -115,6 +129,29 @@ Todo se construye a partir del TXVECTOR
   - $N_{CBPS}$: el número de bits _codificados_ por símbolo OFDM
   - $N_{BPSC}$: el número de bits por sub-portadora OFDM
 - El PSDU se concatena a SERVICE de TXVECTOR. Se extiende con bits 0 (mínimo 6) hasta completar N símbolos OFDM. Esto es la secuencia de símbolos DATA.
+- En función de si CH_BANDWIDTH_IN_NON_HT está o no presente en TXVECTOR, el _scrambler_ se inicializa con una semilla pseudoaleatoria o usando este campo.
+- Se aplica XOR de la secuencia de _scrambling_ con los bits de DATA. Los 6 últimos bits luego se remplazan con 0. Estos últimos bits retornarán el codificador convolucional al estado inicial.
+- La secuencia DATA se codifica con un código convolucional a tasa $R=1/2$, y luego se perfora para alcanzar la tasa definida en el parámetro RATE de TXVECTOR.
+- La secuencia codificada se divide en tramas de $N_{CBPS}$ bits. Cada grupo se convierte en un símbolo según la tabla de modulación.
+- El número total de subportadoras es 52, indexadas de -26 a 26. 48 de ellas transmiten datos y 4 subportadoras se insertan a modo de piloto en índices -21, -7, 7, y 21. 
+- A cada grupo de 52 subportadoras se aplica la IFFT, se adjunta el prefijo cíclico, y se usa una ventana temporal para truncar la forma resultante al largo de un símbolo ODFM.
+- Los símbolos OFDM se concatenan a el símbolo SIGNAL, uno atrás del otro.
+- La señal en banda base se eleva a RF con frecuencia central del canal de operación y se transmite. 
+
+### Parámetros dependientes de la modulación
+
+| Modulación | Tasa código $R$ | $N_{BPSC}$ | $N_{CBPS}$ | $N_{DBPS}$ | 
+| --- | --- | --- | --- | --- |
+| BPSK | 1/2 | 1 | 48 | 24 |
+| BPSK | 3/4 | 1 | 48 | 36 |
+| QPSK | 1/2 | 2 | 96 | 48 |
+| QPSK | 3/4 | 2 | 96 | 72 |
+| 16-QAM | 1/2 | 4 | 192 | 96 |
+| 16-QAM | 3/4 | 4 | 192 | 144 |
+| 64-QAM | 2/3 | 6 | 288 | 192 |
+| 64-QAM | 3/4 | 6 | 288 | 216 |
+
+: Número de bits por subportadora, Número de bits codificados por símbolo ODFM, y número de bits de datos por símbolo en función de la modulación y la tasa de código
 
 
 ## Sincronización OFDM
