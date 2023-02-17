@@ -2627,12 +2627,12 @@ vertical-align: -.125em;
 <tr class="even">
 <td>CH_BANDWIDTH_IN_NON_HT</td>
 <td>Opcional: CBW20, CBW40, CBW80, CBW160, O CBW80+80</td>
-<td>Si está presente, modifica los primeros 7 bits de la secuencia de entrelazado</td>
+<td>Si está presente, modifica los primeros 7 bits de la secuencia de <em>scrambling</em></td>
 </tr>
 <tr class="odd">
 <td>DYN_BANDWIDTH_IN_NON_HT</td>
 <td>Opcional: Static o Dynamic</td>
-<td>Si es presente, modifica los primeros 7 bits de la secuencia de entrelazado</td>
+<td>Si es presente, modifica los primeros 7 bits de la secuencia de <em>scrambling</em></td>
 </tr>
 </tbody>
 </table>
@@ -2666,11 +2666,23 @@ vertical-align: -.125em;
 </section>
 <section id="phy-preamble" class="level3">
 <h3 class="anchored" data-anchor-id="phy-preamble">PHY Preamble</h3>
-<p>El PHY Preamble consiste en:</p>
+<p>El PHY Preamble se utiliza para motivos de sincronismo, consiste en:</p>
 <ul>
 <li>10 iteraciones de una <em>short training sequence</em></li>
 <li>2 iteraciones de una <em>long training sequence</em></li>
 </ul>
+</section>
+<section id="short-training-symbol" class="level3">
+<h3 class="anchored" data-anchor-id="short-training-symbol">Short Training Symbol</h3>
+<p>El <em>short training symbol</em> consiste en 12 subportadoras moduladas por los elementos de la secuencia <span class="math inline">\(S\)</span> del siguiente aspecto. <span class="math display">\[
+S_{-26,26} = \sqrt{\frac{13}{6}}\begin{bmatrix} 0 &amp; 0 &amp; 1+j &amp; 0 &amp; 0 &amp; 0 &amp; –1–j &amp; 0 &amp; 0 &amp; \cdots \end{bmatrix}
+\]</span> Solo los índices múltiplos de 4 tienen señal (que puede ser “<span class="math inline">\(j+1\)</span>” o “<span class="math inline">\(-j-1\)</span>”), el factor multiplicativo normaliza la potencia media del símbolo OFDM, ya que este usa 12 de las 52 subportadoras: -24, -20, -16, -12, -8, -4, 4, 8, 12, 16, 20, 24.</p>
+</section>
+<section id="long-training-symbol" class="level3">
+<h3 class="anchored" data-anchor-id="long-training-symbol">Long Training Symbol</h3>
+<p>El <em>long training symbol</em> consiste en 53 subportadoras (las 52 disponibles más el valor 0 en continua), moduladas por los elementos de la secuencia <span class="math inline">\(L\)</span> del siguiente aspecto: <span class="math display">\[
+L_{-26,26} = \begin{bmatrix} 1 &amp; 1 &amp; –1 &amp; –1 &amp; 1 &amp; 1 &amp; –1 &amp; 1 &amp; \cdots \end{bmatrix}
+\]</span></p>
 </section>
 <section id="phy-header" class="level3">
 <h3 class="anchored" data-anchor-id="phy-header">PHY Header</h3>
@@ -2685,7 +2697,88 @@ vertical-align: -.125em;
 <li><span class="math inline">\(N_{BPSC}\)</span>: el número de bits por sub-portadora OFDM</li>
 </ul></li>
 <li>El PSDU se concatena a SERVICE de TXVECTOR. Se extiende con bits 0 (mínimo 6) hasta completar N símbolos OFDM. Esto es la secuencia de símbolos DATA.</li>
+<li>En función de si CH_BANDWIDTH_IN_NON_HT está o no presente en TXVECTOR, el <em>scrambler</em> se inicializa con una semilla pseudoaleatoria o usando este campo.</li>
+<li>Se aplica XOR de la secuencia de <em>scrambling</em> con los bits de DATA. Los 6 últimos bits luego se remplazan con 0. Estos últimos bits retornarán el codificador convolucional al estado inicial.</li>
+<li>La secuencia DATA se codifica con un código convolucional a tasa <span class="math inline">\(R=1/2\)</span>, y luego se perfora para alcanzar la tasa definida en el parámetro RATE de TXVECTOR.</li>
+<li>La secuencia codificada se divide en tramas de <span class="math inline">\(N_{CBPS}\)</span> bits. Cada grupo se convierte en un símbolo según la tabla de modulación.</li>
+<li>El número total de subportadoras es 52, indexadas de -26 a 26. 48 de ellas transmiten datos y 4 subportadoras se insertan a modo de piloto en índices -21, -7, 7, y 21.</li>
+<li>A cada grupo de 52 subportadoras se aplica la IFFT, se adjunta el prefijo cíclico, y se usa una ventana temporal para truncar la forma resultante al largo de un símbolo ODFM.</li>
+<li>Los símbolos OFDM se concatenan a el símbolo SIGNAL, uno atrás del otro.</li>
+<li>La señal en banda base se eleva a RF con frecuencia central del canal de operación y se transmite.</li>
 </ul>
+</section>
+<section id="parámetros-dependientes-de-la-modulación" class="level3">
+<h3 class="anchored" data-anchor-id="parámetros-dependientes-de-la-modulación">Parámetros dependientes de la modulación</h3>
+<table class="table">
+<caption>Número de bits por subportadora, Número de bits codificados por símbolo ODFM, y número de bits de datos por símbolo en función de la modulación y la tasa de código</caption>
+<thead>
+<tr class="header">
+<th>Modulación</th>
+<th>Tasa código <span class="math inline">\(R\)</span></th>
+<th><span class="math inline">\(N_{BPSC}\)</span></th>
+<th><span class="math inline">\(N_{CBPS}\)</span></th>
+<th><span class="math inline">\(N_{DBPS}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>BPSK</td>
+<td>1/2</td>
+<td>1</td>
+<td>48</td>
+<td>24</td>
+</tr>
+<tr class="even">
+<td>BPSK</td>
+<td>3/4</td>
+<td>1</td>
+<td>48</td>
+<td>36</td>
+</tr>
+<tr class="odd">
+<td>QPSK</td>
+<td>1/2</td>
+<td>2</td>
+<td>96</td>
+<td>48</td>
+</tr>
+<tr class="even">
+<td>QPSK</td>
+<td>3/4</td>
+<td>2</td>
+<td>96</td>
+<td>72</td>
+</tr>
+<tr class="odd">
+<td>16-QAM</td>
+<td>1/2</td>
+<td>4</td>
+<td>192</td>
+<td>96</td>
+</tr>
+<tr class="even">
+<td>16-QAM</td>
+<td>3/4</td>
+<td>4</td>
+<td>192</td>
+<td>144</td>
+</tr>
+<tr class="odd">
+<td>64-QAM</td>
+<td>2/3</td>
+<td>6</td>
+<td>288</td>
+<td>192</td>
+</tr>
+<tr class="even">
+<td>64-QAM</td>
+<td>3/4</td>
+<td>6</td>
+<td>288</td>
+<td>216</td>
+</tr>
+</tbody>
+</table>
 </section>
 </section>
 <section id="sincronización-ofdm" class="level2">
