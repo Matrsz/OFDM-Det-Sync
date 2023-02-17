@@ -2,11 +2,8 @@
 title: "Notas Proyecto Integrador"
 author: "Matías Roqueta"
 format:
-  pdf:
-    include-in-header: 
-      text: |
-        \usepackage[bitheight=7ex,bitwidth=1.1em]{bytefield}
   html: 
+    embed-resources: true
     theme: darkly
 jupyter: julia-1.7
 ---
