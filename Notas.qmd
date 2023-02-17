@@ -121,13 +121,13 @@ Todo se construye a partir del TXVECTOR
 
 ## Modelo Canal OFDM
 
-Para transmitir datos en un canal OFDM con $N_C$ canales, se necesita subdividir en tramas de longitud $N$
+Para transmitir datos en un canal OFDM se hace en bloques de $N_T$ símbolos, los datos a transmitir se necesita subdividir en tramas de longitud $N_C$
 
 - $N_C$: Longitud en símbolos de datos de una trama
 - $L$: Longitud en símbolos de la ISI
 - $N_T$: Longitud de símbolos transmitidos por el canal. Para no tener ISI se necesita $N_T = N_C+L-1$
 
-La transmisión de datos en un canal OFDMA sigue el siguiente método:
+La transmisión de datos en un canal OFDM sigue el siguiente método:
 
 - A un vector de datos $\mathbf{\tilde x}$ de longitud $N_C$ se le aplica la transformada inversa de Fourier, obteniendo 
 $$\mathbf x = \mathcal F^{-1}[\mathbf{\tilde x}]$$
