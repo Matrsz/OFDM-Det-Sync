@@ -101,8 +101,31 @@ Diagram(:packetdiag, """
 ### PHY Preamble
 El PHY Preamble se utiliza para motivos de sincronismo, consiste en:
 
-- 10 iteraciones de una _short training sequence_ 
-- 2 iteraciones de una _long training sequence_
+- 10 iteraciones de una _short training symbol_ 
+- 2 iteraciones de una _long training symbol_
+
+```{julia}
+#| echo: false
+#| output: false
+
+Diagram(:wavedrom, """
+{ 
+  config: {skin: 'narrow'},
+  head: {text: ['tspan', {class:'muted h3'}, "PHY Preamble"]},
+  signal: [
+  { name: "",  wave: "x===========.=...=...=", data: ["t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8", "t9", "t10", "GI2", "T1", "T2"]}
+  ], 
+  foot: {tick: -1, every:10}
+  }""") |> Fix2(render, "svg") |> Fix1(write, "Images/wave.svg")
+```
+
+![PHY Preamble en el estándar 802.11a, $t_i$ denota un _short training symbol_ y $T_i$ un _long training symbol_.](Images/wave.svg)
+
+La duración del instante temporal en la figura depende del espaciamiento entre canales.
+
+- 20 MHz $\rightarrow$ 0.8 $\micro$s
+- 10 MHz $\rightarrow$ 1.6 $\micro$s (half-clocked)
+- 5  MHz $\rightarrow$ 3.2 $\micro$s (quarter-clocked)
 
 ### Short Training Symbol
 El _short training symbol_ consiste en 12 subportadoras moduladas por los elementos de la secuencia $S$ del siguiente aspecto.
@@ -111,12 +134,31 @@ S_{-26,26} = \sqrt{\frac{13}{6}}\begin{bmatrix} 0 & 0 & 1+j & 0 & 0 & 0 & –1�
 $$
 Solo los índices múltiplos de 4 tienen señal (que puede ser "$j+1$" o "$-j-1$"), el factor multiplicativo normaliza la potencia media del símbolo OFDM, ya que este usa 12 de las 52 subportadoras: -24, -20, -16, -12, -8, -4, 4, 8, 12, 16, 20, 24.
 
+La señal se construye a partir de
+
+$$
+ r_{SHORT}(t) = w_{TSHORT}(t) \sum_{k=-N_{ST}/2}^{N_{ST}/2}S_ke^{j2\pi k \Delta_F t}
+$$
+
 ### Long Training Symbol
 El _long training symbol_ consiste en 53 subportadoras (las 52 disponibles más el valor 0 en continua), moduladas por los elementos de la secuencia $L$ del siguiente aspecto:
 $$
 L_{-26,26} = \begin{bmatrix} 1 & 1 & –1 & –1 & 1 & 1 & –1 & 1 & \cdots \end{bmatrix}
 $$
 
+La señal se construye a partir de
+$$
+ r_{LONG}(t) = w_{TLONG}(t) \sum_{k=-N_{ST}/2}^{N_{ST}/2}L_ke^{j2\pi k \Delta_F (t-T_{GI2})}
+$$
+En donde $T_{GI2} = 1.6$ $\micro$s (GI = guard interval?)
+
+- NOTA: hasta ahora todo se viene entendiendo relativamente bien pero falta entender que significan $w_{SHORT}$ y $w_{LONG}$
+
+
+Finalmente las señales se concatenan para formar el PHY preamble
+$$
+r_{PREAMBLE}(t) = r_{SHORT}(t)+r_{LONG}(t-T_{SHORT})
+$$
 
 ### PHY Header
 
@@ -153,6 +195,25 @@ Todo se construye a partir del TXVECTOR
 
 : Número de bits por subportadora, Número de bits codificados por símbolo ODFM, y número de bits de datos por símbolo en función de la modulación y la tasa de código
 
+### RATE
+
+Los bits de este campo se asignan según la tasa de transmisión. No pueden tomar cualquier valor, sino alguno de los presentes en la siguiente tabla
+
+| RATE | Tasa de bits con 20 MHz entre canales |
+| --- | --- |
+| 1101 | 6  MHz/s | 
+| 1111 | 9  MHz/s | 
+| 0101 | 12 MHz/s | 
+| 0111 | 18 MHz/s | 
+| 1001 | 24 MHz/s | 
+| 1011 | 36 MHz/s | 
+| 0001 | 48 MHz/s | 
+| 0011 | 54 MHz/s | 
+: Tasa de bits para 20 MHz entre canales. Es 1/2 de la registrada con 10 MHz entre canales, y 1/4 de la registrada con 5 MHz entre canales
+
+### LENGTH
+
+Es un número en formato _unsigned integer_ de 12 bits que indica el número de octetos que se transmitirán. Se transmite empezando por el bit menos significativo (LSB).
 
 ## Sincronización OFDM
 
