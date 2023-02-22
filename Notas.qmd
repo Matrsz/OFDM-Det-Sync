@@ -8,6 +8,23 @@ format:
 jupyter: julia-1.7
 ---
 
+```{julia}
+#| echo: false
+#| output: false 
+
+using Plots, PlotThemes, LaTeXStrings
+using OffsetArrays
+using Unitful
+using FFTW
+using Kroki
+using Base: Fix1, Fix2
+
+pyplot()
+theme(:juno)
+default(;palette=:seaborn_pastel6, background_color="#1b3041")
+j=im
+```
+
 ## Transmisión OFDM en el estándar IEEE 802.11a
 
 - PSDU: PHY Service Data Unit
@@ -45,9 +62,6 @@ Transmitir una trama implica tomar una PSDU y codificarla en una PPDU que se tra
 ```{julia}
 #| echo: false
 #| output: false
-
-using Kroki
-using Base: Fix1, Fix2
 
 Diagram(:packetdiag, """
 {
@@ -102,6 +116,7 @@ Diagram(:packetdiag, """
 El PHY Preamble se utiliza para motivos de sincronismo, consiste en:
 
 - 10 iteraciones de una _short training symbol_ 
+- Un _guard interval_ 
 - 2 iteraciones de una _long training symbol_
 
 ```{julia}
@@ -127,6 +142,35 @@ La duración del instante temporal en la figura depende del espaciamiento entre 
 - 10 MHz $\rightarrow$ 1.6 $\micro$s (half-clocked)
 - 5  MHz $\rightarrow$ 3.2 $\micro$s (quarter-clocked)
 
+De ahora en más se trabaja con los valores correspondientes a 20 MHz
+
+```{julia}
+#| echo: false
+#| output: false
+
+T_TR = 100u"ns"
+Δ_F = 20u"MHz"/64
+T_SHORT = 8u"μs"
+T_LONG = 8u"μs"
+T_GI2 = 1.6u"μs"
+
+function w(T, t)
+    if t < -T_TR/2 
+        return 0
+    elseif t < T_TR/2
+        return sin(π/2*(0.5+t/T_TR))^2
+    elseif t < T-T_TR/2
+        return 1
+    elseif t < T+T_TR/2
+        return sin(π/2*(0.5-(t-T)/T_TR))^2
+    else
+        return 0
+    end
+end
+
+t = range(0u"μs", 8u"μs", length=5000)
+```
+
 ### Short Training Symbol
 El _short training symbol_ consiste en 12 subportadoras moduladas por los elementos de la secuencia $S$ del siguiente aspecto.
 $$
@@ -140,6 +184,25 @@ $$
  r_{SHORT}(t) = w_{TSHORT}(t) \sum_{k=-N_{ST}/2}^{N_{ST}/2}S_ke^{j2\pi k \Delta_F t}
 $$
 
+```{julia}
+#| echo: false
+#| fig-cap: _short training sequence_ en el dominio temporal
+
+S = OffsetArray(sqrt(13/6).*[0, 0, 1+j, 0, 0, 0, -1-j, 0, 0, 0, 1+j, 0, 0, 0, -1-j, 0, 0, 0, -1-j, 0, 0, 0, 1+j, 0, 0, 0, 0,
+0, 0, 0, -1-j, 0, 0, 0, -1-j, 0, 0, 0, 1+j, 0, 0, 0, 1+j, 0, 0, 0, 1+j, 0, 0, 0, 1+j, 0,0], -26:26)
+r_s(t) = w(T_SHORT,t)*sum(S[k]*exp(j*k*2π*Δ_F*t) for k in eachindex(S))
+
+rs = r_s.(t)
+p1 = plot(t, real(rs), ylabel="canal I", xlabel="", xticks=[], title=L"r_{SHORT}")
+p2 = plot(t, imag(rs), ylabel="canal Q", xticks=0:0.8:8, xlabel=L"t")
+for i in 0:0.8:8
+    plot!(p1, [i,i], [-10,10], linestyle=:dash, linecolor=:silver)
+    plot!(p2, [i,i], [-10,10], linestyle=:dash, linecolor=:silver)
+end
+
+plot(p1, p2, layout=(2,1), legend=false, size=(800,300), background_color="#1b3041")
+```
+
 ### Long Training Symbol
 El _long training symbol_ consiste en 53 subportadoras (las 52 disponibles más el valor 0 en continua), moduladas por los elementos de la secuencia $L$ del siguiente aspecto:
 $$
@@ -150,15 +213,84 @@ La señal se construye a partir de
 $$
  r_{LONG}(t) = w_{TLONG}(t) \sum_{k=-N_{ST}/2}^{N_{ST}/2}L_ke^{j2\pi k \Delta_F (t-T_{GI2})}
 $$
-En donde $T_{GI2} = 1.6$ $\micro$s (GI = guard interval?)
 
-- NOTA: hasta ahora todo se viene entendiendo relativamente bien pero falta entender que significan $w_{SHORT}$ y $w_{LONG}$
+```{julia}
+#| echo: false
+#| fig-cap: _long training sequence_ en el dominio temporal
+
+L = OffsetArray([1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 0,
+1, -1, -1, 1, 1, -1, 1, -1, 1, -1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, 1, -1, 1, 1, 1, 1], -26:26)
+
+r_l(t) = w(T_LONG,t)*sum(L[k]*exp(j*k*2π*Δ_F*(t-T_GI2)) for k in eachindex(L))
+
+rl = r_l.(t)
+
+p1 = plot(t, real(rl), ylabel="canal I", xlabel="", xticks=[], title=L"r_{LONG}")
+p2 = plot(t, imag(rl), ylabel="canal Q", xticks=[0,1.6,4.8,8], xlabel=L"t")
+
+for i in [0,1.6,4.8,8]
+    plot!(p1, [i,i], [-10,10], linestyle=:dash, linecolor=:silver)
+    plot!(p2, [i,i], [-10,10], linestyle=:dash, linecolor=:silver)
+end
+
+plot(p1, p2, layout=(2,1), legend = false, size=(800,300), background_color="#1b3041")
+```
 
 
 Finalmente las señales se concatenan para formar el PHY preamble
 $$
 r_{PREAMBLE}(t) = r_{SHORT}(t)+r_{LONG}(t-T_{SHORT})
 $$
+
+```{julia}
+#| echo: false
+#| fig-cap: PHY Preamble en el dominio temporal
+
+r_p(t) = r_s(t)+r_l(t-T_SHORT)
+
+tiks = [0:0.8:8..., [1.6,4.8,8].+8...]
+
+t = range(0u"μs", 16u"μs", length=5000)
+rp = r_p.(t)
+
+p1 = plot(t, real(rp), ylabel="canal I", xlabel="", xticks=[], title=L"r_{PREAMBLE}")
+p2 = plot(t, imag(rp), ylabel="canal Q", xticks=tiks, xlabel=L"t")
+
+for i in tiks
+    plot!(p1, [i,i], [-10,10], linestyle=:dash, linecolor=:silver)
+    plot!(p2, [i,i], [-10,10], linestyle=:dash, linecolor=:silver)
+end
+
+plot(p1, p2, layout=(2,1), legend = false, size=(800,300), background_color="#1b3041")
+```
+
+### Parámetros Temporales 
+
+| Parámetros | Significado | Valor a 20 MHz | Nota | 
+| --- | --- | --- | --- |
+| $\Delta_F$ | Espacio entre subportadoras | 0.3125 MHz | $\dfrac{20\;\mathrm{MHz}}{64}$ |
+| $T_{FFT}$ | Período de FFT/IFFT | 3.2 $\micro$s | $\dfrac{1}{\Delta_F}$ | 
+| $T_{PREAMBLE}$ | Duración del PHY Preamble | 16 $\micro$s | $T_{SHORT}+T_{LONG}$ |
+| $T_{SIGNAL}$ | Duración del símbolo SIGNAL | 4 $\micro$s | $T_{GI}+T_{FFT}$ |
+| $T_{GI}$ | Duración del guard interval | 0.8 $\micro$s | $\dfrac{T_{FFT}}{4}$ |
+| $T_{GI2}$ | Guard interval de la secuencia de entrenamiento | 1.6 $\micro$s | $\dfrac{T_{FFT}}{2}$ |
+| $T_{SYM}$ | Intervalo de símbolo | 4 $\micro$s | $T_{GI}+T_{FFT}$ |
+| $T_{SHORT}$ | Duración de la _short training sequence_ | 8 $\micro$s | $10 \times \dfrac{T_{FFT}}{4}$ |
+| $T_{LONG}$ | Duración de la _long training sequence_ | 8 $\micro$s | $T_{GI2}+2\times T_{FFT}$ |
+
+La función $w_T(t)$ es la función ventana temporal, definida por:
+
+$$
+  w_T(t) = \left\{
+    \begin{aligned}
+      \;&\sin^2\left[\tfrac{\pi}{2} \left(0.5 + \tfrac{t}{T_{TR}}\right)\right] \qquad &-\tfrac{T_{TR}}{2} < &t < \tfrac{T_{TR}}{2} \\
+      \;&1 \qquad & \tfrac{T_{TR}}{2} \le &t < T-\tfrac{T_{TR}}{2} \\
+      \;&\sin^2\left[\tfrac{\pi}{2} \left(0.5 - \tfrac{t-T}{T_{TR}}\right)\right] \qquad & T-\tfrac{T_{TR}}{2} \le &t < T+\tfrac{T_{TR}}{2} \\
+    \end{aligned}
+  \right.
+$$
+En donde $T_{TR}$ del orden de los 100 ns es el tiempo de transición, la función $w_T(t)$ es efectivamente un pulso de duración $T$ con transición suave.
+
 
 ### PHY Header
 
