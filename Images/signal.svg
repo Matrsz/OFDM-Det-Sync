@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg viewBox="0 0 704 170" xmlns="http://www.w3.org/2000/svg" xmlns:inkspace="http://www.inkscape.org/namespaces/inkscape" xmlns:xlink="http://www.w3.org/1999/xlink" width="704px" height="170px">
+  <defs id="defs_block">
+    <filter height="1.504" id="filter_blur" inkspace:collect="always" width="1.1575" x="-0.07875" y="-0.252">
+      <feGaussianBlur id="feGaussianBlur3780" inkspace:collect="always" stdDeviation="4.2" />
+    </filter>
+  </defs>
+  <title>blockdiag</title>
+  <desc>{
+  default_linecolor = white
+  default_node_color = none
+  default_textcolor = white
+  colwidth = 40
+  node_height = 50
+  node_width = 24
+  default_fontsize = 18
+  scale_interval = 1
+  * RATE [len=4, label="RATE
+4 bits"]
+  * RES [len=1, rotate=90]
+  * LENGTH [len=12, label="LENGTH (uint12)
+LSB -&gt; MSB"]
+  * PAR [len=1, rotate=90]
+  * TAIL [len=6, label="TAIL
+000000"]
+}</desc>
+  <path d="M 64 48 L 64 80" fill="none" stroke="rgb(255,255,255)" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="7" x="64.5" y="42">0</text>
+  <path d="M 88 64 L 88 80" fill="none" stroke="rgb(255,255,255)" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="7" x="88.5" y="58">1</text>
+  <path d="M 112 64 L 112 80" fill="none" stroke="rgb(255,255,255)" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="7" x="112.5" y="58">2</text>
+  <path d="M 136 64 L 136 80" fill="none" stroke="rgb(255,255,255)" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="7" x="136.5" y="58">3</text>
+  <path d="M 160 64 L 160 80" fill="none" stroke="rgb(255,255,255)" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="7" x="160.5" y="58">4</text>
+  <path d="M 184 64 L 184 80" fill="none" stroke="rgb(255,255,255)" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="7" x="184.5" y="58">5</text>
+  <path d="M 208 48 L 208 80" fill="none" stroke="rgb(255,255,255)" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="7" x="208.5" y="42">6</text>
+  <path d="M 232 64 L 232 80" fill="none" stroke="rgb(255,255,255)" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="7" x="232.5" y="58">7</text>
+  <path d="M 256 64 L 256 80" fill="none" stroke="rgb(255,255,255)" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="7" x="256.5" y="58">8</text>
+  <path d="M 280 64 L 280 80" fill="none" stroke="rgb(255,255,255)" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="7" x="280.5" y="58">9</text>
+  <path d="M 304 64 L 304 80" fill="none" stroke="rgb(255,255,255)" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="14" x="304.0" y="58">10</text>
+  <path d="M 328 64 L 328 80" fill="none" stroke="rgb(255,255,255)" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="14" x="328.0" y="58">11</text>
+  <path d="M 352 48 L 352 80" fill="none" stroke="rgb(255,255,255)" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="14" x="352.0" y="42">12</text>
+  <path d="M 376 64 L 376 80" fill="none" stroke="rgb(255,255,255)" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="14" x="376.0" y="58">13</text>
+  <path d="M 400 64 L 400 80" fill="none" stroke="rgb(255,255,255)" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="14" x="400.0" y="58">14</text>
+  <path d="M 424 64 L 424 80" fill="none" stroke="rgb(255,255,255)" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="14" x="424.0" y="58">15</text>
+  <path d="M 448 64 L 448 80" fill="none" stroke="rgb(255,255,255)" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="14" x="448.0" y="58">16</text>
+  <path d="M 472 64 L 472 80" fill="none" stroke="rgb(255,255,255)" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="14" x="472.0" y="58">17</text>
+  <path d="M 496 48 L 496 80" fill="none" stroke="rgb(255,255,255)" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="14" x="496.0" y="42">18</text>
+  <path d="M 520 64 L 520 80" fill="none" stroke="rgb(255,255,255)" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="14" x="520.0" y="58">19</text>
+  <path d="M 544 64 L 544 80" fill="none" stroke="rgb(255,255,255)" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="14" x="544.0" y="58">20</text>
+  <path d="M 568 64 L 568 80" fill="none" stroke="rgb(255,255,255)" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="14" x="568.0" y="58">21</text>
+  <path d="M 592 64 L 592 80" fill="none" stroke="rgb(255,255,255)" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="14" x="592.0" y="58">22</text>
+  <path d="M 616 64 L 616 80" fill="none" stroke="rgb(255,255,255)" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="14" x="616.0" y="58">23</text>
+  <path d="M 640 48 L 640 80" fill="none" stroke="rgb(255,255,255)" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="11" font-style="normal" font-weight="normal" text-anchor="middle" textLength="14" x="640.0" y="42">24</text>
+  <rect fill="none" height="50" stroke="none" width="96" x="64" y="80" />
+  <path d="M 64 80 L 160 80" fill="none" stroke="rgb(255,255,255)" />
+  <path d="M 160 80 L 160 130" fill="none" stroke="rgb(255,255,255)" />
+  <path d="M 160 130 L 64 130" fill="none" stroke="rgb(255,255,255)" />
+  <path d="M 64 130 L 64 80" fill="none" stroke="rgb(255,255,255)" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="18" font-style="normal" font-weight="normal" text-anchor="middle" textLength="52" x="112.0" y="104">RATE</text>
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="18" font-style="normal" font-weight="normal" text-anchor="middle" textLength="51" x="112.5" y="123">4 bits</text>
+  <rect fill="none" height="50" stroke="none" width="24" x="160" y="80" />
+  <path d="M 160 80 L 184 80" fill="none" stroke="rgb(255,255,255)" />
+  <path d="M 184 80 L 184 130" fill="none" stroke="rgb(255,255,255)" />
+  <path d="M 184 130 L 160 130" fill="none" stroke="rgb(255,255,255)" />
+  <path d="M 160 130 L 160 80" fill="none" stroke="rgb(255,255,255)" />
+  <g transform="rotate(90,184,80)">
+    <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="18" font-style="normal" font-weight="normal" text-anchor="middle" textLength="39" x="209.5" y="101">RES</text>
+  </g>
+  <rect fill="none" height="50" stroke="none" width="288" x="184" y="80" />
+  <path d="M 184 80 L 472 80" fill="none" stroke="rgb(255,255,255)" />
+  <path d="M 472 80 L 472 130" fill="none" stroke="rgb(255,255,255)" />
+  <path d="M 472 130 L 184 130" fill="none" stroke="rgb(255,255,255)" />
+  <path d="M 184 130 L 184 80" fill="none" stroke="rgb(255,255,255)" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="18" font-style="normal" font-weight="normal" text-anchor="middle" textLength="162" x="328.0" y="105">LENGTH (uint12)</text>
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="18" font-style="normal" font-weight="normal" text-anchor="middle" textLength="113" x="328.5" y="124">LSB -&gt; MSB</text>
+  <rect fill="none" height="50" stroke="none" width="24" x="472" y="80" />
+  <path d="M 472 80 L 496 80" fill="none" stroke="rgb(255,255,255)" />
+  <path d="M 496 80 L 496 130" fill="none" stroke="rgb(255,255,255)" />
+  <path d="M 496 130 L 472 130" fill="none" stroke="rgb(255,255,255)" />
+  <path d="M 472 130 L 472 80" fill="none" stroke="rgb(255,255,255)" />
+  <g transform="rotate(90,496,80)">
+    <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="18" font-style="normal" font-weight="normal" text-anchor="middle" textLength="39" x="521.5" y="101">PAR</text>
+  </g>
+  <rect fill="none" height="50" stroke="none" width="144" x="496" y="80" />
+  <path d="M 496 80 L 640 80" fill="none" stroke="rgb(255,255,255)" />
+  <path d="M 640 80 L 640 130" fill="none" stroke="rgb(255,255,255)" />
+  <path d="M 640 130 L 496 130" fill="none" stroke="rgb(255,255,255)" />
+  <path d="M 496 130 L 496 80" fill="none" stroke="rgb(255,255,255)" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="18" font-style="normal" font-weight="normal" text-anchor="middle" textLength="44" x="568.0" y="104">TAIL</text>
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="18" font-style="normal" font-weight="normal" text-anchor="middle" textLength="66" x="568.0" y="123">000000</text>
+</svg>

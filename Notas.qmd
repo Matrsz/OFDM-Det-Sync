@@ -14,8 +14,9 @@ jupyter: julia-1.7
 
 using Plots, PlotThemes, LaTeXStrings
 using OffsetArrays
-using Unitful
+using SparseArrays
 using FFTW
+using Unitful
 using Kroki
 using Base: Fix1, Fix2
 
@@ -142,6 +143,33 @@ La duración del instante temporal en la figura depende del espaciamiento entre 
 - 10 MHz $\rightarrow$ 1.6 $\micro$s (half-clocked)
 - 5  MHz $\rightarrow$ 3.2 $\micro$s (quarter-clocked)
 
+#### Parámetros Temporales 
+
+| Parámetros | Significado | Valor a 20 MHz | Nota | 
+| --- | --- | --- | --- |
+| $\Delta_F$ | Espacio entre subportadoras | 0.3125 MHz | $\dfrac{20\;\mathrm{MHz}}{64}$ |
+| $T_{FFT}$ | Período de FFT/IFFT | 3.2 $\micro$s | $\dfrac{1}{\Delta_F}$ | 
+| $T_{PREAMBLE}$ | Duración del PHY Preamble | 16 $\micro$s | $T_{SHORT}+T_{LONG}$ |
+| $T_{SIGNAL}$ | Duración del símbolo SIGNAL | 4 $\micro$s | $T_{GI}+T_{FFT}$ |
+| $T_{GI}$ | Duración del guard interval | 0.8 $\micro$s | $\dfrac{T_{FFT}}{4}$ |
+| $T_{GI2}$ | Guard interval de la secuencia de entrenamiento | 1.6 $\micro$s | $\dfrac{T_{FFT}}{2}$ |
+| $T_{SYM}$ | Intervalo de símbolo | 4 $\micro$s | $T_{GI}+T_{FFT}$ |
+| $T_{SHORT}$ | Duración de la _short training sequence_ | 8 $\micro$s | $10 \times \dfrac{T_{FFT}}{4}$ |
+| $T_{LONG}$ | Duración de la _long training sequence_ | 8 $\micro$s | $T_{GI2}+2\times T_{FFT}$ |
+
+La función $w_T(t)$ es la función ventana temporal, definida por:
+
+$$
+  w_T(t) = \left\{
+    \begin{aligned}
+      \;&\sin^2\left[\tfrac{\pi}{2} \left(0.5 + \tfrac{t}{T_{TR}}\right)\right] \qquad &-\tfrac{T_{TR}}{2} < &t < \tfrac{T_{TR}}{2} \\
+      \;&1 \qquad & \tfrac{T_{TR}}{2} \le &t < T-\tfrac{T_{TR}}{2} \\
+      \;&\sin^2\left[\tfrac{\pi}{2} \left(0.5 - \tfrac{t-T}{T_{TR}}\right)\right] \qquad & T-\tfrac{T_{TR}}{2} \le &t < T+\tfrac{T_{TR}}{2} \\
+    \end{aligned}
+  \right.
+$$
+En donde $T_{TR}$ del orden de los 100 ns es el tiempo de transición, la función $w_T(t)$ es efectivamente un pulso de duración $T$ con transición suave.
+
 De ahora en más se trabaja con los valores correspondientes a 20 MHz
 
 ```{julia}
@@ -171,7 +199,7 @@ end
 t = range(0u"μs", 8u"μs", length=5000)
 ```
 
-### Short Training Symbol
+#### Short Training Symbol
 El _short training symbol_ consiste en 12 subportadoras moduladas por los elementos de la secuencia $S$ del siguiente aspecto.
 $$
 S_{-26,26} = \sqrt{\frac{13}{6}}\begin{bmatrix} 0 & 0 & 1+j & 0 & 0 & 0 & –1–j & 0 & 0 & \cdots \end{bmatrix}
@@ -203,7 +231,7 @@ end
 plot(p1, p2, layout=(2,1), legend=false, size=(800,300), background_color="#1b3041")
 ```
 
-### Long Training Symbol
+#### Long Training Symbol
 El _long training symbol_ consiste en 53 subportadoras (las 52 disponibles más el valor 0 en continua), moduladas por los elementos de la secuencia $L$ del siguiente aspecto:
 $$
 L_{-26,26} = \begin{bmatrix} 1 & 1 & –1 & –1 & 1 & 1 & –1 & 1 & \cdots \end{bmatrix}
@@ -264,33 +292,6 @@ end
 plot(p1, p2, layout=(2,1), legend = false, size=(800,300), background_color="#1b3041")
 ```
 
-### Parámetros Temporales 
-
-| Parámetros | Significado | Valor a 20 MHz | Nota | 
-| --- | --- | --- | --- |
-| $\Delta_F$ | Espacio entre subportadoras | 0.3125 MHz | $\dfrac{20\;\mathrm{MHz}}{64}$ |
-| $T_{FFT}$ | Período de FFT/IFFT | 3.2 $\micro$s | $\dfrac{1}{\Delta_F}$ | 
-| $T_{PREAMBLE}$ | Duración del PHY Preamble | 16 $\micro$s | $T_{SHORT}+T_{LONG}$ |
-| $T_{SIGNAL}$ | Duración del símbolo SIGNAL | 4 $\micro$s | $T_{GI}+T_{FFT}$ |
-| $T_{GI}$ | Duración del guard interval | 0.8 $\micro$s | $\dfrac{T_{FFT}}{4}$ |
-| $T_{GI2}$ | Guard interval de la secuencia de entrenamiento | 1.6 $\micro$s | $\dfrac{T_{FFT}}{2}$ |
-| $T_{SYM}$ | Intervalo de símbolo | 4 $\micro$s | $T_{GI}+T_{FFT}$ |
-| $T_{SHORT}$ | Duración de la _short training sequence_ | 8 $\micro$s | $10 \times \dfrac{T_{FFT}}{4}$ |
-| $T_{LONG}$ | Duración de la _long training sequence_ | 8 $\micro$s | $T_{GI2}+2\times T_{FFT}$ |
-
-La función $w_T(t)$ es la función ventana temporal, definida por:
-
-$$
-  w_T(t) = \left\{
-    \begin{aligned}
-      \;&\sin^2\left[\tfrac{\pi}{2} \left(0.5 + \tfrac{t}{T_{TR}}\right)\right] \qquad &-\tfrac{T_{TR}}{2} < &t < \tfrac{T_{TR}}{2} \\
-      \;&1 \qquad & \tfrac{T_{TR}}{2} \le &t < T-\tfrac{T_{TR}}{2} \\
-      \;&\sin^2\left[\tfrac{\pi}{2} \left(0.5 - \tfrac{t-T}{T_{TR}}\right)\right] \qquad & T-\tfrac{T_{TR}}{2} \le &t < T+\tfrac{T_{TR}}{2} \\
-    \end{aligned}
-  \right.
-$$
-En donde $T_{TR}$ del orden de los 100 ns es el tiempo de transición, la función $w_T(t)$ es efectivamente un pulso de duración $T$ con transición suave.
-
 
 ### PHY Header
 
@@ -327,9 +328,36 @@ Todo se construye a partir del TXVECTOR
 
 : Número de bits por subportadora, Número de bits codificados por símbolo ODFM, y número de bits de datos por símbolo en función de la modulación y la tasa de código
 
-### RATE
+### SIGNAL
 
-Los bits de este campo se asignan según la tasa de transmisión. No pueden tomar cualquier valor, sino alguno de los presentes en la siguiente tabla
+El símbolo SIGNAL es transmitido inmediatamente después del PHY Preamble siempre con modulación BPSK y tasa de código 1/2
+
+```{julia}
+#| echo: false
+#| output: false
+Diagram(:packetdiag, """
+{
+  default_linecolor = white
+  default_node_color = none
+  default_textcolor = white
+  colwidth = 40
+  node_height = 50
+  node_width = 24
+  default_fontsize = 18
+  scale_interval = 1
+  * RATE [len=4, label="RATE\n4 bits"]
+  * RES [len=1, rotate=90]
+  * LENGTH [len=12, label="LENGTH (uint12)\nLSB -> MSB"]
+  * PAR [len=1, rotate=90]
+  * TAIL [len=6, label="TAIL\n000000"]
+}""") |> Fix2(render, "svg") |> Fix1(write, "Images/signal.svg")
+```
+
+![Símbolo SIGNAL en el estándar 802.11a.](Images/signal.svg)
+
+#### RATE
+
+Los bits [0:3] se asignan según la tasa de transmisión. No pueden tomar cualquier valor, sino alguno de los presentes en la siguiente tabla
 
 | RATE | Tasa de bits con 20 MHz entre canales |
 | --- | --- |
@@ -343,9 +371,207 @@ Los bits de este campo se asignan según la tasa de transmisión. No pueden toma
 | 0011 | 54 MHz/s | 
 : Tasa de bits para 20 MHz entre canales. Es 1/2 de la registrada con 10 MHz entre canales, y 1/4 de la registrada con 5 MHz entre canales
 
-### LENGTH
+#### LENGTH
 
-Es un número en formato _unsigned integer_ de 12 bits que indica el número de octetos que se transmitirán. Se transmite empezando por el bit menos significativo (LSB).
+Los bits [5:16] un número en formato _unsigned integer_ de 12 bits que indica el número de octetos que se transmitirán. Se transmite empezando por el bit menos significativo (LSB), que es el bit 5. Este campo es codificado con código convolucional.
+
+#### RES, PAR, y SIGNAL TAIL
+
+- RES: bit 4 está reservado para uso futuro, siempre vale 0.
+- PAR: bit 17 es un bit de paridad par.
+- TAIL: bits [18:23] son la SIGNAL TAIL, y siempre están en 0.
+
+### DATA
+
+El campo DATA contiene, en orden, el campo SERVICE, la PSDU, bits TAIL, y si es necesario bits PAD. Los bits son _scrambled_.
+
+#### SERVICE
+
+Es un campo de 16 bits con el siguiente formato
+
+```{julia}
+#| echo: false
+#| output: false
+Diagram(:packetdiag, """
+{
+  default_linecolor = white
+  default_node_color = none
+  default_textcolor = white
+  node_height = 50
+  node_width = 32
+  default_fontsize = 18
+  scale_interval = 1
+  * SCRAMBLER [len=7, label="Inicialización"]
+  * RESERVED [len=9, label="Bits reservados"]
+}""") |> Fix2(render, "svg") |> Fix1(write, "Images/service.svg")
+```
+
+![Campo SERVICE en el estándar 802.11a.](Images/service.svg)
+
+- Los bits [0:6] son puestos en 0, sincronizan el _descrambler_ en el receptor
+- Los bits [7:15] están reservados para uso futuro, son puestos en 0 en transmisión e ignorados en recepción.
+
+#### PPDU TAIL
+
+6 bits en 0 al final de la PSDU, que son necesarios para retornar el codificador convolucional al estado 0. 
+
+#### PAD
+
+El número de bits en DATA necesita ser un múltiplo de $N_{CBPS}$, para conseguirlo el mensaje es extendido hasta ser un múltiplo de $N_{DBPS}$. Se relaciona con el número de símbolos OFDM $N_{SYM}$, el número de bits DATA $N_{DATA}$ y el largo de la PSDU LENGTH de la siguiente forma
+
+$$
+\begin{aligned}
+ &N_{SYM} = \left\lceil \dfrac{16+8\times \mathrm{LENGTH} +6}{N_{DBPS}}\right\rceil\\[1em]
+ &N_{DATA} = N_{SYM}\times N_{DBPS}\\[1em]
+ &N_{PAD} = N_{DATA} - (16+8\times\mathrm{LENGTH} +6)
+\end{aligned}
+$$
+
+Los bits PAD son puestos en 0 y _scrambled_ con el resto de los bits en DATA.
+
+### Scrambler
+
+El campo DATA es _scrambled_ con un _scrambler_ sincrónico de largo 127. Usa el polinomio generador
+
+$$
+  S(x) = x^7+x^4+1
+$$
+
+Y visto como una máquina de estados donde $\mathbf{x} = \begin{bmatrix} x_7 & \cdots & x_2\end{bmatrix}$ es un _linear feedback shift register_ se puede interpretar así:
+
+| Entrada | Estado Actual | Salida | Estado Siguiente |
+| --- | --- | --- | --- |
+| $y$ | $\begin{bmatrix} x_7 & x_6 & x_5 & x_4 & x_3 & x_2 & x_1 \end{bmatrix}$ | $y + x_7 + x_4$ | $\begin{bmatrix} x_6 & x_5 & x_4 & x_3 & x_2 & x_1 & x_7 + x_4 \end{bmatrix}$ |
+
+El mismo scrambler es utilizado para transmitir que para recibir, lo cual implica que es su propia inversa (no sabría por que pero le creo al libro)
+
+Si CH_BANDWITDH_IN_NON_HT está presente en TX_VECTOR el scrambler se inicializa según una tabla, de lo contrario, se inicializa con una secuencia pseudoaleatoria.
+
+### Código Convolucional
+
+Los bits en DATA son codificados con un código convolucional de tasas $R$ = 1/2, 2/3 o 3/4 correspondientes a RATE de TXVECTOR. Se codifican con los polinomios generadores $g_0 = 133_g$ y $g_1 = 171_g$. Ambas son de tasa 1/2 y las tasas mayores se consiguen con perforación de la secuencia codificada. 
+
+El receptor las decodifica con el algoritmo de Viterbi (a priori esto excede el alcance del proyecto, llegar hasta detectar, demodular, y desentrelazar una PPDU suena a un buen target)
+
+### Entrelazado
+
+Los bits codificados son entrelazados en bloques de tamaño $N_{CBPS}$. El entrelazador tiene dos etapas:
+
+1. Bits adyacentes se transportan a subportadoras no-adyacentes
+2. Bits adyacentes se transportan a bits más o menos significativos del símbolo en la constelación (correspondientes al canal $I$ y canal $Q$)
+
+El índice de un bit se denominará de la siguiente forma
+$$
+k \xrightarrow[\mathrm{etapa}]{\mathrm{1ra}} i \xrightarrow[\mathrm{etapa}]{\mathrm{2da}} j \qquad k,i,j \in \left[0, N_{CBPS}-1\right]
+$$
+
+Las transformaciones de índice de cada etapa son definidas según las siguientes reglas:
+
+$$
+\begin{aligned}
+  i &= \frac{N_{CPBS}}{16} \times (k \bmod 16) + \left\lfloor\frac{k}{16}\right\rfloor \\[1em]
+  j &= s \times \left\lfloor\frac{i}{s}\right\rfloor + \left[i+N_{CBPS} - \left\lfloor\frac{16 \times i}{N_{CBPS}}\right\rfloor\right] \bmod s
+\end{aligned}
+$$
+
+El desentrelazador en recepción también opera en dos etapas, con índices
+
+$$
+j \xrightarrow[\mathrm{etapa}]{\mathrm{1ra}} i \xrightarrow[\mathrm{etapa}]{\mathrm{2da}} k \qquad j,i,k \in \left[0, N_{CBPS}-1\right]
+$$
+
+Las transformaciones de índice son las inversas a las respectivas etapas de entrelazado
+
+$$
+\begin{aligned}
+  i &= s \times \left\lfloor\frac{j}{s}\right\rfloor+\left[j+\left\lfloor\frac{16\times i}{N_{CBPS}}\right\rfloor\right] \bmod s\\[1em]
+  k &= 16 \times i - \left(N_{CBPS}-1\right) \times \left\lfloor\frac{16\times i}{N_{CBPS}}\right\rfloor
+\end{aligned}
+$$
+
+En donde $s$ es determinado por el número de bits por subportadora: $s = \max\left\{\frac{N_{BPSC}}{2}, 1\right\}$
+
+| Modulación | $N_{CBPS}$ | $s$
+| --- | --- | --- | --- |
+| BPSK | 48 | 1 |
+| QPSK | 96 | 1 |
+| 16-QAM | 192 | 2 |
+| 64-QAM | 288 | 3 |
+: Tabla de valores relevantes al entrelazado
+
+Las ecuaciones en $\bmod N_{CBPS}$ son equivalentes a operaciones matriciales, y visualizarlas así resulta ilustrativo, por ejemplo:
+```{julia}
+#| echo: false
+#| fig-cap: Matrices equivalentes de entrelazado para el caso de modulación 16-QAM. (sparse matrix de 1s)
+
+ktoi(N, k) = N/16*(k%16)+floor(k/16) |> Int
+itoj(N, s, i) = s*floor(i/s)+(i+N-floor((16*i)/N))%s |> Int
+
+N = 192
+s = 2
+ks = 0:N-1
+
+is = ktoi.(N, ks) 
+js = itoj.(N,s,is)
+
+params=(markercolor=:silver, markersize=2, markershape=:diamond)
+p1 = spy(sparse(ks.+1 ,is.+1, repeat([1], N)); title=L"k \rightarrow i", params...)
+p2 = spy(sparse(is.+1 ,js.+1, repeat([1], N)); title=L"i \rightarrow j", params...)
+
+plot(p1,p2, layout=(1,2), size=(800,400))
+```
+
+Verifica que la etapa $k \leftrightarrow i$ es un entrelazado de "gran escala" que aplica a nivel símbolo OFDM, y la etapa $i \leftrightarrow j$ es un entrelazado de "pequeña escala" que aplica a nivel símbolo en la constelación.
+
+### Modulación
+
+Según el RATE se eligirá el esquema de modulación. Los bits entrelazados se dividen en grupos de $N_{BPSC}$ bits y se asignan un número complejo $I+jQ$ según la constelación correspondiente. Las constelaciónes están codificadas según código Gray.
+
+En todos los casos (exceptuando BPSK que es de 1 bit), la codificación es tal que
+
+- El canal $I$ es determinado únicamente por los $N_{BPSC}/2$ bits más significativos. 
+- El canal $Q$ es determinado únicamente por los $N_{BPSC}/2$ bits menos significativos.
+
+
+```{julia}
+#| echo: false
+#| fig-cap: Codificación Gray en constelaciones BPSK, QPSK, 16-QAM. La constelación 64-QAM es similar con 6 bits codificados en una constelación de $8\times8$.
+I = [-1, 1]
+Q = [ 0, 0]
+c = [ 0, 1]
+lim=2
+p1 = scatter(I, Q, framestyle=:origin, aspect_ratio=:equal, xlim=(-lim,lim), ylim=(-lim,lim),title="BPSK", xticks=[-1,1], yticks=[-1,1])
+annotate!(I, Q.+0.25, Plots.text.(c, :silver, 11), legend=false)
+I = [-1,-1, 1, 1]
+Q = [-1, 1,-1, 1]
+c = ["00","01","10","11"]
+p2 = scatter(I, Q, framestyle=:origin, aspect_ratio=:equal, xlim=(-lim,lim), ylim=(-lim,lim),title="QPSK", xticks=[-1,1], yticks=[-1,1])
+annotate!(I, Q.+0.25, Plots.text.(c, :silver, 11), legend=false)
+I = vcat([repeat([i],4) for i in [-3,-1,1,3]]...)
+Q = repeat([-3,-1,1,3],4)
+c = ["0000","0001","0011","0010","0100","0101","0111","0110","1100","1101","1111","1110","1000","1001","1011","1010"]
+lim = 4
+p3 = scatter(I, Q, framestyle=:origin, aspect_ratio=:equal, xlim=(-lim,lim), ylim=(-lim,lim), title="16-QAM", ticks=[-3,-1,1,3], yticks=[-3,-1,1,3])
+annotate!(I, Q.+0.25, Plots.text.(c, :silver, 11),legend=:false)
+px = plot(p1,p2, layout=(2,1))
+plot(px,p3, layout=grid(1,2, widths=[0.3, 0.7]), size=(800,500), markershape=:diamond)
+```
+
+A cada constelación corresponde un factor de normalización $K_{MOD}$.
+
+| Modulación | $K_{MOD}$ |
+| --- | --- |
+| BPSK | $1$ |
+| QPSK | $\frac{1}{\sqrt{2}}$ |
+| 16-QAM | $\frac{1}{\sqrt{10}}$ |
+| 64-QAM | $\frac{1}{\sqrt{42}}$ |
+
+Se genera un valor complejo por cada grupo de $N_{BPSC}$ bits: $d = K_{MOD}\times(I+jQ)$
+
+
+### Modulación OFDM
+
+La secuencia de números complejos resultantes es dividida en grupos de $N_{SD} = 48$ números...
 
 ## Sincronización OFDM
 
