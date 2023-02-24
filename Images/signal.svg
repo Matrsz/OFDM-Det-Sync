@@ -11,7 +11,7 @@
   default_linecolor = white
   default_node_color = none
   default_textcolor = white
-  colwidth = 40
+  colwidth = 24
   node_height = 50
   node_width = 24
   default_fontsize = 18

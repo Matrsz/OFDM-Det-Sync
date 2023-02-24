@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg viewBox="0 0 814 411" xmlns="http://www.w3.org/2000/svg" xmlns:inkspace="http://www.inkscape.org/namespaces/inkscape" xmlns:xlink="http://www.w3.org/1999/xlink" width="814px" height="411px">
+  <defs id="defs_block">
+    <filter height="1.504" id="filter_blur" inkspace:collect="always" width="1.1575" x="-0.07875" y="-0.252">
+      <feGaussianBlur id="feGaussianBlur3780" inkspace:collect="always" stdDeviation="4.2" />
+    </filter>
+  </defs>
+  <title>blockdiag</title>
+  <desc>{
+  default_fontsize = 14
+  node_height = 45
+  node_width = 45
+  default_linecolor = white
+  default_textcolor = white
+  default_node_color = none
+  activation = none;
+  edge_length = 350;
+  default_note_color = none;
+  Tx [label="Tx", fontsize=20]
+  Rx [label="Rx", fontsize=20]
+  Tx -&gt; Rx [label="PHY Preamble", rightnote="Detección
+Sincronismo"];
+  Tx -&gt; Rx [label="SIGNAL
+BPSK R=1/2", leftnote="Inicialización:
+-Constelación mod
+-Codificador
+Según RATE de SIGNAL", rightnote="Inicialización:
+-Constelación demod
+-Decodificador
+Según RATE de SIGNAL"];
+  Tx -&gt; Rx [label="DATA
+ Mod y Tasa C según RATE de SIGNAL"];
+}</desc>
+  <polygon fill="rgb(0,0,0)" points="605,131 708,131 716,139 716,163 605,163 605,131" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" />
+  <polygon fill="rgb(0,0,0)" points="27,203 215,203 223,211 223,268 27,268 27,203" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" />
+  <polygon fill="rgb(0,0,0)" points="605,203 793,203 801,211 801,268 605,268 605,203" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" />
+  <path d="M 236 85 L 236 399" fill="none" stroke="rgb(255,255,255)" stroke-dasharray="8 4" />
+  <path d="M 586 85 L 586 399" fill="none" stroke="rgb(255,255,255)" stroke-dasharray="8 4" />
+  <rect fill="none" height="45" stroke="rgb(255,255,255)" width="45" x="214" y="40" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="20" font-style="normal" font-weight="normal" text-anchor="middle" textLength="25" x="236.5" y="72">Tx</text>
+  <rect fill="none" height="45" stroke="rgb(255,255,255)" width="45" x="564" y="40" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="20" font-style="normal" font-weight="normal" text-anchor="middle" textLength="27" x="586.5" y="72">Rx</text>
+  <path d="M 244 141 L 578 141" fill="none" stroke="rgb(255,255,255)" />
+  <polygon fill="rgb(255,255,255)" points="570,137 578,141 570,145" stroke="rgb(255,255,255)" />
+  <polygon fill="none" points="602,125 705,125 713,133 713,157 602,157 602,125" stroke="rgb(0,0,0)" />
+  <path d="M 705 125 L 705 133" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 705 133 L 713 133" fill="none" stroke="rgb(0,0,0)" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="70" x="645.0" y="140">Detección</text>
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="87" x="653.5" y="155">Sincronismo</text>
+  <path d="M 244 229 L 578 229" fill="none" stroke="rgb(255,255,255)" />
+  <polygon fill="rgb(255,255,255)" points="570,225 578,229 570,233" stroke="rgb(255,255,255)" />
+  <polygon fill="none" points="24,197 212,197 220,205 220,262 24,262 24,197" stroke="rgb(0,0,0)" />
+  <path d="M 212 197 L 212 205" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 212 205 L 220 205" fill="none" stroke="rgb(0,0,0)" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="96" x="80.0" y="212">Inicialización:</text>
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="129" x="96.5" y="227">-Constelación mod</text>
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="86" x="75.0" y="242">-Codificador</text>
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="172" x="118.0" y="260">Según RATE de SIGNAL</text>
+  <polygon fill="none" points="602,197 790,197 798,205 798,262 602,262 602,197" stroke="rgb(0,0,0)" />
+  <path d="M 790 197 L 790 205" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 790 205 L 798 205" fill="none" stroke="rgb(0,0,0)" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="96" x="658.0" y="212">Inicialización:</text>
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="146" x="683.0" y="227">-Constelación demod</text>
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="102" x="661.0" y="242">-Decodificador</text>
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="172" x="696.0" y="260">Según RATE de SIGNAL</text>
+  <path d="M 244 337 L 578 337" fill="none" stroke="rgb(255,255,255)" />
+  <polygon fill="rgb(255,255,255)" points="570,333 578,337 570,341" stroke="rgb(255,255,255)" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="100" x="302.0" y="137">PHY Preamble</text>
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="58" x="281.0" y="208">SIGNAL</text>
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="89" x="296.5" y="225">BPSK R=1/2</text>
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="41" x="272.5" y="315">DATA</text>
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="267" x="385.5" y="333">Mod y Tasa C según RATE de SIGNAL</text>
+</svg>

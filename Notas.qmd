@@ -5,6 +5,8 @@ format:
   html: 
     embed-resources: true
     theme: superhero
+    fig-align: center
+    toc: true
 jupyter: julia-1.7
 ---
 
@@ -340,7 +342,7 @@ Diagram(:packetdiag, """
   default_linecolor = white
   default_node_color = none
   default_textcolor = white
-  colwidth = 40
+  colwidth = 24
   node_height = 50
   node_width = 24
   default_fontsize = 18
@@ -397,6 +399,7 @@ Diagram(:packetdiag, """
   default_linecolor = white
   default_node_color = none
   default_textcolor = white
+  colwidth = 16
   node_height = 50
   node_width = 32
   default_fontsize = 18
@@ -413,7 +416,7 @@ Diagram(:packetdiag, """
 
 #### PPDU TAIL
 
-6 bits en 0 al final de la PSDU, que son necesarios para retornar el codificador convolucional al estado 0. 
+6 bits 0 al final de la PSDU, necesarios para retornar el codificador convolucional al estado 0. 
 
 #### PAD
 
@@ -518,7 +521,7 @@ params=(markercolor=:silver, markersize=2, markershape=:diamond)
 p1 = spy(sparse(ks.+1 ,is.+1, repeat([1], N)); title=L"k \rightarrow i", params...)
 p2 = spy(sparse(is.+1 ,js.+1, repeat([1], N)); title=L"i \rightarrow j", params...)
 
-plot(p1,p2, layout=(1,2), size=(800,400))
+plot(p1,p2, layout=(1,2), size=(700,350))
 ```
 
 Verifica que la etapa $k \leftrightarrow i$ es un entrelazado de "gran escala" que aplica a nivel símbolo OFDM, y la etapa $i \leftrightarrow j$ es un entrelazado de "pequeña escala" que aplica a nivel símbolo en la constelación.
@@ -554,7 +557,7 @@ lim = 4
 p3 = scatter(I, Q, framestyle=:origin, aspect_ratio=:equal, xlim=(-lim,lim), ylim=(-lim,lim), title="16-QAM", ticks=[-3,-1,1,3], yticks=[-3,-1,1,3])
 annotate!(I, Q.+0.25, Plots.text.(c, :silver, 11),legend=:false)
 px = plot(p1,p2, layout=(2,1))
-plot(px,p3, layout=grid(1,2, widths=[0.3, 0.7]), size=(800,500), markershape=:diamond)
+plot(px,p3, layout=grid(1,2, widths=[0.35, 0.65]), size=(700,400), markershape=:diamond)
 ```
 
 A cada constelación corresponde un factor de normalización $K_{MOD}$.
@@ -571,7 +574,88 @@ Se genera un valor complejo por cada grupo de $N_{BPSC}$ bits: $d = K_{MOD}\time
 
 ### Modulación OFDM
 
-La secuencia de números complejos resultantes es dividida en grupos de $N_{SD} = 48$ números...
+#### Subportadoras de Datos
+La secuencia de números complejos resultantes es dividida en grupos de $N_{SD} = 48$ números. En total hay $N_{SYM} \times N_{SD}$ números y se indexan
+$$
+  d_{k,m} \equiv d_{k+n \times N_{SD}} \qquad\qquad k \in [0, N_{SD}-1] \qquad n \in [0,N_{SYM}-1]
+$$
+Los índices corresponden a la subportadora $k$ del símbolo OFDM número $n$. Se transforman a _offsets_ de frecuencia omitiendo los índices de ondas piloto (-21, -7, 7, 21) y el nivel de contínua 0 con la función $M(k)$
+
+$$
+ M(k) = \left\{
+  \begin{aligned}
+   \,k-26 \qquad\qquad &k\in[0,4]\\
+   \,k-25 \qquad\qquad &k\in[5,17]\\
+   \,k-24 \qquad\qquad &k\in[18,23]\\
+   \,k-23 \qquad\qquad &k\in[24,29]\\
+   \,k-22 \qquad\qquad &k\in[30,42]\\
+   \,k-21 \qquad\qquad &k\in[43,47]\\
+  \end{aligned}
+ \right.
+$$
+
+#### Ondas Piloto
+
+Las subportadoras reservadas transmiten ondas pilotos para mantener la transmisión sincrónica. Transmiten una secuencia pseudoaleatoria con modulación BPSK.
+
+La secuencia pseudoaleatoria usada para la modulación BPSK es generada por el _scrambler_ definido anteriormente con estado inicial 1111111.
+
+#### Símbolo OFDM
+
+El símbolo OFDM $n$ de DATA es definido entonces
+
+$$
+r_{DATA,n}(t) = w_{T_{SYM}}(t) \left[\sum_{k=0}^{N_{SD}-1} d_{k,n}e^{j2\pi M(k) \Delta_F (T-T_{GI})} + \sum_{k=-\frac{N_{ST}}{2}}^{\frac{N_{ST}}{2}} P_k e^{j2\pi k \Delta_F(t-T_{GI})}\right]
+$$
+
+En donde $P_{-26,26}$ selecciona los índices asignados a ondas piloto
+$$
+ P_k = \left\{
+  \begin{aligned}
+   \phantom{-}1 \qquad\qquad &k\in\{\pm 7, -21\}\\
+   -1 \qquad\qquad &k = 21\\
+   \phantom{-}0 \qquad\qquad &k\notin\{\pm 7,\pm 21\}\\  
+  \end{aligned}
+ \right.
+$$
+No se por que está ahí ese -1
+
+El campo DATA transmitido es entonces la concacenación temporal de los $r_{DATA,n}$
+
+$$
+ r_{DATA} (t) = \sum_{n=0}^{N_{SYM}-1} r_{DATA, n}(t-nT_{SYM})
+$$
+
+### Procedimiento
+
+1. Se transmite la forma de onda predeterminada PHY Preamble para detección y sincronismo en el receptor
+2. Se transmite el símbolo SIGNAL informando RATE y LENGTH. RATE define la modulación y tasa de código para la transmisión de DATA.
+3. Se transmite DATA, la cantidad de símbolos transmitidos es definida por RATE y LENGTH.
+
+```{julia}
+#| echo: false
+#| output: false
+
+Diagram(:seqdiag, """
+{
+  default_fontsize = 14
+  node_height = 45
+  node_width = 45
+  default_linecolor = white
+  default_textcolor = white
+  default_node_color = none
+  activation = none;
+  edge_length = 350;
+  default_note_color = none;
+  Tx [label="Tx", fontsize=20]
+  Rx [label="Rx", fontsize=20]
+  Tx -> Rx [label="PHY Preamble", rightnote="Detección\nSincronismo"];
+  Tx -> Rx [label="SIGNAL\nBPSK R=1/2", leftnote="Inicialización:\n-Constelación mod\n-Codificador\nSegún RATE de SIGNAL", rightnote="Inicialización:\n-Constelación demod\n-Decodificador\nSegún RATE de SIGNAL"];
+  Tx -> Rx [label="DATA\n Mod y Tasa C según RATE de SIGNAL"];
+}""") |> Fix2(render, "svg") |> Fix1(write, "Images/sequence.svg")
+```
+
+![Procedimiento de transmisión de una PSDU en el estándar IEEE 802.11](Images/sequence.svg)
 
 ## Sincronización OFDM
 
