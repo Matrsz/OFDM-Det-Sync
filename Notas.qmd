@@ -7,7 +7,7 @@ format:
     theme: superhero
     fig-align: center
     toc: true
-jupyter: julia-1.7
+jupyter: julia-1.8
 ---
 
 ```{julia}
@@ -28,27 +28,33 @@ default(;palette=:seaborn_pastel6, background_color="#1b3041")
 j=im
 ```
 
-## Transmisión OFDM en el estándar IEEE 802.11a
+$$
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\argmin}{argmin}
+$$
 
-- PSDU: PHY Service Data Unit
-- PPDU: PHY Protocol Data Unit
+## Transmisión OFDM en el estándar IEEE 802.11a {#transmisión-ofdm-en-el-estándar-ieee-802.11a}
 
-### TXVECTOR
+-   PSDU: PHY Service Data Unit
+-   PPDU: PHY Protocol Data Unit
+
+### TXVECTOR {#txvector}
 
 El TXVECTOR es una serie de parámetros provistos por la capa MAC a la capa PHY para transmitir un PSDU. Mínimamente contiene los parámetros **DATARATE** Y **LENGTH**. En particular para OFDM contiene
 
-| Parámetro | Valores | Descripción |
-| --- | --- | --- |
-| LENGTH | 1 - 4095 | El número de octetos que la capa MAC necesita transmitir |
-| DATARATE | Distintas tasas según el espacio entre canales (20, 10 o 5 MHz) | La tasa de bits a la que se transmitirá la PSDU |
-| SERVICE | Null | Siempre es Null |
-| TXPWR_LEVEL_INDEX | 1-8 | Cual de los posibles TxPowerLevel definidos en la MIB serán usados en la transmisión |
-| TIME_OF_DEPARTURE_REQUESTED | False o True | Determina si la capa MAC solicita tiempo de primer transmisión a la capa PHY |
-| CH_BANDWIDTH_IN_NON_HT | Opcional: CBW20, CBW40, CBW80, CBW160, O CBW80+80 | Si está presente, modifica los primeros 7 bits de la secuencia de _scrambling_ |
-| DYN_BANDWIDTH_IN_NON_HT | Opcional: Static o Dynamic | Si es presente, modifica los primeros 7 bits de la secuencia de _scrambling_ |
+| Parámetro                   | Valores                                                         | Descripción                                                                          |
+|-----------------------------|-----------------------------------------------------------------|--------------------------------------------------------------------------------------|
+| LENGTH                      | 1 - 4095                                                        | El número de octetos que la capa MAC necesita transmitir                             |
+| DATARATE                    | Distintas tasas según el espacio entre canales (20, 10 o 5 MHz) | La tasa de bits a la que se transmitirá la PSDU                                      |
+| SERVICE                     | Null                                                            | Siempre es Null                                                                      |
+| TXPWR_LEVEL_INDEX           | 1-8                                                             | Cual de los posibles TxPowerLevel definidos en la MIB serán usados en la transmisión |
+| TIME_OF_DEPARTURE_REQUESTED | False o True                                                    | Determina si la capa MAC solicita tiempo de primer transmisión a la capa PHY         |
+| CH_BANDWIDTH_IN_NON_HT      | Opcional: CBW20, CBW40, CBW80, CBW160, O CBW80+80               | Si está presente, modifica los primeros 7 bits de la secuencia de *scrambling*       |
+| DYN_BANDWIDTH_IN_NON_HT     | Opcional: Static o Dynamic                                      | Si es presente, modifica los primeros 7 bits de la secuencia de *scrambling*         |
 
 Transmitir una trama implica tomar una PSDU y codificarla en una PPDU que se transmite por el canal inalámbrico.
 
+```{=html}
 <!-- \begin{center}
 \begin{bytefield}[bitformatting={\footnotesize\bfseries}]{40} 
 \bitheader{0, 4, 5, 17, 18, 24, 40}\\
@@ -61,7 +67,7 @@ Transmitir una trama implica tomar una PSDU y codificarla en una PPDU que se tra
 \bitbox[]{2}{$\cdots$}
 \end{bytefield}
 \end{center} -->
-
+```
 ```{julia}
 #| echo: false
 #| output: false
@@ -84,14 +90,12 @@ Diagram(:packetdiag, """
   * SERVICE [len=16, label="SERVICE\n16 bits"]
 }""") |> Fix2(render, "svg") |> Fix1(write, "Images/packet.svg")
 ```
-
 ![PHY Header en el estándar 802.11a. RATE, un bit reservado, LENGTH, un bit de paridad, y TAIL corresponden al símbolo SIGNAL.](Images/packet.svg)
-
 Los primeros 24 bits corresponden un símbolo OFDM, llamado SIGNAL. Se transmite:
 
-- PHY Preamble: 12 símbolos OFDM
-- SIGNAL: 1 símbolo OFDM
-- DATA: N símbolos OFDM
+-   PHY Preamble: 12 símbolos OFDM
+-   SIGNAL: 1 símbolo OFDM
+-   DATA: N símbolos OFDM
 
 ```{julia}
 #| echo: false
@@ -112,15 +116,15 @@ Diagram(:packetdiag, """
   * DATA [len=1, label="DATA: N simbolos\nMod. y tasa según SIGNAL"]
 }""") |> Fix2(render, "svg") |> Fix1(write, "Images/packet2.svg")
 ```
-
 ![PHY Preamble en el estándar 802.11a](Images/packet2.svg)
 
-### PHY Preamble
+### PHY Preamble {#phy-preamble}
+
 El PHY Preamble se utiliza para motivos de sincronismo, consiste en:
 
-- 10 iteraciones de una _short training symbol_ 
-- Un _guard interval_ 
-- 2 iteraciones de una _long training symbol_
+-   10 iteraciones de una *short training symbol*
+-   Un *guard interval*
+-   2 iteraciones de una *long training symbol*
 
 ```{julia}
 #| echo: false
@@ -136,28 +140,27 @@ Diagram(:wavedrom, """
   foot: {tick: -1, every:10}
   }""") |> Fix2(render, "svg") |> Fix1(write, "Images/wave.svg")
 ```
-
 ![PHY Preamble en el estándar 802.11a, $t_i$ denota un _short training symbol_ y $T_i$ un _long training symbol_.](Images/wave.svg)
 
 La duración del instante temporal en la figura depende del espaciamiento entre canales.
 
-- 20 MHz $\rightarrow$ 0.8 $\micro$s
-- 10 MHz $\rightarrow$ 1.6 $\micro$s (half-clocked)
-- 5  MHz $\rightarrow$ 3.2 $\micro$s (quarter-clocked)
+-   20 MHz $\rightarrow$ 0.8 $\micro$s
+-   10 MHz $\rightarrow$ 1.6 $\micro$s (half-clocked)
+-   5 MHz $\rightarrow$ 3.2 $\micro$s (quarter-clocked)
 
-#### Parámetros Temporales 
+#### Parámetros Temporales {#parámetros-temporales}
 
-| Parámetros | Significado | Valor a 20 MHz | Nota | 
-| --- | --- | --- | --- |
-| $\Delta_F$ | Espacio entre subportadoras | 0.3125 MHz | $\dfrac{20\;\mathrm{MHz}}{64}$ |
-| $T_{FFT}$ | Período de FFT/IFFT | 3.2 $\micro$s | $\dfrac{1}{\Delta_F}$ | 
-| $T_{PREAMBLE}$ | Duración del PHY Preamble | 16 $\micro$s | $T_{SHORT}+T_{LONG}$ |
-| $T_{SIGNAL}$ | Duración del símbolo SIGNAL | 4 $\micro$s | $T_{GI}+T_{FFT}$ |
-| $T_{GI}$ | Duración del guard interval | 0.8 $\micro$s | $\dfrac{T_{FFT}}{4}$ |
-| $T_{GI2}$ | Guard interval de la secuencia de entrenamiento | 1.6 $\micro$s | $\dfrac{T_{FFT}}{2}$ |
-| $T_{SYM}$ | Intervalo de símbolo | 4 $\micro$s | $T_{GI}+T_{FFT}$ |
-| $T_{SHORT}$ | Duración de la _short training sequence_ | 8 $\micro$s | $10 \times \dfrac{T_{FFT}}{4}$ |
-| $T_{LONG}$ | Duración de la _long training sequence_ | 8 $\micro$s | $T_{GI2}+2\times T_{FFT}$ |
+| Parámetros     | Significado                                     | Valor a 20 MHz | Nota                           |
+|----------------|-------------------------------------------------|----------------|--------------------------------|
+| $\Delta_F$     | Espacio entre subportadoras                     | 0.3125 MHz     | $\dfrac{20\;\mathrm{MHz}}{64}$ |
+| $T_{FFT}$      | Período de FFT/IFFT                             | 3.2 $\micro$s  | $\dfrac{1}{\Delta_F}$          |
+| $T_{PREAMBLE}$ | Duración del PHY Preamble                       | 16 $\micro$s   | $T_{SHORT}+T_{LONG}$           |
+| $T_{SIGNAL}$   | Duración del símbolo SIGNAL                     | 4 $\micro$s    | $T_{GI}+T_{FFT}$               |
+| $T_{GI}$       | Duración del guard interval                     | 0.8 $\micro$s  | $\dfrac{T_{FFT}}{4}$           |
+| $T_{GI2}$      | Guard interval de la secuencia de entrenamiento | 1.6 $\micro$s  | $\dfrac{T_{FFT}}{2}$           |
+| $T_{SYM}$      | Intervalo de símbolo                            | 4 $\micro$s    | $T_{GI}+T_{FFT}$               |
+| $T_{SHORT}$    | Duración de la *short training sequence*        | 8 $\micro$s    | $10 \times \dfrac{T_{FFT}}{4}$ |
+| $T_{LONG}$     | Duración de la *long training sequence*         | 8 $\micro$s    | $T_{GI2}+2\times T_{FFT}$      |
 
 La función $w_T(t)$ es la función ventana temporal, definida por:
 
@@ -169,8 +172,7 @@ $$
       \;&\sin^2\left[\tfrac{\pi}{2} \left(0.5 - \tfrac{t-T}{T_{TR}}\right)\right] \qquad & T-\tfrac{T_{TR}}{2} \le &t < T+\tfrac{T_{TR}}{2} \\
     \end{aligned}
   \right.
-$$
-En donde $T_{TR}$ del orden de los 100 ns es el tiempo de transición, la función $w_T(t)$ es efectivamente un pulso de duración $T$ con transición suave.
+$$ En donde $T_{TR}$ del orden de los 100 ns es el tiempo de transición, la función $w_T(t)$ es efectivamente un pulso de duración $T$ con transición suave.
 
 De ahora en más se trabaja con los valores correspondientes a 20 MHz
 
@@ -201,11 +203,13 @@ end
 t = range(0u"μs", 8u"μs", length=5000)
 ```
 
-#### Short Training Symbol
-El _short training symbol_ consiste en 12 subportadoras moduladas por los elementos de la secuencia $S$ del siguiente aspecto.
+#### Short Training Symbol {#short-training-symbol}
+
+El *short training symbol* consiste en 12 subportadoras moduladas por los elementos de la secuencia $S$ del siguiente aspecto. 
 $$
 S_{-26,26} = \sqrt{\frac{13}{6}}\begin{bmatrix} 0 & 0 & 1+j & 0 & 0 & 0 & –1–j & 0 & 0 & \cdots \end{bmatrix}
-$$
+$$ 
+
 Solo los índices múltiplos de 4 tienen señal (que puede ser "$j+1$" o "$-j-1$"), el factor multiplicativo normaliza la potencia media del símbolo OFDM, ya que este usa 12 de las 52 subportadoras: -24, -20, -16, -12, -8, -4, 4, 8, 12, 16, 20, 24.
 
 La señal se construye a partir de
@@ -233,13 +237,15 @@ end
 plot(p1, p2, layout=(2,1), legend=false, size=(800,300), background_color="#1b3041")
 ```
 
-#### Long Training Symbol
-El _long training symbol_ consiste en 53 subportadoras (las 52 disponibles más el valor 0 en continua), moduladas por los elementos de la secuencia $L$ del siguiente aspecto:
+#### Long Training Symbol {#long-training-symbol}
+
+El *long training symbol* consiste en 53 subportadoras (las 52 disponibles más el valor 0 en continua), moduladas por los elementos de la secuencia $L$ del siguiente aspecto: 
+
 $$
 L_{-26,26} = \begin{bmatrix} 1 & 1 & –1 & –1 & 1 & 1 & –1 & 1 & \cdots \end{bmatrix}
 $$
 
-La señal se construye a partir de
+La señal se construye a partir de 
 $$
  r_{LONG}(t) = w_{TLONG}(t) \sum_{k=-N_{ST}/2}^{N_{ST}/2}L_ke^{j2\pi k \Delta_F (t-T_{GI2})}
 $$
@@ -266,8 +272,8 @@ end
 plot(p1, p2, layout=(2,1), legend = false, size=(800,300), background_color="#1b3041")
 ```
 
+Finalmente las señales se concatenan para formar el PHY preamble 
 
-Finalmente las señales se concatenan para formar el PHY preamble
 $$
 r_{PREAMBLE}(t) = r_{SHORT}(t)+r_{LONG}(t-T_{SHORT})
 $$
@@ -294,43 +300,60 @@ end
 plot(p1, p2, layout=(2,1), legend = false, size=(800,300), background_color="#1b3041")
 ```
 
-
-### PHY Header
+### PHY Header {#phy-header}
 
 Todo se construye a partir del TXVECTOR
 
-- RATE, LENGTH: Obtenidos del TXVECTOR, se le agrega un bit de paridad par y un TAIL de 000000. Son codificados por un código convolucional a tasa 1/2, y asigados un único símbolo ODFM llamado SIGNAL que es transmitido con codificación BPSK.
-- A partir de RATE del TXVECTOR se calcula
-  - $R$: la tasa de codificación
-  - $N_{DBPS}$: el número de bits _de datos_ por símbolo OFDM
-  - $N_{CBPS}$: el número de bits _codificados_ por símbolo OFDM
-  - $N_{BPSC}$: el número de bits por sub-portadora OFDM
-- El PSDU se concatena a SERVICE de TXVECTOR. Se extiende con bits 0 (mínimo 6) hasta completar N símbolos OFDM. Esto es la secuencia de símbolos DATA.
-- En función de si CH_BANDWIDTH_IN_NON_HT está o no presente en TXVECTOR, el _scrambler_ se inicializa con una semilla pseudoaleatoria o usando este campo.
-- Se aplica XOR de la secuencia de _scrambling_ con los bits de DATA. Los 6 últimos bits luego se remplazan con 0. Estos últimos bits retornarán el codificador convolucional al estado inicial.
-- La secuencia DATA se codifica con un código convolucional a tasa $R=1/2$, y luego se perfora para alcanzar la tasa definida en el parámetro RATE de TXVECTOR.
-- La secuencia codificada se divide en tramas de $N_{CBPS}$ bits. Cada grupo se convierte en un símbolo según la tabla de modulación.
-- El número total de subportadoras es 52, indexadas de -26 a 26. 48 de ellas transmiten datos y 4 subportadoras se insertan a modo de piloto en índices -21, -7, 7, y 21. 
-- A cada grupo de 52 subportadoras se aplica la IFFT, se adjunta el prefijo cíclico, y se usa una ventana temporal para truncar la forma resultante al largo de un símbolo ODFM.
-- Los símbolos OFDM se concatenan a el símbolo SIGNAL, uno atrás del otro.
-- La señal en banda base se eleva a RF con frecuencia central del canal de operación y se transmite. 
+-   RATE, LENGTH: Obtenidos del TXVECTOR, se le agrega un bit de paridad par y un TAIL de 000000. Son codificados por un código convolucional a tasa 1/2, y asigados un único símbolo ODFM llamado SIGNAL que es transmitido con codificación BPSK.
+-   A partir de RATE del TXVECTOR se calcula
+    -   $R$: la tasa de codificación
+    -   $N_{DBPS}$: el número de bits *de datos* por símbolo OFDM
+    -   $N_{CBPS}$: el número de bits *codificados* por símbolo OFDM
+    -   $N_{BPSC}$: el número de bits por sub-portadora OFDM
+-   El PSDU se concatena a SERVICE de TXVECTOR. Se extiende con bits 0 (mínimo 6) hasta completar N símbolos OFDM. Esto es la secuencia de símbolos DATA.
+-   En función de si CH_BANDWIDTH_IN_NON_HT está o no presente en TXVECTOR, el *scrambler* se inicializa con una semilla pseudoaleatoria o usando este campo.
+-   Se aplica XOR de la secuencia de *scrambling* con los bits de DATA. Los 6 últimos bits luego se remplazan con 0. Estos últimos bits retornarán el codificador convolucional al estado inicial.
+-   La secuencia DATA se codifica con un código convolucional a tasa $R=1/2$, y luego se perfora para alcanzar la tasa definida en el parámetro RATE de TXVECTOR.
+-   La secuencia codificada se divide en tramas de $N_{CBPS}$ bits. Cada grupo se convierte en un símbolo según la tabla de modulación.
+-   El número total de subportadoras es 52, indexadas de -26 a 26. 48 de ellas transmiten datos y 4 subportadoras se insertan a modo de piloto en índices -21, -7, 7, y 21.
+-   A cada grupo de 52 subportadoras se aplica la IFFT, se adjunta el prefijo cíclico, y se usa una ventana temporal para truncar la forma resultante al largo de un símbolo ODFM.
+-   Los símbolos OFDM se concatenan a el símbolo SIGNAL, uno atrás del otro.
+-   La señal en banda base se eleva a RF con frecuencia central del canal de operación y se transmite.
 
-### Parámetros dependientes de la modulación
+### Parámetros dependientes de la modulación {#parámetros-dependientes-de-la-modulación}
 
-| Modulación | Tasa código $R$ | $N_{BPSC}$ | $N_{CBPS}$ | $N_{DBPS}$ | 
-| --- | --- | --- | --- | --- |
-| BPSK | 1/2 | 1 | 48 | 24 |
-| BPSK | 3/4 | 1 | 48 | 36 |
-| QPSK | 1/2 | 2 | 96 | 48 |
-| QPSK | 3/4 | 2 | 96 | 72 |
-| 16-QAM | 1/2 | 4 | 192 | 96 |
-| 16-QAM | 3/4 | 4 | 192 | 144 |
-| 64-QAM | 2/3 | 6 | 288 | 192 |
-| 64-QAM | 3/4 | 6 | 288 | 216 |
+| Modulación | Tasa código $R$ | $N_{BPSC}$ | $N_{CBPS}$ | $N_{DBPS}$ |
+|------------|-----------------|------------|------------|------------|
+| BPSK       | 1/2             | 1          | 48         | 24         |
+| BPSK       | 3/4             | 1          | 48         | 36         |
+| QPSK       | 1/2             | 2          | 96         | 48         |
+| QPSK       | 3/4             | 2          | 96         | 72         |
+| 16-QAM     | 1/2             | 4          | 192        | 96         |
+| 16-QAM     | 3/4             | 4          | 192        | 144        |
+| 64-QAM     | 2/3             | 6          | 288        | 192        |
+| 64-QAM     | 3/4             | 6          | 288        | 216        |
 
 : Número de bits por subportadora, Número de bits codificados por símbolo ODFM, y número de bits de datos por símbolo en función de la modulación y la tasa de código
 
-### SIGNAL
+### SIGNAL y DATA {#signal-y-data}
+
+```{julia}
+#| echo: false
+#| output: false
+
+Diagram(:wavedrom, """
+{ 
+  config: {skin: 'narrow'},
+  head: {text: ['tspan', {class:'muted h3'}, "SIGNAL + DATA"]},
+  signal: [
+  { name: "",  wave: "x==..==..==..x", data: ["GI", "SIGNAL", "GI", "DATA 1", "GI", "DATA 2"]}
+  ], 
+  foot: {tick: -1, every:4}
+  }""") |> Fix2(render, "svg") |> Fix1(write, "Images/wave2.svg")
+```
+![Estructura de un canal OFDM](Images/wave2.svg)
+
+### SIGNAL {#signal}
 
 El símbolo SIGNAL es transmitido inmediatamente después del PHY Preamble siempre con modulación BPSK y tasa de código 1/2
 
@@ -357,37 +380,38 @@ Diagram(:packetdiag, """
 
 ![Símbolo SIGNAL en el estándar 802.11a.](Images/signal.svg)
 
-#### RATE
+#### RATE {#rate}
 
-Los bits [0:3] se asignan según la tasa de transmisión. No pueden tomar cualquier valor, sino alguno de los presentes en la siguiente tabla
+Los bits \[0:3\] se asignan según la tasa de transmisión. No pueden tomar cualquier valor, sino alguno de los presentes en la siguiente tabla
 
 | RATE | Tasa de bits con 20 MHz entre canales |
-| --- | --- |
-| 1101 | 6  MHz/s | 
-| 1111 | 9  MHz/s | 
-| 0101 | 12 MHz/s | 
-| 0111 | 18 MHz/s | 
-| 1001 | 24 MHz/s | 
-| 1011 | 36 MHz/s | 
-| 0001 | 48 MHz/s | 
-| 0011 | 54 MHz/s | 
+|------|---------------------------------------|
+| 1101 | 6 MHz/s                               |
+| 1111 | 9 MHz/s                               |
+| 0101 | 12 MHz/s                              |
+| 0111 | 18 MHz/s                              |
+| 1001 | 24 MHz/s                              |
+| 1011 | 36 MHz/s                              |
+| 0001 | 48 MHz/s                              |
+| 0011 | 54 MHz/s                              |
+
 : Tasa de bits para 20 MHz entre canales. Es 1/2 de la registrada con 10 MHz entre canales, y 1/4 de la registrada con 5 MHz entre canales
 
-#### LENGTH
+#### LENGTH {#length}
 
-Los bits [5:16] un número en formato _unsigned integer_ de 12 bits que indica el número de octetos que se transmitirán. Se transmite empezando por el bit menos significativo (LSB), que es el bit 5. Este campo es codificado con código convolucional.
+Los bits \[5:16\] un número en formato *unsigned integer* de 12 bits que indica el número de octetos que se transmitirán. Se transmite empezando por el bit menos significativo (LSB), que es el bit 5. Este campo es codificado con código convolucional.
 
-#### RES, PAR, y SIGNAL TAIL
+#### RES, PAR, y SIGNAL TAIL {#res-par-y-signal-tail}
 
-- RES: bit 4 está reservado para uso futuro, siempre vale 0.
-- PAR: bit 17 es un bit de paridad par.
-- TAIL: bits [18:23] son la SIGNAL TAIL, y siempre están en 0.
+-   RES: bit 4 está reservado para uso futuro, siempre vale 0.
+-   PAR: bit 17 es un bit de paridad par.
+-   TAIL: bits \[18:23\] son la SIGNAL TAIL, y siempre están en 0.
 
-### DATA
+### DATA {#data}
 
-El campo DATA contiene, en orden, el campo SERVICE, la PSDU, bits TAIL, y si es necesario bits PAD. Los bits son _scrambled_.
+El campo DATA contiene, en orden, el campo SERVICE, la PSDU, bits TAIL, y si es necesario bits PAD. Los bits son *scrambled*.
 
-#### SERVICE
+#### SERVICE {#service}
 
 Es un campo de 16 bits con el siguiente formato
 
@@ -408,17 +432,16 @@ Diagram(:packetdiag, """
   * RESERVED [len=9, label="Bits reservados"]
 }""") |> Fix2(render, "svg") |> Fix1(write, "Images/service.svg")
 ```
-
 ![Campo SERVICE en el estándar 802.11a.](Images/service.svg)
 
-- Los bits [0:6] son puestos en 0, sincronizan el _descrambler_ en el receptor
-- Los bits [7:15] están reservados para uso futuro, son puestos en 0 en transmisión e ignorados en recepción.
+-   Los bits \[0:6\] son puestos en 0, sincronizan el *descrambler* en el receptor
+-   Los bits \[7:15\] están reservados para uso futuro, son puestos en 0 en transmisión e ignorados en recepción.
 
-#### PPDU TAIL
+#### PPDU TAIL {#ppdu-tail}
 
-6 bits 0 al final de la PSDU, necesarios para retornar el codificador convolucional al estado 0. 
+6 bits 0 al final de la PSDU, necesarios para retornar el codificador convolucional al estado 0.
 
-#### PAD
+#### PAD {#pad}
 
 El número de bits en DATA necesita ser un múltiplo de $N_{CBPS}$, para conseguirlo el mensaje es extendido hasta ser un múltiplo de $N_{DBPS}$. Se relaciona con el número de símbolos OFDM $N_{SYM}$, el número de bits DATA $N_{DATA}$ y el largo de la PSDU LENGTH de la siguiente forma
 
@@ -430,40 +453,41 @@ $$
 \end{aligned}
 $$
 
-Los bits PAD son puestos en 0 y _scrambled_ con el resto de los bits en DATA.
+Los bits PAD son puestos en 0 y *scrambled* con el resto de los bits en DATA.
 
-### Scrambler
+### Scrambler {#scrambler}
 
-El campo DATA es _scrambled_ con un _scrambler_ sincrónico de largo 127. Usa el polinomio generador
+El campo DATA es *scrambled* con un *scrambler* sincrónico de largo 127. Usa el polinomio generador
 
 $$
   S(x) = x^7+x^4+1
 $$
 
-Y visto como una máquina de estados donde $\mathbf{x} = \begin{bmatrix} x_7 & \cdots & x_2\end{bmatrix}$ es un _linear feedback shift register_ se puede interpretar así:
+Y visto como una máquina de estados donde $\mathbf{x} = \begin{bmatrix} x_7 & \cdots & x_2\end{bmatrix}$ es un *linear feedback shift register* se puede interpretar así:
 
-| Entrada | Estado Actual | Salida | Estado Siguiente |
-| --- | --- | --- | --- |
-| $y$ | $\begin{bmatrix} x_7 & x_6 & x_5 & x_4 & x_3 & x_2 & x_1 \end{bmatrix}$ | $y + x_7 + x_4$ | $\begin{bmatrix} x_6 & x_5 & x_4 & x_3 & x_2 & x_1 & x_7 + x_4 \end{bmatrix}$ |
+| Entrada | Estado Actual                                                           | Salida          | Estado Siguiente                                                              |
+|---------|-------------------------------------------------------------------------|-----------------|-------------------------------------------------------------------------------|
+| $y$     | $\begin{bmatrix} x_7 & x_6 & x_5 & x_4 & x_3 & x_2 & x_1 \end{bmatrix}$ | $y + x_7 + x_4$ | $\begin{bmatrix} x_6 & x_5 & x_4 & x_3 & x_2 & x_1 & x_7 + x_4 \end{bmatrix}$ |
 
 El mismo scrambler es utilizado para transmitir que para recibir, lo cual implica que es su propia inversa (no sabría por que pero le creo al libro)
 
 Si CH_BANDWITDH_IN_NON_HT está presente en TX_VECTOR el scrambler se inicializa según una tabla, de lo contrario, se inicializa con una secuencia pseudoaleatoria.
 
-### Código Convolucional
+### Código Convolucional {#código-convolucional}
 
-Los bits en DATA son codificados con un código convolucional de tasas $R$ = 1/2, 2/3 o 3/4 correspondientes a RATE de TXVECTOR. Se codifican con los polinomios generadores $g_0 = 133_g$ y $g_1 = 171_g$. Ambas son de tasa 1/2 y las tasas mayores se consiguen con perforación de la secuencia codificada. 
+Los bits en DATA son codificados con un código convolucional de tasas $R$ = 1/2, 2/3 o 3/4 correspondientes a RATE de TXVECTOR. Se codifican con los polinomios generadores $g_0 = 133_g$ y $g_1 = 171_g$. Ambas son de tasa 1/2 y las tasas mayores se consiguen con perforación de la secuencia codificada.
 
 El receptor las decodifica con el algoritmo de Viterbi (a priori esto excede el alcance del proyecto, llegar hasta detectar, demodular, y desentrelazar una PPDU suena a un buen target)
 
-### Entrelazado
+### Entrelazado {#entrelazado}
 
 Los bits codificados son entrelazados en bloques de tamaño $N_{CBPS}$. El entrelazador tiene dos etapas:
 
-1. Bits adyacentes se transportan a subportadoras no-adyacentes
-2. Bits adyacentes se transportan a bits más o menos significativos del símbolo en la constelación (correspondientes al canal $I$ y canal $Q$)
+1.  Bits adyacentes se transportan a subportadoras no-adyacentes
+2.  Bits adyacentes se transportan a bits más o menos significativos del símbolo en la constelación (correspondientes al canal $I$ y canal $Q$)
 
-El índice de un bit se denominará de la siguiente forma
+El índice de un bit se denominará de la siguiente forma 
+
 $$
 k \xrightarrow[\mathrm{etapa}]{\mathrm{1ra}} i \xrightarrow[\mathrm{etapa}]{\mathrm{2da}} j \qquad k,i,j \in \left[0, N_{CBPS}-1\right]
 $$
@@ -494,15 +518,17 @@ $$
 
 En donde $s$ es determinado por el número de bits por subportadora: $s = \max\left\{\frac{N_{BPSC}}{2}, 1\right\}$
 
-| Modulación | $N_{CBPS}$ | $s$
-| --- | --- | --- | --- |
-| BPSK | 48 | 1 |
-| QPSK | 96 | 1 |
-| 16-QAM | 192 | 2 |
-| 64-QAM | 288 | 3 |
+| Modulación | $N_{CBPS}$ | $s$ |     |
+|------------|------------|-----|-----|
+| BPSK       | 48         | 1   |     |
+| QPSK       | 96         | 1   |     |
+| 16-QAM     | 192        | 2   |     |
+| 64-QAM     | 288        | 3   |     |
+
 : Tabla de valores relevantes al entrelazado
 
 Las ecuaciones en $\bmod N_{CBPS}$ son equivalentes a operaciones matriciales, y visualizarlas así resulta ilustrativo, por ejemplo:
+
 ```{julia}
 #| echo: false
 #| fig-cap: Matrices equivalentes de entrelazado para el caso de modulación 16-QAM. (sparse matrix de 1s)
@@ -526,15 +552,14 @@ plot(p1,p2, layout=(1,2), size=(700,350))
 
 Verifica que la etapa $k \leftrightarrow i$ es un entrelazado de "gran escala" que aplica a nivel símbolo OFDM, y la etapa $i \leftrightarrow j$ es un entrelazado de "pequeña escala" que aplica a nivel símbolo en la constelación.
 
-### Modulación
+### Modulación {#modulación}
 
 Según el RATE se eligirá el esquema de modulación. Los bits entrelazados se dividen en grupos de $N_{BPSC}$ bits y se asignan un número complejo $I+jQ$ según la constelación correspondiente. Las constelaciónes están codificadas según código Gray.
 
 En todos los casos (exceptuando BPSK que es de 1 bit), la codificación es tal que
 
-- El canal $I$ es determinado únicamente por los $N_{BPSC}/2$ bits más significativos. 
-- El canal $Q$ es determinado únicamente por los $N_{BPSC}/2$ bits menos significativos.
-
+-   El canal $I$ es determinado únicamente por los $N_{BPSC}/2$ bits más significativos.
+-   El canal $Q$ es determinado únicamente por los $N_{BPSC}/2$ bits menos significativos.
 
 ```{julia}
 #| echo: false
@@ -562,24 +587,26 @@ plot(px,p3, layout=grid(1,2, widths=[0.35, 0.65]), size=(700,400), markershape=:
 
 A cada constelación corresponde un factor de normalización $K_{MOD}$.
 
-| Modulación | $K_{MOD}$ |
-| --- | --- |
-| BPSK | $1$ |
-| QPSK | $\frac{1}{\sqrt{2}}$ |
-| 16-QAM | $\frac{1}{\sqrt{10}}$ |
-| 64-QAM | $\frac{1}{\sqrt{42}}$ |
+| Modulación | $K_{MOD}$             |
+|------------|-----------------------|
+| BPSK       | $1$                   |
+| QPSK       | $\frac{1}{\sqrt{2}}$  |
+| 16-QAM     | $\frac{1}{\sqrt{10}}$ |
+| 64-QAM     | $\frac{1}{\sqrt{42}}$ |
 
 Se genera un valor complejo por cada grupo de $N_{BPSC}$ bits: $d = K_{MOD}\times(I+jQ)$
 
+### Modulación OFDM {#modulación-ofdm}
 
-### Modulación OFDM
+#### Subportadoras de Datos {#subportadoras-de-datos}
 
-#### Subportadoras de Datos
-La secuencia de números complejos resultantes es dividida en grupos de $N_{SD} = 48$ números. En total hay $N_{SYM} \times N_{SD}$ números y se indexan
+La secuencia de números complejos resultantes es dividida en grupos de $N_{SD} = 48$ números. En total hay $N_{SYM} \times N_{SD}$ números y se indexan 
+
 $$
   d_{k,m} \equiv d_{k+n \times N_{SD}} \qquad\qquad k \in [0, N_{SD}-1] \qquad n \in [0,N_{SYM}-1]
-$$
-Los índices corresponden a la subportadora $k$ del símbolo OFDM número $n$. Se transforman a _offsets_ de frecuencia omitiendo los índices de ondas piloto (-21, -7, 7, 21) y el nivel de contínua 0 con la función $M(k)$
+$$ 
+
+Los índices corresponden a la subportadora $k$ del símbolo OFDM número $n$. Se transforman a *offsets* de frecuencia omitiendo los índices de ondas piloto (-21, -7, 7, 21) y el nivel de contínua 0 con la función $M(k)$
 
 $$
  M(k) = \left\{
@@ -594,13 +621,13 @@ $$
  \right.
 $$
 
-#### Ondas Piloto
+#### Ondas Piloto {#ondas-piloto}
 
 Las subportadoras reservadas transmiten ondas pilotos para mantener la transmisión sincrónica. Transmiten una secuencia pseudoaleatoria con modulación BPSK.
 
-La secuencia pseudoaleatoria usada para la modulación BPSK es generada por el _scrambler_ definido anteriormente con estado inicial 1111111.
+La secuencia pseudoaleatoria usada para la modulación BPSK es generada por el *scrambler* definido anteriormente con estado inicial 1111111.
 
-#### Símbolo OFDM
+#### Símbolo OFDM {#símbolo-ofdm}
 
 El símbolo OFDM $n$ de DATA es definido entonces
 
@@ -608,7 +635,8 @@ $$
 r_{DATA,n}(t) = w_{T_{SYM}}(t) \left[\sum_{k=0}^{N_{SD}-1} d_{k,n}e^{j2\pi M(k) \Delta_F (T-T_{GI})} + \sum_{k=-\frac{N_{ST}}{2}}^{\frac{N_{ST}}{2}} P_k e^{j2\pi k \Delta_F(t-T_{GI})}\right]
 $$
 
-En donde $P_{-26,26}$ selecciona los índices asignados a ondas piloto
+En donde $P_{-26,26}$ selecciona los índices asignados a ondas piloto 
+
 $$
  P_k = \left\{
   \begin{aligned}
@@ -617,8 +645,67 @@ $$
    \phantom{-}0 \qquad\qquad &k\notin\{\pm 7,\pm 21\}\\  
   \end{aligned}
  \right.
-$$
+$$ 
+
 No se por que está ahí ese -1
+
+Hasta ahora
+
+```{julia}
+#| echo: false
+#| output: false
+
+Diagram(:blockdiag, """
+{
+  default_fontsize = 20
+  node_height = 70
+  default_group_color = none
+  default_linecolor = white
+  default_textcolor = white
+  default_node_color = none
+
+  OP [label="+ Ondas\nPiloto"]
+  GI [label="+ Guard\nInterval"]
+  FIL [label="Filtro\nSalida"]
+
+  MOD -> OP -> IFFT -> GI -> FIL -> DAC -> TX
+}""") |> Fix2(render, "svg") |> Fix1(write, "Images/etapatx.svg")
+```
+
+
+![Estructura Transmisor](Images/etapatx.svg)
+
+```{julia}
+#| echo: false
+#| output: false
+
+Diagram(:blockdiag, """
+{
+  default_fontsize = 20
+  node_height = 70
+  default_group_color = none
+  default_linecolor = white
+  default_textcolor = white
+  default_node_color = none
+
+  OP [label="- Ondas\nPiloto"]
+  GI [label="- Guard\nInterval"]
+  FIL [label="Filtro\nSalida"]
+
+  DEMOD <- OP <- EQ <- FFT <- GI <- ADC <- FIL <- RX
+  group {
+    orientation = portrait
+    GI <- SYNC 
+  }
+  SYNC <- ADC
+  group {
+    orientation = portrait
+    EQ <- EST
+  }
+  EST <- FFT
+}""") |> Fix2(render, "svg") |> Fix1(write, "Images/etaparx.svg")
+```
+![Estructura Receptor](Images/etaparx.svg)
 
 El campo DATA transmitido es entonces la concacenación temporal de los $r_{DATA,n}$
 
@@ -626,11 +713,11 @@ $$
  r_{DATA} (t) = \sum_{n=0}^{N_{SYM}-1} r_{DATA, n}(t-nT_{SYM})
 $$
 
-### Procedimiento
+### Procedimiento {#procedimiento}
 
-1. Se transmite la forma de onda predeterminada PHY Preamble para detección y sincronismo en el receptor
-2. Se transmite el símbolo SIGNAL informando RATE y LENGTH. RATE define la modulación y tasa de código para la transmisión de DATA.
-3. Se transmite DATA, la cantidad de símbolos transmitidos es definida por RATE y LENGTH.
+1.  Se transmite la forma de onda predeterminada PHY Preamble para detección y sincronismo en el receptor
+2.  Se transmite el símbolo SIGNAL informando RATE y LENGTH. RATE define la modulación y tasa de código para la transmisión de DATA.
+3.  Se transmite DATA, la cantidad de símbolos transmitidos es definida por RATE y LENGTH.
 
 ```{julia}
 #| echo: false
@@ -654,31 +741,89 @@ Diagram(:seqdiag, """
   Tx -> Rx [label="DATA\n Mod y Tasa C según RATE de SIGNAL"];
 }""") |> Fix2(render, "svg") |> Fix1(write, "Images/sequence.svg")
 ```
-
 ![Procedimiento de transmisión de una PSDU en el estándar IEEE 802.11](Images/sequence.svg)
 
-## Sincronización OFDM
+### Frecuencias de Operación {#frecuencias-de-operación}
 
-## Modelo Canal OFDM
+## Sincronización OFDM {#sincronización-ofdm}
+
+Tipos de errores de sincronismo:
+
+-   Nivel Portadora
+    -   Offset de frecuencia portadora $\Delta f$
+    -   Error de fase $\phi (t)$
+-   Nivel Símbolo
+    -   Offset de reloj de muestreo $\delta$
+    -   Offset de temporización de símbolo $T_d$
+
+### Detección de *Symbol Timing* Áspera {#detección-de-symbol-timing-áspera}
+
+Usando la repetición del PHY preamble *short training sequence*. Teniendo muestras $z_m$ con longitud de intervalo de de repetiión $R$ y espaciamiento entre intervalos adyacentes $L$. Existen técnicas de detección áspera:
+
+#### Delay and Correlate {#delay-and-correlate}
+
+El método más simple, busca el instante de máxima correlación.
+
+$$
+  \begin{aligned}
+  \Phi_{DC}(m)&=\left\lvert\sum_{r=0}^{R-1}z_{m-r}z_{m-r-L}^\star\right\rvert\\[1em]
+  \hat{m}_{DC} &= \argmax_m \left[\Phi_{DC}(m)\right]
+  \end{aligned}
+$$
+
+Desventajas:
+
+-   El valor máximo de $\Phi_{DC}$ varía porque la potencia de $z_m$ varía.
+-   Puede encontrar falsos máximos, en particular cuando la SNR es alta
+
+#### Métrica ML {#métrica-ml}
+
+Estima con el criterio de máxima verosimilitud, asumiendo que las señales recibidas son independientes exceptuando las réplicas.
+
+$$
+  \begin{aligned}
+  \Phi_{ML}(m)&=2 \left\lvert\sum_{r=0}^{R-1}z_{m-r}z_{m-r-L}^\star\right\rvert - \frac{1}{1+\text{SNR}^{-1}} \sum_{r=0}^{R-1}\left[|z_{m-r}|^2+|z_{m-r-L}|^2\right]\\[1em]
+  \hat{m}_{ML} &= \argmax_m \left[\Phi_{ML}(m)\right]
+  \end{aligned}
+$$
+
+En donde la relación señal ruido está definida como $\text{SNR} = \sigma_s^2/\sigma_n^2$.
+
+Desventajas
+
+-   La estimación de la SNR es computacionalmente compleja
+-   El error en estimación de SNR se propaga al estimador
+
+#### Métrica MMSE {#métrica-mmse}
+
+Estima el con criterio de mínimo error cuadrático medio, asumiendo que las señales recibidas son independientes exceptuando las réplicas.
+
+$$
+  \begin{aligned}
+  \Phi_{MMSE}(m)&= \sum_{r=0}^{R-1}\left[|z_{m-r}|^2+|z_{m-r-L}|^2\right] - 2\left\lvert\sum_{r=0}^{R-1}z_{m-r}z_{m-r-L}^\star\right\rvert \\[1em]
+  \hat{m}_{MMSE} &= \argmin_m \left[\Phi_{MMSE}(m)\right]
+  \end{aligned}
+$$
+
+Es equivalente al método de máxima verosimilitud a SNR infinita.
+
+### Detección de *Symbol Timing* Fina {#detección-de-symbol-timing-fina}
+
+## Modelo Canal OFDM {#modelo-canal-ofdm}
 
 Para transmitir datos en un canal OFDM se hace en bloques de $N_T$ símbolos, los datos a transmitir se necesita subdividir en tramas de longitud $N_C$
 
-- $N_C$: Longitud en símbolos de datos de una trama
-- $L$: Longitud en símbolos de la ISI
-- $N_T$: Longitud de símbolos transmitidos por el canal. Para no tener ISI se necesita $N_T = N_C+L-1$
+-   $N_C$: Longitud en símbolos de datos de una trama
+-   $L$: Longitud en símbolos de la ISI
+-   $N_T$: Longitud de símbolos transmitidos por el canal. Para no tener ISI se necesita $N_T = N_C+L-1$
 
 La transmisión de datos en un canal OFDM sigue el siguiente método:
 
-- A un vector de datos $\mathbf{\tilde x}$ de longitud $N_C$ se le aplica la transformada inversa de Fourier, obteniendo 
-$$\mathbf x = \mathcal F^{-1}[\mathbf{\tilde x}]$$
-- A $\mathbf x$ se le agregan $L-1$ símbolos de prefijo cíclico, obteniendo el vector $\mathbf{\bar x}$ de longitud $N_T$.
-$$ \mathbf{\bar x} = \begin{bmatrix}x_{N_C-L+1} & \cdots & x_{N_C-1} & x_0 & \cdots & x_{N_C-1} \end{bmatrix} $$
-- El vector $\mathbf{\bar x}$ se transmite por el canal $\mathbf h$, obteniendo 
-$$\mathbf{\bar y} = \mathbf h \ast \mathbf{\bar x} + \mathbf w$$
-- Se ignora el prefijo de $\mathbf{\bar y}$, quedándose únicamente con los últimos $N_C$ símbolos
-$$\mathbf y = \begin{bmatrix}\bar y_L & \cdots & \bar y_{N_C+L-1}\end{bmatrix}$$
-- A $\mathbf y$ se le aplica la transformada de Fourier, obteniendo el vector final recibido
-$$\mathbf{\tilde y} = \mathcal F[\mathbf{y}]$$
+-   A un vector de datos $\mathbf{\tilde x}$ de longitud $N_C$ se le aplica la transformada inversa de Fourier, obteniendo $$\mathbf x = \mathcal F^{-1}[\mathbf{\tilde x}]$$
+-   A $\mathbf x$ se le agregan $L-1$ símbolos de prefijo cíclico, obteniendo el vector $\mathbf{\bar x}$ de longitud $N_T$. $$ \mathbf{\bar x} = \begin{bmatrix}x_{N_C-L+1} & \cdots & x_{N_C-1} & x_0 & \cdots & x_{N_C-1} \end{bmatrix} $$
+-   El vector $\mathbf{\bar x}$ se transmite por el canal $\mathbf h$, obteniendo $$\mathbf{\bar y} = \mathbf h \ast \mathbf{\bar x} + \mathbf w$$
+-   Se ignora el prefijo de $\mathbf{\bar y}$, quedándose únicamente con los últimos $N_C$ símbolos $$\mathbf y = \begin{bmatrix}\bar y_L & \cdots & \bar y_{N_C+L-1}\end{bmatrix}$$
+-   A $\mathbf y$ se le aplica la transformada de Fourier, obteniendo el vector final recibido $$\mathbf{\tilde y} = \mathcal F[\mathbf{y}]$$
 
 ```{julia}
 #| echo: false
@@ -714,58 +859,60 @@ Diagram(:blockdiag, """
   FFT -> RX
 }""") |> Fix2(render, "svg") |> Fix1(write, "Images/channel.svg")
 ```
-
 ![Estructura de un canal OFDM](Images/channel.svg)
 
-La relación final entre el vector transmitido $\mathbf{\tilde x}$, el vector recibido $\mathbf{\tilde y}$, y el canal $\mathbf h$ es
+La relación final entre el vector transmitido $\mathbf{\tilde x}$, el vector recibido $\mathbf{\tilde y}$, y el canal $\mathbf h$ es 
+
 $$
   \mathbf{\tilde y} = \mathbf{\tilde h}^\star \mathbf{\tilde x} + \mathbf{\tilde w}
-$$
-En donde (asumo, porque el Tse no es super explícito al respecto) que $\mathbf{\tilde h} = \mathcal F[\mathbf h]$. Efectivamente se usa la identidad
+$$ 
+
+En donde (asumo, porque el Tse no es super explícito al respecto) que $\mathbf{\tilde h} = \mathcal F[\mathbf h]$. Efectivamente se usa la identidad 
+
 $$
   \mathbf y = \mathbf h \ast \mathbf x + \mathbf w \longleftrightarrow \mathbf{\tilde y} = \mathbf{\tilde h}^\star \mathbf{\tilde x} + \mathbf{\tilde w}
 $$
 
-### Prefijos cíclicos
+### Prefijos cíclicos {#prefijos-cíclicos}
 
 Esto no está en el Tse, pero agregar o quitar prefijos cíclicos podría ser interpretado como operaciones matriciales
 
 Ej con $N_C=5$ y $L=4$ entonces $N_T=8$
 
-- Agregar prefijo: 
+-   Agregar prefijo: 
 $$
-\begin{bmatrix}
-x_2 \\ x_3 \\ x_4 \\ x_0 \\ x_1 \\ x_2 \\ x_3 \\ x_4
-\end{bmatrix} = 
-\begin{bmatrix}
-0 & 0 & 1 & 0 & 0 \\
-0 & 0 & 0 & 1 & 0 \\
-0 & 0 & 0 & 0 & 1 \\
-1 & 0 & 0 & 0 & 0 \\
-0 & 1 & 0 & 0 & 0 \\
-0 & 0 & 1 & 0 & 0 \\
-0 & 0 & 0 & 1 & 0 \\
-0 & 0 & 0 & 0 & 1 \\
-\end{bmatrix}
-\begin{bmatrix}
-x_0 \\ x_1 \\ x_2 \\ x_3 \\ x_4
-\end{bmatrix}
-$$
+    \begin{bmatrix}
+    x_2 \\ x_3 \\ x_4 \\ x_0 \\ x_1 \\ x_2 \\ x_3 \\ x_4
+    \end{bmatrix} = 
+    \begin{bmatrix}
+    0 & 0 & 1 & 0 & 0 \\
+    0 & 0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 0 & 1 \\
+    1 & 0 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 0 & 0 \\
+    0 & 0 & 1 & 0 & 0 \\
+    0 & 0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 0 & 1 \\
+    \end{bmatrix}
+    \begin{bmatrix}
+    x_0 \\ x_1 \\ x_2 \\ x_3 \\ x_4
+    \end{bmatrix}
+    $$
 
-- Quitar prefijo: 
+-   Quitar prefijo: 
 $$\begin{bmatrix}
-y_3 \\ y_4 \\ y_5 \\ y_6 \\ y_7
-\end{bmatrix} = 
-\begin{bmatrix}
-0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
-0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
-0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
-0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\
-0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
-\end{bmatrix}
-\begin{bmatrix}
-y_0 \\ y_1 \\ y_2 \\ y_3 \\ y_4 \\ y_5 \\ y_6 \\ y_7
-\end{bmatrix}
+    y_3 \\ y_4 \\ y_5 \\ y_6 \\ y_7
+    \end{bmatrix} = 
+    \begin{bmatrix}
+    0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
+    \end{bmatrix}
+    \begin{bmatrix}
+    y_0 \\ y_1 \\ y_2 \\ y_3 \\ y_4 \\ y_5 \\ y_6 \\ y_7
+    \end{bmatrix}
 $$
 
 Ya que los demás procedimientos, FFT, IFFT, convolución circular, eventualmente códigos de corrección de errores, eventualmente entrelazado (tampoco lo menciona el Tse), etc son operaciones matriciales, esta interpretación puede resultar útil
