@@ -189,27 +189,60 @@ $$
   \right.
 $$
 
+No está explícito en el manual, pero asumiría que si el FFT también es de 64 puntos y está bien sincronizado, las subportadoras se recuperarían de la señal temporal con una transformación de índices inversa. 
+$$
+  x [n] = \left\{
+  \begin{aligned}
+    &\bar x[n+64] \qquad &n \in \left[-26, -1\right]\\
+    &\bar x[n] \qquad &n \in \left[\phantom{-}1, \phantom{-}26\right]\\
+  \end{aligned} 
+  \right.
+$$
+
+Sin embargo esto es MUY básico, sería un estimador que pierde información, y seguramente exista un método más inteligente.
+
 ```{julia}
 #| echo: false
 #| output: false
 Diagram(:svgbob, """
           +------------+
-     0 ---|0   IFFT   0|--- 
-  x[1] ---|1          1|--- 
-  x[2] ---|2          2|--- 
-     :    |            |   
- x[26] ---|26        26|--- 
-     0 ---|27        27|--- 
-     :    |            |     
-     0 ---|37        37|--- 
-x[-26] ---|38        38|--- 
-     :    |            |   
- x[-1] ---|63        63|--- 
+     0 ---|0   IFFT   0|--- |
+  x[1] ---|1          1|--- |
+       :  |            |    |
+ x[26] ---|26        26|--- |
+     0 ---|27        27|--- | Tx
+          |            |    |
+     0 ---|37        37|--- |
+x[-26] ---|38        38|--- |
+       :  |            |    |
+ x[-1] ---|63        63|--- V
           +------------+
 """) |> Fix2(render, "svg") |> Fix1(write, "Images/ifft.svg")
+
+Diagram(:svgbob, """
+        +------------+
+   | ---|0    FFT   0|  
+   | ---|1          1|--- x[1] 
+   |    |            |  :  
+   | ---|26        26|--- x[26] 
+Rx | ---|27        27| 
+   |    |            |      
+   | ---|37        37|  
+   | ---|38        38|--- x[-26] 
+   |    |            |  :  
+   v ---|63        63|--- x[-1] 
+        +------------+
+""") |> Fix2(render, "svg") |> Fix1(write, "Images/fft.svg")
 ```
 
-![](Images/ifft.svg)
+::: {layout-ncol=2}
+
+![Transformación frecuencia $\rightarrow$ tiempo](Images/ifft.svg)
+
+![Transformación tiempo $\rightarrow$ frecuencia](Images/fft.svg)
+
+:::
+
 
 ### PHY Preamble {#phy-preamble}
 
@@ -257,23 +290,57 @@ $$
  r_{SHORT}(t) = w_{TSHORT}(t) \sum_{k=-N_{ST}/2}^{N_{ST}/2}S_ke^{j2\pi k \Delta_F t}
 $$
 
+O bien utilizando el módulo IFFT definido anteriormente, de esta forma la IFFT de una secuencia $S$ resulta en 4 períodos del _short training symbol_, por lo que la secuencia es $T_{FFT}/4$-periódica.
+
 ```{julia}
 #| echo: false
-#| fig-cap: _short training sequence_ en el dominio temporal
+#| fig-cap: IFFT de la secuencia $S$ = 4 períodos del _short training symbol_
 
 S = OffsetArray(sqrt(13/6).*[0, 0, 1+j, 0, 0, 0, -1-j, 0, 0, 0, 1+j, 0, 0, 0, -1-j, 0, 0, 0, -1-j, 0, 0, 0, 1+j, 0, 0, 0, 0,
 0, 0, 0, -1-j, 0, 0, 0, -1-j, 0, 0, 0, 1+j, 0, 0, 0, 1+j, 0, 0, 0, 1+j, 0, 0, 0, 1+j, 0,0], -26:26)
 r_s(t) = w(T_SHORT,t)*sum(S[k]*exp(j*k*2π*Δ_F*t) for k in eachindex(S))
 
-rs = r_s.(t)
-p1 = plot(t, real(rs), ylabel="canal I", xlabel="", xticks=[], title=L"r_{SHORT}")
-p2 = plot(t, imag(rs), ylabel="canal Q", xticks=0:0.8:8, xlabel=L"t")
-for i in 0:0.8:8
-    plot!(p1, [i,i], [-10,10], linestyle=:dash, linecolor=:silver)
-    plot!(p2, [i,i], [-10,10], linestyle=:dash, linecolor=:silver)
-end
+shift(x) = [i in 1:26 ? x[i] : (i in 38:63 ? x[i-64] : 0.0+im*0.0) for i in 0:63]
+
+#rs = r_s.(t)
+#p1 = plot(t, real(rs), ylabel="canal I", xlabel="", xticks=[], title=L"r_{SHORT}")
+#p2 = plot(t, imag(rs), ylabel="canal Q", xticks=0:0.8:8, xlabel=L"t")
+#for i in 0:0.8:8
+#    plot!(p1, [i,i], [-10,10], linestyle=:dash, linecolor=:silver)
+#    plot!(p2, [i,i], [-10,10], linestyle=:dash, linecolor=:silver)
+#end
+
+S_time = S |> shift |> ifft
+
+p1 = plot(S_time |> real, line=:stem, marker=:square, ylabel=L"\mathcal{Re}\{S\}")
+p2 = plot(S_time |> imag, line=:stem, marker=:square, ylabel=L"\mathcal{Im}\{S\}", xlabel=L"k")
 
 plot(p1, p2, layout=(2,1), legend=false, size=(800,300), background_color="#1b3041")
+```
+
+La secuencia de 10 _short training symbols_ se concatena con una duración total de $T_{SHORT} = 10*T_{FFT}/4$ 
+
+```{julia}
+#| echo: false
+#| fig-cap: _short training sequence_ en el dominio temporal
+
+#r_p(t) = r_s(t)+r_l(t-T_SHORT)
+
+tiks = [0:0.8:8...]
+
+t = range(0u"μs", 8u"μs", length=160)
+
+rp = vcat(repeat(S_time[1:16],10)...)
+
+p1 = plot(t, real(rp), xlim=[0,8], yticks=false, line=:steppost, ylabel="canal I", xlabel="", xticks=[], title=L"r_{SHORT}")
+p2 = plot(t, imag(rp), xlim=[0,8], yticks=false, line=:steppost, ylabel="canal Q", xticks=tiks, xlabel=L"t")
+
+for i in tiks
+    plot!(p1, [i,i], [-0.15,0.15], linestyle=:dash, linecolor=:silver)
+    plot!(p2, [i,i], [-0.15,0.15], linestyle=:dash, linecolor=:silver)
+end
+
+plot(p1, p2, layout=(2,1), legend = false, size=(800,300), background_color="#1b3041")
 ```
 
 #### Long Training Symbol {#long-training-symbol}
@@ -289,23 +356,55 @@ $$
  r_{LONG}(t) = w_{TLONG}(t) \sum_{k=-N_{ST}/2}^{N_{ST}/2}L_ke^{j2\pi k \Delta_F (t-T_{GI2})}
 $$
 
+O bien utilizando el módulo IFFT, de esta forma la IFFT de una secuencia $L$ retorna un período del _long training symbol_. Esta secuencia es $T_{FFT}$-periódica.
+
 ```{julia}
 #| echo: false
-#| fig-cap: _long training sequence_ en el dominio temporal
+#| fig-cap: IFFT de la secuencia $L$ = 1 período del _long training symbol_
 
-L = OffsetArray([1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 0,
-1, -1, -1, 1, 1, -1, 1, -1, 1, -1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, 1, -1, 1, 1, 1, 1], -26:26)
+L = OffsetArray([1.0, 1.0, -1.0, -1.0, 1.0, 1.0, -1.0, 1.0, -1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, -1.0, -1.0, 1.0, 1.0, -1.0, 1.0, -1.0, 1.0, 1.0, 1.0, 1.0, 0,
+1.0, -1.0, -1.0, 1.0, 1.0, -1.0, 1.0, -1.0, 1.0, -1.0, -1.0, -1.0, -1.0, -1.0, 1.0, 1.0, -1.0, -1.0, 1.0, -1.0, 1.0, -1.0, 1.0, 1.0, 1.0, 1.0] .|> Complex, -26:26) 
 
 r_l(t) = w(T_LONG,t)*sum(L[k]*exp(j*k*2π*Δ_F*(t-T_GI2)) for k in eachindex(L))
 
 rl = r_l.(t)
 
-p1 = plot(t, real(rl), ylabel="canal I", xlabel="", xticks=[], title=L"r_{LONG}")
-p2 = plot(t, imag(rl), ylabel="canal Q", xticks=[0,1.6,4.8,8], xlabel=L"t")
+#p1 = plot(t, real(rl), ylabel="canal I", xlabel="", xticks=[], title=L"r_{LONG}")
+#p2 = plot(t, imag(rl), ylabel="canal Q", xticks=[0,1.6,4.8,8], xlabel=L"t")
+#
+#for i in [0,1.6,4.8,8]
+#    plot!(p1, [i,i], [-10,10], linestyle=:dash, linecolor=:silver)
+#    plot!(p2, [i,i], [-10,10], linestyle=:dash, linecolor=:silver)
+#end
 
-for i in [0,1.6,4.8,8]
-    plot!(p1, [i,i], [-10,10], linestyle=:dash, linecolor=:silver)
-    plot!(p2, [i,i], [-10,10], linestyle=:dash, linecolor=:silver)
+L_time = L |> shift |> ifft
+
+p1 = plot(L_time |> real, line=:stem, marker=:square, ylabel=L"\mathcal{Re}\{L\}")
+p2 = plot(L_time |> imag, line=:stem, marker=:square, ylabel=L"\mathcal{Im}\{L\}", xlabel=L"k")
+
+plot(p1, p2, layout=(2,1), legend = false, size=(800,300), background_color="#1b3041")
+```
+
+Se concatena el intervalo de guarda a dos períodos de la secuencia para obtener la _long training sequence_ de duración $T_{LONG} = T_{GI2}+2\times T_{FFT}$
+
+```{julia}
+#| echo: false
+#| fig-cap: _long training sequence_ en el dominio temporal
+
+#r_p(t) = r_s(t)+r_l(t-T_SHORT)
+
+tiks = [0, 1.6,4.8,8]
+
+t = range(0u"μs", 8u"μs", length=160)
+
+rp = vcat(zeros(32), L_time, L_time)
+
+p1 = plot(t, real(rp), xlim=[0,8], yticks=false, line=:steppost, ylabel="canal I", xlabel="", xticks=[], title=L"r_{LONG}")
+p2 = plot(t, imag(rp), xlim=[0,8], yticks=false, line=:steppost, ylabel="canal Q", xticks=tiks, xlabel=L"t")
+
+for i in tiks
+    plot!(p1, [i,i], [-0.15,0.15], linestyle=:dash, linecolor=:silver)
+    plot!(p2, [i,i], [-0.15,0.15], linestyle=:dash, linecolor=:silver)
 end
 
 plot(p1, p2, layout=(2,1), legend = false, size=(800,300), background_color="#1b3041")
@@ -321,19 +420,21 @@ $$
 #| echo: false
 #| fig-cap: PHY Preamble en el dominio temporal
 
-r_p(t) = r_s(t)+r_l(t-T_SHORT)
+#r_p(t) = r_s(t)+r_l(t-T_SHORT)
 
 tiks = [0:0.8:8..., [1.6,4.8,8].+8...]
 
-t = range(0u"μs", 16u"μs", length=5000)
-rp = r_p.(t)
+t = range(0u"μs", 16u"μs", length=5*64)
 
-p1 = plot(t, real(rp), ylabel="canal I", xlabel="", xticks=[], title=L"r_{PREAMBLE}")
-p2 = plot(t, imag(rp), ylabel="canal Q", xticks=tiks, xlabel=L"t")
+S_short = S_time[1:16]
+rp = vcat(repeat(S_short,10)..., zeros(32), L_time, L_time)
+
+p1 = plot(t, real(rp), xlim=[0,16], yticks=false, line=:steppost, ylabel="canal I", xlabel="", xticks=[], title=L"r_{PREAMBLE}")
+p2 = plot(t, imag(rp), xlim=[0,16], yticks=false, line=:steppost, ylabel="canal Q", xticks=tiks, xlabel=L"t")
 
 for i in tiks
-    plot!(p1, [i,i], [-10,10], linestyle=:dash, linecolor=:silver)
-    plot!(p2, [i,i], [-10,10], linestyle=:dash, linecolor=:silver)
+    plot!(p1, [i,i], [-0.15,0.15], linestyle=:dash, linecolor=:silver)
+    plot!(p2, [i,i], [-0.15,0.15], linestyle=:dash, linecolor=:silver)
 end
 
 plot(p1, p2, layout=(2,1), legend = false, size=(800,300), background_color="#1b3041")
