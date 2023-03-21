@@ -21,6 +21,7 @@ using FFTW
 using Unitful
 using Kroki
 using Base: Fix1, Fix2
+using TikzPictures
 
 pyplot()
 theme(:juno)
@@ -118,37 +119,8 @@ Diagram(:packetdiag, """
 ```
 ![PHY Preamble en el estándar 802.11a](Images/packet2.svg)
 
-### PHY Preamble {#phy-preamble}
 
-El PHY Preamble se utiliza para motivos de sincronismo, consiste en:
-
--   10 iteraciones de una *short training symbol*
--   Un *guard interval*
--   2 iteraciones de una *long training symbol*
-
-```{julia}
-#| echo: false
-#| output: false
-
-Diagram(:wavedrom, """
-{ 
-  config: {skin: 'narrow'},
-  head: {text: ['tspan', {class:'muted h3'}, "PHY Preamble"]},
-  signal: [
-  { name: "",  wave: "x===========.=...=...=", data: ["t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8", "t9", "t10", "GI2", "T1", "T2"]}
-  ], 
-  foot: {tick: -1, every:10}
-  }""") |> Fix2(render, "svg") |> Fix1(write, "Images/wave.svg")
-```
-![PHY Preamble en el estándar 802.11a, $t_i$ denota un _short training symbol_ y $T_i$ un _long training symbol_.](Images/wave.svg)
-
-La duración del instante temporal en la figura depende del espaciamiento entre canales.
-
--   20 MHz $\rightarrow$ 0.8 $\micro$s
--   10 MHz $\rightarrow$ 1.6 $\micro$s (half-clocked)
--   5 MHz $\rightarrow$ 3.2 $\micro$s (quarter-clocked)
-
-#### Parámetros Temporales {#parámetros-temporales}
+### Parámetros Temporales {#parámetros-temporales}
 
 | Parámetros     | Significado                                     | Valor a 20 MHz | Nota                           |
 |----------------|-------------------------------------------------|----------------|--------------------------------|
@@ -202,6 +174,73 @@ end
 
 t = range(0u"μs", 8u"μs", length=5000)
 ```
+
+### Implementación IFFT
+
+Una forma típica de realizar la IFFT consiste en una conversión de índices, haciendo una IFFT de 64 puntos de la señal $\bar x [m]$ con $m \in [0, 63]$ construida a partir de la señal $x[n]$ con $n \in [-26, 26]$ según:
+
+$$
+  \bar x [m] = \left\{
+  \begin{aligned}
+    &x[m] \qquad &m \in \left[1\phantom{1}, 26\right]\\
+    &x[m-64] \qquad &m \in \left[38, 63\right]\\
+    & 0 & \text{otherwise}
+      \end{aligned} 
+  \right.
+$$
+
+```{julia}
+#| echo: false
+#| output: false
+Diagram(:svgbob, """
+          +------------+
+     0 ---|0   IFFT   0|--- 
+  x[1] ---|1          1|--- 
+  x[2] ---|2          2|--- 
+     :    |            |   
+ x[26] ---|26        26|--- 
+     0 ---|27        27|--- 
+     :    |            |     
+     0 ---|37        37|--- 
+x[-26] ---|38        38|--- 
+     :    |            |   
+ x[-1] ---|63        63|--- 
+          +------------+
+""") |> Fix2(render, "svg") |> Fix1(write, "Images/ifft.svg")
+```
+
+![](Images/ifft.svg)
+
+### PHY Preamble {#phy-preamble}
+
+El PHY Preamble se utiliza para motivos de sincronismo, consiste en:
+
+-   10 iteraciones de una *short training symbol*
+-   Un *guard interval*
+-   2 iteraciones de una *long training symbol*
+
+```{julia}
+#| echo: false
+#| output: false
+
+Diagram(:wavedrom, """
+{ 
+  config: {skin: 'narrow'},
+  head: {text: ['tspan', {class:'muted h3'}, "PHY Preamble"]},
+  signal: [
+  { name: "",  wave: "x===========.=...=...=", data: ["t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8", "t9", "t10", "GI2", "T1", "T2"]}
+  ], 
+  foot: {tick: -1, every:10}
+  }""") |> Fix2(render, "svg") |> Fix1(write, "Images/wave.svg")
+```
+![PHY Preamble en el estándar 802.11a, $t_i$ denota un _short training symbol_ y $T_i$ un _long training symbol_.](Images/wave.svg)
+
+La duración del instante temporal en la figura depende del espaciamiento entre canales.
+
+-   20 MHz $\rightarrow$ 0.8 $\micro$s
+-   10 MHz $\rightarrow$ 1.6 $\micro$s (half-clocked)
+-   5 MHz $\rightarrow$ 3.2 $\micro$s (quarter-clocked)
+
 
 #### Short Training Symbol {#short-training-symbol}
 
