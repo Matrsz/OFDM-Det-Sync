@@ -3,7 +3,7 @@ title: "Notas Proyecto Integrador"
 author: "Matías Roqueta"
 format:
   html: 
-    embed-resources: true
+    embed-resources: false
     theme: superhero
     fig-align: center
     toc: true
@@ -294,13 +294,23 @@ O bien utilizando el módulo IFFT definido anteriormente, de esta forma la IFFT 
 
 ```{julia}
 #| echo: false
-#| fig-cap: IFFT de la secuencia $S$ = 4 períodos del _short training symbol_
+#| fig-cap: Descripción en frecuencia de la secuencia $S$ = 4 períodos del _short training symbol_
 
 S = OffsetArray(sqrt(13/6).*[0, 0, 1+j, 0, 0, 0, -1-j, 0, 0, 0, 1+j, 0, 0, 0, -1-j, 0, 0, 0, -1-j, 0, 0, 0, 1+j, 0, 0, 0, 0,
 0, 0, 0, -1-j, 0, 0, 0, -1-j, 0, 0, 0, 1+j, 0, 0, 0, 1+j, 0, 0, 0, 1+j, 0, 0, 0, 1+j, 0,0], -26:26)
 r_s(t) = w(T_SHORT,t)*sum(S[k]*exp(j*k*2π*Δ_F*t) for k in eachindex(S))
 
 shift(x) = [i in 1:26 ? x[i] : (i in 38:63 ? x[i-64] : 0.0+im*0.0) for i in 0:63]
+
+p1 = plot(S |> shift |> real, line=:stem, marker=:square, ylabel=L"\mathcal{Re}\{S\}")
+p2 = plot(S |> shift |> imag, line=:stem, marker=:square, ylabel=L"\mathcal{Im}\{S\}", xlabel=L"k")
+
+plot(p1, p2, layout=(2,1), legend=false, size=(800,300), background_color="#1b3041")
+```
+
+```{julia}
+#| echo: false
+#| fig-cap: IFFT de la secuencia $S$ = 4 períodos del _short training symbol_
 
 #rs = r_s.(t)
 #p1 = plot(t, real(rs), ylabel="canal I", xlabel="", xticks=[], title=L"r_{SHORT}")
@@ -312,8 +322,8 @@ shift(x) = [i in 1:26 ? x[i] : (i in 38:63 ? x[i-64] : 0.0+im*0.0) for i in 0:63
 
 S_time = S |> shift |> ifft
 
-p1 = plot(S_time |> real, line=:stem, marker=:square, ylabel=L"\mathcal{Re}\{S\}")
-p2 = plot(S_time |> imag, line=:stem, marker=:square, ylabel=L"\mathcal{Im}\{S\}", xlabel=L"k")
+p1 = plot(S_time |> real, line=:steppost, ylabel=L"\mathcal{Re}\{S\}")
+p2 = plot(S_time |> imag, line=:steppost, ylabel=L"\mathcal{Im}\{S\}", xlabel=L"k")
 
 plot(p1, p2, layout=(2,1), legend=false, size=(800,300), background_color="#1b3041")
 ```
@@ -330,10 +340,10 @@ tiks = [0:0.8:8...]
 
 t = range(0u"μs", 8u"μs", length=160)
 
-rp = vcat(repeat(S_time[1:16],10)...)
+str_t = vcat(repeat(S_time[1:16],10)...)
 
-p1 = plot(t, real(rp), xlim=[0,8], yticks=false, line=:steppost, ylabel="canal I", xlabel="", xticks=[], title=L"r_{SHORT}")
-p2 = plot(t, imag(rp), xlim=[0,8], yticks=false, line=:steppost, ylabel="canal Q", xticks=tiks, xlabel=L"t")
+p1 = plot(t, real(str_t), xlim=[0,8], yticks=false, line=:steppost, ylabel="canal I", xlabel="", xticks=[], title=L"r_{SHORT}")
+p2 = plot(t, imag(str_t), xlim=[0,8], yticks=false, line=:steppost, ylabel="canal Q", xticks=tiks, xlabel=L"t")
 
 for i in tiks
     plot!(p1, [i,i], [-0.15,0.15], linestyle=:dash, linecolor=:silver)
@@ -397,10 +407,11 @@ tiks = [0, 1.6,4.8,8]
 
 t = range(0u"μs", 8u"μs", length=160)
 
-rp = vcat(zeros(32), L_time, L_time)
 
-p1 = plot(t, real(rp), xlim=[0,8], yticks=false, line=:steppost, ylabel="canal I", xlabel="", xticks=[], title=L"r_{LONG}")
-p2 = plot(t, imag(rp), xlim=[0,8], yticks=false, line=:steppost, ylabel="canal Q", xticks=tiks, xlabel=L"t")
+ltr_t = vcat(L_time[end-31:end], L_time, L_time)
+
+p1 = plot(t, real(ltr_t), xlim=[0,8], yticks=false, line=:steppost, ylabel="canal I", xlabel="", xticks=[], title=L"r_{LONG}")
+p2 = plot(t, imag(ltr_t), xlim=[0,8], yticks=false, line=:steppost, ylabel="canal Q", xticks=tiks, xlabel=L"t")
 
 for i in tiks
     plot!(p1, [i,i], [-0.15,0.15], linestyle=:dash, linecolor=:silver)
@@ -427,7 +438,7 @@ tiks = [0:0.8:8..., [1.6,4.8,8].+8...]
 t = range(0u"μs", 16u"μs", length=5*64)
 
 S_short = S_time[1:16]
-rp = vcat(repeat(S_short,10)..., zeros(32), L_time, L_time)
+rp = vcat(str_t, ltr_t)
 
 p1 = plot(t, real(rp), xlim=[0,16], yticks=false, line=:steppost, ylabel="canal I", xlabel="", xticks=[], title=L"r_{PREAMBLE}")
 p2 = plot(t, imag(rp), xlim=[0,16], yticks=false, line=:steppost, ylabel="canal Q", xticks=tiks, xlabel=L"t")
@@ -889,54 +900,78 @@ Diagram(:seqdiag, """
 
 Tipos de errores de sincronismo:
 
--   Nivel Portadora
-    -   Offset de frecuencia portadora $\Delta f$
-    -   Error de fase $\phi (t)$
--   Nivel Símbolo
-    -   Offset de reloj de muestreo $\delta$
-    -   Offset de temporización de símbolo $T_d$
+- Nivel Portadora
+    - Carrier Frequency Offset $\Delta f$
+    - Carrier Phase Offset $\phi (t)$
+- Nivel Muestreo
+    - Sampling Clock Offset $\delta$
+- Nivel Símbolo
+    - Symbol Timing Offset $T_d$
+
+### Efectos de Error de Sincronismo
+
+Consideramos un símbolo OFDM generado por la IFFT de $N$ números complejos sobre $N$ subportadoras.
+
+- El espacio entre subportadoras es $1/T$ con $T$ la duración de $N$ muestras en el dominio del tiempo.
+- El prefijo cíclico es de longitud $N_g$, por lo que el símbolo OFDM tiene $N+N_g$ muestras en total.
+- La muestra $n$-ésima en el dominio temporal con $n \in [-N_g, N-1]$ del $i$-ésimo símbolo transmitido se expresa de la siguiente forma
+$$
+  \begin{aligned}
+  x_{i,n} &= x(i(N+N_g)T_s+N_gT_s+nT_s)\\[1em]
+  x_{i,n} &= \frac{1}{N}\sum_{k=-\frac{N}{2}+1}^{\frac{N}{2}}X_{i,k}e^{j\frac{2\pi nk}{N}}
+  \end{aligned}
+$$
+- En donde $X_{i,k}$ es el $k$-ésimo valor en el dominio de la frecuencia del $i$-ésimo símbolo.
+
+Suponemos que el canal es variante en el tiempo con desvanecimiento de $r$ caminos con la respuesta al impulso en tiempo $t$, pero cuasiestacionario en el tiempo de un símbolo OFDM:
+
+$$
+  h(t,\tau) = \sum_r h_r(t)\delta(\tau-\tau_r(t)) \approx \sum_r h_r \delta(\tau-\tau_r)
+$$
+
+La señal recibida resulta de convolver la señal transmitida con la respuesta al impulso más ruido AWGN
+
+$$
+  z(\tau) = x(\tau)\ast h(\tau) + \nu(\tau) = \sum_r h_r x(\tau-\tau_r)+\nu(\tau)
+$$
+
+Fourierizando
+
+$$
+  Z_k = X_k H_k + V_k \qquad \qquad H_k = \sum_r h_k e^{-j2\pi\frac{\tau_r k}{T_S N}} 
+$$
+
+### Offset Frecuencia de Portadora (CFO)
+
+Un offset de frecuencia $\Delta f$ rota la señal recibida a frecuencia constante
+
+$$
+  z_{i,n} = z(t)e^{j2\pi\Delta ft}\big\rvert_{t=i(N+N_g)T_s+N_gT_s+nT_s}
+$$
+
+Pasan cosas locas en el dominio de la frecuencia como resultado 
+
+### Offset de Muestreo (SCO)
+
+Si la señal recibida se muestrea en intervalos $(1+\delta)T_S$ en lugar de $T_S$, entonces la $n$-ésima muestra del $i$-ésimo símbolo se convierte en 
+
+$$
+  z_{i,n} = z(t)\big\rvert_{t=i(N+N_g)(1+\delta)T_S+N_g(1+\delta)T_S
+  n(1+\delta)T_S}
+$$
+
+Esto también provoca cosas locas en el dominio de la frecuencia
+
+### Offset de Symbol Timing
+
+Considerando un retardo máximo en la respuesta al impulso del canal $\tau_{max}$, la ventana de DFT en receptor puede caer en varios escenarios.
+
 
 ### Detección de *Symbol Timing* Áspera {#detección-de-symbol-timing-áspera}
 
-Usando la repetición del PHY preamble *short training sequence*. Teniendo muestras $z_m$ con longitud de intervalo de de repetiión $R$ y espaciamiento entre intervalos adyacentes $L$. Existen técnicas de detección áspera:
+Usando la repetición del PHY preamble *short training sequence*. Teniendo muestras $z_m$ con longitud de intervalo de de repetiión $R$ y espaciamiento entre intervalos adyacentes $L$. 
 
-#### Delay and Correlate {#delay-and-correlate}
-
-El método más simple, busca el instante de máxima correlación.
-
-$$
-  \begin{aligned}
-  \Phi_{DC}(m)&=\left\lvert\sum_{r=0}^{R-1}z_{m-r}z_{m-r-L}^\star\right\rvert\\[1em]
-  \hat{m}_{DC} &= \argmax_m \left[\Phi_{DC}(m)\right]
-  \end{aligned}
-$$
-
-Desventajas:
-
--   El valor máximo de $\Phi_{DC}$ varía porque la potencia de $z_m$ varía.
--   Puede encontrar falsos máximos, en particular cuando la SNR es alta
-
-#### Métrica ML {#métrica-ml}
-
-Estima con el criterio de máxima verosimilitud, asumiendo que las señales recibidas son independientes exceptuando las réplicas.
-
-$$
-  \begin{aligned}
-  \Phi_{ML}(m)&=2 \left\lvert\sum_{r=0}^{R-1}z_{m-r}z_{m-r-L}^\star\right\rvert - \frac{1}{1+\text{SNR}^{-1}} \sum_{r=0}^{R-1}\left[|z_{m-r}|^2+|z_{m-r-L}|^2\right]\\[1em]
-  \hat{m}_{ML} &= \argmax_m \left[\Phi_{ML}(m)\right]
-  \end{aligned}
-$$
-
-En donde la relación señal ruido está definida como $\text{SNR} = \sigma_s^2/\sigma_n^2$.
-
-Desventajas
-
--   La estimación de la SNR es computacionalmente compleja
--   El error en estimación de SNR se propaga al estimador
-
-#### Métrica MMSE {#métrica-mmse}
-
-Estima el con criterio de mínimo error cuadrático medio, asumiendo que las señales recibidas son independientes exceptuando las réplicas.
+Existen varias técnicas y mirándolas eligiría el criterio MMSE. Estima el con criterio de mínimo error cuadrático medio, asumiendo que las señales recibidas son independientes exceptuando las réplicas.
 
 $$
   \begin{aligned}
@@ -945,9 +980,32 @@ $$
   \end{aligned}
 $$
 
-Es equivalente al método de máxima verosimilitud a SNR infinita.
+Es equivalente al método de máxima verosimilitud asumiendo SNR infinita.
 
-### Detección de *Symbol Timing* Fina {#detección-de-symbol-timing-fina}
+### Estimación de *Carrier Frequency Offset*
+
+Existen mil métodos y a partir de una lectura breve eligiría el BLUE (Best Linear Unbiased Estimator).
+
+Si el preámbulo tiene $U > 2$ repeticiones idénticas, con $R$ muestras en un período tal que $N=RU$ muestras existen, se parte de calcular varias autocorelaciones a partir de $uR$ muestras.
+
+$$
+ \Phi_{BLUE}(u) = \frac{1}{N-uR} \sum_{m=uR}^{N-1} z_mz^\ast_{m-uR} \qquad\qquad u\in[0, K]
+$$
+
+Se mide la diferencia de fase entre todo par de autocorrelaciones con diferencia en tiempo $R$.
+
+$$
+  \phi(u) = \left[\angle\{\Phi_{BLUE}(u)\}-\angle\{\Phi_{BLUE}(u-1)\}\right]_{2\pi} \qquad\qquad u\in[1,K]
+$$
+
+El estimador BLUE consiste en un promedio ponderado de estas diferencias de fase.
+
+$$
+  \frac{\hat{\Delta f}}{f_S} = \frac{U}{2\pi}\sum_{u=1}^K w_u\phi(u) \qquad \text{con} \qquad w_u = 3 \frac{(U-u)(U-u+1)- K(U-K)}{K(4K^2-6UK+3U^2-1)} 
+$$
+
+El valor óptimo de $K$ para adquirir varianza mínima del estimador es $K=U/2$
+
 
 ## Modelo Canal OFDM {#modelo-canal-ofdm}
 
