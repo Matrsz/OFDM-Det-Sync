@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg viewBox="0 0 1408 150" xmlns="http://www.w3.org/2000/svg" xmlns:inkspace="http://www.inkscape.org/namespaces/inkscape" xmlns:xlink="http://www.w3.org/1999/xlink" width="1408px" height="150px">
+  <defs id="defs_block">
+    <filter height="1.504" id="filter_blur" inkspace:collect="always" width="1.1575" x="-0.07875" y="-0.252">
+      <feGaussianBlur id="feGaussianBlur3780" inkspace:collect="always" stdDeviation="4.2" />
+    </filter>
+  </defs>
+  <title>blockdiag</title>
+  <desc>{
+  default_fontsize = 20
+  node_height = 70
+  default_group_color = none
+  default_linecolor = white
+  default_textcolor = white
+  default_node_color = none
+
+  OP [label="+ Ondas
+Piloto"]
+  GI [label="+ Guard
+Interval"]
+  FIL [label="Filtro
+Salida"]
+
+  MOD -&gt; OP -&gt; IFFT -&gt; GI -&gt; FIL -&gt; DAC -&gt; TX
+}</desc>
+  <rect fill="none" height="70" stroke="rgb(255,255,255)" width="128" x="256" y="40" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="20" font-style="normal" font-weight="normal" text-anchor="middle" textLength="87" x="320.5" y="74">+ Ondas</text>
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="20" font-style="normal" font-weight="normal" text-anchor="middle" textLength="57" x="320.5" y="95">Piloto</text>
+  <rect fill="none" height="70" stroke="rgb(255,255,255)" width="128" x="640" y="40" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="20" font-style="normal" font-weight="normal" text-anchor="middle" textLength="87" x="704.5" y="74">+ Guard</text>
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="20" font-style="normal" font-weight="normal" text-anchor="middle" textLength="80" x="704.0" y="95">Interval</text>
+  <rect fill="none" height="70" stroke="rgb(255,255,255)" width="128" x="832" y="40" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="20" font-style="normal" font-weight="normal" text-anchor="middle" textLength="56" x="896.0" y="74">Filtro</text>
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="20" font-style="normal" font-weight="normal" text-anchor="middle" textLength="63" x="896.5" y="95">Salida</text>
+  <rect fill="none" height="70" stroke="rgb(255,255,255)" width="128" x="64" y="40" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="20" font-style="normal" font-weight="normal" text-anchor="middle" textLength="52" x="128.0" y="85">MOD</text>
+  <rect fill="none" height="70" stroke="rgb(255,255,255)" width="128" x="448" y="40" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="20" font-style="normal" font-weight="normal" text-anchor="middle" textLength="50" x="512.0" y="85">IFFT</text>
+  <rect fill="none" height="70" stroke="rgb(255,255,255)" width="128" x="1024" y="40" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="20" font-style="normal" font-weight="normal" text-anchor="middle" textLength="45" x="1088.5" y="85">DAC</text>
+  <rect fill="none" height="70" stroke="rgb(255,255,255)" width="128" x="1216" y="40" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="20" font-style="normal" font-weight="normal" text-anchor="middle" textLength="28" x="1280.0" y="85">TX</text>
+  <path d="M 384 75 L 440 75" fill="none" stroke="rgb(255,255,255)" />
+  <polygon fill="rgb(255,255,255)" points="447,75 440,71 440,79 447,75" stroke="rgb(255,255,255)" />
+  <path d="M 768 75 L 824 75" fill="none" stroke="rgb(255,255,255)" />
+  <polygon fill="rgb(255,255,255)" points="831,75 824,71 824,79 831,75" stroke="rgb(255,255,255)" />
+  <path d="M 960 75 L 1016 75" fill="none" stroke="rgb(255,255,255)" />
+  <polygon fill="rgb(255,255,255)" points="1023,75 1016,71 1016,79 1023,75" stroke="rgb(255,255,255)" />
+  <path d="M 192 75 L 248 75" fill="none" stroke="rgb(255,255,255)" />
+  <polygon fill="rgb(255,255,255)" points="255,75 248,71 248,79 255,75" stroke="rgb(255,255,255)" />
+  <path d="M 576 75 L 632 75" fill="none" stroke="rgb(255,255,255)" />
+  <polygon fill="rgb(255,255,255)" points="639,75 632,71 632,79 639,75" stroke="rgb(255,255,255)" />
+  <path d="M 1152 75 L 1208 75" fill="none" stroke="rgb(255,255,255)" />
+  <polygon fill="rgb(255,255,255)" points="1215,75 1208,71 1208,79 1215,75" stroke="rgb(255,255,255)" />
+</svg>

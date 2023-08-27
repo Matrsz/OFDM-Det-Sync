@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg viewBox="0 0 824 370" xmlns="http://www.w3.org/2000/svg" xmlns:inkspace="http://www.inkscape.org/namespaces/inkscape" xmlns:xlink="http://www.w3.org/1999/xlink" width="824px" height="370px">
+  <defs id="defs_block">
+    <filter height="1.504" id="filter_blur" inkspace:collect="always" width="1.1575" x="-0.07875" y="-0.252">
+      <feGaussianBlur id="feGaussianBlur3780" inkspace:collect="always" stdDeviation="4.2" />
+    </filter>
+  </defs>
+  <title>blockdiag</title>
+  <desc>{
+  default_fontsize = 20
+  node_height = 70
+  node_width = 100
+  default_group_color = none
+  default_linecolor = white
+  default_textcolor = white
+  default_node_color = none
+
+  IFFT [label="IFFT"]
+  CY [label="Cyclic
+Prefix"]
+  CH [label="Channel"]
+  RP [label="Remove
+Prefix"]
+  FFT [label="FFT"]
+  TX [label="TX", width=70, shape=circle]
+  RX [label="RX", width=70, shape=circle]
+  
+  TX -&gt; IFFT 
+  group{ 
+    IFFT -&gt; CY 
+  group {
+    orientation = portrait
+    CY -&gt; CH -&gt; RP [thick]
+  }
+  RP -&gt; FFT
+  }
+  FFT -&gt; RX
+}</desc>
+  <rect fill="none" height="310" style="filter:url(#filter_blur)" width="444" x="190" y="30" />
+  <rect fill="none" height="310" style="filter:url(#filter_blur)" width="116" x="354" y="30" />
+  <rect fill="none" height="70" stroke="rgb(255,255,255)" width="100" x="198" y="40" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="20" font-style="normal" font-weight="normal" text-anchor="middle" textLength="50" x="248.0" y="85">IFFT</text>
+  <rect fill="none" height="70" stroke="rgb(255,255,255)" width="100" x="362" y="40" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="20" font-style="normal" font-weight="normal" text-anchor="middle" textLength="60" x="412.0" y="76">Cyclic</text>
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="20" font-style="normal" font-weight="normal" text-anchor="middle" textLength="60" x="412.0" y="97">Prefix</text>
+  <rect fill="none" height="70" stroke="rgb(255,255,255)" width="100" x="362" y="150" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="20" font-style="normal" font-weight="normal" text-anchor="middle" textLength="84" x="412.0" y="195">Channel</text>
+  <rect fill="none" height="70" stroke="rgb(255,255,255)" width="100" x="362" y="260" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="20" font-style="normal" font-weight="normal" text-anchor="middle" textLength="81" x="412.5" y="294">Remove</text>
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="20" font-style="normal" font-weight="normal" text-anchor="middle" textLength="60" x="412.0" y="315">Prefix</text>
+  <rect fill="none" height="70" stroke="rgb(255,255,255)" width="100" x="526" y="260" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="20" font-style="normal" font-weight="normal" text-anchor="middle" textLength="42" x="576.0" y="305">FFT</text>
+  <ellipse cx="99" cy="75" fill="none" rx="39.0" ry="39.0" stroke="rgb(255,255,255)" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="20" font-style="normal" font-weight="normal" text-anchor="middle" textLength="28" x="99.0" y="85">TX</text>
+  <ellipse cx="725" cy="295" fill="none" rx="39.0" ry="39.0" stroke="rgb(255,255,255)" />
+  <text fill="rgb(255,255,255)" font-family="sans-serif" font-size="20" font-style="normal" font-weight="normal" text-anchor="middle" textLength="30" x="725.0" y="305">RX</text>
+  <path d="M 138 75 L 190 75" fill="none" stroke="rgb(255,255,255)" />
+  <polygon fill="rgb(255,255,255)" points="197,75 190,71 190,79 197,75" stroke="rgb(255,255,255)" />
+  <path d="M 298 75 L 354 75" fill="none" stroke="rgb(255,255,255)" />
+  <polygon fill="rgb(255,255,255)" points="361,75 354,71 354,79 361,75" stroke="rgb(255,255,255)" />
+  <path d="M 626 295 L 678 295" fill="none" stroke="rgb(255,255,255)" />
+  <polygon fill="rgb(255,255,255)" points="685,295 678,291 678,299 685,295" stroke="rgb(255,255,255)" />
+  <path d="M 412 110 L 412 142" fill="none" stroke="rgb(255,255,255)" stroke-width="3" />
+  <polygon fill="rgb(255,255,255)" points="412,149 408,142 416,142 412,149" stroke="rgb(255,255,255)" />
+  <path d="M 412 220 L 412 252" fill="none" stroke="rgb(255,255,255)" stroke-width="3" />
+  <polygon fill="rgb(255,255,255)" points="412,259 408,252 416,252 412,259" stroke="rgb(255,255,255)" />
+  <path d="M 462 295 L 518 295" fill="none" stroke="rgb(255,255,255)" />
+  <polygon fill="rgb(255,255,255)" points="525,295 518,291 518,299 525,295" stroke="rgb(255,255,255)" />
+  <path d="M 412 110 L 412 142" fill="none" stroke="rgb(255,255,255)" stroke-width="3" />
+  <polygon fill="rgb(255,255,255)" points="412,149 408,142 416,142 412,149" stroke="rgb(255,255,255)" />
+  <path d="M 412 220 L 412 252" fill="none" stroke="rgb(255,255,255)" stroke-width="3" />
+  <polygon fill="rgb(255,255,255)" points="412,259 408,252 416,252 412,259" stroke="rgb(255,255,255)" />
+  <path d="M 462 295 L 518 295" fill="none" stroke="rgb(255,255,255)" />
+  <polygon fill="rgb(255,255,255)" points="525,295 518,291 518,299 525,295" stroke="rgb(255,255,255)" />
+</svg>
