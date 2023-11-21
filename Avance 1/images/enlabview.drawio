@@ -1,0 +1,79 @@
+<mxfile host="65bd71144e">
+    <diagram id="FqxVEFC9IEy7QZhOcc9W" name="Page-1">
+        <mxGraphModel dx="662" dy="614" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="9" style="edgeStyle=none;html=1;entryX=0;entryY=0;entryDx=0;entryDy=30;entryPerimeter=0;endArrow=none;endFill=0;" edge="1" parent="1" source="2" target="3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="Proceso&lt;br&gt;Poisson" style="shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=sequential;drawPins=0;left=1;right=1;bottom=1;top=0;rightArr=,;pinFontSize=13;" vertex="1" parent="1">
+                    <mxGeometry x="50" y="330" width="60" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" style="edgeStyle=none;html=1;exitX=0;exitY=0;exitDx=60;exitDy=30;exitPerimeter=0;entryX=0;entryY=0;entryDx=10;entryDy=30;entryPerimeter=0;endArrow=none;endFill=0;" edge="1" parent="1" source="3" target="4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="×" style="shadow=0;dashed=0;align=center;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=0;collapsible=0;kind=combinational;drawPins=1;left=%3Ai;right=:o;bottom=%3Ai;top=0;bottomAnchor=middle;topRot=270;topAnchor=middle;bottomRot=90;leftAnchor=left;leftRot=0;rightAnchor=right;rightRot=180;fontSize=40;spacingTop=-10;spacingLeft=2;editable=1;resizable=1;movable=1;rotatable=1;deletable=1;connectable=1;" vertex="1" parent="1">
+                    <mxGeometry x="170" y="330" width="60" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0;exitDx=60;exitDy=30;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=30;entryPerimeter=0;endArrow=none;endFill=0;" edge="1" parent="1" source="4" target="6">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="+" style="shadow=0;dashed=0;align=center;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=0;collapsible=0;kind=combinational;drawPins=1;left=%3Ai;right=:o;bottom=%3Ai;top=0;bottomAnchor=middle;topRot=270;topAnchor=middle;bottomRot=90;leftAnchor=left;leftRot=0;rightAnchor=right;rightRot=180;fontSize=40;spacingTop=-10;spacingLeft=2;editable=1;resizable=1;movable=1;rotatable=1;deletable=1;connectable=1;pinSnap=10;" vertex="1" parent="1">
+                    <mxGeometry x="260" y="330" width="60" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0;exitDx=60;exitDy=30;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=30;entryPerimeter=0;endArrow=none;endFill=0;" edge="1" parent="1" source="6" target="25">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Shift&lt;br&gt;Register" style="shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=sequential;drawPins=0;left=1;right=1;bottom=0;top=0;" vertex="1" parent="1">
+                    <mxGeometry x="370" y="330" width="60" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0;exitDx=60;exitDy=30;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=30;entryPerimeter=0;endArrow=none;endFill=0;" edge="1" parent="1" source="7" target="23">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="STS&lt;br&gt;Correlate" style="shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=sequential;drawPins=0;left=1;right=1;bottom=0;top=0;" vertex="1" parent="1">
+                    <mxGeometry x="610" y="260" width="60" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0;exitDx=60;exitDy=30;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=30;entryPerimeter=0;endArrow=none;endFill=0;" edge="1" parent="1" source="8" target="24">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Delay and&lt;br&gt;Correlate" style="shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=sequential;drawPins=0;left=1;right=1;bottom=0;top=0;" vertex="1" parent="1">
+                    <mxGeometry x="610" y="400" width="60" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0;exitDx=40;exitDy=0;exitPerimeter=0;entryX=0;entryY=0;entryDx=30;entryDy=60;entryPerimeter=0;endArrow=none;endFill=0;" edge="1" parent="1" source="13" target="2">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="Preamble" style="shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=sequential;drawPins=0;left=3;right=2;bottom=0;top=1;leftArr=,,;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="430" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0;exitDx=30;exitDy=0;exitPerimeter=0;entryX=0;entryY=0;entryDx=30;entryDy=60;entryPerimeter=0;endArrow=none;endFill=0;" edge="1" parent="1" source="14" target="3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="Err. Fase" style="shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=sequential;drawPins=0;left=3;right=2;bottom=0;top=1;" vertex="1" parent="1">
+                    <mxGeometry x="170" y="430" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0;exitDx=30;exitDy=0;exitPerimeter=0;entryX=0;entryY=0;entryDx=30;entryDy=60;entryPerimeter=0;endArrow=none;endFill=0;" edge="1" parent="1" source="15" target="4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="AWGN" style="shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=sequential;drawPins=0;left=1;right=2;bottom=0;top=1;topRot=0;" vertex="1" parent="1">
+                    <mxGeometry x="260" y="430" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="Shift&lt;br&gt;Register" style="shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=sequential;drawPins=0;left=1;right=1;bottom=0;top=0;" vertex="1" parent="1">
+                    <mxGeometry x="720" y="260" width="60" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="Shift&lt;br&gt;Register" style="shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=sequential;drawPins=0;left=1;right=1;bottom=0;top=0;" vertex="1" parent="1">
+                    <mxGeometry x="720" y="400" width="60" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0;exitDx=60;exitDy=30;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=30;entryPerimeter=0;endArrow=none;endFill=0;" edge="1" parent="1" source="25" target="7">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0;exitY=0;exitDx=60;exitDy=30;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=30;entryPerimeter=0;endArrow=none;endFill=0;" edge="1" parent="1" source="25" target="8">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="Ventana" style="shadow=0;dashed=0;align=center;html=1;strokeWidth=1;shape=mxgraph.rtl.abstract.entity;container=1;collapsible=0;kind=sequential;drawPins=0;left=1;right=1;bottom=0;top=0;" vertex="1" parent="1">
+                    <mxGeometry x="480" y="330" width="60" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

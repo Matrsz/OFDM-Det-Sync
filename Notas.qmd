@@ -1006,6 +1006,352 @@ $$
 
 El valor óptimo de $K$ para adquirir varianza mínima del estimador es $K=U/2$
 
+## Notas Procesamiento Estadístico de Señales {#notas-pes}
+
+### Regla de Decisión $\rightarrow$ Detección
+
+Suponemos dos hipótesis
+
+$$
+\begin{aligned}
+H_0: \quad & \mathbf{y} = \mathbf{w}\\
+H_1: \quad & \mathbf{y} = \mathbf{x} + \mathbf{n}\\
+\end{aligned}
+$$
+
+En donde $\mathbf{x}$ es el preámbulo y $\mathbf{w}\sim \mathcal{CN}[\mathbf{0}, \sigma^2 I]$ con $\sigma^2$ incógnita.
+
+Expresado en función de sus distribuciones.
+
+$$
+\begin{aligned}
+H_0: \quad & \mathbf{y} \sim \mathcal{CN}[\mathbf{0}, \sigma^2 I]\\
+H_1: \quad & \mathbf{y} \sim \mathcal{CN}[\mathbf{x}, \sigma^2 I]\\
+\end{aligned}
+$$
+
+A partir de $\mathbf{y}$ se define el estimador $\phi$, por ejemplo con el método _short sequence correlation_ 
+
+$$
+  \phi[n] = \sum_{k = 0}^{N-1} x^\ast[n-k]s[N-1-k]
+$$
+
+Donde $\mathbb{s}$ representa la _Short Traning Sequence_. A priori se supone que no existe error de frecuencia
+
+#### En caso de $H_0$ cierta
+
+$$
+  \phi[n] = \sum_{k = 0}^{N-1} s^\ast[N-1-k]w[n-k]
+$$
+
+Con $w[i] \sim \mathcal{CN}\left[0, \sigma_w^2\right]$ independientes idénticamente distribuidos
+
+Se propone expresar a la sumatoria de la siguiente forma
+
+$$
+  \phi = \mathbf{y}^\ast\mathbf{w} = \mathbf{y}^\ast I\mathbf{w} = \mathbf{1}^\ast M\mathbf{w}
+$$
+
+Con 
+
+$$
+M =
+\begin{bmatrix}
+y[M-1] & 0 & \cdots & 0 \\
+0 & y[M-2] &  & 0 \\
+\vdots &  &\ddots & \vdots \\
+0 & 0 & \cdots & y[0] 
+\end{bmatrix}
+$$
+
+Aplicando la propiedad $\mathbb{w} \sim \mathcal{CN}[\mathbf{\mu}, C] \implies \mathbf{w}' = M \mathbf{w} \sim \mathcal{CN}[M\mathbf{\mu}, MCM^\ast]$
+
+Podemos calcular la matriz de covarianza de $\mathbf{w}'$
+
+$$
+C' = M\sigma^2 I M^\ast = \sigma^2
+\begin{bmatrix}
+y[M-1] & 0 & \cdots & 0 \\
+0 & y[M-2] &  & 0 \\
+\vdots &  &\ddots & \vdots \\
+0 & 0 & \cdots & y[0] 
+\end{bmatrix}
+\begin{bmatrix}
+y^\ast[M-1] & 0 & \cdots & 0 \\
+0 & y^\ast[M-2] &  & 0 \\
+\vdots &  &\ddots & \vdots \\
+0 & 0 & \cdots & y^\ast[0] 
+\end{bmatrix}
+$$
+
+Resulta....
+
+$$
+C' =
+\begin{bmatrix}
+|y[M-1]|^2 & 0 & \cdots & 0 \\
+0 & |y[M-2]|^2&  & 0 \\
+\vdots &  &\ddots & \vdots \\
+0 & 0 & \cdots & |y[0]|^2 
+\end{bmatrix} \sigma^2
+$$
+
+La expresión queda 
+
+$$
+  \phi[n] = \mathbf{1}^\ast\mathbf{w}' = \sum_{k = 0}^{N-1} w'[n-k]
+$$
+
+Aplicando la propiedad de suma de variables aleatorias
+
+$$
+\begin{aligned}
+  \phi &\sim \mathcal{CN}\left[0, \text{Tr}[C']\sigma^2\right]\\
+  &\sim \mathcal{CN}\left[0, \sum_{k=0}^{N-1} |y[M-1-k]|^2 \sigma^2\right] \\
+    &\sim \mathcal{CN}[0, \lVert \mathbf{y} \rVert ^2 \sigma^2]
+\end{aligned}
+$$
+
+Finalmente se calcula el módulo $r = |\phi|$, que seguirá una distribución Rayleigh
+
+$$
+  r \sim \mathcal{Ray}[\lVert\mathbf{y}\rVert^2 \sigma^2] \implies f(r|H_0) = \frac{r}{\lVert\mathbf{y}\rVert^2\sigma^2}e^{-\frac{r^2}{2\lVert\mathbf{y}\rVert^2\sigma^2}}
+$$
+
+Además, se sabe que $r^2$ sigue una distribución exponencial
+
+
+$$
+  r^2 \sim \mathcal{Exp}[\lVert\mathbf{y}\rVert^2 \sigma^2] \implies f(r^2|H_0) = \frac{1}{\lVert\mathbf{y}\rVert^2\sigma^2}e^{-\frac{r}{\lVert\mathbf{y}\rVert^2\sigma}}
+$$
+
+### En caso de $H_1$ cierta
+
+$$
+  \phi = \mathbf{y}^\ast\left[A\mathbf{y}+\mathbf{w}\right] = A\mathbf{y}^\ast\mathbf{y}+\mathbf{y}^\ast\mathbf{w} = A\lVert\mathbf{y}\rVert^2 + \mathbf{y}^\ast\mathbf{w} 
+$$
+
+$$
+\phi \sim \mathcal{CN}[A\lVert\mathbf{y}\rVert^2, \lVert\mathbf{y}\rVert^2 \sigma^2]
+$$
+
+
+Finalmente se calcula el módulo $r = |\phi|$. Se sabe que seguirá una función $\chi$ no central, con 2 grados de libertad.
+
+La distribución es del parámetro
+
+$$
+Z = \sqrt{\frac{\text{Re}[\phi]^2}{\lVert\mathbf{y}\rVert^2 \sigma^2}+\frac{\text{Im}[\phi]^2}{\lVert\mathbf{y}\rVert^2 \sigma^2}} = \frac{|\phi|}{\lVert\mathbf{y}\rVert \sigma}
+$$
+
+Estará definida por $k=2$ y el parámetro $\lambda$
+
+$$
+  \lambda = \sqrt{\frac{\mu_x^2}{\sigma_x^2}+\frac{\mu_y^2}{\sigma_y^2}} = \frac{A}{\sigma}
+$$
+
+Interesa su función de probabilidad acumulada, que vale
+
+$$
+  F_Z(z) = 1 - Q_{1}(\lambda, z)
+$$
+
+Donde $Q_1$ es la función Macrum Q de primer orden
+
+$$
+  Q_1(\lambda, z) = \int_z^\infty x e^{-\frac{x^2+\lambda^2}{2}}I_0(\lambda x) dx  
+$$
+
+Con $I_0$ la función de Bessel modificada de primera especie
+
+$$
+  I_0(y) = \sum_{k=0}^\infty \frac{(y^2/4)^j}{j! \Gamma(j+1)} =\sum_{k=0}^\infty \frac{(y^2/4)^j}{(j!)^2}
+$$
+
+Transformando $R = \lVert\mathbf{y}\rVert \sigma Z$, aplicamos la propiedad $F_R(r)= F_Z\left(\frac{r}{\lVert\mathbf{y}\rVert \sigma}\right)$
+
+$$
+\begin{aligned}
+  F_R(r) &= 1 - Q_{1}\left(\frac{A}{\sigma}, \frac{r}{\lVert\mathbf{y}\rVert \sigma}\right)\\
+  &= \int_{\frac{r}{\lVert\mathbf{y}\rVert \sigma}}^\infty x \exp\left[-\frac{x^2+\frac{A^2}{\sigma^2}}{2}\right]I_0\left(\frac{A}{\sigma} x\right) dx\\
+  &= \int_{\frac{r}{\lVert\mathbf{y}\rVert \sigma}}^\infty x \exp\left[-\frac{x^2+\frac{A^2}{\sigma^2}}{2}\right]\sum_{k=0}^\infty \frac{\left(\frac{A^2x^2}{4\sigma^2}\right)^j}{(j!)^2}dx
+\end{aligned}
+$$
+
+
+### Probabilidad de Falsa Alarma
+
+$$
+  P_{FA} = \int_{T}^{+\infty} f(r|H_0) dr = 1-F(T|H_0)
+$$
+
+$$
+  P_{FA} = \int_{T}^{+\infty} \frac{r}{\lVert\mathbf{s}\rVert^2\sigma^2}e^{-\frac{r^2}{2\lVert\mathbf{s}\rVert^2\sigma^2}} dr = e^{-\frac{T^2}{2\lVert\mathbf{s}\rVert^2\sigma^2}} 
+$$
+
+Despejando T
+
+$$
+  T = \sqrt{-2 \lVert\mathbf{s}\rVert^2 \sigma^2 \ln\left[P_{FA}\right]}
+$$
+
+### Probabilidad de Detección
+
+$$
+  P_D = \int_{T}^{+\infty} f(r|H_1) dr = 1-F(T|H_1)
+$$
+
+$$
+  P_D = 1 - \int_{\frac{T}{\lVert\mathbf{y}\rVert \sigma}}^\infty x \exp\left[-\frac{x^2+\frac{A^2}{\sigma^2}}{2}\right]I_0\left(\frac{A}{\sigma} x\right) dx
+$$
+
+
+
+### Estimación del Ruido
+
+
+### Estimación LLMSE Secuencial 
+
+Partimos de una realización del ruido $\mathbf{x} = \begin{bmatrix} x[0] & \cdots &x[N-1] \end{bmatrix}$
+
+Proponemos estimador de la forma
+
+$$
+  \hat{\sigma}^2 = \sum_{k=0}^{N-1}a_nx[n]+a_N = \mathbf{a}^T\mathbf{x}+a_N
+$$
+
+Y queremos minimizar el error cuadrático medio
+
+$$
+MSE\left[\hat{\sigma}^2\right] = E\left[\left(\sigma^2-\hat{\sigma}^2\right)^2\right] =
+$$
+
+
+### Estimación MVUE
+
+
+Se propone encontrar el MVUE de la varianza del ruido, $\hat{\sigma}^2_{MVU}$. 
+
+Las opciones son
+
+1. Determinar la cota de Cramer-Rao y ver si algún estimador satisface dicha cota
+2. Aplicar el teorema de Rao-Blackwell-Lehmann-Scheffe
+   
+
+Se busca la cota de Cramer-Rao de $\sigma$
+
+$$
+  E\left[\frac{\partial \ln p(\mathbf{w}, \sigma^2)}{\partial \sigma^2}\right] \qquad \forall \qquad \sigma^2
+$$
+
+En donde
+
+$$
+ \mathbf{w}\sim\mathcal{CN}(0, K) \implies p(\mathbf{w},\sigma^2) = \frac{1}{\pi^n \det[K]}e^{- \mathbf{w}^\ast K^{-1}\mathbf{w}} =  p(\mathbf{w},\sigma^2) = \frac{1}{\left(\pi\sigma^2\right)^N}e^{- \frac{\mathbf{w}^\ast\mathbf{w}}{\sigma^2}} 
+$$
+
+Evaluamos cada etapa, $\ln p(\mathbf{w}, \sigma^2)$
+
+$$
+  \ln p(\mathbf{w},\sigma^2) = - \frac{N}{2} \ln\left[2\pi \sigma^2\right]-\frac{\sum_{n=0}^{N-1}w^2[n]}{2\sigma^2}
+$$
+
+$$
+  \frac{\partial \ln p(\mathbf{w},\sigma^2)}{\partial \sigma^2} = - \frac{N}{2} \cdot \frac{1}{2\pi \sigma^2}\cdot 2\pi+\frac{\sum_{n=0}^{N-1}w^2[n]}{2\left(\sigma^2\right)^2}
+$$
+
+$$
+  E\left[\frac{\partial \ln p(\mathbf{w},\sigma^2)}{\partial \sigma^2}\right] = -  \frac{N}{2 \sigma^2}+\frac{\sum_{n=0}^{N-1}E[w^2[n]]}{2\left(\sigma^2\right)^2}
+$$
+
+Sabiendo que $\sigma^2 = E[w^2]-E[w]^2$ y que $E[w] = 0$
+
+$$
+  E\left[\frac{\partial \ln p(\mathbf{w},\sigma^2)}{\partial \sigma^2}\right] = - \frac{N}{2 \sigma^2}+\frac{\sum_{n=0}^{N-1}\sigma^2}{2\left(\sigma^2\right)^2} =  -  \frac{N}{2 \sigma^2}+\frac{N}{2\sigma^2} = 0
+$$
+
+Se calcula la Información de Fischer
+
+$$
+ I\left(\sigma^2\right) = -E\left[\frac{\partial^2 \ln p(\mathbf{w},\sigma^2)}{\partial \left(\sigma^2\right)^2}\right]
+$$
+
+$$
+\frac{\partial^2 \ln p(\mathbf{w},\sigma^2)}{\partial \left(\sigma^2\right)^2} =   \frac{N}{2 \left(\sigma^2\right)^2}- \frac{1}{2} \frac{\sum_{n=0}^{N-1}w^2[n]}{2\left(\sigma^2\right)^3}
+$$
+
+$$
+\begin{aligned}
+E\left[\frac{\partial^2 \ln p(\mathbf{w},\sigma^2)}{\partial \left(\sigma^2\right)^2}\right] &=  
+  \left[ \frac{N}{2 \left(\sigma^2\right)^2}- \frac{1}{2} \frac{\sum_{n=0}^{N-1}w^2[n]}{2\left(\sigma^2\right)^3}\right]\\
+  &= 
+  \frac{N}{2 \left(\sigma^2\right)^2}- \frac{1}{2} \frac{\sum_{n=0}^{N-1}E[w^2[n]]}{2\left(\sigma^2\right)^3}
+  \end{aligned}
+$$
+
+Además se sabe que $w^2[n] = \sigma^2$
+
+$$
+\begin{aligned}
+E\left[\frac{\partial^2 \ln p(\mathbf{w},\sigma^2)}{\partial \left(\sigma^2\right)^2}\right] &=  
+  \frac{N}{2 \left(\sigma^2\right)^2}- \frac{1}{2} \frac{N\sigma^2}{2\left(\sigma^2\right)^3}\\
+  &=  
+  \frac{N}{2 \left(\sigma^2\right)^2}- \frac{1}{2} \frac{N}{2\left(\sigma^2\right)^2}
+   I\left(\sigma^2\right) &= 
+  \end{aligned}
+$$
+
+### Es $\phi$ o bien $r$ estadístico suficiente?
+
+Volvemos a la distribución de $r$
+
+$$
+ f(r|H_0) = \frac{r}{\lVert\mathbf{y}\rVert^2\sigma^2}e^{-\frac{r^2}{2\lVert\mathbf{y}\rVert^2\sigma^2}}
+$$
+
+Si se puede expresar de la forma, entonces...
+
+$$
+  f(\phi) = g(T(r), \sigma) h(r) = 
+$$
+
+
+Vamos con algo simple
+
+$$ 
+f (\mathbf{w}, \sigma^2) = \frac{1}{\left(\pi\sigma^2\right)^N}e^{-\frac{\mathbf{w}^\ast\mathbf{w}}{\sigma^2}} = g(T[\mathbf{w}]=\mathbf{w}^\ast\mathbf{w}, \sigma^2)
+$$
+
+Veamos si $T[\mathbf{w}]$ es un estadístico suficiente completo... ponele que si
+
+Entonces, hacemos una función para hacer que $T[\mathbf{w}]$ sea insesgado
+
+$$
+E\left[\mathbf{w}^\ast\mathbf{w}\right] = E\left[\sum_{k=0}^N |w[i]|^2\right] = N E\left[|w|^2\right]
+$$
+
+Sabiendo que 
+
+$$
+|w| \sim \mathcal{Ray}[\sigma^2] \implies E[|w|^2] = Var[|w|]+E[|w|]^2 = \frac{4-\pi}{2}\sigma^2 + \frac{\pi}{2}\sigma^2 = 2\sigma^2
+$$
+
+$$
+E\left[\mathbf{w}^\ast\mathbf{w}\right] = 2N\sigma^2 
+$$
+
+luego de mucho kilombo queda que el MVUE es, si el ruido es de media 0
+
+$$
+\hat{\sigma}_{MVU}^2 = \frac{\mathbf{w}^\ast\mathbf{w}}{2*(N-1)}
+$$
+
+Generalizado a $\mathbf{y}$ de media no-nula
+
+$$
+\hat{\sigma}_{MVU}^2 = \frac{\sum_{k=0}^{N-1}\left(y[k]-\bar{y}\right)^2}{2*(N-1)}
+$$
+
 
 ## Modelo Canal OFDM {#modelo-canal-ofdm}
 
