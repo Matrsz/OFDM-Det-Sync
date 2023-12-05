@@ -1173,11 +1173,16 @@ Transformando $R = \lVert\mathbf{y}\rVert \sigma Z$, aplicamos la propiedad $F_R
 $$
 \begin{aligned}
   F_R(r) &= 1 - Q_{1}\left(\frac{A}{\sigma}, \frac{r}{\lVert\mathbf{y}\rVert \sigma}\right)\\
-  &= \int_{\frac{r}{\lVert\mathbf{y}\rVert \sigma}}^\infty x \exp\left[-\frac{x^2+\frac{A^2}{\sigma^2}}{2}\right]I_0\left(\frac{A}{\sigma} x\right) dx\\
-  &= \int_{\frac{r}{\lVert\mathbf{y}\rVert \sigma}}^\infty x \exp\left[-\frac{x^2+\frac{A^2}{\sigma^2}}{2}\right]\sum_{k=0}^\infty \frac{\left(\frac{A^2x^2}{4\sigma^2}\right)^j}{(j!)^2}dx
+  &= 1 - \int_{\frac{r}{\lVert\mathbf{y}\rVert \sigma}}^\infty x \exp\left[-\frac{x^2+\frac{A^2}{\sigma^2}}{2}\right]I_0\left(\frac{A}{\sigma} x\right) dx\\
+  &= 1 - \int_{\frac{r}{\lVert\mathbf{y}\rVert \sigma}}^\infty x \exp\left[-\frac{x^2+\frac{A^2}{\sigma^2}}{2}\right]\sum_{k=0}^\infty \frac{\left(\frac{A^2x^2}{4\sigma^2}\right)^j}{(j!)^2}dx
 \end{aligned}
 $$
 
+Nota: hice un error y no se donde, en realidad la distribución es
+
+$$
+  F_R(r) = 1 - \int_{\frac{r}{\lVert\mathbf{y}\rVert \sigma}}^\infty x \exp\left[-\frac{x^2+\frac{A^2\lVert\mathbf{y}\rVert^2}{\sigma^2}}{2}\right]I_0\left(\frac{A\lVert\mathbf{y}\rVert}{\sigma} x\right) dx\\
+$$
 
 ### Probabilidad de Falsa Alarma
 
@@ -1202,10 +1207,20 @@ $$
 $$
 
 $$
-  P_D = 1 - \int_{\frac{T}{\lVert\mathbf{y}\rVert \sigma}}^\infty x \exp\left[-\frac{x^2+\frac{A^2}{\sigma^2}}{2}\right]I_0\left(\frac{A}{\sigma} x\right) dx
+  P_D = \int_{\frac{T}{\lVert\mathbf{s}\rVert \sigma}}^\infty x \exp\left[-\frac{x^2+\frac{A^2\lVert\mathbf{s}\rVert^2}{\sigma^2}}{2}\right]I_0\left(\frac{A\lVert\mathbf{s}\rVert}{\sigma} x\right) dx
 $$
 
+Remplazando la expresión del umbral de decisión...
 
+$$
+  P_D = \int_{\sqrt{-2\ln\left[P_{FA}\right]}}^\infty x \exp\left[-\frac{x^2+\frac{A^2\lVert\mathbf{s}\rVert^2}{\sigma^2}}{2}\right]I_0\left(\frac{A\lVert\mathbf{s}\rVert}{\sigma} x\right) dx
+$$
+
+Si definimos la SNR como $\text{SNR} = \dfrac{A^2}{\sigma^2}$... 
+
+$$
+  P_D = \int_{\sqrt{-2\ln\left[P_{FA}\right]}}^\infty x \exp\left[-\frac{x^2+\lVert\mathbf{s}\rVert^2\text{SNR}}{2}\right]I_0\left(\lVert\mathbf{s}\rVert \sqrt{\text{SNR}}\; x\right) dx
+$$
 
 ### Estimación del Ruido
 

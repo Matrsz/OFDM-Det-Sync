@@ -1,4 +1,4 @@
-# Sincronismo {#sincronismo}
+# Sincronismo {#notasrapidas-sincronismo}
 
 Señal recibida en banda base modificada por canal
 
@@ -28,7 +28,7 @@ x[m] = x(mT_s) =
 \right.
 $$
 
-## Banco de Correladores {#banco-de-correladores}
+## Banco de Correladores {#notasrapidas-banco-de-correladores}
 
 Vos ya conocés el preámbulo, vamos probando varios $\Delta f_i$
 
@@ -51,7 +51,7 @@ $$
 
 Se puede calcular que $|r_i[0]|$ es máximo cuando $\Delta f_i = \Delta f$, el max es $r_i[0]_{MAX}=h_0E_s$
 
-## Delay and correlate {#delay-and-correlate}
+## Delay and correlate {#notasrapidas-delay-and-correlate}
 
 No asume conocer el preámbulo, pero si su longitud, parte de correlacionar la señal con su réplica desplazada en tiempo
 
