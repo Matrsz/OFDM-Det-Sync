@@ -1147,7 +1147,7 @@ $$
 Estará definida por $k=2$ y el parámetro $\lambda$
 
 $$
-  \lambda = \sqrt{\frac{\mu_x^2}{\sigma_x^2}+\frac{\mu_y^2}{\sigma_y^2}} = \frac{A}{\sigma}
+  \lambda = \sqrt{\frac{\mu_x^2}{\sigma_x^2}+\frac{\mu_y^2}{\sigma_y^2}} = \frac{A \lVert\mathbf{s}\rVert}{\sigma}
 $$
 
 Interesa su función de probabilidad acumulada, que vale
@@ -1184,6 +1184,16 @@ $$
   F_R(r) = 1 - \int_{\frac{r}{\lVert\mathbf{y}\rVert \sigma}}^\infty x \exp\left[-\frac{x^2+\frac{A^2\lVert\mathbf{y}\rVert^2}{\sigma^2}}{2}\right]I_0\left(\frac{A\lVert\mathbf{y}\rVert}{\sigma} x\right) dx\\
 $$
 
+Entonces
+
+$$
+  \lambda = \frac{A\lVert\mathbf{s}}{\sigma}
+$$
+
+$$
+ f(r) = r \exp\left[-\frac{r^2+\frac{A^2\lVert\mathbf{y}\rVert^2}{\sigma^2}}{2}\right]I_0\left(\frac{A\lVert\mathbf{y}\rVert}{\sigma} r\right)
+$$
+
 ### Probabilidad de Falsa Alarma
 
 $$
@@ -1210,7 +1220,33 @@ $$
   P_D = \int_{\frac{T}{\lVert\mathbf{s}\rVert \sigma}}^\infty x \exp\left[-\frac{x^2+\frac{A^2\lVert\mathbf{s}\rVert^2}{\sigma^2}}{2}\right]I_0\left(\frac{A\lVert\mathbf{s}\rVert}{\sigma} x\right) dx
 $$
 
-Remplazando la expresión del umbral de decisión...
+### Expresión en función de SNR
+
+Hipótesis::
+
+$$
+\begin{aligned}
+H_0 &: \mathbf{y} = \mathbf{w}\\
+H_1 &: \mathbf{y} = A\mathbf{s} + \mathbf{w}
+\end{aligned}
+\qquad
+\mathbf{w}\sim\mathcal{CN}\left[\mathbf{0}, \sigma^2I\right]
+$$
+
+Umbral de decisión depende únicamente de la potencia de ruido
+
+$$
+T = \sqrt{-2\ln\left[P_{FA}\right]}\lVert\mathbf{s}\rVert\sigma
+$$
+
+Estadístico
+
+$$
+  r = \mathbf{x}^\ast\mathbf{s}
+$$
+
+
+Remplazando la expresión del umbral de decisión en la probabilidad de detección...
 
 $$
   P_D = \int_{\sqrt{-2\ln\left[P_{FA}\right]}}^\infty x \exp\left[-\frac{x^2+\frac{A^2\lVert\mathbf{s}\rVert^2}{\sigma^2}}{2}\right]I_0\left(\frac{A\lVert\mathbf{s}\rVert}{\sigma} x\right) dx
