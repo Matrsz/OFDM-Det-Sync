@@ -7,7 +7,7 @@
    viewBox="0 0 159.58166 27.843249"
    version="1.1"
    id="svg1"
-   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25, custom)"
    sodipodi:docname="sincT.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -25,10 +25,10 @@
      inkscape:document-units="mm"
      showgrid="true"
      inkscape:zoom="3.6989383"
-     inkscape:cx="314.1442"
-     inkscape:cy="58.395135"
-     inkscape:window-width="1680"
-     inkscape:window-height="980"
+     inkscape:cx="401.7369"
+     inkscape:cy="58.665482"
+     inkscape:window-width="1920"
+     inkscape:window-height="1130"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -252,7 +252,7 @@
          style="font-size:2.46944px;fill:#000000;stroke:none;stroke-width:0.265"
          x="21.399687"
          y="130.70445"><tspan
-   style="font-style:italic;font-size:2.46944px"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
    id="tspan9">h</tspan> canal</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;stroke-dashoffset:0;marker-start:url(#Stop);marker-end:url(#Stop)"

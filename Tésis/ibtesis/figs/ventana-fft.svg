@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="119.30127mm"
+   height="28.839582mm"
+   viewBox="0 0 119.30127 28.839583"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25, custom)"
+   sodipodi:docname="ventana-fft.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="3.4656912"
+     inkscape:cx="309.89489"
+     inkscape:cy="35.779299"
+     inkscape:window-width="1920"
+     inkscape:window-height="1130"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       id="grid1"
+       units="px"
+       originx="-32.940622"
+       originy="-111.12501"
+       spacingx="0.26458333"
+       spacingy="0.26458334"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       dotted="false"
+       gridanglex="30"
+       gridanglez="30"
+       visible="false" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1">
+    <rect
+       x="505.5"
+       y="68.000053"
+       width="0.0067047444"
+       height="14.500013"
+       id="rect25" />
+    <rect
+       x="505.5"
+       y="8.0000525"
+       width="1.8189894e-12"
+       height="70.000008"
+       id="rect24" />
+    <marker
+       style="overflow:visible"
+       id="Stop"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Stop"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1"
+         d="M 0,4 V -4"
+         id="path23" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Stop-2"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Stop"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1"
+         d="M 0,4 V -4"
+         id="path23-0" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Stop-2-2"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Stop"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1"
+         d="M 0,4 V -4"
+         id="path23-0-8" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-32.940623,-111.12501)">
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;line-height:0.95;font-family:'TexMaths Roman';-inkscape-font-specification:'TexMaths Roman, Normal';text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.264583, 0.79375;stroke-dashoffset:0"
+       x="15.849179"
+       y="124.34413"
+       id="text5"><tspan
+         sodipodi:role="line"
+         id="tspan5"
+         style="text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583"
+         x="15.849179"
+         y="124.34413" /></text>
+    <rect
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none"
+       id="rect1-4"
+       width="5.2916665"
+       height="31.750002"
+       x="119.06252"
+       y="-112.42213"
+       transform="rotate(90)" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;line-height:0.95;font-family:'TexMaths Roman';-inkscape-font-specification:'TexMaths Roman, Normal';text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.264583, 0.79375;stroke-dashoffset:0"
+       x="95.488747"
+       y="123.03126"
+       id="text6-9"><tspan
+         sodipodi:role="line"
+         id="tspan6-3"
+         style="stroke-width:0.264583"
+         x="95.488747"
+         y="123.03126">Símbolo OFDM</tspan></text>
+    <rect
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect13"
+       width="7.9375"
+       height="5.2916665"
+       x="72.734596"
+       y="119.06251" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Roman';-inkscape-font-specification:'TexMaths Roman, ';text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:none;stroke-dashoffset:0"
+       x="76.703346"
+       y="123.03126"
+       id="text14"><tspan
+         sodipodi:role="line"
+         id="tspan14"
+         style="font-size:3.175px;fill:#000000;stroke:none;stroke-width:0.264583"
+         x="76.703346"
+         y="123.03126">GI</tspan></text>
+    <rect
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none"
+       id="rect1-4-1"
+       width="5.2916665"
+       height="31.750002"
+       x="119.06252"
+       y="-72.760445"
+       transform="rotate(90)" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;line-height:0.95;font-family:'TexMaths Roman';-inkscape-font-specification:'TexMaths Roman, Normal';text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.264583, 0.79375;stroke-dashoffset:0"
+       x="55.827065"
+       y="123.03126"
+       id="text6-9-0"><tspan
+         sodipodi:role="line"
+         id="tspan6-3-6"
+         style="stroke-width:0.264583"
+         x="55.827065"
+         y="123.03126">Símbolo OFDM</tspan></text>
+    <rect
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect13-1"
+       width="7.9375"
+       height="5.2916665"
+       x="33.072914"
+       y="119.06251" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Roman';-inkscape-font-specification:'TexMaths Roman, ';text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:none;stroke-dashoffset:0"
+       x="37.041664"
+       y="123.03126"
+       id="text14-5"><tspan
+         sodipodi:role="line"
+         id="tspan14-9"
+         style="font-size:3.175px;fill:#000000;stroke:none;stroke-width:0.264583"
+         x="37.041664"
+         y="123.03126">GI</tspan></text>
+    <rect
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none"
+       id="rect1-4-9"
+       width="5.2916665"
+       height="31.750002"
+       x="119.06251"
+       y="-152.1096"
+       transform="rotate(90)" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;line-height:0.95;font-family:'TexMaths Roman';-inkscape-font-specification:'TexMaths Roman, Normal';text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.264583, 0.79375;stroke-dashoffset:0"
+       x="135.17622"
+       y="123.03124"
+       id="text6-9-1"><tspan
+         sodipodi:role="line"
+         id="tspan6-3-7"
+         style="stroke-width:0.264583"
+         x="135.17622"
+         y="123.03124">Símbolo OFDM</tspan></text>
+    <rect
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect13-7"
+       width="7.9375"
+       height="5.2916665"
+       x="112.42207"
+       y="119.06249" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Roman';-inkscape-font-specification:'TexMaths Roman, ';text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:none;stroke-dashoffset:0"
+       x="116.39082"
+       y="123.03124"
+       id="text14-1"><tspan
+         sodipodi:role="line"
+         id="tspan14-1"
+         style="font-size:3.175px;fill:#000000;stroke:none;stroke-width:0.264583"
+         x="116.39082"
+         y="123.03124">GI</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;line-height:0.95;font-family:'TexMaths Roman';-inkscape-font-specification:'TexMaths Roman, Normal';text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.264583, 0.79375;stroke-dashoffset:0"
+       x="15.849183"
+       y="99.20871"
+       id="text5-5"><tspan
+         sodipodi:role="line"
+         id="tspan5-3"
+         style="text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583"
+         x="15.849183"
+         y="99.20871" /></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,-0.15810961,111.65416)"
+       id="text24"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols';text-align:center;white-space:pre;shape-inside:url(#rect24);fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.999999;stroke-dasharray:none;stroke-dashoffset:0" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,-0.15810961,111.65416)"
+       id="text25"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.6667px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols';text-align:center;white-space:pre;shape-inside:url(#rect25);fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.999999;stroke-dasharray:none;stroke-dashoffset:0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:none;stroke-dashoffset:0"
+       d="m 133.58876,111.12501 0.002,23.56688"
+       id="path25" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;stroke-dashoffset:0;marker-start:url(#Stop);marker-end:url(#Stop)"
+       d="m 72.760413,116.41668 h 5.291668"
+       id="path8"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:2.46944px;font-family:P052;-inkscape-font-specification:'P052, Normal';text-align:start;text-anchor:start;fill:#000000;stroke:none;stroke-width:0.264999;stroke-dasharray:none;stroke-dashoffset:0"
+       x="72.784492"
+       y="114.98051"
+       id="text8"><tspan
+         sodipodi:role="line"
+         id="tspan8"
+         style="font-size:2.46944px;fill:#000000;stroke:none;stroke-width:0.265"
+         x="72.784492"
+         y="114.98051"><tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+   id="tspan9">h</tspan> canal</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;stroke-dashoffset:0;marker-start:url(#Stop);marker-end:url(#Stop)"
+       d="M 80.697913,130.96876 H 112.44791"
+       id="path9"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:2.46944px;font-family:P052;-inkscape-font-specification:'P052, Normal';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264999;stroke-dasharray:none;stroke-dashoffset:0"
+       x="96.590134"
+       y="130.25298"
+       id="text10"><tspan
+         sodipodi:role="line"
+         id="tspan10"
+         style="font-size:2.46944px;text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.265"
+         x="96.590134"
+         y="130.25298">ventana FFT ideal</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;stroke-dashoffset:0;marker-start:url(#Stop-2);marker-end:url(#Stop-2)"
+       d="M 83.343746,134.93751 H 115.09374"
+       id="path9-3"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:2.46944px;font-family:P052;-inkscape-font-specification:'P052, Normal';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264999;stroke-dasharray:none;stroke-dashoffset:0"
+       x="100.87999"
+       y="134.23866"
+       id="text10-7"><tspan
+         sodipodi:role="line"
+         id="tspan10-5"
+         style="font-size:2.46944px;text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.265"
+         x="100.87999"
+         y="134.23866">ISI con símbolo siguiente</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;stroke-dashoffset:0;marker-start:url(#Stop-2-2);marker-end:url(#Stop-2-2)"
+       d="m 75.40625,138.90626 h 31.74999"
+       id="path9-3-7"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793749;stroke-dashoffset:0"
+       d="m 80.696642,124.66291 0.0013,7.89336"
+       id="path12"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793749;stroke-dashoffset:0"
+       d="m 112.45166,124.64023 -0.004,7.91604"
+       id="path13"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793749;stroke-dashoffset:0"
+       d="M 115.09374,134.93751 V 124.35418"
+       id="path14"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793749;stroke-dashoffset:0"
+       d="m 75.406246,138.90626 -0.07037,-22.48958"
+       id="path15"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:2.46944px;font-family:P052;-inkscape-font-specification:'P052, Normal';text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264999;stroke-dasharray:none;stroke-dashoffset:0"
+       x="89.118492"
+       y="138.32812"
+       id="text1"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         style="font-size:2.46944px;text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.265"
+         x="89.118492"
+         y="138.32812">ISI con símbolo anterior</tspan></text>
+  </g>
+</svg>

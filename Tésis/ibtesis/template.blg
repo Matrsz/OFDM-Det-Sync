@@ -1,0 +1,55 @@
+This is BibTeX, Version 0.99d (TeX Live 2023/Arch Linux)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: template.aux
+The style file: ibtesis.bst
+A level-1 auxiliary file: resumen.aux
+A level-1 auxiliary file: cap1.aux
+A level-1 auxiliary file: cap2.aux
+A level-1 auxiliary file: cap3.aux
+A level-1 auxiliary file: cap4.aux
+A level-1 auxiliary file: apend1.aux
+Database file #1: mibib.bib
+Warning--I didn't find a database entry for "Philipp1982NCBSp75"
+Warning--empty author and editor in ieee
+You've used 1 entry,
+            2634 wiz_defined-function locations,
+            1041 strings with 9678 characters,
+and the built_in function-call counts, 220 in all, are:
+= -- 13
+> -- 1
+< -- 0
++ -- 1
+- -- 0
+* -- 12
+:= -- 26
+add.period$ -- 3
+call.type$ -- 1
+change.case$ -- 0
+chr.to.int$ -- 0
+cite$ -- 2
+duplicate$ -- 20
+empty$ -- 32
+format.name$ -- 0
+if$ -- 51
+int.to.chr$ -- 0
+int.to.str$ -- 1
+missing$ -- 5
+newline$ -- 9
+num.names$ -- 0
+pop$ -- 11
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 8
+stack$ -- 0
+substring$ -- 0
+swap$ -- 8
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 1
+while$ -- 0
+width$ -- 2
+write$ -- 12
+(There were 2 warnings)

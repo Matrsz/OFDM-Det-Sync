@@ -1,0 +1,27 @@
+\babel@toc {spanish}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {spanish}{}\relax 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Asignación de números según sus índices a subportadoras que constituyen un símbolo OFDM.\relax }}{5}{figure.caption.15}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Esquema de aplicación de IFFT de 64 puntos a una descripción en subportadoras de un símbolo OFDM.\relax }}{5}{figure.caption.16}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Esquema de aplicación de IFFT de 128 puntos a una descripción en subportadoras de un símbolo OFDM.\relax }}{6}{figure.caption.17}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Diagrama de aplicación de intervalo de guarda (prefijo cíclico) a un símbolo OFDM.\relax }}{6}{figure.caption.18}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Estructura de alto nivel de una PPDU según es definida en el estándar IEEE 802.11.\cite {ieee}\relax }}{7}{figure.caption.19}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Diagrama de aplicación de intervalo de guarda (prefijo cíclico) a una secuencia de entrenamiento del preámbulo.\relax }}{8}{figure.caption.20}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Asignación de subportadoras para la construcción del símbolo corto de entrenamiento.\relax }}{8}{figure.caption.21}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Secuencia de entrenamiento de símbolos cortos en el dominio temporal.\relax }}{9}{figure.caption.22}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Asignación de subportadoras para la construcción del símbolo largo de entrenamiento.\relax }}{9}{figure.caption.23}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Secuencia de entrenamiento de símbolos largos en el dominio temporal.\relax }}{10}{figure.caption.24}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Secuencia de entrenamiento de símbolos cortos en el dominio temporal.\relax }}{11}{figure.caption.25}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Secuencia de entrenamiento de símbolos cortos en el dominio temporal.\relax }}{12}{figure.caption.26}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Secuencia de entrenamiento de símbolos cortos en el dominio temporal.\relax }}{13}{figure.caption.27}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Secuencia de entrenamiento de símbolos cortos en el dominio temporal.\relax }}{14}{figure.caption.28}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Secuencia de entrenamiento de símbolos cortos en el dominio temporal.\relax }}{15}{figure.caption.29}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Secuencia de entrenamiento de símbolos cortos en el dominio temporal.\relax }}{15}{figure.caption.30}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Una figura con algunos puntos experimentales y curva de datos te\'{o}ricos\relax }}{26}{figure.caption.31}%

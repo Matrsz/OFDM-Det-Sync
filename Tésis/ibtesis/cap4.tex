@@ -1,0 +1,354 @@
+\chapter{Problema de Detección}
+\label{Ch:4}
+\graphicspath{{figs/}}
+
+\chapterquote{Quantum Mechanics is God's version of `Trust me.' }{Jorge Corona, 1982}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Formulaci\'{o}n del problema}
+\label{S:form-del-probl}
+
+El problema de detección se resolverá por medio de un test de hipótesis sobre una ventana de evaluación $\mathbf{y}$, de $N$ muestras en donde $N$ es la longitud de la \textit{Short Training Sequence}. La ventana representa las últimas $N$ muestras recibidas por el receptor.
+
+\begin{equation}\label{eq:def_y}
+    \mathbf{y} = \begin{bmatrix}
+        y[0] & y[1] & \cdots & y[N-1]
+    \end{bmatrix}
+\end{equation}
+
+Los pasos para realizar el test consisten en
+
+\begin{enumerate}
+    \item Definición de hipótesis acerca del orígen de las muestras de $\mathbf{y}$
+    \item Definición de un estadístico $\phi\left[\mathbf{y}\right]$ en función de las muestras.
+    \item Definición de una regla de decisión sobre $\phi$ para discriminar entre las hipótesis
+    \item Estimación de los parámetros necesarios para aplicar la regla de decisión
+\end{enumerate}
+
+
+\section{Definición de Hipótesis}
+\label{S:hipotesis}
+
+Se definen dos hipótesis, ausencia de \textit{Short Training Sequence} en la ventana de evaluación $(H_0)$, o presencia de la misma $(H_1)$. Formalmente definidas en la Ecuación \ref{eq:def_hip}
+
+\begin{equation}\label{eq:def_hip}
+    \begin{aligned}
+        H_0&: \quad \mathbf{y} = \mathbf{w}\\
+        H_1&: \quad \mathbf{y} = A\mathbf{s} + \mathbf{w}
+    \end{aligned}
+\end{equation}
+
+En donde $\mathbf{w}$ se suponen muestras de ruido normal complejo independientes idénticamente distribuídas. 
+
+\begin{equation}
+	\mathbf{w} \sim \mathcal{CN}\left[\mathbf{0},\, \sigma^2 I_N\right]
+\end{equation}
+
+Y $\mathbf{s}$ es una la referencia conocida de la \textit{Short Training Sequence}, de $N$ muestras de longitud. Estas muestras se ven afectadas en fase y magnitud por un factor complejo $A$.	
+
+\subsection{Definición de Relación Señal a Ruido}
+\label{Ss:def_snr}
+
+En el caso de hipótesis 1 verdadera, resulta conveniente definir una medida de la relación señal a ruido. La definición utilizada es el cociente entre la potencia media de una muestra de señal y la potencia media de una muestra de ruido.
+
+\begin{equation}
+\text{SNR} = \frac{\text{Potencia media señal}}{\text{Potencia media ruido}}
+\end{equation}
+
+La potencia media de la señal se calcula facilmente conociendo la forma del preámbulo. 
+
+\begin{equation}
+\bar{P}_s = \frac{1}{N}\sum_{k=0}^{N-1}\lvert A s[k] \rvert^2 = \frac{1}{N} \lvert A \rvert^2 \lVert \mathbf{s} \rVert^2
+\end{equation}
+
+La potencia media del ruido surge de las propiedades estadísticas de su distribución.
+
+\begin{equation}
+w[k] \sim \mathcal{CN}\left[0, \sigma^2\right]  \implies|w[k]| \sim \mathcal{R}ay\left[2\sigma^2\right]
+\end{equation}
+
+
+La media de la distribución Rayleigh es conocida así como lo es su varianza
+
+\begin{equation}
+E\left[\lvert w[k]\rvert\right] = \sigma \sqrt{\frac{\pi}{2}}\qquad V[\left\lvert w[k] \rvert\right] = \frac{4-\pi}{2} \sigma^2
+\end{equation}
+
+\begin{equation}
+E\left[\lvert w[k]\rvert^2\right] = V\left[\lvert w[k]\rvert\right] + E\left[\lvert w[k]\rvert\right]^2 = \frac{4-\pi}{2}\sigma^2 + \frac{\pi}{2}\sigma^2 = 2\sigma^2
+\end{equation}
+
+\begin{equation}
+\text{SNR} = \frac{\frac{1}{N} A^2 \lVert \mathbf{s} \rVert ^2}{2 \sigma^2}
+\end{equation}
+
+\section{Selección del Estadístico}
+
+El estadístico utilizado será el mismo que se calcula en el algoritmo de sincronismo correlación con \textit{Short Training Sequence}
+
+\begin{equation}
+    \phi[\mathbf{y}] = \left\lvert\sum_{k=0}^N s^\ast[k]y[k]\right\rvert = \lvert \mathbf{s}^\ast\mathbf{y}\rvert
+\end{equation}
+
+Por motivos del estudio de las propiedades del estadístico, $\phi$ se puede expresar de la siguiente forma
+
+\begin{equation}
+    \phi[\mathbf{y}] = \lvert \psi[\mathbf{y}]\vert
+\end{equation}
+
+En donde $\psi$ es el factor de correlación complejo entre la \textit{Short Training Sequence} y las muestras registradas
+
+\begin{equation}
+    \psi[\mathbf{y}] = \sum_{k=0}^N s^\ast[k]y[k] = \mathbf{s}^\ast\mathbf{y}
+\end{equation}
+
+\subsection{Regla de Decisión}
+
+Teniendo el estadístico, la regla de decisión elegida es en función de un umbral $T$. 
+
+\begin{equation}
+    \phi[\mathbf{y}]\mathop{\lessgtr}_{H_1}^{H_0}T
+\end{equation}
+
+En función del estadístico se definen la probabilidad de Falsa Alarma $P_{FA}$, la probabilidad de decidir por $H_1$ cuando $H_0$ es verdadera
+
+\begin{equation}
+    P_{FA} = \int_T^\infty f_\phi(\phi|H_0)d\phi = 1 - F_\phi(T|H_0)    
+\end{equation}
+
+Asimismo se define la probabilidad de Detección $P_D$, la probabilidad de decidir por $H_1$ cuando $H_1$ es verdadera
+
+\begin{equation}
+    P_{D} = \int_T^\infty f_\phi(\phi|H_1)d\phi = 1 - F_\phi(T|H_1)
+\end{equation}
+
+
+\section{En caso de Hipótesis 0 cierta}
+
+Se estudia la distribución del estadístico $\psi$ en el caso que $\mathbf{y}$ es únicamente ruido 
+
+\begin{equation}
+    \mathbf{y} | H_0 = \mathbf{w} \implies \psi[\mathbf{y}] | H_0= \sum_{k = 0}^{N-1} s^\ast[k]w[k]
+\end{equation}
+
+La distribución de $\psi | H_0$ se puede encontrar con propiedades de suma y escalamiento de la distribución normal compleja. En particular, la muestra $i$ de la sumatoria se encuentra escalada por la muestra $s[i]$ de la \textit{Short Training Sequence}. Esto se reduce a un caso particular de la propiedad
+
+\begin{equation}
+    \mathbf{w} \sim \mathcal{CN}[\mathbf{\mu}, C] \implies \mathbf{w}' = M \mathbf{w} \sim \mathcal{CN}[M\mathbf{\mu}, MCM^\ast]
+\end{equation}
+
+En donde la matriz $M$ es diagonal definida de la siguiente forma
+
+\begin{equation}
+    \begin{aligned}
+       & M_{i,i} = s[i]\\
+       & M_{i,j\ne i} = 0 
+    \end{aligned}
+\end{equation}
+
+Resulta
+
+\begin{equation}
+    \mathbf{w}'  \sim \mathcal{CN}[\mathbf{0}, C'] \qquad C' = MCM^\ast
+\end{equation}
+
+En donde
+
+\begin{equation}
+    \begin{aligned}
+        &C'_{i,i} = |s[i]|^2 \sigma^2\\
+        &C'_{i,j\ne i} = 0        
+    \end{aligned}
+\end{equation}
+
+\begin{equation}
+    \psi | H_0 = \sum_{k=0}^{N-1} w'[k]
+\end{equation}
+
+De esta forma aplicando las propiedades de suma de variables aleatorias
+
+\begin{equation}
+    \psi | H_0 \sim \mathcal{CN}\left[0, \lVert \mathbf{s} \rVert^2  \sigma^2 \right]
+\end{equation}
+
+A partir de la distribución de $\psi$ se conoce la distribución de $\phi$
+
+\begin{equation}
+    \phi | H_0 \sim \mathcal{R}ay \left[\lVert \mathbf{s}\rVert \sigma\right]
+\end{equation}
+
+\begin{equation}
+    f_\phi(\phi|H_0) = \frac{\phi}{\lVert\mathbf{s}\rVert \sigma}\exp\left[-\frac{\phi^2}{2\lVert\mathbf{s}\rVert^2 \sigma^2}\right]
+\end{equation}
+    
+\begin{equation}
+    F_\phi(\phi|H_0) = 1- \exp\left[-\frac{\phi^2}{2\lVert\mathbf{s}\rVert^2 \sigma^2}\right]    
+\end{equation}
+
+\section{En caso de Hipótesis 1 cierta}
+
+\begin{equation}
+    \psi | H_1 = \mathbf{s}^\ast\left(A\mathbf{s}+\mathbf{w}\right) = A\lVert\mathbf{s}\rVert^2+\mathbf{s}^\ast\mathbf{w}
+\end{equation}
+
+El caso es similar al anterior, con la diferencia de un desplazamiento de la media al factor determinista $A\rVert \mathbf{s} \rVert ^2$
+
+De esta forma la distribución de $\psi$ es similar
+
+\begin{equation}
+    \psi|H_0 \sim \mathcal{CN}[A\lVert\mathbf{s}\rVert^2, \lVert\mathbf{s}\rVert^2 \sigma^2]    
+\end{equation}
+
+Para encontrar la distribución de $\phi$ se pueden aplicar propiedades si se normaliza la variable aleatoria $\psi$ respecto a su desvío estándar. Siguiendo la definición de la distribución $\chi$ no central, la variable aleatoria. 
+
+\begin{equation}
+    Z = \sqrt{\sum_{i=1}^{k}\frac{X_i^2}{\sigma_i^2}}
+\end{equation}
+
+
+Seguirá la distribución $\chi$ no central con $k$ grados de libertad y parámetro $\lambda$ dado por
+
+\begin{equation}
+    \lambda = \sqrt{\sum_{i=1}^{k}\frac{\mu_i^2}{\sigma_i^2}}
+\end{equation}
+
+De esta forma se calcula $Z$ con 
+
+\begin{itemize}
+    \item $X_1 = \mathcal{R}e\left[\psi\right]$
+    \item $X_2 = \mathcal{I}m\left[\psi\right]$
+    \item $\sigma_1 = \sigma_2 = \lVert \mathbf{s} \rVert \sigma$
+    \item $\mu_1 = A\rVert\mathbf{s}\rVert^2$
+    \item $\mu_2 = 0$
+\end{itemize}
+
+Resulta la distribución
+
+\begin{equation}
+    \left.\tfrac{\phi}{\lVert s\rVert\sigma} \right\vert H_1 \sim \mathcal{NC\chi}_{2}\left[\lambda = \tfrac{A\lVert\mathbf{s}\rVert}{\sigma}\right] 
+\end{equation}
+
+
+Aplicando cambios de variables
+
+\begin{equation}
+    F_\phi(\phi|H_1) = 1-\int_{\frac{\phi}{\lVert\mathbf{s}\rVert\sigma}}^\infty x\exp\left[-\frac{x^2 + \frac{A^2\lVert\mathbf{s}\rVert^2}{\sigma^2}}{2}\right]I_0\left[\frac{A\lVert\mathbf{s}\rVert}{\sigma} x\right] dx
+\end{equation}
+
+Y derivando
+
+\begin{equation}
+    f_\phi(\phi|H_1) = \frac{\phi}{\lVert\mathbf{s}\rVert^2\sigma^2} \exp\left[-\frac{\phi^2 + A^2\lVert\mathbf{s}\rVert^4}{2\lVert\mathbf{s}\rVert^2\sigma^2}\right]I_0\left[\frac{A}{\sigma^2}\phi\right] dx
+\end{equation}
+
+\section{Estimación del Varianza del Ruido}
+
+Distribución de $\mathbf{w}$
+
+\begin{equation}
+    f(\mathbf{w}) = \frac{1}{\pi^N \det C} \exp\left[- \mathbf{w}^\ast C^{-1} \mathbf{w}\right]
+\end{equation}
+
+Al ser $C = \sigma^2 I_N$
+
+\begin{equation}
+    f(\mathbf{w}) = \frac{1}{\pi^N \sigma^{2N}} \exp\left[- \frac{\mathbf{w}^\ast \mathbf{w}}{\sigma^2}\right]
+\end{equation}
+
+se calcula el logaritmo
+
+\begin{equation}
+    \ln f(\mathbf{w}) = - \ln \left[\pi^N \nu^{N}\right] - \frac{\mathbf{w}^\ast \mathbf{w}}{\nu}
+\end{equation}
+
+\begin{equation}
+    \begin{aligned}
+    \frac{\partial \ln f(\mathbf{w})}{\partial \nu} &= - \frac{N\pi^N\nu^{N-1}}{\pi^N \nu^{N}} + \frac{\mathbf{w}^\ast \mathbf{w}}{\nu^2}\\
+    &= - \frac{N}{\nu} + \frac{\mathbf{w}^\ast \mathbf{w}}{\nu^2}
+    \end{aligned}
+\end{equation}
+
+\begin{equation}
+    \frac{\partial^2 \ln f(\mathbf{w})}{\partial \nu^2} =  \frac{N}{\nu^2} - 2  \frac{\mathbf{w}^\ast \mathbf{w}}{\nu^3}
+\end{equation}
+
+Además sabemos que $E[\mathbf{w}^\ast\mathbf{w}] = 2\nu$
+
+\begin{equation}
+    E\left[\frac{\partial^2 \ln f(\mathbf{w})}{\partial \nu^2}\right] =  \frac{N}{\nu^2} - 2  \frac{E\left[\mathbf{w}^\ast \mathbf{w}\right]}{\nu^3}
+\end{equation}
+
+\begin{equation}
+    E\left[\frac{\partial^2 \ln f(\mathbf{w})}{\partial \nu^2}\right] =  \frac{N}{\nu^2} -  \frac{4}{\nu^2}
+\end{equation}
+
+Aplicando el teorema de la cota de Cramer-Rao
+
+\begin{equation}
+    \frac{\partial \ln f(\mathbf{w})}{\partial \nu} =  I(\nu)\left(g(\nu)-\nu\right)
+\end{equation}
+
+\begin{equation}
+    - \frac{N}{\nu} + \frac{\mathbf{w}^\ast \mathbf{w}}{\nu^2} =  \frac{1}{\nu^2} \left(\mathbf{w}^\ast\mathbf{w}-N\nu \right)
+\end{equation}
+
+Hacemos algo distinto y diferente pero genial
+
+\begin{equation}
+    f(\mathbf{w}, \sigma^2) = \frac{1}{\pi^N \det C} \exp\left[- \mathbf{w}^\ast C^{-1} \mathbf{w}\right]
+\end{equation}
+
+Al ser $C = \sigma^2 I_N$
+
+\begin{equation}
+    f(\mathbf{w}, \sigma^2) = \frac{1}{\left(\pi \sigma^2\right)^N} \exp\left[- \frac{\mathbf{w}^\ast \mathbf{w}}{\sigma^2}\right]
+\end{equation}
+
+Ahora, si
+
+\begin{equation}
+    f(\mathbf{x}, \sigma^2) = g(T(\mathbf{w}), \sigma^2)h(\mathbf{w})
+\end{equation}
+
+se pueden hacer cosas, y efectivamente
+
+\begin{equation}
+    g(T(\mathbf{w}), \sigma^2) = \frac{1}{\left(\pi \sigma^2\right)^N} \exp\left[- \frac{\mathbf{w}^\ast \mathbf{w}}{\sigma^2}\right]
+\end{equation}
+
+con $T(\mathbf{w}) = \mathbf{w}^\ast\mathbf{w}$
+
+Es completo? Si, ponele
+
+Entonces necesitamos encontrar $g(T(\mathbf{w}))$ insesgado
+
+Cual es el sesgo de $T(\mathbf{w})$
+
+\begin{equation}
+    E\left[\mathbf{w}^\ast\mathbf{w}\right] =     E\left[\sum_{i=0}^{N-1}\lvert w[i]\rvert^2\right] 
+\end{equation}
+
+Sabemos que las $w[i]$ son iid, así que 
+
+\begin{equation}
+    E\left[\mathbf{w}^\ast\mathbf{w}\right] =     \sum_{i=0}^{N-1}E\left[\lvert w[i]\rvert^2\right] 
+\end{equation}
+
+Y ese valor esperado es conocido, así que
+
+\begin{equation}
+    E\left[\mathbf{w}^\ast\mathbf{w}\right] =  2N\sigma^2
+\end{equation}
+
+Aplicamos la corrección para conseguir el estimador MVUE
+
+\begin{equation}
+    \hat{\sigma}^2 = \frac{\mathbf{w}^\ast\mathbf{w}}{2N}
+\end{equation}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "template"
+%%% End: 
