@@ -1,140 +1,247 @@
-\chapter{Métodos de Sincronismo}
+\chapter{Métodos de sincronismo}
 \label{Ch:3}
 \graphicspath{{figs/}}
-\section{Sincronismo en OFDM}
+
+Este capítulo se centra en el problema de sincronismo. En la primera sección se define el sincronismo en sistemas que emplean OFDM con la especificación de dos tipos de error de sincronismo que afectan el desempeño de los sistemas: el desvío de temporización de símbolo y el desvío de frecuencia de portadora. 
+
+En la segunda sección se describen dos métodos para estimar los errores de sincronismo en cuestión: el banco de correladores y el algoritmo \textit{delay and correlate}. Finalmente, en la tercera sección se detalla cómo se implementaron estos métodos en LabVIEW, incluyendo diagramas en bloques de los algoritmos descritos en la sección anterior.
+
+\section{Sincronismo en sistemas OFDM}
 \label{S:ch3-sincronismo}
 
-\subsection{Sincronismo en Tiempo}
+En todo medio de transmisión resolver el problema de sincronismo es fundamental para permitir la correcta intrerpretación de la señal por parte del receptor. Se dice que el receptor no está sincronizado cuando desconoce los parámetros que son necesarios para recuperar una señal en banda base a partir de la recepción de esta señal en radiofrecuencia. La desviación entre un parámetro supuesto por el receptor y el ideal que permite la recepción óptima recibe el nombre de error de sincronismo. Sincronizar el receptor consiste en estimar los valores de estos parámetros y aplicar correcciones que permitan minimizar los errores.
+
+Existen cuatro tipos de error de sincronismo principales que afectan la recepción de señales OFDM: desvío de temporización de símbolo, desvío de reloj de muestreo, desvío de frecuencia de portadora, y error de fase de portadora \cite{chiueh}. En el proyecto se implementan algoritmos para sincronizar el desvío de de temporización de símbolo y el desvío de frecuencia de portadora.
+
+\subsection{Desvío de temporización de símbolo}
 \label{Ss:ch3-sincronismo-tiempo}
 
-La transmisión OFDM, tal como fue vista en el capítulo \ref{Ch:2}, consiste en el envío consecutivo de símbolos OFDM, construídos por una operación IFFT y la aplicación de un intervalo de guarda. Para recuperar los valores asignados a las subportadoras, el receptor debe aplicar una operación FFT al intervalo correcto. Por este motivo este tiene que ser capaz de identificar el instante en el que cada símbolo OFDM inicia.
+Se ha visto que la transmisión empleando OFDM consiste en el envío consecutivo de símbolos, construídos por una operación IFFT y la aplicación de un intervalo de guarda. Para recuperar los valores asignados a las subportadoras, el receptor debe realizar el proceso inverso a la generación del símbolo, es decir, remover la guarda y aplicar una operación FFT al intervalo correspondiente al resultado de la IFFT realizado por el transmisor.
 
-En un canal real, puede existir una respuesta al impulso finita que contamine las muestras pertenecientes a símbolos siguientes con las muestras pertenecientes al símbolo actual. El intervalo de guarda cumple la función de permitir que la respuesta al impulso del canal se extinga antes de la ventana FFT que aplicará el receptor.
-
-La interferencia inter-símbolos (ISI por sus siglas en inglés) en OFDM existe cuando la ventana FFT aplicada por el receptor se desvía respecto a la ideal. Si esta se adelanta se produce ISI con el símbolo siguiente, mientras que si se atrasa se produce ISI con el símbolo anterior.\\
-\begin{figure}[ht]
+En la práctica, los canales inalámbricos distorsionan la señal transmitida, llevando a que las muestras correspondientes a un símbolo contaminen las muestras pertenecientes a símbolos siguientes. El intervalo de guarda \color{Red} permite \color{black} que la respuesta al impulso del canal se extinga antes de la ventana FFT que aplicará el receptor, con el propósito de que las muestras del símbolo previo no influyan en las muestras que se llevarán al dominio transformado. La interferencia entre símbolos existe cuando la ventana FFT aplicada por el receptor se desvía respecto a la ideal, ya sea si esta se adelanta y toma muestras pertenecientes al símbolo siguiente, o si se atrasa y toma muestras afectadas por el símbolo previo. Este efecto se esquematiza en la Figura \ref{fig:ventana-fft}.
+\begin{figure}[t]
     \centering{}\includegraphics[width=\imsizeL ]{ventana-fft.pdf}
-    \caption{Secuencia de entrenamiento de símbolos cortos en el dominio temporal.\label{fig:ventana-fft}}  
+    \caption[Diagrama temporal de aplicación de ventana FFT a una secuencia de símbolos OFDM recibidos.]{Diagrama temporal de aplicación de ventana FFT a una secuencia de símbolos OFDM recibidos, describiendo la ventana ideal y los casos en los que una desviación temporal produce interferencia entre símbolos.\label{fig:ventana-fft}}  
 \end{figure}
 
-El sincronismo en tiempo requiere entonces identificar precisamente el instante en el que inició la recepción de una PPDU, así como conocer la longitud de los símbolos OFDM. En este capítulo se definen métodos para identificar la muestra precisa en la que la transmisión inicia utilizando la secuencia de entrenamiento de símbolos cortos definida en el capítulo \ref{Ch:2}.
+Sabiendo la duración de un símbolo OFDM y suponiendo que el reloj del receptor está suficientemente sincronizado con el reloj del transmisor, se espera que la ventana FFT esté correctamente sincronizada si se determina precisamente la muestra en la que inicia la trama recibida, por lo que identificar esta muestra es el paso inicial para evitar desvíos en temporización de símbolo.
 
-\subsection{Sincronismo en Frecuencia}
+\subsection{Desvío de frecuencia de portadora}
 \label{Ss:ch3-sincronismo-frecuencia}
 
-Se supone que una señal $x[n]$ generada en un transmisor en banda base y transmitida a través de un canal. La señal $x(t)$ llega a un receptor. La señal contiene un componente en fase y en cuadratura. 
+
+En los sistemas de comunicaciones digitales la señal en el dominio analógico que contiene la información a transmitir se le conoce como envolvente compleja, $x(t)$, y suele representarse a través de sus componentes en fase, $x_I(t)$, y en cuadratura, $x_Q(t)$, por medio de la relación
 \begin{equation}
-    x(t) = x_I(t)\cos(2\pi f_c t) + x_Q(t)\sin(2\pi f_c t)
+    x(t) = x_I(t)+jx_Q(t),
+\end{equation}
+mientras que la señal elevada a radiofrecuencia que se transmite por el canal inalámbrico recibe el nombre de $x_R(t)$, y se puede representar de la siguiente forma
+\begin{equation}
+    x_R(t) = x_I(t)\cos(2\pi f_c t) + x_Q(t)\sin(2\pi f_c t),
+\end{equation}
+en donde $f_c$ es la frecuencia de portadora.
+
+El receptor demodula $x_R(t)$ con con un demodulador coherente tal como el que se observa en la Figura \ref{fig:demod-err}, el cual utiliza osciladores locales. En una transmisión ideal el oscilador local conoce $f_c$, lo cual permite recuperar exactamente $x[n]$, siendo $x[n]=x(nT_s)$ la digitalización de la envolvente compleja a un intervalo de muestreo $T_s$. Sin embargo, el oscilador local del demodulador coherente que utiliza el receptor tiene una frecuencia propia la cual se puede expresar como $f_c+\Delta f$, donde $\Delta f$ denota un error de frecuencia entre los osciladores locales del transmisor y del receptor. Al demodular la señal en estas condiciones, la señal digital recibida se verá afectada por este error, resultando en una rotación lineal en fase dada por
+\begin{equation}
+    y[n] = x[n] e^{j2\pi\Delta f T_s n}.
 \end{equation}
 
-La frecuencia de portadora, $f_c$, es aquella tal que al demodular y muestrear $x(t)$ con un demodulador coherente tal como el que se observa en la figura \ref{fig:demod-err} se obtiendría exáctamente $x[n]$.
-
-\begin{figure}[ht]
+\begin{figure}[t]
     \centering{}\includegraphics[width=\imsize]{demod-err.pdf}
-    \caption{Secuencia de entrenamiento de símbolos cortos en el dominio temporal.\label{fig:demod-err}}  
+    \caption{Esquema de demodulador coherente, considerando un error de frecuencia entre la señal entrante y el oscilador local del demodulador.\label{fig:demod-err}}  
 \end{figure}
 
-Sin embargo, el receptor desconoce $f_c$, sino que demodula la señal con un oscilador local que tiene una frecuencia propia, expresada como $f_c+\Delta f$ en donde $\Delta f$ es el error de frecuencia, y contempla impresiciones en los osciladores locales del receptor y transmisor, así como efectos Doppler que pueden estar presentes en el canal.
-
-Además, se desconoce la fase con la que llega la señal, $\phi$, provocada por el camino óptico entre transmisor y receptor.
-
-Al demodular y muestrear la señal, se obtiene la señal $y[n]$, la cual una vez afectada por los errores en fase y en frecuencia será.\\
+Además, si se contempla que la fase inicial de la señal es desconocida, este error en fase también se manifiesta la señal en banda base de la siguiente forma:
 \begin{equation}
-    y[n] = x[n] e^{j(2\pi\Delta f T_s n + \phi)}
+    y[n] = x[n] e^{j(2\pi\Delta f T_s n+\phi)}.
 \end{equation}
+Los algoritmos de sincronismo utilizados en este proyecto son capaces de estimar el desvío en frecuencia de portadora sin ser afectados por el error en fase.
 
 
-\section{Banco de Correladores}
+\section{Algoritmos de sincronismo}
+
+En esta sección se describirán dos algoritmos de sincronismo capaces de identificar la muestra inicial de la trama y el desvío de frecuencia de portadora en base al conocimiento de la secuencia de entrenamiento de símbolos cortos. En \color{Green} la descripción los algoritmos, \color{black} las muestras de la secuencia de entrenamiento de símbolos cortos se agrupan en un vector denotado $\mathbf{s}$, siendo conocida su longitud en muestras, $N$. 
+
+Los métodos definen un \color{RoyalBlue} funcional \color{black} $\Phi$ a partir de las $N$ muestras más recientes de una señal recibida, agrupadas en un vector denominado $\mathbf{y}$. Teniendo $\Phi$ se estimará un instante $\widehat{n}$, que corresponde la muestra en la que se terminó de recibir la secuencia de entrenamiento de símbolos cortos y determina el inicio de la trama. Asociado a esa muestra se obtiene una estimación del desvío de frecuencia de portadora, $\widehat{\Delta f}$. 
+
+\subsection{Banco de correladores}
 \label{S:ch3-banco}
 
-Definiciones principales: la señal recibida lleva el nombre de $\mathbf{y}$, la secuencia de entrenamiento de símbolos cortos es conocida y lleva el nombre de $\mathbf{s}$, y tiene una longitud de $N$ muestras.
+Este método se basa en en buscar la forma conocida de la secuencia de entrenamiento de símbolos cortos en la señal recibida, calculando la correlación de $\mathbf{y}$ con señales llamadas referencias construídas a partir de $\mathbf{s}$. \color{Red} Con el motivo de simplificar la notación de las expresiones matemáticas $\mathbf{s}$ se indexa en 1 durante el desarrollo del método,
+\begin{equation}
+    \mathbf{s} = \begin{bmatrix}s[1] & \cdots & s[N]\end{bmatrix}.
+\end{equation}
+\color{black}
 
-\subsection{Estimación con una única referencia}
+\subsubsection{Estimación de inicio de trama con una única referencia}
 
-Suponemos que se desea sincronizar en tiempo y no existe error en frecuencia. Únicamente se desea una función que sea máxima al inicio del preámbulo. Una forma intuitiva de diseñar esa función es calculando la correlación de las últimas $N$ muestras de la señal recibida con el preámbulo, el cual es conocido por el receptor.
+Se desea identificar el instante de inicio de trama, bajo la suposición de que no existe desvío en frecuencia de portadoras. En estas condiciones la función que cumple el objetivo de ser máxima en el instante de interés es simplemente el módulo de la correlación con la secuencia de entrenamiento de símbolos cortos, dada por
 \begin{equation}\label{eq:correladores-1}
-    \Phi[n] = \left\lvert \sum_{k=1}^{N}y^\ast[n-k]s[N-k] \right\rvert
+    \Phi_{BC}[n] = \left\lvert \sum_{k=0}^{N-1}y^\ast[n-k]s[N-k] \right\rvert,
+\end{equation}
+\color{Red}donde el operador $^\ast$ refiere al complejo conjugado.\color{black}
+
+La aplicación del módulo causa que el error en fase no afecte al \color{RoyalBlue} funcional \color{black}, ya que este es una constante compleja de módulo unitario. Para validar este desempeño, en la Figura \ref{fig:banco-xcorr1} se grafica el resultado de calcular $\Phi_{BC}$ sobre una señal compuesta únicamente por un preámbulo al cual se le ha aplicado un error en fase. Se observa que $\Phi_{BC}$ alcanza su valor máximo en la muestra final de la secuencia de entrenamiento de símbolos cortos, por lo tanto $\widehat{n}$ es simplemente la muestra que lo maximiza,
+\begin{equation}
+    \widehat{n}_{BC} = \argmax_n\Phi_{BC}[n].
 \end{equation}
 
-Considerando la ecuación \ref{eq:correladores-1}, es fácil ver que $\Phi$ es máxima en el caso que las últimas $N$ muestras recibidas son exáctamente las muestras de $\mathbf{s}$, eventualmente modificadas por un factor de escala complejo, y que su valor es\\
-\begin{equation}\label{eq:correladores-2}
-    y[n-k] = As[N-k] \quad \rightarrow \quad \Phi = A \lVert \mathbf{s} \rVert
-\end{equation}
-
-Se observa que el error en fase no afecta la estimación del instante inicial de recepción.
-
-\begin{figure}[ht]
+\begin{figure}[t]
     \centering{}\includegraphics[width=\imsizeL]{banco-xcorr1.pdf}
-    \caption{Secuencia de entrenamiento de símbolos cortos en el dominio temporal.\label{fig:banco-xcorr1}}  
+    \caption[Aplicación del \color{RoyalBlue} funcional \color{black} $\Phi_{BC}$ a una señal recibida.]{Resultado de aplicación del \color{RoyalBlue} funcional \color{black} $\Phi_{BC}$ a una señal recibida que consiste en un preámbulo con error en fase.\label{fig:banco-xcorr1}}  
 \end{figure}
 
-
-\subsection{Estimación de error en frecuencia}
+\subsubsection{Estimación de desvío de frecuencia de portadora}
 \label{Ss:ch3-banco-frecuencias}
-El método de correlación con la secuencia de entrenamiento de símbolos cortos tal como fue definido es capaz de iniciar el sincronismo en tiempo, pero aún no es capaz de inicializar sincronismo en frecuencia. Efectivamente se demostró que un error en fase no afecta, pero si existe un error de frecuencia se degrada el valor del estimador. 
-
-Esta degradación se puede calcular definiendo el factor de rotación de fase
+El método tal como fue definido es capaz de estimar el inicio de trama, pero aún no es capaz de estimar el desvío de frecuencia de portadora. Si se contempla que $\mathbf{y}$ se ve afectada por un desvío en frecuencia de portadora tal como se modela en la Ecuación 3.3, al evaluar la Ecuación 3.5 se observará una degradación en el máximo de $\Phi_{BC}$, la que depende del factor de fase $T_s\Delta f$ y que se cuantificará definiendo el factor de degradación,
 \begin{equation}
-    \text{Factor de rotación de fase} = \Delta f T_s
+    \text{Factor de degradacíon} = \frac{\Phi_{Max}(\Delta f)}{\Phi_{Max}\lvert_{\Delta f = 0}}.
 \end{equation}
-
-Asimismo se define el factor de degradación
-\begin{equation}
-    \text{Factor de degradacíon} = \frac{\Phi_{Max}(\Delta f)}{\Phi_{Max}\lvert_{\Delta f = 0}}
-\end{equation}
-
-El factor de degradación en función del factor de rotación de fase se calcula numéricamente y se grafica en la figura \ref{fig:degradacion}.\\
-\begin{figure}[ht]
+El factor de degradación en función del factor de rotación de fase se calcula numéricamente y se grafica en la Figura \ref{fig:degradacion}.
+\begin{figure}[t]
     \centering{}\includegraphics[width=\imsize]{degradacion-err-freq.pdf}
-    \caption{Secuencia de entrenamiento de símbolos cortos en el dominio temporal.\label{fig:degradacion}}  
+    \caption[Factor de degradación del \color{RoyalBlue} funcional \color{black} $\Phi_{BC}$ en función del factor de rotación de fase.]{Resultado del cálculo numérico del factor de degradación del \color{RoyalBlue} funcional \color{black} $\Phi_{BC}$ en función del factor de rotación de fase.\label{fig:degradacion}}  
 \end{figure}
 
-En particular, el factor de degradación alcanza -3 dB para factores de rotación de fase de $\Delta f T_s = \pm 0.0037$.
 
-El principio utilizado para la estimación con un único correlador se puede utilizar para extender el método. Suponemos que se elige un rango de $M$ valores que puede tomar $\Delta f$. Es posible, para cada valor, generar una referencia del preámbulo con la rotación lineal en fase correspondiente a ese error en frecuencia.\\
+Al tomar en cuenta que un desvío de frecuencia de portadora provoca rotación lineal en fase predecible sobre $y[n]$, el principio utilizado para la estimación con un único correlador se puede extender para estimar $\Delta f$. Se eligen $M$ frecuencias equiespaciadas dentro de un rango de frecuencias $W$ en el que se espera que se encuentre contenido $\Delta f$. En particular, $M$ se elige impar, y las frecuenias equiespaciadas se denotan como $\Delta f_m$, tal que
 \begin{equation}
-    s_m[k] = s[k] e^{j2\pi \frac{m\Delta f}{M} T_s k}
+    \Delta f_m = \frac{mW}{M}, \qquad\qquad m \in \left[-\frac{M-1}{2},\,\frac{M-1}{2}\right].
+\end{equation}
+Luego, para cada $\Delta f_m$, se genera una referencia del preámbulo con la rotación lineal en fase correspondiente a ese error en frecuencia, matemáticamente
+\begin{equation}
+    r_m[k] = s[k] e^{j2\pi \Delta f_m T_s k}.
 \end{equation}
 
-El criterio de factor de rotación en fase se puede utilizar para elegir el espaciamiento entre frecuencias para las múltiples referencias. Algunas de las referencias creados usando este criterio se visualizan en la figura \ref{fig:references}.\\
-\begin{figure}[ht]
+Una manera de determinar el paso entre frecuencias adyancentes para las múltiples referencias, consiste en valerse del factor de degradación, bajo la convención de que el mismo tome el valor de -3 dB, lo que implica que el factor de rotación de fase sea menor a 0,0037, de donde se fijan los valores para $W$ y $M$. Aplicar este criterio considerando $T_{SHORT} = 8 \mu\text{s}$ y FFT de 64 puntos se obtiene que el espaciamiento en frecuencias debe ser de 21 kHz como máximo. En la Figura \ref{fig:references} se visualizan algunas referencias generadas usando este criterio.
+\begin{figure}[t]
     \centering{}\includegraphics[width=\imsizeL]{references.pdf}
-    \caption{Secuencia de entrenamiento de símbolos cortos en el dominio temporal.\label{fig:references}}  
+    \caption[Ejemplos de referencias para el \color{RoyalBlue} funcional \color{black} de banco de correladores.]{Ejemplos de referencias para el cálculo del \color{RoyalBlue} funcional \color{black} de banco de correladores, generadas considerando rotación lineal en fase producto de diferentes errores de frecuencia.\label{fig:references}}  
 \end{figure}
 
 
-Esto permite una extensión vectorial del estimador $\Phi$, asignándole un nombre oficial de $\Phi_{BC}$ de la siguiente forma.
+Teniendo las múltiples referencias se extiende vectorialmente el \color{RoyalBlue} funcional \color{black} $\Phi_{BC}$ calculado
 \begin{equation}\label{eq:correladores-banco}
-    \Phi_{BC}[n,m] = \left\lvert \sum_{k=1}^{N}y^\ast[n-k]s_m[N-k] \right\rvert
+    \overline{\Phi}_{BC}[n,m] = \left\lvert \sum_{k=1}^{N}y^\ast[n-k]r_m[N-k] \right\rvert.
 \end{equation}
 
-El resultado de aplicar el estimador a la señal entrante se representa en la figura \ref{fig:banco-xcorrN}.
+El resultado de aplicar $\overline{\Phi}_{BC}$ a una señal con rotación lineal en fase visualiza en la figura \ref{fig:banco-xcorrN}. Se observa que los índices $n$ y $m$ que maximizan el \color{RoyalBlue} funcional \color{black} son, respectivamente, la muestra final de la secuencia de entrenamiento de símbolos cortos y el índice de la referencia con $\Delta f_m$ más cercano a $\Delta f$. Estos índices serán $\widehat{n}_{BC}$ y $\widehat{m}_{BC}$, y este último se usará para calcular $\widehat{\Delta f}_{BC}$
+\begin{equation}
+    \widehat{n}_{BC}, \widehat{m}_{BC} = \argmax_{n,m}\overline{\Phi}_{BC}[n,m] \quad \implies \quad     \widehat{\Delta f}_{BC} = \frac{W}{M} \widehat{m}_{BC}.
+\end{equation}
 
-\begin{figure}[ht]
+\begin{figure}[t]
     \centering{}\includegraphics[width=\imsizeL]{banco-xcorrN.pdf}
-    \caption{Secuencia de entrenamiento de símbolos cortos en el dominio temporal.\label{fig:banco-xcorrN}}  
+    \caption[Aplicación del \color{RoyalBlue} funcional \color{black} $\overline{\Phi}_{BC}$ a una señal recibida con error en frecuencia.]{Resultado de aplicación del \color{RoyalBlue} funcional \color{black} $\overline{\Phi}_{BC}$ a una señal recibida que consiste en un preámbulo con rotación lineal en fase provocado por un desvío de frecuencia de protadora de -42 kHz. \color{Green} El funcional es representado como \textit{heatmap} y los índices del valor máximo se superponen sobre el gráfico del mismo, representando los estimadores de sincronismo obtenidos por el método. \color{black}\label{fig:banco-xcorrN}}  
 \end{figure}
 
-Se observa que $\Phi_{BC}$ definido en la ecuación \ref{eq:correladores-banco} será máximo cuando $n$ corresponda al instante en el que termina la secuencia de entrenamiento de símbolos cortos, y $m$ corresponda al íncice de referencia con error en frecuencia más cercano al error de frecuencia en recepción, permitiendo así sincronizar tanto en tiempo como en frecuencia.
 
-\subsection{Implementación en LabVIEW}
-\label{Ss:ch3-banco-labview}
-
-\section{Método \textit{Delay and Correlate}}
+\subsection{Método \textit{delay and correlate}}
 \label{S:ch3-dac}
 
-\subsection{Principio del Método}
+El método \textit{Delay and Correlate}, a diferencia del banco de correladores, no usa la forma de onda explícita de la secuencia de entrenamiento de símbolos cortos para sincronizar, sino que utiliza el conocimiento de su periodicidad. La estrategia se centra en tomar las últimas $N$ muestras de la señal recibida y evaluar si cumplen con la periodicidad esperada de la secuencia de entrenamiento de símbolos cortos. 
+
+\subsubsection{Sincronización en tiempo y frecuencia}
 \label{Ss:ch3-dac-principio}
 
-El método \textit{Delay and Correlate}, a diferencia del banco de correladores, no usa la forma de onda de la secuencia de entrenamiento de símbolos cortos para sincronizar, pero si utiliza el conocimiento de su periodicidad. En su versión más simple este método se basa en identificar una señal periódica de la longitud de la secuencia de entrenamiento en la señal entrante a través del estimador $\Phi_{DC}$.
-
-\begin{equation}
-    \Phi_{DC}[n] = \sum_{k=0}^{L}y^\ast[n-k]y[n-k-L]
+En su versión más simple, este método detecta la periodicidad de la señal comparando la primer mitad del intervalo de las últimas $N$ muestras recibidas con la segunda mitad del mismo, usando el factor de correlación, es decir
+\begin{equation}\label{eq:dac-estimator}
+    \Phi_{DC}[n] = \sum_{k=0}^{R}y^\ast[n-k]y[n-k-R],
 \end{equation}
 
-\subsection{Implementación en LabVIEW}
-\label{Ss:ch3-dac-labview}
+donde el parámetro $R$ es exáctamente $N/2$ donde $N$ es la longitud del preámbulo. Se puede verificar que el módulo de $\Phi_{DC}$ es máximo cuando las señales correspondientes a los dos intervalos evaluados son idénticas salvo por una rotación relativa en fase. De esta forma $\widehat{n}_{DC}$ nuevamente será la muestra que maximice el \color{RoyalBlue} funcional \color{black},
+\begin{equation}
+    \widehat{n}_{DC} = \argmax_n\lvert \Phi_{DC}[n] \lvert.
+\end{equation}
 
+A su vez, la fase de $\Phi_{DC}$ contiene información de la diferencia relativa en fase de las señales en cada intervalo, lo que permite estimar el error en frecuencia que provocó esa rotación. La fórmula para estimar el error en frecuencia con este método es la siguiente:
+\begin{equation}\label{eq:freq-est-dac}
+    \widehat{\Delta f}_{DC} = \frac{1}{2\pi L T_S}\angle\Phi_{DC}[\widehat{n}_{DC}].
+\end{equation}
+
+Los resultados de la aplicación de $\Phi_{DC}$ sobre una señal recibida con rotación lineal en fase se visualizan en la Figura \ref{fig:dac-result}.
+\begin{figure}[t]
+    \centering{}\includegraphics[width=\imsizeL]{delay-and-correlate-result.pdf}
+    \caption[Aplicación del \color{RoyalBlue} funcional \color{black} $\Phi_{DC}$ a una señal recibida con error en frecuencia.]{Resultado de aplicación del \color{RoyalBlue} funcional \color{black} $\Phi_{DC}$ a una señal recibida que consiste en un preámbulo con rotación lineal en fase provocado por un desvío de frecuencia de protadora de -42 kHz. \color{Red} Los valores complejos de $\Phi_{DC}$ se grafican en su representación módulo y fase.\color{black}\label{fig:dac-result}}  
+\end{figure}
+
+
+\section{Implementaciones en LabVIEW}
+\label{Ss:ch3-labview}
+
+La implementación en LabVIEW de los métodos instancia algoritmos para calcular los \color{RoyalBlue} funcionales \color{black} de sincronismo en determinado instante de muestreo $n$. En estos casos se considera una ventana de evaluación que recibe el nombre de $\mathbf{v}$, y son las últimas $N$ muestras recibidas,
+\color{Red}
+\begin{equation}
+    \mathbf{v}[n] = 
+    \begin{bmatrix}
+        y[n-N+1] &  \cdots & y[n]
+    \end{bmatrix}.
+\end{equation}
+\color{black}
+En las expresiones para calcular los \color{RoyalBlue} funcionales \color{black} usando cada método, $\overline{\Phi}_{BC}$ y $\Phi_{DC}$ respectivamente, se omite el índice $n$ ya que este es implícitamente el instante de muestreo en el que se ejecutan las operaciones. 
+
+
+\subsection{Implementación del banco de correladores}
+
+\begin{figure}[t]
+    \centering{}\includegraphics[width=\imsizeL]{xpstopdf/refs-lv.pdf}
+    \caption[Diagrama dn bloques de la generación de la matriz de referencias implementada en LabVIEW.]{Diagrama en bloques de la generación de referencias necesarias para calcular el \color{RoyalBlue} funcional \color{black} $\overline{\Phi}_{BC}$ implementada en LabVIEW.\label{fig:refs_lv}}  
+\end{figure}
+
+\begin{figure}[t]
+    \centering{}\includegraphics[width=\imsize]{xpstopdf/banco-phi-lv.pdf}
+    \caption[Diagrama de bloques del cálculo de $\overline{\Phi}_{BC}$ implementado en LabVIEW.]{Diagrama de bloques del cálculo del \color{RoyalBlue} funcional \color{black} $\overline{\Phi}_{BC}$ implementado en LabVIEW.\label{fig:bancox_lv}}  
+\end{figure}
+
+El cálculo del \color{RoyalBlue} funcional \color{black} $\overline{\Phi}_{BC}$ implementado en LabVIEW se ve en el diagrama de bloques presentado en la Figura \ref{fig:bancox_lv}. Requiere de una matriz de referencias, llamada $R$, la cual es una matriz de $M \times N$ en donde cada fila $m$ son las $N$ muestras de la secuencia de entrenamiento de símbolos cortos con el correspondiente error de frecuencia aplicado,
+\begin{equation}
+    R_{M\times N} = \begin{bmatrix}
+       \cdots & \mathbf{r}_{0} & \cdots\\
+       \cdots & \mathbf{r}_{1} & \cdots\\
+       & \vdots & \\
+       \cdots & \mathbf{r}_{M-1} & \cdots
+    \end{bmatrix}.
+\end{equation}
+Ésta se construye a partir del diagrama de bloques presentado en la Figura \ref{fig:refs_lv}, en el que se toma un rango de errores de frecuencia $W$ y un número de frecuencias $M$, la secuencia de entrenamiento de símbolos cortos $\mathbf{s}$ y su duración $T_{SHORT}$. Este diagrama en bloques retorna la matriz de referencias y un vector de errores de frecuencia correspondiente a cada fila de la matriz.
+
+El diagrama de bloques presentado en la Figura \ref{fig:bancox_lv} calcula $\overline{\Phi}_{BC}$ a partir de $R$ y $\mathbf{v}$. Para hacerlo itera sobre las filas de $R$, en cada iteración calculando el factor de correlación de la ventana con la referencia. Esto se consigue con la operación producto interno, y el resultado es un vector de $M$ elementos
+\begin{equation}
+    \overline{\Phi}_{BC} = \begin{bmatrix}
+        \mathbf{v} \cdot \mathbf{r}_{0}\\
+        \mathbf{v} \cdot \mathbf{r}_{1}\\
+        \vdots\\
+        \mathbf{v} \cdot \mathbf{r}_{M-1}
+    \end{bmatrix}.
+\end{equation}
+
+\subsection{Implementación del método \textit{delay and correlate}}
+
+La implementación del método delay and correlate en LabVIEW resulta mucho más simple, su diagrama en bloques se presenta en la Figura \ref{fig:delayx_lv}. El método calcula $L = N/2$ y usa ese valor para particionar $\mathbf{v}$, luego calcula el factor de correlación entre las dos partes por medio del producto interno,
+\begin{equation}\textstyle
+    \Phi_{DC} = \mathbf{v}_1 \cdot \mathbf{v}_2,
+\end{equation}
+donde $\mathbf{v}_1$ y $\mathbf{v}_2$ son la primera y la segunda mitad de $\mathbf{v}$ respectivamente.
+
+\begin{figure}[t]
+    \centering{}\includegraphics[width=\imsize]{xpstopdf/delayx-phi-lv.pdf}
+    \caption[Diagrama de bloques del cálculo de $\Phi_{DC}$ implementado en LabVIEW.]{Diagrama de bloques del cálculo del \color{RoyalBlue} funcional \color{black} $\Phi_{DC}$ implementado en LabVIEW.\label{fig:delayx_lv}}  
+\end{figure}
+
+\color{Green}
+\subsection{Complejidad computacional de las implementaciones}
+Ya que el tiempo de cómputo es importante para la operación en línea de un algoritmo, resulta importante comparar la complejidad computacional de los métodos implementados. 
+
+Ambos métodos se implementan a partir de la operación producto interno entre vectores, la cual tiene un orden de complejidad $\mathcal{O}(N)$. Sin embargo, el método \textit{delay and correlate} ejecuta esta operación una vez mientras que el banco de correladores lo ejecuta un número de veces igual del número de referencias utilizadas, resultando en un orden de complejidad $\mathcal{O}(MN)$.
+
+La construcción de las referencias usadas en el banco de correladores, a su vez, incorporan el producto externo en su implementación, el cual también es de orden de complejidad $\mathcal{O}(MN)$. Sin embargo, a diferencia del cálculo de los funcional que requieren calcularse para cada muestra recibida, las referencias se pueden precalcular durante la inicializacón por lo que no influyen en las capacidades de ejecución en línea del algoritmo. 
+
+
+\color{black}
+
+\section{Resumen del capítulo}
+
+En este capítulo se definieron los tipos de de error de sincronismo que se deben estimar para la correcta recepción de tramas OFDM: el desvío de temporización de símbolo y el desvío de frecuencia de portadora. 
+
+Se definieron dos métodos que son capaces de realizar un sincronismo inicial tanto en tiempo como en frecuencia, haciendo uso del conocimiento del preámbulo definido en el estándar IEEE 802.11, estos métodos son el banco de correladores y el método de retardo y correlación. Una vez descritos los métodos se ilustró cómo fueron implementados en LabVIEW por medio de diagramas en bloques. 
 
 %%% Local Variables: 
 %%% mode: latex

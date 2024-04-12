@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2024.2.23)  6 MAR 2024 20:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2024.2.23)  12 APR 2024 20:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -475,7 +475,114 @@ LaTeX Info: Redefining \genfrac on input line 149.
 \cur@row=\count312
 \cur@col=\count313
 \conditionsep=\skip80
-))
+) (/usr/share/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2021/11/30 v1.9d multicolumn formatting (FMi)
+\c@tracingmulticols=\count314
+\mult@box=\box62
+\multicol@leftmargin=\dimen258
+\c@unbalance=\count315
+\c@collectmore=\count316
+\doublecol@number=\count317
+\multicoltolerance=\count318
+\multicolpretolerance=\count319
+\full@width=\dimen259
+\page@free=\dimen260
+\premulticols=\dimen261
+\postmulticols=\dimen262
+\multicolsep=\skip81
+\multicolbaselineskip=\skip82
+\partial@page=\box63
+\last@line=\box64
+\maxbalancingoverflow=\dimen263
+\mult@rightbox=\box65
+\mult@grightbox=\box66
+\mult@firstbox=\box67
+\mult@gfirstbox=\box68
+\@tempa=\box69
+\@tempa=\box70
+\@tempa=\box71
+\@tempa=\box72
+\@tempa=\box73
+\@tempa=\box74
+\@tempa=\box75
+\@tempa=\box76
+\@tempa=\box77
+\@tempa=\box78
+\@tempa=\box79
+\@tempa=\box80
+\@tempa=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\@tempa=\box94
+\@tempa=\box95
+\@tempa=\box96
+\@tempa=\box97
+\@tempa=\box98
+\@tempa=\box99
+\@tempa=\box100
+\@tempa=\box101
+\@tempa=\box102
+\@tempa=\box103
+\@tempa=\box104
+\c@minrows=\count320
+\c@columnbadness=\count321
+\c@finalcolumnbadness=\count322
+\last@try=\dimen264
+\multicolovershoot=\dimen265
+\multicolundershoot=\dimen266
+\mult@nat@firstbox=\box105
+\colbreak@box=\box106
+\mc@col@check@num=\count323
+) (/usr/share/texmf-dist/tex/latex/was/upgreek.sty
+Package: upgreek 2003/02/12 v2.0 (WaS)
+Package upgreek Info: Using Euler Roman for upright Greek on input line 31.
+\symugrf@m=\mathgroup9
+LaTeX Font Info:    Overwriting symbol font `ugrf@m' in version `bold'
+(Font)                  U/eur/m/n --> U/eur/b/n on input line 38.
+) (/usr/share/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2019/06/20 v3.9 Customized lists
+\labelindent=\skip83
+\enit@outerparindent=\dimen267
+\enit@toks=\toks29
+\enit@inbox=\box107
+\enit@count@id=\count324
+\enitdp@description=\count325
+) (/usr/share/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2023/02/19 v1.6 Sub-captions (AR)
+Package caption Info: New subtype `subfigure' on input line 239.
+\c@subfigure=\count326
+Package caption Info: New subtype `subtable' on input line 239.
+\c@subtable=\count327
+) (/usr/share/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
+ (/usr/share/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 227.
+LaTeX Info: Redefining \color on input line 711.
+ (/usr/share/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1357.
+Package xcolor Info: Model `RGB' extended on input line 1369.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1371.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
+ (/usr/share/texmf-dist/tex/latex/graphics/dvipsnam.def
+File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+)))
 
 LaTeX Warning: Unused global option(s):
     [12pt,twoside].
@@ -487,50 +594,50 @@ LaTeX Info: Redefining \% on input line 23.
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 ) (./cap1.aux
-LaTeX Info: Redefining \. on input line 4.
-LaTeX Info: Redefining \% on input line 4.
-) (./cap2.aux) (./cap3.aux) (./cap4.aux) (./apend1.aux))
+LaTeX Info: Redefining \. on input line 9.
+LaTeX Info: Redefining \% on input line 9.
+) (./cap2.aux) (./cap3.aux) (./cap4.aux) (./cap5.aux) (./cap6.aux))
 \openout1 = `template.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Info: Redefining \. on input line 38.
-LaTeX Info: Redefining \% on input line 38.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Info: Redefining \. on input line 37.
+LaTeX Info: Redefining \% on input line 37.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: changepage package is loaded.
-\caption@adjustwidth@hsize=\dimen258
-\caption@adjustwidth@linewidth=\dimen259
+\caption@adjustwidth@hsize=\dimen268
+\caption@adjustwidth@linewidth=\dimen269
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
  (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count314
-\scratchdimen=\dimen260
-\scratchbox=\box62
-\nofMPsegments=\count315
-\nofMParguments=\count316
-\everyMPshowfont=\toks29
-\MPscratchCnt=\count317
-\MPscratchDim=\dimen261
-\MPnumerator=\count318
-\makeMPintoPDFobject=\count319
-\everyMPtoPDFconversion=\toks30
+\scratchcounter=\count328
+\scratchdimen=\dimen270
+\scratchbox=\box108
+\nofMPsegments=\count329
+\nofMParguments=\count330
+\everyMPshowfont=\toks30
+\MPscratchCnt=\count331
+\MPscratchDim=\dimen271
+\MPnumerator=\count332
+\makeMPintoPDFobject=\count333
+\everyMPtoPDFconversion=\toks31
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -572,17 +679,17 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package backref Info: ** backref set up for natbib ** on input line 38.
-Package hyperref Info: Link coloring ON on input line 38.
+Package backref Info: ** backref set up for natbib ** on input line 37.
+Package hyperref Info: Link coloring ON on input line 37.
 (./template.out) (./template.out)
 \@outlinefile=\write3
 \openout3 = `template.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 43.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 42.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 43.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 42.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
@@ -596,9 +703,10 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ] [5
 
 
-] [6
-
-] (./template.toc
+]
+LaTeX Info: Redefining \. on input line 80.
+LaTeX Info: Redefining \% on input line 80.
+ [6] (./template.toc
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 LaTeX Info: Redefining \. on input line 9.
@@ -608,29 +716,42 @@ LaTeX Info: Redefining \% on input line 11.
  [7
 
 
-])
+
+]
+LaTeX Info: Redefining \. on input line 73.
+LaTeX Info: Redefining \% on input line 73.
+ [8])
 \tf@toc=\write4
 \openout4 = `template.toc'.
 
-LaTeX Info: Redefining \. on input line 61.
-LaTeX Info: Redefining \% on input line 61.
- [8] (./template.lof
+LaTeX Info: Redefining \. on input line 84.
+LaTeX Info: Redefining \% on input line 84.
+
+
+Package fancyhdr Warning: \headheight is too small (15.6pt): 
+(fancyhdr)                Make it at least 15.68335pt, for example:
+(fancyhdr)                \setlength{\headheight}{15.68335pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.08334pt}.
+
+[9] [10
+
+] (./template.lof
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 LaTeX Info: Redefining \. on input line 3.
 LaTeX Info: Redefining \% on input line 3.
 LaTeX Info: Redefining \. on input line 5.
 LaTeX Info: Redefining \% on input line 5.
-)
+ [11
+
+])
 \tf@lof=\write5
 \openout5 = `template.lof'.
 
- [9
-
-
-] [10
-
-] (./template.lot
+LaTeX Info: Redefining \. on input line 86.
+LaTeX Info: Redefining \% on input line 86.
+ [12] (./template.lot
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 LaTeX Info: Redefining \. on input line 3.
@@ -641,35 +762,36 @@ LaTeX Info: Redefining \% on input line 5.
 \tf@lot=\write6
 \openout6 = `template.lot'.
 
- [11
+ [13
+
 
 ]
 \openout2 = `resumen.aux'.
 
- (./resumen.tex [12
+ (./resumen.tex [14
 
 
-] [13
-
-] [14
-
-]
-LaTeX Info: Redefining \. on input line 9.
-LaTeX Info: Redefining \% on input line 9.
- [15
-
+] [15
 
 ] [16
 
 ]
-LaTeX Info: Redefining \. on input line 9.
-LaTeX Info: Redefining \% on input line 9.
+LaTeX Info: Redefining \. on input line 16.
+LaTeX Info: Redefining \% on input line 16.
+ [17
+
+
+] [18
+
+]
+LaTeX Info: Redefining \. on input line 16.
+LaTeX Info: Redefining \% on input line 16.
 )
 \openout2 = `cap1.aux'.
 
  (./cap1.tex
 Cap\'{\i }tulo 1.
-) [1
+[1
 
 
 
@@ -677,285 +799,471 @@ Cap\'{\i }tulo 1.
 
 
 ]
+LaTeX Info: Redefining \. on input line 61.
+LaTeX Info: Redefining \% on input line 61.
+ [2])
+LaTeX Info: Redefining \. on input line 94.
+LaTeX Info: Redefining \% on input line 94.
+ [3]
 \openout2 = `cap2.aux'.
 
- (./cap2.tex [2
+ (./cap2.tex [4
 
 
 
 
 ]
 Cap\'{\i }tulo 2.
-[3]
-<figs//asignacion_subportadoras.pdf, id=379, 349.06984pt x 27.53383pt>
+
+Underfull \vbox (badness 3049) has occurred while \output is active []
+
+ [5]
+<figs//asignacion_subportadoras.pdf, id=589, 418.56375pt x 34.1275pt>
 File: figs//asignacion_subportadoras.pdf Graphic file (type pdf)
 <use figs//asignacion_subportadoras.pdf>
-Package pdftex.def Info: figs//asignacion_subportadoras.pdf  used on input line 70.
-(pdftex.def)             Requested size: 396.91324pt x 31.30779pt.
-LaTeX Info: Redefining \. on input line 73.
-LaTeX Info: Redefining \% on input line 73.
- [4{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-<figs//IFFT.pdf, id=392, 304.07591pt x 140.02315pt>
+Package pdftex.def Info: figs//asignacion_subportadoras.pdf  used on input line 29.
+(pdftex.def)             Requested size: 396.91324pt x 32.36208pt.
+
+Overfull \hbox (3.07037pt too wide) in paragraph at lines 38--50
+ [][] 
+ []
+
+LaTeX Info: Redefining \. on input line 77.
+LaTeX Info: Redefining \% on input line 77.
+[6 <./figs//asignacion_subportadoras.pdf>]
+<figs//IFFT.pdf, id=613, 188.31906pt x 140.02315pt>
 File: figs//IFFT.pdf Graphic file (type pdf)
 <use figs//IFFT.pdf>
-Package pdftex.def Info: figs//IFFT.pdf  used on input line 80.
-(pdftex.def)             Requested size: 308.71104pt x 142.1615pt.
-<figs//IFFT128.pdf, id=393, 304.07591pt x 140.02315pt>
+Package pdftex.def Info: figs//IFFT.pdf  used on input line 83.
+(pdftex.def)             Requested size: 198.45662pt x 147.56491pt.
+<figs//IFFT128.pdf, id=614, 188.705pt x 140.525pt>
 File: figs//IFFT128.pdf Graphic file (type pdf)
 <use figs//IFFT128.pdf>
-Package pdftex.def Info: figs//IFFT128.pdf  used on input line 86.
-(pdftex.def)             Requested size: 308.71104pt x 142.1615pt.
-LaTeX Info: Redefining \. on input line 89.
-LaTeX Info: Redefining \% on input line 89.
- [5 <./figs//asignacion_subportadoras.pdf> <./figs//IFFT.pdf
-
-pdfTeX warning: pdflatex (file ./figs//IFFT.pdf): PDF inclusion: multiple pdfs with page group included in a single page
->]
-<figs//prefix.pdf, id=529, 380.55238pt x 67.05429pt>
+Package pdftex.def Info: figs//IFFT128.pdf  used on input line 85.
+(pdftex.def)             Requested size: 198.45662pt x 147.78716pt.
+Package hyperref Info: bookmark level for unknown subfigure defaults to 0 on input line 86.
+<figs//prefix.pdf, id=617, 380.55238pt x 67.05429pt>
 File: figs//prefix.pdf Graphic file (type pdf)
 <use figs//prefix.pdf>
-Package pdftex.def Info: figs//prefix.pdf  used on input line 105.
-(pdftex.def)             Requested size: 308.71104pt x 54.39755pt.
-<figs//PPDU.pdf, id=530, 376.88806pt x 65.77971pt>
+Package pdftex.def Info: figs//prefix.pdf  used on input line 97.
+(pdftex.def)             Requested size: 396.91324pt x 69.94044pt.
+LaTeX Info: Redefining \. on input line 99.
+LaTeX Info: Redefining \% on input line 99.
+ [7{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./figs//IFFT.pdf> <./figs//IFFT128.pdf
+
+pdfTeX warning: pdflatex (file ./figs//IFFT128.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>]
+<figs//PPDU.pdf, id=828, 376.88806pt x 65.77971pt>
 File: figs//PPDU.pdf Graphic file (type pdf)
 <use figs//PPDU.pdf>
-Package pdftex.def Info: figs//PPDU.pdf  used on input line 115.
-(pdftex.def)             Requested size: 308.71104pt x 53.88147pt.
-LaTeX Info: Redefining \. on input line 118.
-LaTeX Info: Redefining \% on input line 118.
- [6 <./figs//IFFT128.pdf> <./figs//prefix.pdf
+Package pdftex.def Info: figs//PPDU.pdf  used on input line 109.
+(pdftex.def)             Requested size: 396.91324pt x 69.27646pt.
+LaTeX Info: Redefining \. on input line 122.
+LaTeX Info: Redefining \% on input line 122.
+ [8 <./figs//prefix.pdf> <./figs//PPDU.pdf
 
-pdfTeX warning: pdflatex (file ./figs//prefix.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+pdfTeX warning: pdflatex (file ./figs//PPDU.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-<figs//training_symbol.pdf, id=670, 380.92313pt x 65.5487pt>
+<figs//training_symbol.pdf, id=996, 380.92313pt x 65.5487pt>
 File: figs//training_symbol.pdf Graphic file (type pdf)
 <use figs//training_symbol.pdf>
-Package pdftex.def Info: figs//training_symbol.pdf  used on input line 137.
-(pdftex.def)             Requested size: 308.71104pt x 53.12416pt.
-LaTeX Info: Redefining \. on input line 140.
-LaTeX Info: Redefining \% on input line 140.
- [7 <./figs//PPDU.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 145--146
-
- []
-
-<figs//short_sc.pdf, id=827, 578.16pt x 216.81pt>
+Package pdftex.def Info: figs//training_symbol.pdf  used on input line 146.
+(pdftex.def)             Requested size: 396.91324pt x 68.30305pt.
+<figs//short_sc.pdf, id=999, 578.16pt x 216.81pt>
 File: figs//short_sc.pdf Graphic file (type pdf)
 <use figs//short_sc.pdf>
-Package pdftex.def Info: figs//short_sc.pdf  used on input line 158.
+Package pdftex.def Info: figs//short_sc.pdf  used on input line 165.
 (pdftex.def)             Requested size: 308.71104pt x 115.76558pt.
-<figs//short_time.pdf, id=830, 578.16pt x 216.81pt>
+LaTeX Info: Redefining \. on input line 167.
+LaTeX Info: Redefining \% on input line 167.
+ [9 <./figs//training_symbol.pdf>]
+<figs//short_time.pdf, id=1022, 578.16pt x 216.81pt>
 File: figs//short_time.pdf Graphic file (type pdf)
 <use figs//short_time.pdf>
-Package pdftex.def Info: figs//short_time.pdf  used on input line 164.
+Package pdftex.def Info: figs//short_time.pdf  used on input line 169.
 (pdftex.def)             Requested size: 308.71104pt x 115.76558pt.
-LaTeX Info: Redefining \. on input line 171.
-LaTeX Info: Redefining \% on input line 171.
-[8 <./figs//training_symbol.pdf> <./figs//short_sc.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 174--175
-
- []
-
-<figs//long_sc.pdf, id=896, 578.16pt x 216.81pt>
+LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 170.
+ (/usr/share/texmf-dist/tex/latex/base/ts1cmss.fd
+File: ts1cmss.fd 2022/07/10 v2.5l Standard LaTeX font definitions
+)
+<figs//long_sc.pdf, id=1026, 578.16pt x 216.81pt>
 File: figs//long_sc.pdf Graphic file (type pdf)
 <use figs//long_sc.pdf>
-Package pdftex.def Info: figs//long_sc.pdf  used on input line 188.
+Package pdftex.def Info: figs//long_sc.pdf  used on input line 191.
 (pdftex.def)             Requested size: 308.71104pt x 115.76558pt.
-<figs//long_time.pdf, id=899, 578.16pt x 216.81pt>
+<figs//long_time.pdf, id=1027, 578.16pt x 216.81pt>
 File: figs//long_time.pdf Graphic file (type pdf)
 <use figs//long_time.pdf>
-Package pdftex.def Info: figs//long_time.pdf  used on input line 194.
+Package pdftex.def Info: figs//long_time.pdf  used on input line 195.
 (pdftex.def)             Requested size: 308.71104pt x 115.76558pt.
-LaTeX Info: Redefining \. on input line 203.
-LaTeX Info: Redefining \% on input line 203.
-[9 <./figs//short_time.pdf> <./figs//long_sc.pdf>])
-LaTeX Info: Redefining \. on input line 72.
-LaTeX Info: Redefining \% on input line 72.
- [10 <./figs//long_time.pdf>]
+LaTeX Info: Redefining \. on input line 202.
+LaTeX Info: Redefining \% on input line 202.
+ [10 <./figs//short_sc.pdf> <./figs//short_time.pdf>])
+LaTeX Info: Redefining \. on input line 95.
+LaTeX Info: Redefining \% on input line 95.
+ [11 <./figs//long_sc.pdf> <./figs//long_time.pdf>]
 \openout2 = `cap3.aux'.
 
- (./cap3.tex
+ (./cap3.tex [12
+
+
+
+
+]
 Cap\'{\i }tulo 3.
-<figs//ventana-fft.pdf, id=1036, 339.44498pt x 82.05656pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [13]
+<figs//ventana-fft.pdf, id=1219, 339.44498pt x 82.05656pt>
 File: figs//ventana-fft.pdf Graphic file (type pdf)
 <use figs//ventana-fft.pdf>
-Package pdftex.def Info: figs//ventana-fft.pdf  used on input line 16.
+Package pdftex.def Info: figs//ventana-fft.pdf  used on input line 23.
 (pdftex.def)             Requested size: 396.91324pt x 95.94943pt.
-[11
-
-
-
-
- <./figs//ventana-fft.pdf>]
-<figs//demod-err.pdf, id=1063, 386.28265pt x 187.29976pt>
+LaTeX Info: Redefining \. on input line 40.
+LaTeX Info: Redefining \% on input line 40.
+ [14 <./figs//ventana-fft.pdf>]
+<figs//demod-err.pdf, id=1246, 386.28265pt x 187.29976pt>
 File: figs//demod-err.pdf Graphic file (type pdf)
 <use figs//demod-err.pdf>
-Package pdftex.def Info: figs//demod-err.pdf  used on input line 33.
+Package pdftex.def Info: figs//demod-err.pdf  used on input line 49.
 (pdftex.def)             Requested size: 308.71104pt x 149.68567pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--42
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- []
-
-
-Underfull \vbox (badness 4467) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 51.
-LaTeX Info: Redefining \% on input line 51.
- [12 <./figs//demod-err.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 59--60
-
- []
-
-<figs//banco-xcorr1.pdf, id=1093, 578.16pt x 289.08pt>
+LaTeX Info: Redefining \. on input line 63.
+LaTeX Info: Redefining \% on input line 63.
+ [15 <./figs//demod-err.pdf>]
+LaTeX Info: Redefining \. on input line 86.
+LaTeX Info: Redefining \% on input line 86.
+ [16]
+<figs//banco-xcorr1.pdf, id=1284, 578.16pt x 289.08pt>
 File: figs//banco-xcorr1.pdf Graphic file (type pdf)
 <use figs//banco-xcorr1.pdf>
-Package pdftex.def Info: figs//banco-xcorr1.pdf  used on input line 67.
+Package pdftex.def Info: figs//banco-xcorr1.pdf  used on input line 89.
 (pdftex.def)             Requested size: 396.91324pt x 198.45529pt.
-
-Underfull \vbox (badness 2698) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 75.
-LaTeX Info: Redefining \% on input line 75.
- [13 <./figs//banco-xcorr1.pdf>]
-<figs//degradacion-err-freq.pdf, id=1138, 361.35pt x 289.08pt>
+<figs//degradacion-err-freq.pdf, id=1286, 433.62pt x 216.81pt>
 File: figs//degradacion-err-freq.pdf Graphic file (type pdf)
 <use figs//degradacion-err-freq.pdf>
-Package pdftex.def Info: figs//degradacion-err-freq.pdf  used on input line 88.
-(pdftex.def)             Requested size: 308.71104pt x 246.97188pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 94--95
-
- []
-
-LaTeX Info: Redefining \. on input line 97.
-LaTeX Info: Redefining \% on input line 97.
-[14 <./figs//degradacion-err-freq.pdf>]
-<figs//references.pdf, id=1178, 578.16pt x 144.54pt>
+Package pdftex.def Info: figs//degradacion-err-freq.pdf  used on input line 101.
+(pdftex.def)             Requested size: 308.71104pt x 154.36293pt.
+LaTeX Info: Redefining \. on input line 113.
+LaTeX Info: Redefining \% on input line 113.
+ [17 <./figs//banco-xcorr1.pdf>]
+<figs//references.pdf, id=1345, 578.16pt x 144.54pt>
 File: figs//references.pdf Graphic file (type pdf)
 <use figs//references.pdf>
-Package pdftex.def Info: figs//references.pdf  used on input line 101.
+Package pdftex.def Info: figs//references.pdf  used on input line 117.
 (pdftex.def)             Requested size: 396.91324pt x 99.22763pt.
-<figs//banco-xcorrN.pdf, id=1180, 578.16pt x 289.08pt>
+
+Underfull \vbox (badness 1527) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 128.
+LaTeX Info: Redefining \% on input line 128.
+ [18 <./figs//degradacion-err-freq.pdf> <./figs//references.pdf>]
+<figs//banco-xcorrN.pdf, id=1409, 578.16pt x 289.08pt>
 File: figs//banco-xcorrN.pdf Graphic file (type pdf)
 <use figs//banco-xcorrN.pdf>
-Package pdftex.def Info: figs//banco-xcorrN.pdf  used on input line 114.
+Package pdftex.def Info: figs//banco-xcorrN.pdf  used on input line 133.
 (pdftex.def)             Requested size: 396.91324pt x 198.45529pt.
-LaTeX Info: Redefining \. on input line 130.
-LaTeX Info: Redefining \% on input line 130.
- [15 <./figs//references.pdf> <./figs//banco-xcorrN.pdf>])
-LaTeX Info: Redefining \. on input line 73.
-LaTeX Info: Redefining \% on input line 73.
- [16]
+LaTeX Font Info:    Font shape `OT1/cmss/m/it' in size <10> not available
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 134.
+LaTeX Info: Redefining \. on input line 152.
+LaTeX Info: Redefining \% on input line 152.
+ [19 <./figs//banco-xcorrN.pdf>]
+<figs//delay-and-correlate-result.pdf, id=1492, 578.16pt x 289.08pt>
+File: figs//delay-and-correlate-result.pdf Graphic file (type pdf)
+<use figs//delay-and-correlate-result.pdf>
+Package pdftex.def Info: figs//delay-and-correlate-result.pdf  used on input line 163.
+(pdftex.def)             Requested size: 396.91324pt x 198.45529pt.
+
+Underfull \vbox (badness 2980) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 181.
+LaTeX Info: Redefining \% on input line 181.
+ [20 <./figs//delay-and-correlate-result.pdf>]
+<figs//xpstopdf/refs-lv.pdf, id=1550, 472.76625pt x 371.3875pt>
+File: figs//xpstopdf/refs-lv.pdf Graphic file (type pdf)
+<use figs//xpstopdf/refs-lv.pdf>
+Package pdftex.def Info: figs//xpstopdf/refs-lv.pdf  used on input line 186.
+(pdftex.def)             Requested size: 396.91324pt x 311.80469pt.
+<figs//xpstopdf/banco-phi-lv.pdf, id=1551, 360.34625pt x 154.5775pt>
+File: figs//xpstopdf/banco-phi-lv.pdf Graphic file (type pdf)
+<use figs//xpstopdf/banco-phi-lv.pdf>
+Package pdftex.def Info: figs//xpstopdf/banco-phi-lv.pdf  used on input line 191.
+(pdftex.def)             Requested size: 308.71104pt x 132.42693pt.
+LaTeX Info: Redefining \. on input line 205.
+LaTeX Info: Redefining \% on input line 205.
+ [21 <./figs//xpstopdf/refs-lv.pdf>]
+<figs//xpstopdf/delayx-phi-lv.pdf, id=2713, 338.26375pt x 99.37125pt>
+File: figs//xpstopdf/delayx-phi-lv.pdf Graphic file (type pdf)
+<use figs//xpstopdf/delayx-phi-lv.pdf>
+Package pdftex.def Info: figs//xpstopdf/delayx-phi-lv.pdf  used on input line 225.
+(pdftex.def)             Requested size: 308.71104pt x 90.6918pt.
+LaTeX Info: Redefining \. on input line 232.
+LaTeX Info: Redefining \% on input line 232.
+ [22 <./figs//xpstopdf/banco-phi-lv.pdf> <./figs//xpstopdf/delayx-phi-lv.pdf
+
+pdfTeX warning: pdflatex (file ./figs//xpstopdf/delayx-phi-lv.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>])
+LaTeX Info: Redefining \. on input line 96.
+LaTeX Info: Redefining \% on input line 96.
+ [23]
 \openout2 = `cap4.aux'.
 
- (./cap4.tex
-Cap\'{\i }tulo 4.
-[17
+ (./cap4.tex [24
 
 
 
 
 ]
-Overfull \hbox (0.54715pt too wide) in paragraph at lines 59--60
-[]\OT1/cmr/m/n/12 La po-ten-cia me-dia de la se~nal se cal-cu-la fa-cil-men-te co-no-cien-do la for-ma del pre^^Sambu-
- []
+Cap\'{\i }tulo 4.
+[25]
+LaTeX Info: Redefining \. on input line 62.
+LaTeX Info: Redefining \% on input line 62.
+ [26]
+LaTeX Info: Redefining \. on input line 97.
+LaTeX Info: Redefining \% on input line 97.
+ [27]
+Underfull \vbox (badness 2564) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 92.
-LaTeX Info: Redefining \% on input line 92.
-[18]
-LaTeX Info: Redefining \. on input line 139.
-LaTeX Info: Redefining \% on input line 139.
- [19]
+LaTeX Info: Redefining \. on input line 136.
+LaTeX Info: Redefining \% on input line 136.
+ [28]
+LaTeX Info: Redefining \. on input line 164.
+LaTeX Info: Redefining \% on input line 164.
+ [29]
 LaTeX Info: Redefining \. on input line 204.
 LaTeX Info: Redefining \% on input line 204.
- [20]
-LaTeX Info: Redefining \. on input line 257.
-LaTeX Info: Redefining \% on input line 257.
- [21]
-LaTeX Info: Redefining \. on input line 322.
-LaTeX Info: Redefining \% on input line 322.
- [22])
-LaTeX Info: Redefining \. on input line 74.
-LaTeX Info: Redefining \% on input line 74.
- [23]
-\openout2 = `apend1.aux'.
+ [30]
+<figs//pfa_test.pdf, id=3419, 361.35pt x 216.81pt>
+File: figs//pfa_test.pdf Graphic file (type pdf)
+<use figs//pfa_test.pdf>
+Package pdftex.def Info: figs//pfa_test.pdf  used on input line 211.
+(pdftex.def)             Requested size: 308.71104pt x 185.2289pt.
+LaTeX Info: Redefining \. on input line 228.
+LaTeX Info: Redefining \% on input line 228.
+ [31 <./figs//pfa_test.pdf>]
+<figs//pd_vs_pfa.pdf, id=3477, 361.35pt x 216.81pt>
+File: figs//pd_vs_pfa.pdf Graphic file (type pdf)
+<use figs//pd_vs_pfa.pdf>
+Package pdftex.def Info: figs//pd_vs_pfa.pdf  used on input line 240.
+(pdftex.def)             Requested size: 308.71104pt x 185.2289pt.
+<figs//pd_vs_snr.pdf, id=3478, 361.35pt x 216.81pt>
+File: figs//pd_vs_snr.pdf Graphic file (type pdf)
+<use figs//pd_vs_snr.pdf>
+Package pdftex.def Info: figs//pd_vs_snr.pdf  used on input line 244.
+(pdftex.def)             Requested size: 308.71104pt x 185.2289pt.
+LaTeX Info: Redefining \. on input line 250.
+LaTeX Info: Redefining \% on input line 250.
+ [32 <./figs//pd_vs_pfa.pdf>]
+LaTeX Info: Redefining \. on input line 264.
+LaTeX Info: Redefining \% on input line 264.
+ [33 <./figs//pd_vs_snr.pdf>]
+<figs//hipotesis.pdf, id=3612, 578.16pt x 289.08pt>
+File: figs//hipotesis.pdf Graphic file (type pdf)
+<use figs//hipotesis.pdf>
+Package pdftex.def Info: figs//hipotesis.pdf  used on input line 268.
+(pdftex.def)             Requested size: 396.91324pt x 198.45529pt.
+LaTeX Info: Redefining \. on input line 279.
+LaTeX Info: Redefining \% on input line 279.
+ [34 <./figs//hipotesis.pdf>]
+Underfull \vbox (badness 3746) has occurred while \output is active []
 
- (./apend1.tex [24
+LaTeX Info: Redefining \. on input line 342.
+LaTeX Info: Redefining \% on input line 342.
+ [35]
+<figs//estimator_mse.pdf, id=3699, 361.35pt x 216.81pt>
+File: figs//estimator_mse.pdf Graphic file (type pdf)
+<use figs//estimator_mse.pdf>
+Package pdftex.def Info: figs//estimator_mse.pdf  used on input line 373.
+(pdftex.def)             Requested size: 308.71104pt x 185.2289pt.
+LaTeX Info: Redefining \. on input line 378.
+LaTeX Info: Redefining \% on input line 378.
+ [36 <./figs//estimator_mse.pdf>]
+<figs//estimator_mse_snr.pdf, id=3756, 361.35pt x 216.81pt>
+File: figs//estimator_mse_snr.pdf Graphic file (type pdf)
+<use figs//estimator_mse_snr.pdf>
+Package pdftex.def Info: figs//estimator_mse_snr.pdf  used on input line 391.
+(pdftex.def)             Requested size: 308.71104pt x 185.2289pt.
+LaTeX Info: Redefining \. on input line 397.
+LaTeX Info: Redefining \% on input line 397.
+ [37 <./figs//estimator_mse_snr.pdf>]
+<figs//xpstopdf/noise-est-lv.pdf, id=3815, 248.93pt x 179.67125pt>
+File: figs//xpstopdf/noise-est-lv.pdf Graphic file (type pdf)
+<use figs//xpstopdf/noise-est-lv.pdf>
+Package pdftex.def Info: figs//xpstopdf/noise-est-lv.pdf  used on input line 409.
+(pdftex.def)             Requested size: 198.45662pt x 143.2437pt.
+<figs//xpstopdf/threshold-lv.pdf, id=3816, 248.93pt x 179.67125pt>
+File: figs//xpstopdf/threshold-lv.pdf Graphic file (type pdf)
+<use figs//xpstopdf/threshold-lv.pdf>
+Package pdftex.def Info: figs//xpstopdf/threshold-lv.pdf  used on input line 411.
+(pdftex.def)             Requested size: 198.45662pt x 143.2437pt.
+LaTeX Info: Redefining \. on input line 418.
+LaTeX Info: Redefining \% on input line 418.
+ [38 <./figs//xpstopdf/noise-est-lv.pdf> <./figs//xpstopdf/threshold-lv.pdf
+
+pdfTeX warning: pdflatex (file ./figs//xpstopdf/threshold-lv.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>])
+LaTeX Info: Redefining \. on input line 97.
+LaTeX Info: Redefining \% on input line 97.
+ [39]
+\openout2 = `cap5.aux'.
+
+ (./cap5.tex [40
 
 
 
 
 ]
-Ap\'{e}ndice A.
+Cap\'{\i }tulo 5.
+<figs//xpstopdf/toplevel-diagram-lv.pdf, id=7321, 474.77374pt x 359.3425pt>
+File: figs//xpstopdf/toplevel-diagram-lv.pdf Graphic file (type pdf)
+<use figs//xpstopdf/toplevel-diagram-lv.pdf>
+Package pdftex.def Info: figs//xpstopdf/toplevel-diagram-lv.pdf  used on input line 13.
+(pdftex.def)             Requested size: 396.91324pt x 300.4255pt.
+[41]
+LaTeX Info: Redefining \. on input line 24.
+LaTeX Info: Redefining \% on input line 24.
+ [42 <./figs//xpstopdf/toplevel-diagram-lv.pdf>]
+LaTeX Info: Redefining \. on input line 45.
+LaTeX Info: Redefining \% on input line 45.
+ [43]
+<figs//xpstopdf/window-lv.pdf, id=10992, 445.665pt x 252.945pt>
+File: figs//xpstopdf/window-lv.pdf Graphic file (type pdf)
+<use figs//xpstopdf/window-lv.pdf>
+Package pdftex.def Info: figs//xpstopdf/window-lv.pdf  used on input line 50.
+(pdftex.def)             Requested size: 396.91324pt x 225.27858pt.
+LaTeX Info: Redefining \. on input line 67.
+LaTeX Info: Redefining \% on input line 67.
+ [44 <./figs//xpstopdf/window-lv.pdf>]
+<figs//xpstopdf/detection-lv.pdf, id=11811, 519.9425pt x 243.91125pt>
+File: figs//xpstopdf/detection-lv.pdf Graphic file (type pdf)
+<use figs//xpstopdf/detection-lv.pdf>
+Package pdftex.def Info: figs//xpstopdf/detection-lv.pdf  used on input line 79.
+(pdftex.def)             Requested size: 396.91324pt x 186.19698pt.
+LaTeX Info: Redefining \. on input line 87.
+LaTeX Info: Redefining \% on input line 87.
+ [45]
+<figs//xpstopdf/banco-sync-lv.pdf, id=11817, 302.12875pt x 124.465pt>
+File: figs//xpstopdf/banco-sync-lv.pdf Graphic file (type pdf)
+<use figs//xpstopdf/banco-sync-lv.pdf>
+Package pdftex.def Info: figs//xpstopdf/banco-sync-lv.pdf  used on input line 98.
+(pdftex.def)             Requested size: 220.50885pt x 90.8416pt.
+<figs//xpstopdf/delay-sync-lv.pdf, id=11818, 318.18875pt x 178.6675pt>
+File: figs//xpstopdf/delay-sync-lv.pdf Graphic file (type pdf)
+<use figs//xpstopdf/delay-sync-lv.pdf>
+Package pdftex.def Info: figs//xpstopdf/delay-sync-lv.pdf  used on input line 103.
+(pdftex.def)             Requested size: 220.50885pt x 123.81776pt.
+LaTeX Info: Redefining \. on input line 108.
+LaTeX Info: Redefining \% on input line 108.
+ [46 <./figs//xpstopdf/detection-lv.pdf>]
+LaTeX Info: Redefining \. on input line 120.
+LaTeX Info: Redefining \% on input line 120.
+ [47 <./figs//xpstopdf/banco-sync-lv.pdf> <./figs//xpstopdf/delay-sync-lv.pdf
 
-Package natbib Warning: Citation `Philipp1982NCBSp75' on page 25 undefined on input line 7.
+pdfTeX warning: pdflatex (file ./figs//xpstopdf/delay-sync-lv.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>]
+<figs//xpstopdf/toplevel-panel-lv.pdf, id=13983, 609.27625pt x 366.36874pt>
+File: figs//xpstopdf/toplevel-panel-lv.pdf Graphic file (type pdf)
+<use figs//xpstopdf/toplevel-panel-lv.pdf>
+Package pdftex.def Info: figs//xpstopdf/toplevel-panel-lv.pdf  used on input line 128.
+(pdftex.def)             Requested size: 396.91324pt x 238.67912pt.
+LaTeX Info: Redefining \. on input line 138.
+LaTeX Info: Redefining \% on input line 138.
+ [48 <./figs//xpstopdf/toplevel-panel-lv.pdf>]
+<figs//xpstopdf/sample-rate-1.pdf, id=55285, 608.2725pt x 436.63126pt>
+File: figs//xpstopdf/sample-rate-1.pdf Graphic file (type pdf)
+<use figs//xpstopdf/sample-rate-1.pdf>
+Package pdftex.def Info: figs//xpstopdf/sample-rate-1.pdf  used on input line 149.
+(pdftex.def)             Requested size: 308.71104pt x 221.60634pt.
+<figs//xpstopdf/sample-rate-2.pdf, id=55286, 608.2725pt x 436.63126pt>
+File: figs//xpstopdf/sample-rate-2.pdf Graphic file (type pdf)
+<use figs//xpstopdf/sample-rate-2.pdf>
+Package pdftex.def Info: figs//xpstopdf/sample-rate-2.pdf  used on input line 151.
+(pdftex.def)             Requested size: 308.71104pt x 221.60634pt.
+LaTeX Info: Redefining \. on input line 158.
+LaTeX Info: Redefining \% on input line 158.
+LaTeX Font Info:    Font shape `OT1/cmss/m/it' in size <12> not available
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 158.
+ [49]
+LaTeX Info: Redefining \. on input line 192.
+LaTeX Info: Redefining \% on input line 192.
+ [50]
+LaTeX Info: Redefining \. on input line 211.
+LaTeX Info: Redefining \% on input line 211.
+ [51])
+LaTeX Info: Redefining \. on input line 98.
+LaTeX Info: Redefining \% on input line 98.
+ [52]
+LaTeX Info: Redefining \. on input line 98.
+LaTeX Info: Redefining \% on input line 98.
+ [53 <./figs//xpstopdf/sample-rate-1.pdf> <./figs//xpstopdf/sample-rate-2.pdf
 
-<figs//ap1_f1.pdf, id=1352, 773.89125pt x 733.74126pt>
-File: figs//ap1_f1.pdf Graphic file (type pdf)
-<use figs//ap1_f1.pdf>
-Package pdftex.def Info: figs//ap1_f1.pdf  used on input line 14.
-(pdftex.def)             Requested size: 308.71104pt x 292.6964pt.
-) [25]
-LaTeX Info: Redefining \. on input line 78.
-LaTeX Info: Redefining \% on input line 78.
- [26 <./figs//ap1_f1.pdf>] (./template.bbl (./template.brf)
+pdfTeX warning: pdflatex (file ./figs//xpstopdf/sample-rate-2.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>]
+\openout2 = `cap6.aux'.
+
+ (./cap6.tex [54
+
+
+
+
+]
+Cap\'{\i }tulo 6.
+
+Underfull \vbox (badness 1917) has occurred while \output is active []
+
+ [55])
+LaTeX Info: Redefining \. on input line 99.
+LaTeX Info: Redefining \% on input line 99.
+ [56] (./template.bbl (./template.brf)
 \tf@brf=\write7
 \openout7 = `template.brf'.
 
-) [27
+ [57
 
 
 
 
-] [28
-
-] [29
-
-
-
-] [30
-
-] [31
+])
+LaTeX Info: Redefining \. on input line 107.
+LaTeX Info: Redefining \% on input line 107.
+ [58] [59
 
 
-] [32
 
-]
 
-Package natbib Warning: There were undefined citations.
+] [60
 
-(./template.aux
+] (./template.aux
 LaTeX Info: Redefining \. on input line 23.
 LaTeX Info: Redefining \% on input line 23.
  (./resumen.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 ) (./cap1.aux
-LaTeX Info: Redefining \. on input line 4.
-LaTeX Info: Redefining \% on input line 4.
-) (./cap2.aux) (./cap3.aux) (./cap4.aux) (./apend1.aux))
+LaTeX Info: Redefining \. on input line 9.
+LaTeX Info: Redefining \% on input line 9.
+) (./cap2.aux) (./cap3.aux) (./cap4.aux) (./cap5.aux) (./cap6.aux))
 Package rerunfilecheck Info: File `template.out' has not changed.
-(rerunfilecheck)             Checksum: 62C3AD0BAAC677A0014C86490AB88648;7795.
+(rerunfilecheck)             Checksum: 298534E61BDD53343489FD084806BBFB;13789.
 Package rerunfilecheck Info: File `template.brf' has not changed.
-(rerunfilecheck)             Checksum: EB0F618A56AD48C7709403F76758073F;142.
+(rerunfilecheck)             Checksum: D4A3B3132770FA94845BE37B171521B1;652.
  ) 
 Here is how much of TeX's memory you used:
- 15560 strings out of 477850
- 247682 string characters out of 5836818
- 1871388 words of memory out of 5000000
- 35267 multiletter control sequences out of 15000+600000
- 529786 words of font info for 95 fonts, out of 8000000 for 9000
+ 17250 strings out of 477850
+ 276818 string characters out of 5836818
+ 1870388 words of memory out of 5000000
+ 36791 multiletter control sequences out of 15000+600000
+ 534372 words of font info for 110 fonts, out of 8000000 for 9000
  85 hyphenation exceptions out of 8191
- 105i,18n,104p,990b,913s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{page.\\protect\040ix} has been referenced but does not exist, replaced by a fixed one
-
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on template.pdf (48 pages, 815390 bytes).
+ 105i,17n,104p,1070b,913s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/euler/eurm10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb>
+Output written on template.pdf (78 pages, 7928416 bytes).
 PDF statistics:
- 1580 PDF objects out of 1728 (max. 8388607)
- 1032 compressed objects within 11 object streams
- 196 named destinations out of 1000 (max. 500000)
- 446 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 58778 PDF objects out of 66169 (max. 8388607)
+ 38468 compressed objects within 385 object streams
+ 300 named destinations out of 1000 (max. 500000)
+ 733 words of extra memory for PDF output out of 10000 (max. 10000000)
 

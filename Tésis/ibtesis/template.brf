@@ -1,3 +1,14 @@
-\backcite {ieee}{{\es@scroman {ix}}{(document)}{Doc-Start}}
-\backcite {ieee}{{3}{2}{chapter.2}}
-\backcite {ieee}{{7}{2.5}{figure.caption.19}}
+\backcite {tesis-omelio}{{1}{1.1}{section.1.1}}
+\backcite {tesis-santiago}{{1}{1.1}{section.1.1}}
+\backcite {tesis-david}{{1}{1.1}{section.1.1}}
+\backcite {tesis-daniel}{{1}{1.1}{section.1.1}}
+\backcite {tesis-maia}{{1}{1.1}{section.1.1}}
+\backcite {usrp2953}{{2}{1.2.1}{subsection.1.2.1}}
+\backcite {ieee}{{5}{2}{chapter.2}}
+\backcite {chiueh}{{13}{3.1}{section.3.1}}
+\backcite {tse}{{26}{4.1.1}{Item.10}}
+\backcite {tesis-daniel}{{26}{4.1.1}{Item.10}}
+\backcite {richards}{{27}{4.1.2}{equation.4.1.9}}
+\backcite {distributions}{{29}{4.1.4}{equation.4.1.18}}
+\backcite {kay}{{35}{4.2.1}{subsection.4.2.1}}
+\backcite {fog}{{51}{5.5.3}{equation.5.5.8}}

@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="133.87917mm"
+   height="23.037735mm"
+   viewBox="0 0 133.87917 23.037735"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25, custom)"
+   sodipodi:docname="training_symbol.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="2.8785631"
+     inkscape:cx="193.84671"
+     inkscape:cy="112.90355"
+     inkscape:window-width="1920"
+     inkscape:window-height="1130"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       id="grid1"
+       units="px"
+       originx="-79.375001"
+       originy="-166.02603"
+       spacingx="0.26458333"
+       spacingy="0.26458334"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       dotted="false"
+       gridanglex="30"
+       gridanglez="30"
+       visible="false" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1">
+    <marker
+       style="overflow:visible"
+       id="DartArrow"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Dart arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         transform="scale(-0.5)"
+         id="path6" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker2-6"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Stop"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1"
+         d="M 0,4 V -4"
+         id="path2-5" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Stop-6"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Stop"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1"
+         d="M 0,4 V -4"
+         id="path23-3" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker2-2"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Stop"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1"
+         d="M 0,4 V -4"
+         id="path2-2" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Stop-8"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Stop"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1"
+         d="M 0,4 V -4"
+         id="path23-9" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker2"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Stop"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1"
+         d="M 0,4 V -4"
+         id="path2" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Stop"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Stop"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         style="fill:none;stroke:context-stroke;stroke-width:1"
+         d="M 0,4 V -4"
+         id="path23" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-79.375,-166.02604)">
+    <rect
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none"
+       id="rect1"
+       width="5.2916665"
+       height="31.750002"
+       x="174.75729"
+       y="-111.25729"
+       transform="rotate(90)" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;marker-start:url(#marker2);marker-end:url(#Stop)"
+       d="M 79.507291,184.01772 H 111.25729"
+       id="path1"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;marker-start:url(#marker2-2);marker-end:url(#Stop-8)"
+       d="M 95.382294,170.78855 H 111.25729"
+       id="path1-3"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:0.264583, 0.79375;stroke-dashoffset:0"
+       d="m 95.382294,180.04897 v -9.26042"
+       id="path5"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;line-height:0.95;font-family:'TexMaths Roman';-inkscape-font-specification:'TexMaths Roman, Normal';text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.264583, 0.79375;stroke-dashoffset:0"
+       x="95.382286"
+       y="178.716"
+       id="text5"><tspan
+         sodipodi:role="line"
+         id="tspan5"
+         style="text-align:center;text-anchor:middle;fill:#000000;stroke:none;stroke-width:0.264583"
+         x="95.382286"
+         y="178.716" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;line-height:0.95;font-family:'TexMaths Roman';-inkscape-font-specification:'TexMaths Roman, Normal';text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.264583, 0.79375;stroke-dashoffset:0"
+       x="95.277367"
+       y="178.72603"
+       id="text6"><tspan
+         sodipodi:role="line"
+         id="tspan6"
+         style="stroke-width:0.264583"
+         x="95.277367"
+         y="178.72603">Salida IFFT</tspan></text>
+    <rect
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none"
+       id="rect1-8"
+       width="5.2916665"
+       height="31.750002"
+       x="174.75729"
+       y="-213.12187"
+       transform="rotate(90)" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;line-height:0.95;font-family:'TexMaths Roman';-inkscape-font-specification:'TexMaths Roman, Normal';text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.264583, 0.79375;stroke-dashoffset:0"
+       x="197.14194"
+       y="178.72603"
+       id="text6-5"><tspan
+         sodipodi:role="line"
+         id="tspan6-6"
+         style="stroke-width:0.264583"
+         x="197.14194"
+         y="178.72603">Salida IFFT</tspan></text>
+    <rect
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none"
+       id="rect1-4"
+       width="5.2916665"
+       height="31.750002"
+       x="174.75729"
+       y="-181.37187"
+       transform="rotate(90)" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;marker-start:url(#marker2-6);marker-end:url(#Stop-6)"
+       d="m 133.74687,184.01772 79.24271,-0.1323"
+       id="path1-8"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.175px;line-height:0.95;font-family:'TexMaths Roman';-inkscape-font-specification:'TexMaths Roman, Normal';text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.264583, 0.79375;stroke-dashoffset:0"
+       x="165.60176"
+       y="178.72603"
+       id="text6-9"><tspan
+         sodipodi:role="line"
+         id="tspan6-3"
+         style="stroke-width:0.264583"
+         x="165.60176"
+         y="178.72603">Salida IFFT</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.82222px;line-height:0.95;font-family:'TexMaths Roman';-inkscape-font-specification:'TexMaths Roman, Normal';text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.264583, 0.79375;stroke-dashoffset:0"
+       x="95.382294"
+       y="188.35822"
+       id="text8"><tspan
+         sodipodi:role="line"
+         id="tspan8"
+         style="font-size:2.82222px;stroke-width:0.264583"
+         x="95.382294"
+         y="188.35822"><tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols'"
+   id="tspan10">T<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan21">FFT</tspan></tspan> (<tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols'"
+   id="tspan9">N<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan20">FFT</tspan></tspan> muestras)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols';text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.264583, 0.79375;stroke-dashoffset:0"
+       x="103.33351"
+       y="168.1427"
+       id="text11"><tspan
+         sodipodi:role="line"
+         id="tspan11"
+         style="font-size:2.82222px;stroke-width:0.264583"
+         x="103.33351"
+         y="168.1427">T<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan19">GI2</tspan> <tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'TexMaths Roman';-inkscape-font-specification:'TexMaths Roman, '"
+   id="tspan13">(</tspan>N<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan18">FFT</tspan>/2<tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;font-family:'TexMaths Roman';-inkscape-font-specification:'TexMaths Roman, '"
+   id="tspan12"> muestras)</tspan></tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;stroke-dashoffset:0;marker-end:url(#DartArrow)"
+       d="m 113.90312,177.40313 h 15.875"
+       id="path13" />
+    <rect
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect13-4"
+       width="15.875001"
+       height="5.291667"
+       x="133.74687"
+       y="174.75729" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Roman';-inkscape-font-specification:'TexMaths Roman, ';text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:none;stroke-dashoffset:0"
+       x="141.35539"
+       y="178.72603"
+       id="text14"><tspan
+         sodipodi:role="line"
+         id="tspan14"
+         style="font-size:3.175px;fill:#000000;stroke:none;stroke-width:0.264583"
+         x="141.35539"
+         y="178.72603">GI</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222px;line-height:0.95;font-family:'TexMaths Roman';-inkscape-font-specification:'TexMaths Roman, ';text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:none;stroke-dashoffset:0"
+       x="174.84521"
+       y="188.35822"
+       id="text15"><tspan
+         sodipodi:role="line"
+         id="tspan15"
+         style="font-size:2.82222px;stroke-width:0.264583"
+         x="174.84521"
+         y="188.35822"><tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols'"
+   id="tspan17">T<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan2">LONG</tspan></tspan> (2<tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols'"
+   id="tspan16">,5 N<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan22">FFT</tspan></tspan> muestras)</tspan></text>
+  </g>
+</svg>

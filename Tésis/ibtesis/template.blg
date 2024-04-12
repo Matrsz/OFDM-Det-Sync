@@ -7,49 +7,49 @@ A level-1 auxiliary file: cap1.aux
 A level-1 auxiliary file: cap2.aux
 A level-1 auxiliary file: cap3.aux
 A level-1 auxiliary file: cap4.aux
-A level-1 auxiliary file: apend1.aux
+A level-1 auxiliary file: cap5.aux
+A level-1 auxiliary file: cap6.aux
 Database file #1: mibib.bib
-Warning--I didn't find a database entry for "Philipp1982NCBSp75"
-Warning--empty author and editor in ieee
-You've used 1 entry,
+Warning--empty author in ieee
+You've used 13 entries,
             2634 wiz_defined-function locations,
-            1041 strings with 9678 characters,
-and the built_in function-call counts, 220 in all, are:
-= -- 13
-> -- 1
-< -- 0
-+ -- 1
-- -- 0
-* -- 12
-:= -- 26
-add.period$ -- 3
-call.type$ -- 1
-change.case$ -- 0
-chr.to.int$ -- 0
-cite$ -- 2
-duplicate$ -- 20
-empty$ -- 32
-format.name$ -- 0
-if$ -- 51
+            1103 strings with 11260 characters,
+and the built_in function-call counts, 3117 in all, are:
+= -- 206
+> -- 58
+< -- 2
++ -- 29
+- -- 14
+* -- 85
+:= -- 370
+add.period$ -- 38
+call.type$ -- 13
+change.case$ -- 17
+chr.to.int$ -- 3
+cite$ -- 14
+duplicate$ -- 340
+empty$ -- 356
+format.name$ -- 16
+if$ -- 705
 int.to.chr$ -- 0
-int.to.str$ -- 1
-missing$ -- 5
-newline$ -- 9
-num.names$ -- 0
-pop$ -- 11
+int.to.str$ -- 13
+missing$ -- 98
+newline$ -- 67
+num.names$ -- 12
+pop$ -- 173
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 8
+skip$ -- 77
 stack$ -- 0
-substring$ -- 0
-swap$ -- 8
-text.length$ -- 0
+substring$ -- 34
+swap$ -- 205
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 1
-while$ -- 0
-width$ -- 2
-write$ -- 12
-(There were 2 warnings)
+while$ -- 16
+width$ -- 15
+write$ -- 138
+(There was 1 warning)

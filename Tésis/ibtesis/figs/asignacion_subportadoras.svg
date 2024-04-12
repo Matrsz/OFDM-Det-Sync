@@ -2,17 +2,19 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="122.68401mm"
-   height="9.6770353mm"
-   viewBox="0 0 122.684 9.6770354"
    version="1.1"
    id="svg1"
+   width="555.67908"
+   height="45"
+   viewBox="0 0 555.67907 44.999999"
    sodipodi:docname="asignacion_subportadoras.svg"
    inkscape:version="1.3.2 (091e20ef0f, 2023-11-25, custom)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
   <sodipodi:namedview
      id="namedview1"
      pagecolor="#ffffff"
@@ -22,24 +24,32 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:document-units="mm"
-     showgrid="true"
-     inkscape:zoom="3.1159509"
-     inkscape:cx="308.41308"
-     inkscape:cy="39.795236"
+     inkscape:zoom="3.4839671"
+     inkscape:cx="457.81144"
+     inkscape:cy="51.95227"
      inkscape:window-width="1920"
      inkscape:window-height="1130"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1">
+     inkscape:current-layer="g1"
+     showgrid="true">
+    <inkscape:page
+       x="0"
+       y="0"
+       inkscape:label="1"
+       id="page1"
+       width="555.67908"
+       height="45"
+       margin="0"
+       bleed="0" />
     <inkscape:grid
-       id="grid1"
+       id="grid79"
        units="px"
-       originx="-20.484018"
-       originy="-125.57549"
-       spacingx="0.26458333"
-       spacingy="0.26458334"
+       originx="6.8668129e-09"
+       originy="5"
+       spacingx="0.99999999"
+       spacingy="0.99999998"
        empcolor="#0099e5"
        empopacity="0.30196078"
        color="#0099e5"
@@ -50,1120 +60,510 @@
        gridanglez="30"
        visible="true" />
   </sodipodi:namedview>
-  <defs
-     id="defs1">
-    <marker
-       style="overflow:visible"
-       id="ColoredDot"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Colored dot"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         transform="scale(0.45)"
-         style="fill:context-fill;fill-rule:evenodd;stroke:context-stroke;stroke-width:2"
-         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
-         sodipodi:nodetypes="sssss"
-         id="path20" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="ColoredDot-1"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Colored dot"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         transform="scale(0.45)"
-         style="fill:context-fill;fill-rule:evenodd;stroke:context-stroke;stroke-width:2"
-         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
-         sodipodi:nodetypes="sssss"
-         id="path20-8" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="ColoredDot-1-2"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Colored dot"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         transform="scale(0.45)"
-         style="fill:context-fill;fill-rule:evenodd;stroke:context-stroke;stroke-width:2"
-         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
-         sodipodi:nodetypes="sssss"
-         id="path20-8-3" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="ColoredDot-1-28"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Colored dot"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         transform="scale(0.45)"
-         style="fill:context-fill;fill-rule:evenodd;stroke:context-stroke;stroke-width:2"
-         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
-         sodipodi:nodetypes="sssss"
-         id="path20-8-9" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="ColoredDot-7"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Colored dot"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         transform="scale(0.45)"
-         style="fill:context-fill;fill-rule:evenodd;stroke:context-stroke;stroke-width:2"
-         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
-         sodipodi:nodetypes="sssss"
-         id="path20-84" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="ColoredDot-1-5"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Colored dot"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         transform="scale(0.45)"
-         style="fill:context-fill;fill-rule:evenodd;stroke:context-stroke;stroke-width:2"
-         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
-         sodipodi:nodetypes="sssss"
-         id="path20-8-0" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="ColoredDot-1-2-3"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Colored dot"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         transform="scale(0.45)"
-         style="fill:context-fill;fill-rule:evenodd;stroke:context-stroke;stroke-width:2"
-         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
-         sodipodi:nodetypes="sssss"
-         id="path20-8-3-6" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="ColoredDot-1-28-1"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Colored dot"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         transform="scale(0.45)"
-         style="fill:context-fill;fill-rule:evenodd;stroke:context-stroke;stroke-width:2"
-         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
-         sodipodi:nodetypes="sssss"
-         id="path20-8-9-0" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="ColoredDot-4"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Colored dot"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         transform="scale(0.45)"
-         style="fill:context-fill;fill-rule:evenodd;stroke:context-stroke;stroke-width:2"
-         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
-         sodipodi:nodetypes="sssss"
-         id="path20-7" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="ColoredDot-1-6"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Colored dot"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         transform="scale(0.45)"
-         style="fill:context-fill;fill-rule:evenodd;stroke:context-stroke;stroke-width:2"
-         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
-         sodipodi:nodetypes="sssss"
-         id="path20-8-5" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="ColoredDot-1-2-6"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Colored dot"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         transform="scale(0.45)"
-         style="fill:context-fill;fill-rule:evenodd;stroke:context-stroke;stroke-width:2"
-         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
-         sodipodi:nodetypes="sssss"
-         id="path20-8-3-9" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="ColoredDot-1-28-3"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Colored dot"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         transform="scale(0.45)"
-         style="fill:context-fill;fill-rule:evenodd;stroke:context-stroke;stroke-width:2"
-         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
-         sodipodi:nodetypes="sssss"
-         id="path20-8-9-7" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="ColoredDot-7-4"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Colored dot"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         transform="scale(0.45)"
-         style="fill:context-fill;fill-rule:evenodd;stroke:context-stroke;stroke-width:2"
-         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
-         sodipodi:nodetypes="sssss"
-         id="path20-84-5" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="ColoredDot-1-5-2"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Colored dot"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         transform="scale(0.45)"
-         style="fill:context-fill;fill-rule:evenodd;stroke:context-stroke;stroke-width:2"
-         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
-         sodipodi:nodetypes="sssss"
-         id="path20-8-0-5" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="ColoredDot-1-2-3-4"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Colored dot"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         transform="scale(0.45)"
-         style="fill:context-fill;fill-rule:evenodd;stroke:context-stroke;stroke-width:2"
-         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
-         sodipodi:nodetypes="sssss"
-         id="path20-8-3-6-7" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="ColoredDot-1-28-1-4"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Colored dot"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         transform="scale(0.45)"
-         style="fill:context-fill;fill-rule:evenodd;stroke:context-stroke;stroke-width:2"
-         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
-         sodipodi:nodetypes="sssss"
-         id="path20-8-9-0-4" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="ColoredDot-8"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Colored dot"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         transform="scale(0.45)"
-         style="fill:context-fill;fill-rule:evenodd;stroke:context-stroke;stroke-width:2"
-         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
-         sodipodi:nodetypes="sssss"
-         id="path20-4" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="ColoredDot-1-8"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Colored dot"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         transform="scale(0.45)"
-         style="fill:context-fill;fill-rule:evenodd;stroke:context-stroke;stroke-width:2"
-         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
-         sodipodi:nodetypes="sssss"
-         id="path20-8-1" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="ColoredDot-1-2-0"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Colored dot"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         transform="scale(0.45)"
-         style="fill:context-fill;fill-rule:evenodd;stroke:context-stroke;stroke-width:2"
-         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
-         sodipodi:nodetypes="sssss"
-         id="path20-8-3-3" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="ColoredDot-1-28-0"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Colored dot"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         transform="scale(0.45)"
-         style="fill:context-fill;fill-rule:evenodd;stroke:context-stroke;stroke-width:2"
-         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
-         sodipodi:nodetypes="sssss"
-         id="path20-8-9-4" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="ColoredDot-7-44"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Colored dot"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         transform="scale(0.45)"
-         style="fill:context-fill;fill-rule:evenodd;stroke:context-stroke;stroke-width:2"
-         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
-         sodipodi:nodetypes="sssss"
-         id="path20-84-4" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="ColoredDot-1-5-7"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Colored dot"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         transform="scale(0.45)"
-         style="fill:context-fill;fill-rule:evenodd;stroke:context-stroke;stroke-width:2"
-         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
-         sodipodi:nodetypes="sssss"
-         id="path20-8-0-6" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="ColoredDot-1-9"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Colored dot"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         transform="scale(0.45)"
-         style="fill:context-fill;fill-rule:evenodd;stroke:context-stroke;stroke-width:2"
-         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
-         sodipodi:nodetypes="sssss"
-         id="path20-8-6" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="ColoredDot-7-2"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Colored dot"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         transform="scale(0.45)"
-         style="fill:context-fill;fill-rule:evenodd;stroke:context-stroke;stroke-width:2"
-         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
-         sodipodi:nodetypes="sssss"
-         id="path20-84-2" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="ColoredDot-7-0"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Colored dot"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         transform="scale(0.45)"
-         style="fill:context-fill;fill-rule:evenodd;stroke:context-stroke;stroke-width:2"
-         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
-         sodipodi:nodetypes="sssss"
-         id="path20-84-6" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="ColoredDot-7-40"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Colored dot"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         transform="scale(0.45)"
-         style="fill:context-fill;fill-rule:evenodd;stroke:context-stroke;stroke-width:2"
-         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
-         sodipodi:nodetypes="sssss"
-         id="path20-84-3" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="ColoredDot-1-46"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Colored dot"
-       markerWidth="1"
-       markerHeight="1"
-       viewBox="0 0 1 1"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid">
-      <path
-         transform="scale(0.45)"
-         style="fill:context-fill;fill-rule:evenodd;stroke:context-stroke;stroke-width:2"
-         d="M 5,0 C 5,2.76 2.76,5 0,5 -2.76,5 -5,2.76 -5,0 c 0,-2.76 2.3,-5 5,-5 2.76,0 5,2.24 5,5 z"
-         sodipodi:nodetypes="sssss"
-         id="path20-8-2" />
-    </marker>
-  </defs>
   <g
-     inkscape:label="Layer 1"
+     id="g1"
      inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(-20.484013,-125.57551)">
+     inkscape:label="1"
+     transform="translate(91.991484,5.4408121)">
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;marker-start:url(#ColoredDot)"
-       d="m 22.564504,131.15958 1.984371,3e-5"
        id="path1"
-       sodipodi:nodetypes="cc" />
+       d="m 5.898,15.828 h 5.625"
+       style="fill:none;stroke:#000000;stroke-width:0.749999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(1.3333333)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;marker-start:url(#ColoredDot-1)"
-       d="m 32.486379,131.15958 -1.98438,3e-5"
-       id="path1-9"
-       sodipodi:nodetypes="cc" />
+       id="path2"
+       d="m 7.586,15.828 c 0,0.934 -0.758,1.688 -1.687,1.688 -0.934,0 -1.688,-0.754 -1.688,-1.688 0,-0.93 0.774,-1.687 1.688,-1.687 0.929,0 1.687,0.757 1.687,1.687 z"
+       style="fill:none;stroke:#000000;stroke-width:0.674999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(1.3333333,2.0157467e-5,-2.0157467e-5,1.3333333,0,0)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;marker-start:url(#ColoredDot-1-2)"
-       d="m 38.439504,131.15958 c -5.953125,0 -5.953125,0 -5.953125,0"
-       id="path1-9-5" />
+       id="path3"
+       d="M 34.023,15.828 H 28.398"
+       style="fill:none;stroke:#000000;stroke-width:0.749999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(1.3333333)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;marker-start:url(#ColoredDot-1-28)"
-       d="m 44.392629,131.15958 c -5.953125,0 -5.953125,0 -5.953125,0"
-       id="path1-9-3" />
+       id="path4"
+       d="m -32.336,-15.829 c 0,0.93 -0.754,1.688 -1.687,1.688 -0.93,0 -1.688,-0.758 -1.688,-1.688 0,-0.933 0.778,-1.687 1.688,-1.687 0.933,0 1.687,0.754 1.687,1.687 z"
+       style="fill:none;stroke:#000000;stroke-width:0.674999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(-1.3333333,2.0157467e-5,-2.0157467e-5,-1.3333333,0,0)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:0.793756, 0.793756;stroke-dashoffset:0"
-       d="M 24.548875,131.15961 H 30.502"
-       id="path2" />
+       id="path5"
+       d="m 50.898,15.828 c -16.875,0 -16.875,0 -16.875,0"
+       style="fill:none;stroke:#000000;stroke-width:0.749999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(1.3333333)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;marker-start:url(#ColoredDot-7)"
-       d="m 44.392627,131.15958 1.984371,3e-5"
-       id="path1-3"
-       sodipodi:nodetypes="cc" />
+       id="path6"
+       d="m -49.211,-15.828 c 0,0.93 -0.754,1.687 -1.687,1.687 -0.93,0 -1.688,-0.757 -1.688,-1.687 0,-0.934 0.777,-1.688 1.688,-1.688 0.933,0 1.687,0.754 1.687,1.688 z"
+       style="fill:none;stroke:#000000;stroke-width:0.674999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(-1.3333333)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;marker-start:url(#ColoredDot-1-5)"
-       d="m 54.314506,131.15955 -1.98438,3e-5"
-       id="path1-9-2"
-       sodipodi:nodetypes="cc" />
+       id="path7"
+       d="m 67.773,15.828 c -16.875,0 -16.875,0 -16.875,0"
+       style="fill:none;stroke:#000000;stroke-width:0.749999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(1.3333333)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;marker-start:url(#ColoredDot-1-2-3)"
-       d="m 60.267631,131.15955 c -5.953125,0 -5.953125,0 -5.953125,0"
-       id="path1-9-5-0" />
+       id="path8"
+       d="m -66.086,-15.828 c 0,0.93 -0.754,1.687 -1.687,1.687 -0.93,0 -1.688,-0.757 -1.688,-1.687 0,-0.934 0.777,-1.688 1.688,-1.688 0.933,0 1.687,0.754 1.687,1.688 z"
+       style="fill:none;stroke:#000000;stroke-width:0.674999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(-1.3333333)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;marker-start:url(#ColoredDot-1-28-1)"
-       d="m 66.221395,131.15955 c -5.953125,0 -5.953125,0 -5.953125,0"
-       id="path1-9-3-6" />
+       id="path9"
+       d="M 11.523,15.828 H 28.398"
+       style="fill:none;stroke:#000000;stroke-width:0.749999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.25002, 2.25002;stroke-dashoffset:0;stroke-opacity:1"
+       transform="scale(1.3333333)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:0.793756, 0.793756;stroke-dashoffset:0"
-       d="m 46.377001,131.15958 h 5.953125"
-       id="path2-1" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-       x="22.564507"
-       y="135.10985"
-       id="text5"><tspan
-         sodipodi:role="line"
-         id="tspan5"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-         x="22.564507"
-         y="135.10985">-26</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-       x="20.580135"
-       y="134.27768"
-       id="text6"><tspan
-         sodipodi:role="line"
-         id="tspan6"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-         x="20.580135"
-         y="134.27768"></tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-       x="32.486385"
-       y="135.12836"
-       id="text7"><tspan
-         sodipodi:role="line"
-         id="tspan7"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-         x="32.486385"
-         y="135.12836">-22</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-       x="38.439499"
-       y="135.12836"
-       id="text8"><tspan
-         sodipodi:role="line"
-         id="tspan8"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-         x="38.439499"
-         y="135.12836">-21</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-       x="32.371246"
-       y="134.24593"
-       id="text9"><tspan
-         sodipodi:role="line"
-         id="tspan9"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-         x="32.371246"
-         y="134.24593" /></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-       x="44.14011"
-       y="135.13631"
-       id="text10"><tspan
-         sodipodi:role="line"
-         id="tspan10"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-         x="44.14011"
-         y="135.13631">-20</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-       x="46.377003"
-       y="134.76956"
-       id="text11"><tspan
-         sodipodi:role="line"
-         id="tspan11"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-         x="46.377003"
-         y="134.76956"></tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-       x="54.314503"
-       y="135.12831"
-       id="text12"><tspan
-         sodipodi:role="line"
-         id="tspan12"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-         x="54.314503"
-         y="135.12831">-8</tspan></text>
+       id="path10"
+       d="m 67.773,15.828 h 5.625"
+       style="fill:none;stroke:#000000;stroke-width:0.749999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(1.3333333)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;marker-start:url(#ColoredDot-8)"
-       d="m 109.877,131.15955 1.98438,3e-5"
-       id="path1-1"
-       sodipodi:nodetypes="cc" />
+       id="path11"
+       d="m 69.461,15.827 c 0,0.934 -0.758,1.688 -1.687,1.688 -0.934,0 -1.688,-0.754 -1.688,-1.688 0,-0.93 0.774,-1.687 1.688,-1.687 0.929,0 1.687,0.757 1.687,1.687 z"
+       style="fill:none;stroke:#000000;stroke-width:0.674999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(1.3333333,2.0157467e-5,-2.0157467e-5,1.3333333,0,0)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;marker-start:url(#ColoredDot-1-8)"
-       d="m 119.79888,131.15955 -1.98438,3e-5"
-       id="path1-9-75"
-       sodipodi:nodetypes="cc" />
+       id="path12"
+       d="M 95.898,15.828 H 90.273"
+       style="fill:none;stroke:#000000;stroke-width:0.749999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(1.3333333)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;marker-start:url(#ColoredDot-1-2-0)"
-       d="m 125.75201,131.15955 c -5.95313,0 -5.95313,0 -5.95313,0"
-       id="path1-9-5-9" />
+       id="path13"
+       d="m -94.211,-15.83 c 0,0.93 -0.754,1.688 -1.687,1.688 -0.93,0 -1.688,-0.758 -1.688,-1.688 0,-0.933 0.778,-1.687 1.688,-1.687 0.933,0 1.687,0.754 1.687,1.687 z"
+       style="fill:none;stroke:#000000;stroke-width:0.674999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(-1.3333333,2.0157467e-5,-2.0157467e-5,-1.3333333,0,0)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;marker-start:url(#ColoredDot-1-28-0)"
-       d="m 131.70578,131.15955 c -5.95313,0 -5.95313,0 -5.95313,0"
-       id="path1-9-3-62" />
+       id="path14"
+       d="m 112.773,15.828 c -16.875,0 -16.875,0 -16.875,0"
+       style="fill:none;stroke:#000000;stroke-width:0.749999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(1.3333333)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:0.793756, 0.793756;stroke-dashoffset:0"
-       d="m 111.86138,131.15958 h 5.95312"
-       id="path2-17" />
+       id="path15"
+       d="m -111.086,-15.828 c 0,0.93 -0.754,1.687 -1.687,1.687 -0.93,0 -1.688,-0.757 -1.688,-1.687 0,-0.934 0.777,-1.688 1.688,-1.688 0.933,0 1.687,0.754 1.687,1.688 z"
+       style="fill:none;stroke:#000000;stroke-width:0.674999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(-1.3333333)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;marker-start:url(#ColoredDot-7-44)"
-       d="m 131.70513,131.15955 1.98437,3e-5"
-       id="path1-3-8"
-       sodipodi:nodetypes="cc" />
+       id="path16"
+       d="m 129.648,15.828 c -16.875,0 -16.875,0 -16.875,0"
+       style="fill:none;stroke:#000000;stroke-width:0.749999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(1.3333333)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;marker-start:url(#ColoredDot-1-5-7)"
-       d="m 141.62702,131.15955 -1.9844,3e-5"
-       id="path1-9-2-5"
-       sodipodi:nodetypes="cc" />
+       id="path17"
+       d="m -127.961,-15.828 c 0,0.93 -0.758,1.687 -1.687,1.687 -0.934,0 -1.688,-0.757 -1.688,-1.687 0,-0.934 0.777,-1.688 1.688,-1.688 0.929,0 1.687,0.754 1.687,1.688 z"
+       style="fill:none;stroke:#000000;stroke-width:0.674999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(-1.3333333)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:0.793756, 0.793756;stroke-dashoffset:0"
-       d="m 133.6895,131.15958 h 5.95312"
-       id="path2-1-7" />
+       id="path18"
+       d="M 73.398,15.828 H 90.273"
+       style="fill:none;stroke:#000000;stroke-width:0.749999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.25002, 2.25002;stroke-dashoffset:0;stroke-opacity:1"
+       transform="scale(1.3333333)" />
     <text
+       id="text18"
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-       x="109.87699"
-       y="135.1098"
-       id="text5-4"><tspan
+       transform="matrix(1.3333333,0,0,1.3333333,-0.1289048,36.035293)"><tspan
+         style="font-variant:normal;font-weight:normal;font-size:9px;font-family:'TexMaths Symbols';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0 2.9882812 7.4882812"
+         y="0"
          sodipodi:role="line"
-         id="tspan5-1"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-         x="109.87699"
-         y="135.1098">8</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-       x="119.79888"
-       y="135.12831"
-       id="text7-8"><tspan
+         id="tspan18">-26</tspan><tspan
+         style="font-variant:normal;font-weight:normal;font-size:9px;font-family:'TexMaths Symbols';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="28.12501 31.113291 35.613289 45.00029 47.988571 52.488571"
+         y="0.052466221"
          sodipodi:role="line"
-         id="tspan7-5"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-         x="119.79888"
-         y="135.12831">20</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-       x="125.75197"
-       y="135.12831"
-       id="text8-97"><tspan
+         id="tspan19">-22-21</tspan><tspan
+         style="font-variant:normal;font-weight:normal;font-size:9px;font-family:'TexMaths Symbols';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="61.159195 64.147476 68.647476"
+         y="0.075001143"
          sodipodi:role="line"
-         id="tspan8-5"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-         x="125.75197"
-         y="135.12831">21</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-       x="131.45261"
-       y="135.13626"
-       id="text10-3"><tspan
+         id="tspan20">-20</tspan><tspan
+         style="font-variant:normal;font-weight:normal;font-size:9px;font-family:'TexMaths Symbols';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="92.249992 95.238274"
+         y="0.052336439"
          sodipodi:role="line"
-         id="tspan10-8"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-         x="131.45261"
-         y="135.13626">22</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-       x="141.627"
-       y="135.1283"
-       id="text12-8"><tspan
-         sodipodi:role="line"
-         id="tspan12-3"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-         x="141.627"
-         y="135.1283">26</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-       x="60.268276"
-       y="135.17329"
-       id="text13"><tspan
-         sodipodi:role="line"
-         id="tspan13"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-         x="60.268276"
-         y="135.17329">-7</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-       x="66.149704"
-       y="135.18123"
-       id="text14"><tspan
-         sodipodi:role="line"
-         id="tspan14"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-         x="66.149704"
-         y="135.18123">-6</tspan></text>
+         id="tspan21">-8</tspan></text>
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;marker-start:url(#ColoredDot-4)"
-       d="m 66.220116,131.15955 1.98501,3e-5"
-       id="path1-0"
-       sodipodi:nodetypes="cc" />
+       id="path21"
+       d="m 253.398,15.828 h 5.625"
+       style="fill:none;stroke:#000000;stroke-width:0.749999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(1.3333333)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;marker-start:url(#ColoredDot-1-6)"
-       d="m 76.141992,131.15955 -1.983741,3e-5"
-       id="path1-9-7"
-       sodipodi:nodetypes="cc" />
+       id="path22"
+       d="m 255.086,15.824 c 0,0.934 -0.758,1.688 -1.687,1.688 -0.934,0 -1.688,-0.754 -1.688,-1.688 0,-0.929 0.774,-1.687 1.688,-1.687 0.929,0 1.687,0.758 1.687,1.687 z"
+       style="fill:none;stroke:#000000;stroke-width:0.674999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(1.3333333,2.0157467e-5,-2.0157467e-5,1.3333333,0,0)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;marker-start:url(#ColoredDot-1-2-6)"
-       d="m 82.095117,131.15955 c -5.953125,0 -5.953125,0 -5.953125,0"
-       id="path1-9-5-8" />
+       id="path23"
+       d="m 281.523,15.828 h -5.625"
+       style="fill:none;stroke:#000000;stroke-width:0.749999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(1.3333333)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;marker-start:url(#ColoredDot-1-28-3)"
-       d="m 88.048881,131.15955 c -5.953125,0 -5.953125,0 -5.953125,0"
-       id="path1-9-3-68" />
+       id="path24"
+       d="m -279.836,-15.832 c 0,0.929 -0.754,1.687 -1.687,1.687 -0.93,0 -1.688,-0.758 -1.688,-1.687 0,-0.934 0.778,-1.688 1.688,-1.688 0.933,0 1.687,0.754 1.687,1.688 z"
+       style="fill:none;stroke:#000000;stroke-width:0.674999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(-1.3333333,2.0157467e-5,-2.0157467e-5,-1.3333333,0,0)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:0.793756, 0.793756;stroke-dashoffset:0"
-       d="m 68.205126,131.15958 h 5.953125"
-       id="path2-8" />
+       id="path25"
+       d="m 298.398,15.828 c -16.875,0 -16.875,0 -16.875,0"
+       style="fill:none;stroke:#000000;stroke-width:0.749999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(1.3333333)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;marker-start:url(#ColoredDot-7-4)"
-       d="m 88.04824,131.15955 1.985009,3e-5"
-       id="path1-3-4"
-       sodipodi:nodetypes="cc" />
+       id="path26"
+       d="m -296.711,-15.828 c 0,0.93 -0.754,1.687 -1.687,1.687 -0.93,0 -1.688,-0.757 -1.688,-1.687 0,-0.934 0.777,-1.688 1.688,-1.688 0.933,0 1.687,0.754 1.687,1.688 z"
+       style="fill:none;stroke:#000000;stroke-width:0.674999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(-1.3333333)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;marker-start:url(#ColoredDot-1-5-2)"
-       d="m 97.970119,131.15955 -1.983742,3e-5"
-       id="path1-9-2-3"
-       sodipodi:nodetypes="cc" />
+       id="path27"
+       d="m 315.273,15.828 c -16.875,0 -16.875,0 -16.875,0"
+       style="fill:none;stroke:#000000;stroke-width:0.749999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(1.3333333)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;marker-start:url(#ColoredDot-1-2-3-4)"
-       d="m 103.92324,131.15955 c -5.953121,0 -5.953121,0 -5.953121,0"
-       id="path1-9-5-0-1" />
+       id="path28"
+       d="m -313.586,-15.828 c 0,0.93 -0.758,1.687 -1.687,1.687 -0.934,0 -1.688,-0.757 -1.688,-1.687 0,-0.934 0.773,-1.688 1.688,-1.688 0.929,0 1.687,0.754 1.687,1.688 z"
+       style="fill:none;stroke:#000000;stroke-width:0.674999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(-1.3333333)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;marker-start:url(#ColoredDot-1-28-1-4)"
-       d="m 109.877,131.15955 c -5.95312,0 -5.95312,0 -5.95312,0"
-       id="path1-9-3-6-4" />
+       id="path29"
+       d="m 259.023,15.828 h 16.875"
+       style="fill:none;stroke:#000000;stroke-width:0.749999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.25002, 2.25002;stroke-dashoffset:0;stroke-opacity:1"
+       transform="scale(1.3333333)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:0.793756, 0.793756;stroke-dashoffset:0"
-       d="m 90.033249,131.15958 h 5.953128"
-       id="path2-1-9" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-       x="76.141998"
-       y="135.12831"
-       id="text7-6"><tspan
-         sodipodi:role="line"
-         id="tspan7-8"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-         x="76.141998"
-         y="135.12831">-1</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-       x="82.095108"
-       y="135.12831"
-       id="text8-9"><tspan
-         sodipodi:role="line"
-         id="tspan8-2"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-         x="82.095108"
-         y="135.12831">0</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-       x="87.795723"
-       y="135.13628"
-       id="text10-6"><tspan
-         sodipodi:role="line"
-         id="tspan10-6"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-         x="87.795723"
-         y="135.13628">1</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-       x="97.970108"
-       y="135.12831"
-       id="text12-4"><tspan
-         sodipodi:role="line"
-         id="tspan12-9"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-         x="97.970108"
-         y="135.12831">6</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-       x="103.92388"
-       y="135.17329"
-       id="text13-5"><tspan
-         sodipodi:role="line"
-         id="tspan13-0"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.264583, 0.793752;stroke-dashoffset:0"
-         x="103.92388"
-         y="135.17329">7</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-       x="23.126995"
-       y="127.72292"
-       id="text15"><tspan
-         sodipodi:role="line"
-         id="tspan15"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-         x="23.126995"
-         y="127.72292">0</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-       x="32.486382"
-       y="127.7679"
-       id="text16"><tspan
-         sodipodi:role="line"
-         id="tspan16"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-         x="32.486382"
-         y="127.7679">4</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Roman';-inkscape-font-specification:'TexMaths Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-       x="38.439507"
-       y="127.77584"
-       id="text17"><tspan
-         sodipodi:role="line"
-         id="tspan17"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Roman';-inkscape-font-specification:'TexMaths Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-         x="38.439507"
-         y="127.77584">P</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-       x="44.392624"
-       y="127.19084"
-       id="text18"><tspan
-         sodipodi:role="line"
-         id="tspan18"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-         x="44.392624"
-         y="127.19084"></tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-       x="44.411152"
-       y="127.72425"
-       id="text19"><tspan
-         sodipodi:role="line"
-         id="tspan19"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-         x="44.411152"
-         y="127.72425">5</tspan></text>
+       id="path30"
+       d="m 315.273,15.828 h 5.625"
+       style="fill:none;stroke:#000000;stroke-width:0.749999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(1.3333333)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;marker-start:url(#ColoredDot-1-9)"
-       d="m 54.314187,131.15955 -1.98438,3e-5"
-       id="path1-9-8"
-       sodipodi:nodetypes="cc" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-       x="54.31419"
-       y="127.76788"
-       id="text16-4"><tspan
-         sodipodi:role="line"
-         id="tspan16-3"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-         x="54.31419"
-         y="127.76788">17</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Roman';-inkscape-font-specification:'TexMaths Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-       x="60.267315"
-       y="127.77582"
-       id="text17-0"><tspan
-         sodipodi:role="line"
-         id="tspan17-3"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Roman';-inkscape-font-specification:'TexMaths Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-         x="60.267315"
-         y="127.77582">P</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-       x="66.238953"
-       y="127.72423"
-       id="text19-0"><tspan
-         sodipodi:role="line"
-         id="tspan19-9"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-         x="66.238953"
-         y="127.72423">18</tspan></text>
+       id="path31"
+       d="m 316.961,15.823 c 0,0.934 -0.758,1.688 -1.687,1.688 -0.934,0 -1.688,-0.754 -1.688,-1.688 0,-0.929 0.774,-1.687 1.688,-1.687 0.929,0 1.687,0.758 1.687,1.687 z"
+       style="fill:none;stroke:#000000;stroke-width:0.674999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(1.3333333,2.0157467e-5,-2.0157467e-5,1.3333333,0,0)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;marker-start:url(#ColoredDot-7-2)"
-       d="m 88.04824,131.15955 1.984371,3e-5"
-       id="path1-3-81"
-       sodipodi:nodetypes="cc" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-       x="76.141983"
-       y="127.76785"
-       id="text16-2"><tspan
-         sodipodi:role="line"
-         id="tspan16-8"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-         x="76.141983"
-         y="127.76785">23</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Roman';-inkscape-font-specification:'TexMaths Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-       x="82.095108"
-       y="127.77579"
-       id="text17-9"><tspan
-         sodipodi:role="line"
-         id="tspan17-36"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Roman';-inkscape-font-specification:'TexMaths Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-         x="82.095108"
-         y="127.77579">N</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-       x="88.066765"
-       y="127.72421"
-       id="text19-8"><tspan
-         sodipodi:role="line"
-         id="tspan19-0"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-         x="88.066765"
-         y="127.72421">24</tspan></text>
+       id="path32"
+       d="m 343.398,15.828 h -5.625"
+       style="fill:none;stroke:#000000;stroke-width:0.749999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(1.3333333)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;marker-start:url(#ColoredDot-7-0)"
-       d="m 109.877,131.15957 1.98438,3e-5"
-       id="path1-3-86"
-       sodipodi:nodetypes="cc" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-       x="97.970741"
-       y="127.76788"
-       id="text16-28"><tspan
-         sodipodi:role="line"
-         id="tspan16-4"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-         x="97.970741"
-         y="127.76788">29</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Roman';-inkscape-font-specification:'TexMaths Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-       x="103.92387"
-       y="127.77582"
-       id="text17-7"><tspan
-         sodipodi:role="line"
-         id="tspan17-2"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Roman';-inkscape-font-specification:'TexMaths Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-         x="103.92387"
-         y="127.77582">P</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-       x="109.89551"
-       y="127.72423"
-       id="text19-4"><tspan
-         sodipodi:role="line"
-         id="tspan19-06"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-         x="109.89551"
-         y="127.72423">30</tspan></text>
+       id="path33"
+       d="m -341.711,-15.833 c 0,0.929 -0.754,1.687 -1.687,1.687 -0.93,0 -1.688,-0.758 -1.688,-1.687 0,-0.934 0.778,-1.688 1.688,-1.688 0.933,0 1.687,0.754 1.687,1.688 z"
+       style="fill:none;stroke:#000000;stroke-width:0.674999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(-1.3333333,2.01572e-5,-2.01572e-5,-1.3333333,0,0)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;marker-start:url(#ColoredDot-7-40)"
-       d="m 131.70578,131.15955 1.98438,3e-5"
-       id="path1-3-3"
-       sodipodi:nodetypes="cc" />
+       id="path34"
+       d="m 320.898,15.828 h 16.875"
+       style="fill:none;stroke:#000000;stroke-width:0.749999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.25002, 2.25002;stroke-dashoffset:0;stroke-opacity:1"
+       transform="scale(1.3333333)" />
     <text
+       id="text34"
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-       x="119.79952"
-       y="127.76785"
-       id="text16-3"><tspan
+       transform="matrix(1.3333333,0,0,1.3333333,334.86323,36.03512)"><tspan
+         style="font-variant:normal;font-weight:normal;font-size:9px;font-family:'TexMaths Symbols';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0"
+         y="0"
+         id="tspan34">8</tspan><tspan
+         style="font-variant:normal;font-weight:normal;font-size:9px;font-family:'TexMaths Symbols';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="25.875046 30.375046 42.750046 47.250046"
+         y="0.052466221"
          sodipodi:role="line"
-         id="tspan16-80"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-         x="119.79952"
-         y="127.76785">42</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Roman';-inkscape-font-specification:'TexMaths Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-       x="125.75265"
-       y="127.77579"
-       id="text17-5"><tspan
+         id="tspan35">2021</tspan><tspan
+         style="font-variant:normal;font-weight:normal;font-size:9px;font-family:'TexMaths Symbols';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="58.909229 63.409229"
+         y="0.075001143"
          sodipodi:role="line"
-         id="tspan17-6"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Roman';-inkscape-font-specification:'TexMaths Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-         x="125.75265"
-         y="127.77579">P</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-       x="131.7243"
-       y="127.72421"
-       id="text19-6"><tspan
+         id="tspan36">22</tspan><tspan
+         style="font-variant:normal;font-weight:normal;font-size:9px;font-family:'TexMaths Symbols';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="87.750031 92.250031"
+         y="0.05242293"
          sodipodi:role="line"
-         id="tspan19-4"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-         x="131.7243"
-         y="127.72421">43</tspan></text>
+         id="tspan37">26</tspan><tspan
+         style="font-variant:normal;font-weight:normal;font-size:9px;font-family:'TexMaths Symbols';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="-142.11728 -139.129"
+         y="0.17997722"
+         sodipodi:role="line"
+         id="tspan38">-7</tspan><tspan
+         style="font-variant:normal;font-weight:normal;font-size:9px;font-family:'TexMaths Symbols';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="-125.44551 -122.45723"
+         y="0.20246895"
+         sodipodi:role="line"
+         id="tspan39">-6</tspan></text>
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-dasharray:none;marker-start:url(#ColoredDot-1-46)"
-       d="m 141.62702,131.15955 -1.98438,3e-5"
-       id="path1-9-9"
-       sodipodi:nodetypes="cc" />
+       id="path39"
+       d="m 129.645,15.828 h 5.628"
+       style="fill:none;stroke:#000000;stroke-width:0.749999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(1.3333333)" />
+    <path
+       id="path40"
+       d="m 131.332,15.826 c 0,0.934 -0.754,1.688 -1.687,1.688 -0.93,0 -1.688,-0.754 -1.688,-1.688 0,-0.929 0.778,-1.687 1.688,-1.687 0.933,0 1.687,0.757 1.687,1.687 z"
+       style="fill:none;stroke:#000000;stroke-width:0.674999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(1.3333333,2.0151067e-5,-2.0151067e-5,1.3333333,0,0)" />
+    <path
+       id="path41"
+       d="m 157.77,15.828 h -5.622"
+       style="fill:none;stroke:#000000;stroke-width:0.749999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(1.3333333)" />
+    <path
+       id="path42"
+       d="m -156.082,-15.83 c 0,0.929 -0.758,1.687 -1.687,1.687 -0.934,0 -1.688,-0.758 -1.688,-1.688 0,-0.933 0.774,-1.687 1.688,-1.687 0.929,0 1.687,0.754 1.687,1.688 z"
+       style="fill:none;stroke:#000000;stroke-width:0.674999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(-1.3333333,2.0163867e-5,-2.0163867e-5,-1.3333333,0,0)" />
+    <path
+       id="path43"
+       d="m 174.645,15.828 c -16.875,0 -16.875,0 -16.875,0"
+       style="fill:none;stroke:#000000;stroke-width:0.749999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(1.3333333)" />
+    <path
+       id="path44"
+       d="m -172.957,-15.828 c 0,0.93 -0.758,1.687 -1.688,1.687 -0.933,0 -1.687,-0.757 -1.687,-1.687 0,-0.934 0.773,-1.688 1.687,-1.688 0.93,0 1.688,0.754 1.688,1.688 z"
+       style="fill:none;stroke:#000000;stroke-width:0.674999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(-1.3333333)" />
+    <path
+       id="path45"
+       d="m 191.523,15.828 c -16.875,0 -16.875,0 -16.875,0"
+       style="fill:none;stroke:#000000;stroke-width:0.749999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(1.3333333)" />
+    <path
+       id="path46"
+       d="m -189.836,-15.828 c 0,0.93 -0.754,1.687 -1.687,1.687 -0.93,0 -1.688,-0.757 -1.688,-1.687 0,-0.934 0.777,-1.688 1.688,-1.688 0.933,0 1.687,0.754 1.687,1.688 z"
+       style="fill:none;stroke:#000000;stroke-width:0.674999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(-1.3333333)" />
+    <path
+       id="path47"
+       d="m 135.273,15.828 h 16.875"
+       style="fill:none;stroke:#000000;stroke-width:0.749999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.25002, 2.25002;stroke-dashoffset:0;stroke-opacity:1"
+       transform="scale(1.3333333)" />
+    <path
+       id="path48"
+       d="m 191.52,15.828 h 5.628"
+       style="fill:none;stroke:#000000;stroke-width:0.749999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(1.3333333)" />
+    <path
+       id="path49"
+       d="m 193.207,15.825 c 0,0.934 -0.754,1.688 -1.687,1.688 -0.93,0 -1.688,-0.754 -1.688,-1.688 0,-0.929 0.778,-1.687 1.688,-1.687 0.933,0 1.687,0.758 1.687,1.687 z"
+       style="fill:none;stroke:#000000;stroke-width:0.674999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(1.3333333,2.0151067e-5,-2.0151067e-5,1.3333333,0,0)" />
+    <path
+       id="path50"
+       d="m 219.645,15.828 h -5.622"
+       style="fill:none;stroke:#000000;stroke-width:0.749999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(1.3333333)" />
+    <path
+       id="path51"
+       d="m -217.957,-15.831 c 0,0.929 -0.758,1.687 -1.687,1.687 -0.934,0 -1.688,-0.758 -1.688,-1.687 0,-0.934 0.774,-1.688 1.688,-1.688 0.929,0 1.687,0.754 1.687,1.688 z"
+       style="fill:none;stroke:#000000;stroke-width:0.674999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(-1.3333333,2.0163867e-5,-2.0163867e-5,-1.3333333,0,0)" />
+    <path
+       id="path52"
+       d="m 236.52,15.828 c -16.875,0 -16.875,0 -16.875,0"
+       style="fill:none;stroke:#000000;stroke-width:0.749999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(1.3333333)" />
+    <path
+       id="path53"
+       d="m -234.832,-15.828 c 0,0.93 -0.758,1.687 -1.688,1.687 -0.933,0 -1.687,-0.757 -1.687,-1.687 0,-0.934 0.773,-1.688 1.687,-1.688 0.93,0 1.688,0.754 1.688,1.688 z"
+       style="fill:none;stroke:#000000;stroke-width:0.674999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(-1.3333333)" />
+    <path
+       id="path54"
+       d="m 253.398,15.828 c -16.875,0 -16.875,0 -16.875,0"
+       style="fill:none;stroke:#000000;stroke-width:0.749999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(1.3333333)" />
+    <path
+       id="path55"
+       d="m -251.711,-15.828 c 0,0.93 -0.754,1.687 -1.687,1.687 -0.93,0 -1.688,-0.757 -1.688,-1.687 0,-0.934 0.777,-1.688 1.688,-1.688 0.933,0 1.687,0.754 1.687,1.688 z"
+       style="fill:none;stroke:#000000;stroke-width:0.674999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(-1.3333333)" />
+    <path
+       id="path56"
+       d="m 197.148,15.828 h 16.875"
+       style="fill:none;stroke:#000000;stroke-width:0.749999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:2.25002, 2.25002;stroke-dashoffset:0;stroke-opacity:1"
+       transform="scale(1.3333333)" />
+    <text
+       id="text56"
+       xml:space="preserve"
+       transform="matrix(1.3333333,0,0,1.3333333,205.3687,36.105075)"><tspan
+         style="font-variant:normal;font-weight:normal;font-size:9px;font-family:'TexMaths Symbols';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0 2.9882812 18.369282"
+         y="0"
+         sodipodi:role="line"
+         id="tspan56">-10</tspan><tspan
+         style="font-variant:normal;font-weight:normal;font-size:9px;font-family:'TexMaths Symbols';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="34.52832"
+         y="0.02257821"
+         id="tspan57">1</tspan><tspan
+         style="font-variant:normal;font-weight:normal;font-size:9px;font-family:'TexMaths Symbols';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="63.369099"
+         y="0"
+         id="tspan58">6</tspan><tspan
+         style="font-variant:normal;font-weight:normal;font-size:9px;font-family:'TexMaths Symbols';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="80.245934"
+         y="0.1275102"
+         id="tspan59">7</tspan><tspan
+         style="font-variant:normal;font-weight:normal;font-size:9px;font-family:'TexMaths Symbols';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="-148.78462"
+         y="-20.991655"
+         id="tspan60">0</tspan><tspan
+         style="font-variant:normal;font-weight:normal;font-size:9px;font-family:'TexMaths Symbols';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="-122.25407"
+         y="-20.864166"
+         id="tspan61">4</tspan><tspan
+         style="font-variant:normal;font-weight:normal;font-size:9px;font-family:'TexMaths Roman';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="-106.18767"
+         y="-20.841654"
+         id="tspan62">P</tspan><tspan
+         style="font-variant:normal;font-weight:normal;font-size:9px;font-family:'TexMaths Symbols';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="-88.451576"
+         y="-20.987892"
+         id="tspan63">5</tspan></text>
+    <path
+       id="path63"
+       d="M 95.898,15.828 H 90.273"
+       style="fill:none;stroke:#000000;stroke-width:0.749999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(1.3333333)" />
+    <path
+       id="path64"
+       d="m -94.211,-15.83 c 0,0.93 -0.754,1.688 -1.687,1.688 -0.93,0 -1.688,-0.758 -1.688,-1.688 0,-0.933 0.778,-1.687 1.688,-1.687 0.933,0 1.687,0.754 1.687,1.687 z"
+       style="fill:none;stroke:#000000;stroke-width:0.674999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(-1.3333333,2.0157467e-5,-2.0157467e-5,-1.3333333,0,0)" />
+    <text
+       id="text64"
+       xml:space="preserve"
+       transform="matrix(1.3333333,0,0,1.3333333,121.86209,8.2861347)"><tspan
+         style="font-variant:normal;font-weight:normal;font-size:9px;font-family:'TexMaths Symbols';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0 4.5"
+         y="0"
+         sodipodi:role="line"
+         id="tspan64">17</tspan><tspan
+         style="font-variant:normal;font-weight:normal;font-size:9px;font-family:'TexMaths Roman';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="18.316404"
+         y="0.02249172"
+         id="tspan65">P</tspan><tspan
+         style="font-variant:normal;font-weight:normal;font-size:9px;font-family:'TexMaths Symbols';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="33.802479 38.302479"
+         y="-0.12374748"
+         sodipodi:role="line"
+         id="tspan66">18</tspan></text>
+    <path
+       id="path66"
+       d="m 191.52,15.828 h 5.625"
+       style="fill:none;stroke:#000000;stroke-width:0.749999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(1.3333333)" />
+    <path
+       id="path67"
+       d="m 193.207,15.825 c 0,0.934 -0.754,1.688 -1.687,1.688 -0.93,0 -1.688,-0.754 -1.688,-1.688 0,-0.929 0.778,-1.687 1.688,-1.687 0.933,0 1.687,0.758 1.687,1.687 z"
+       style="fill:none;stroke:#000000;stroke-width:0.674999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(1.3333333,2.0157467e-5,-2.0157467e-5,1.3333333,0,0)" />
+    <text
+       id="text67"
+       xml:space="preserve"
+       transform="matrix(1.3333333,0,0,1.3333333,204.36083,8.28602)"><tspan
+         style="font-variant:normal;font-weight:normal;font-size:9px;font-family:'TexMaths Symbols';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0 4.5"
+         y="0"
+         sodipodi:role="line"
+         id="tspan67">23</tspan><tspan
+         style="font-variant:normal;font-weight:normal;font-size:9px;font-family:'TexMaths Roman';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="18"
+         y="0.02249172"
+         id="tspan68">N</tspan><tspan
+         style="font-variant:normal;font-weight:normal;font-size:9px;font-family:'TexMaths Symbols';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="33.802532 38.302532"
+         y="-0.12370428"
+         sodipodi:role="line"
+         id="tspan69">24</tspan></text>
+    <path
+       id="path69"
+       d="m 253.398,15.828 h 5.625"
+       style="fill:none;stroke:#000000;stroke-width:0.749999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(1.3333333)" />
+    <path
+       id="path70"
+       d="m 255.086,15.824 c 0,0.934 -0.758,1.688 -1.687,1.688 -0.934,0 -1.688,-0.754 -1.688,-1.688 0,-0.929 0.774,-1.687 1.688,-1.687 0.929,0 1.687,0.758 1.687,1.687 z"
+       style="fill:none;stroke:#000000;stroke-width:0.674999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(1.3333333,2.0157467e-5,-2.0157467e-5,1.3333333,0,0)" />
+    <text
+       id="text70"
+       xml:space="preserve"
+       transform="matrix(1.3333333,0,0,1.3333333,286.86323,8.2861347)"><tspan
+         style="font-variant:normal;font-weight:normal;font-size:9px;font-family:'TexMaths Symbols';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0 4.5"
+         y="0"
+         sodipodi:role="line"
+         id="tspan70">29</tspan><tspan
+         style="font-variant:normal;font-weight:normal;font-size:9px;font-family:'TexMaths Roman';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="18.316404"
+         y="0.02249172"
+         id="tspan71">P</tspan><tspan
+         style="font-variant:normal;font-weight:normal;font-size:9px;font-family:'TexMaths Symbols';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="33.802486 38.302486"
+         y="-0.12374748"
+         sodipodi:role="line"
+         id="tspan72">30</tspan></text>
+    <path
+       id="path72"
+       d="m 315.273,15.828 h 5.625"
+       style="fill:none;stroke:#000000;stroke-width:0.749999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(1.3333333)" />
+    <path
+       id="path73"
+       d="m 316.961,15.823 c 0,0.934 -0.754,1.688 -1.687,1.688 -0.93,0 -1.688,-0.754 -1.688,-1.688 0,-0.929 0.777,-1.687 1.688,-1.687 0.933,0 1.687,0.758 1.687,1.687 z"
+       style="fill:none;stroke:#000000;stroke-width:0.674999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(1.3333333,2.0157467e-5,-2.0157467e-5,1.3333333,0,0)" />
+    <text
+       id="text73"
+       xml:space="preserve"
+       transform="matrix(1.3333333,0,0,1.3333333,369.36571,8.28602)"><tspan
+         style="font-variant:normal;font-weight:normal;font-size:9px;font-family:'TexMaths Symbols';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0 4.5"
+         y="0"
+         sodipodi:role="line"
+         id="tspan73">42</tspan><tspan
+         style="font-variant:normal;font-weight:normal;font-size:9px;font-family:'TexMaths Roman';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="18.316404"
+         y="0.02249172"
+         id="tspan74">P</tspan><tspan
+         style="font-variant:normal;font-weight:normal;font-size:9px;font-family:'TexMaths Symbols';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="33.802532 38.302532"
+         y="-0.12370428"
+         sodipodi:role="line"
+         id="tspan75">43</tspan></text>
+    <path
+       id="path75"
+       d="m 343.398,15.828 h -5.625"
+       style="fill:none;stroke:#000000;stroke-width:0.749999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="scale(1.3333333)" />
+    <path
+       id="path76"
+       d="m -341.711,-15.833 c 0,0.929 -0.754,1.687 -1.687,1.687 -0.93,0 -1.688,-0.758 -1.688,-1.687 0,-0.934 0.778,-1.688 1.688,-1.688 0.933,0 1.687,0.754 1.687,1.688 z"
+       style="fill:none;stroke:#000000;stroke-width:0.674999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(-1.3333333,2.0157467e-5,-2.0157467e-5,-1.3333333,0,0)" />
+    <text
+       id="text76"
+       xml:space="preserve"
+       transform="matrix(1.3333333,0,0,1.3333333,451.86337,8.28602)"><tspan
+         style="font-variant:normal;font-weight:normal;font-size:9px;font-family:'TexMaths Symbols';writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         x="0 4.5"
+         y="0"
+         sodipodi:role="line"
+         id="tspan76">47</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;line-height:0.95;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-       x="141.62703"
-       y="127.76785"
-       id="text16-6"><tspan
+       style="font-size:13.3333px;line-height:0.9;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';text-align:center;text-anchor:middle;fill:#e6e6e6;fill-rule:evenodd;stroke:#ffdd55;stroke-width:0.999999"
+       x="-92.369087"
+       y="11.056555"
+       id="text77"><tspan
          sodipodi:role="line"
-         id="tspan16-1"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:'TexMaths Symbols';-inkscape-font-specification:'TexMaths Symbols, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583;stroke-dasharray:0.79375, 0.79375;stroke-dashoffset:0"
-         x="141.62703"
-         y="127.76785">47</tspan></text>
+         id="tspan77"
+         x="-92.369087"
+         y="11.056555"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;line-height:0.9;font-family:'TexMaths Roman';-inkscape-font-specification:'TexMaths Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-anchor:start;fill:#000000;stroke:none">Índice dato:</tspan><tspan
+         sodipodi:role="line"
+         x="-92.369087"
+         y="23.056524"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;line-height:0.9;font-family:'TexMaths Roman';-inkscape-font-specification:'TexMaths Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-anchor:start;fill:#000000;stroke:none"
+         id="tspan78" /><tspan
+         sodipodi:role="line"
+         x="-92.369087"
+         y="35.056492"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;line-height:0.9;font-family:'TexMaths Roman';-inkscape-font-specification:'TexMaths Roman, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;text-anchor:start;fill:#000000;stroke:none"
+         id="tspan79">Subportadora:</tspan></text>
+    <path
+       style="fill:#000000;fill-rule:evenodd;stroke:none;stroke-width:0.999999"
+       d="M 463.00853,39.559189 V -5.4408121"
+       id="path79" />
   </g>
 </svg>

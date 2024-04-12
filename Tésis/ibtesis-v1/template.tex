@@ -1,0 +1,126 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \documentclass[12pt,papel,twoside]{ibtesis}
+\documentclass[12pt,screen,twoside,pagebackref]{ibtesis}
+% \documentclass[12pt,papel,singlespace,oneside]{ibtesis}
+% \documentclass[12pt,papel,preprint,singlespace,oneside]{ibtesis}
+
+
+%%%%%%%%%%%%%%%%%%%%% Paquetes extra %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Por conveniencia: aqu\'{\i} puede cargar todos los paquetes y definir los comandos 
+% que necesite
+\usepackage{ibextra}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%% Informacion sobre la tesis %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Implementación en dispositivos SDR de las etapas de detección y sincronismo
+para sistemas inalámbricos que emplean OFDM}
+\author{Matías Daniel Roqueta}
+\director{Dr.~Juan Pablo Pascual}
+\codirector{Ing.~Nicolás Catalano}
+\carrera{Tesis Carrera de Ingeniería en Telecomunicaciones}
+\grado{Estudiante}
+\laboratorio{Departamento de Ingeniería en Telecomunicaciones}
+\jurado{Ing. Omelio Barba Leal (Skyloom) \\ 
+Ing. José Ignacio Quinteros del Castillo (Emtech)\\
+}
+\palabrasclave{OFDM, DETECCIÓN, SINCRONISMO, SDR.}
+\keywords{OFDM, DETECTION, SYNCHRONIZATION, SDR}
+% Si queremos poner la fecha manualmente:
+% \date{Diciembre de 2099}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\titlepagefalse % Si no quiere compilar la portada descomente esta linea
+%\includeonly{apendices} % Compilar s\'{o}lo estos archivos 
+\graphicspath{{figs/}} % Lugar donde encontrar las figuras generales (se puede poner uno en cada cap{\'{\i}}tulo)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+% Dentro del environment 'preliminary' va:
+% la dedicatoria, resumen, abstract, indices
+
+\begin{preliminary}
+
+% Escriba su dedicatoria
+\dedicatoria{
+A mi familia\\
+A mis amigos\\
+A todos los que me conocen\\
+A toda esa otra gente que no
+}
+
+%%% \'{I}ndices %%%%
+
+\begin{abreviaturas}
+  \begin{description}[labelwidth=2cm,leftmargin=!]
+    \item[BPSK:]  \textit{Binary Phase Shift Key} - Desplazamiento de fase binario
+    \item[CPU:]   \textit{Central Processing Unit} - Unidad central de procesamiento
+    \item[FFT:]   \textit{Fast Fourier Transform} - Transformada rápida de Fourier
+    \item[FIFO:]  \textit{First In, First Out} - Primero en entrar, primero en salir
+    \item[FPGA:]  \textit{Field Programmable Gate Array} - Matriz de compuertas lógicas programable
+    \item[FLOPS:] \textit{Floating Point Operations per Second} - Operaciones de punto flotante por segundo
+    \item[GI:]    \textit{Guard Interval} - Intervalo de guarda
+    \item[IEEE:]  \textit{Institute of Electrical and Electronic Engineering}
+    \item[ISI:]   \textit{Inter-Symbol Interference} - Interferencia entre símbolos
+    \item[ITU:]   \textit{International Telecommunications Union} - Unión Internacional de las Telecomunicaciones
+    \item[IFFT:]  \textit{Inverse Fast Fourier Transform} - Antitransformada rápida de Fourier
+    \item[MSE:]   \textit{Mean Square Error} - Error cuadrático medio
+    \item[MVUE:]  \textit{Minimum Variance Unbiased Estimator} - Estimador insesgado de mínima varianza
+    \item[NI:]    \textit{National Instruments}
+    \item[OFDM:]  \textit{Orthogonal Frequency Division Multiplexing} - Multiplexación por división en frecuencias ortogonales
+    \item[PHY:]   \textit{Physical Layer} - Capa física
+    \item[PPDU:]  \textit{PHY Protocol Data Unit} - Unidad de datos del protocolo de capa física
+    \item[QAM:]   \textit{Quadrature Amplitude Modulation} - Modulación de amplitudes en cuadratura
+    \item[QPSK:]  \textit{Quadrature Phase Shift Key} - Desplazamiento de fase en cuadratura 
+    \item[SDR:]   \textit{Software Defined Radio} - Radio definida por software
+    \item[SNR:]   \textit{Signal to Noise Ratio} - Relación de señal a ruido
+    \item[USRP:]  \textit{Universal Software Radio Peripheral} - Periférico universal de radio programable
+  \end{description}
+\end{abreviaturas}
+
+\tableofcontents                %\'{I}ndice
+
+\listoffigures                  %Figuras
+
+\listoftables                   %Tablas
+
+\include{resumen}
+
+\end{preliminary}
+
+
+% Podemos usar cualquiera de los dos comandos: \input o \include para incluir el texto
+\include{cap1}
+\include{cap2}
+\include{cap3}
+\include{cap4}
+\include{cap5}
+\include{cap6}
+
+
+%\appendix
+%\include{apend1}
+
+\begin{biblio}
+\bibliography{mibib}
+\end{biblio}
+
+
+\begin{postliminary}
+
+%\begin{seccion}{Publicaciones asociadas}
+%  \begin{enumerate}
+%  \item Mi primer aviso en la revista \textbf{ABC}, 1996
+%  \item Mi segunda publicaci\'{o}n en la revista \textbf{ABC}, 1997
+%  \end{enumerate}
+%\end{seccion}
+
+\begin{seccion}{Agradecimientos}
+A todos los que se lo merecen, por merecerlo
+\end{seccion}
+
+\end{postliminary}
+
+\end{document}
+
+ 

@@ -1,0 +1,43 @@
+\babel@toc {spanish}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {spanish}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {spanish}{}\relax 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Asignación de datos según sus índices a las subportadoras que constituyen un símbolo OFDM.\relax }}{6}{figure.caption.13}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Esquema de aplicación de IFFT a una descripción en subportadoras de un símbolo OFDM.\relax }}{8}{figure.caption.16}%
+\contentsline {subfigure}{\numberline {a}{\ignorespaces Aplicación de IFFT de 64 puntos.\caption@gobble {fig:ifft64}\relax }}{8}{figure.caption.16}%
+\contentsline {subfigure}{\numberline {b}{\ignorespaces Aplicación de IFFT de 128 puntos.\caption@gobble {fig:ifft128}\relax }}{8}{figure.caption.16}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Diagrama de aplicación de intervalo de guarda a un símbolo OFDM.\relax }}{8}{figure.caption.17}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Estructura de alto nivel de una PPDU en el estándar IEEE 802.11.\relax }}{9}{figure.caption.18}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Diagrama de aplicación de intervalo de guarda a una secuencia de entrenamiento del preámbulo.\relax }}{9}{figure.caption.19}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Asignación de subportadoras para la construcción de la secuencia de entrenamiento de símbolos cortos.\relax }}{10}{figure.caption.20}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Secuencia de entrenamiento de símbolos cortos en el dominio temporal, usando $T_{SHORT} = 8$ \textmu s y una IFFT de 64 puntos.\relax }}{10}{figure.caption.21}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Asignación de subportadoras para la construcción de la secuencia de entrenamiento de símbolos largos.\relax }}{11}{figure.caption.22}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Secuencia de entrenamiento de símbolos largos en el dominio temporal, usando $T_{LONG} = 8$ \textmu s y una IFFT de 64 puntos..\relax }}{11}{figure.caption.23}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Diagrama temporal de aplicación de ventana FFT a una secuencia de símbolos OFDM recibidos, describiendo la ventana ideal y los casos en los que una desviación temporal produce interferencia entre símbolos.\relax }}{14}{figure.caption.24}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Esquema de demodulador coherente, considerando un error de frecuencia entre la señal entrante y el oscilador local del demodulador.\relax }}{15}{figure.caption.25}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Resultado de aplicación del estadístico $\Phi _{BC}$ a una señal recibida que consiste en un preámbulo con error en fase.\relax }}{17}{figure.caption.27}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Resultado del cálculo numérico del factor de degradación del estadístico $\Phi _{BC}$ en función del factor de rotación de fase.\relax }}{17}{figure.caption.29}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Ejemplos de referencias generadas considerando rotación lineal en fase producto de diferentes errores de frecuencia.\relax }}{18}{figure.caption.30}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Resultado de aplicación del estadístico $\overline {\Phi }_{BC}$ a una señal recibida que consiste en un preámbulo con rotación lineal en fase provocado por un desvío de frecuencia de protadora de 21 kHz.\relax }}{19}{figure.caption.31}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Resultado de aplicación del estadístico $\Phi _{DC}$ a una señal recibida que consiste en un preámbulo con error de frecuencia.\relax }}{20}{figure.caption.33}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Diagrama en bloques de las referencias necesarias para calcular el estadístico $\overline {\Phi }_{BC}$ en LabVIEW.\relax }}{21}{figure.caption.35}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Diagrama de bloques del cálculo del estadístico $\overline {\Phi }_{BC}$ en LabVIEW.\relax }}{22}{figure.caption.36}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Diagrama de bloques del cálculo del estadístico $\Phi _{DC}$ en LabVIEW.\relax }}{22}{figure.caption.38}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Resultados de simulación para verificar la correcta probabilidad de falsa alarma de la regla de decisión.\relax }}{31}{figure.caption.40}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Resultados de probabilidad de detección de la decisión en función de la probabilidad de falsa alarma elegida a valores de SNR fijos. En línea punteada se grafican los resultados analíticos, y en línea contínua del mismo color los resultados de simulación.\relax }}{32}{figure.caption.41}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Resultados de probabilidad de detección de la decisión en función de la SNR elegida a valores de probabilidad de falsa alarma elegida fijos. En línea punteada se grafican los resultados analíticos, y en línea contínua del mismo color los resultados de simulación.\relax }}{32}{figure.caption.42}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Resultados de la verificación por simulación del error cuadrático medio del MVUE para la varianza del ruido.\relax }}{35}{figure.caption.43}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Resultados de simulación numérica del cálculo del error cuadrático medio normalizado del MVUE para la varianza del ruido ante la presencia de una secuencia de entrenamiento de símbolos cortos con determinada SNR en la ventana de muestras utilizadas para calcular el estadístico.\relax }}{36}{figure.caption.44}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Diagrama de bloques \textit {top-level} del sistema que integra los algoritmos de detección y sincronismo en ejecución contínua sobre las muestras de una señal recibida implementado en LabVIEW, utilizando una simulación del problema como fuente de muestras.\relax }}{38}{figure.caption.45}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Diagrama de bloques de la implementación en LabVIEW del módulo que construye una ventana de evaluación $\mathbf {v}$ conteniendo las últimas $L$ muestras registradas en una FIFO cíclica $\mathbf {y}$ a partir del puntero de lectura $k$.\relax }}{40}{figure.caption.46}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Diagrama de bloques de la implementación en LabVIEW del módulo que implementa el criterio de detección a partir de la comparación del registro del estadístico de detección $\upphi $ contra el registro del umbral $\mathbf {T}$, controlado por los parámetros de epera $T_{HOLD}$ y $T_{BUSY}$.\relax }}{42}{figure.caption.47}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Diagrama de bloques de la implementación en LabVIEW del módulo que implementa el criterio de sincronismo a partir del registro de valores del estadístico proveniente de un banco de correladores contra referencias asociadas a los desvíos en frecuencia de portadora registrados en el parámetro Freqs.\relax }}{43}{figure.caption.48}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Diagrama de bloques de la implementación en LabVIEW del módulo que implementa el criterio de sincronismo a partir del registro de valores del estadístico del método $\textit {delay and correlate}$ aplicado a una ventana de $L$ muestras tomadas con un intervalo de muestreo $T_S$.\relax }}{43}{figure.caption.49}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Panel de control de la simulación que evalúa el diseño del sistema de detección y sincronismo implementado, correspondiente al diagrama de bloques presentado en la Figura \ref {fig:top-level-lv}. El panel cuenta con visualizaciones de la señal recibida, los estadísticos de sincronismo, y el estadístico de detección junto con el umbral de decisión. La esquina inferior derecha del panel de control informa las estimaciones de sincronismo correspondientes a la detección más reciente registrada.\relax }}{44}{figure.caption.50}%
+\addvspace {10\p@ }

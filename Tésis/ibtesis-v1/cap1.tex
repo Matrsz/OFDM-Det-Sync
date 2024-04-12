@@ -1,0 +1,45 @@
+\chapter{Introducción}
+\label{Ch:1}
+\graphicspath{{figs/}}
+
+\section{Motivación y antecedentes}
+\label{S:ch1-antecedentes}
+
+La Unión Internacional de Telecomunicaciones (ITU por sus siglas en inglés) en el año 2003 autorizó a que las redes de área local inalámbricas (WLAN, por sus siglas en inglés) compartan parte de su banda de frecuencias de transmisión con los radares meteorológicos que operan en banda C. Desde ese entonces, las señales WiFi son una fuente de interferencia para dichos radares, distorsionando los productos meteorológicos sobre los que los pronosticadores llevan a cabo su trabajo.
+
+Esta problemática ha sido disparadora de dos líneas de investigación que se vienen desarrollando en el grupo de procesamiento de señales del Departamento de Ingeniería en Telecomunicaciones. Una de ellas se centra en la identificación y mitigación de los
+efectos de la interferencia provocada por señales WLAN sobre las muestras en fase y cuadraturas adquiridas por el propio radar, antecedentes en este área incluyen los proyectos de finalización de las carreras de Ingeniería en Telecomunicaciones realizados por Omelio Barba Leal en el año 2019 \cite{tesis-omelio} y por Santiago Elián Mallerman en el año 2022 \cite{tesis-santiago} o bien sobre los productos de radar meteorológico como es el caso del trabajo de Maestría en Ciencias de la Ingeniería de David Benoit del año 2023 \cite{tesis-david}, quien en particular trabajó sobre el efecto de la interferencia sobre la velocidad Doppler.
+
+La segunda línea de trabajo se centra en el desarrollo de un receptor capaz de demodular las señales interferentes e identificar su fuente. Antecedentes en este área incluyen el trabajo de finalización de la carrera de Ingeniería en Telecomunicaciones realizado por Daniel Milanés Chau en el año 2021 \cite{tesis-daniel} quien se ocupó de la demodulación de las señales WiFi que emplean OFDM o el trabajo de Maestría en Ciencias de la Ingeniería llevado a cabo por Maia Desamo en el año 2023 \cite{tesis-maia} quien estudió técnicas de sincronismo en sistemas de modulación multiportadora.
+
+El presente trabajo se enmarca en la segunda línea de investigación. En los trabajos previos realizados en el grupo se han estudiado en detalle las características de transmisión por medio de OFDM siguiendo el estándar IEEE 802.11a, y se han desarrollado algoritmos de detección y sincronismo para señales que emplean este esquema de modulación. Sin embargo, en todos los casos, los algoritmos han sido implementados en Matlab, y operan fuera de línea, por lo que este trabajo se presenta como una continuidad, debido a que persigue la implementación de los algoritmos de detección y sincronismo de tramas moduladas en OFDM sobre dispositivos de Radio Definida por Software (SDR, por sus siglas en inglés) capaz de operar en tiempo real.
+
+\section{Objetivos}
+\label{S:ch1-objetivos}
+
+El presente proyecto se centra en utilizar las herramientas de SDR provistas por LabVIEW para desarrollar una implementación de los algoritmos de detección y sincronismo para señales que emplean OFDM capaz de operar en línea. Formalmente, los objetivos específicos son los siguientes:
+\begin{itemize}
+    \item diseñar e implementar un algoritmo de detección de tramas OFDM en base a una prueba de hipótesis
+    \item implementar uno o más algoritmos de sincronismo en tiempo y en frecuencia,
+    \item evaluar el desempeño de los algoritmos implementados, 
+    \item validar el funcionamiento de los algoritmos implementados empleando mediciones reales de señales inalámbricas.
+\end{itemize}
+
+Para el desarrollo del proyecto se cuenta con un dispositivo SDR del modelo USRP-2953R fabricado por la empresa National Instruments, el cual cuenta con una FPGA interna tipo Kintex 7. Se cuenta con una licencia de LabVIEW 2017, la licencia incluye el módulo NI-USRP, el cual provee una interfaz de la computadora con la USRP, y el módulo LabVIEW FPGA, el cual permite desarrollar lógica de hardware personalizada y sintetizarla en la FPGA del periférico.
+
+\section{Organización de la Tésis}
+\label{S:ch1-organización}
+
+A continuación de este primer capítulo de carácter introductorio, la tésis contempla los siguientes capítulos:
+\begin{itemize}
+    \item El Capítulo \ref{Ch:2} describe las características de la transmisión de señales por medio de OFDM especificadas en el estándar IEEE 802.11a, haciendo énfasis sobre los aspectos de la trama necesarios para la detección y el sincronismo.
+    \item El Capítulo \ref{Ch:3} se centra en el problema de sincronismo, describiendo dos métodos que permiten estimar parámetros de sincronismo en tiempo y frecuencia sobre señales que emplean OFDM.
+    \item El Capítulo \ref{Ch:4} se centra en el problema de detección por medio de una prueba de hipótesis, y en la estimación de la varianza del ruido aditivo que afecta a las señales recibidas.
+    \item El Capítulo \ref{Ch:5} describe la integración de los algoritmos de detección y sincronismo descritos en los capítulos anteriores en un sistema implementado en SDR diseñado para la operación en línea.
+    \item Finalmente, el Capítulo \ref{Ch:6} discute los hitos que fueron alcanzados durante el proyecto y los factores limitantes del sistema implementado, y propone líneas de trabajo futuras para resolver los factores limitantes encontrados.
+\end{itemize}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "template"
+%%% End: 

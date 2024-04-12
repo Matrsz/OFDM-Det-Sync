@@ -75,7 +75,7 @@
   pdfhighlight  =/P,%
   pdfstartview={FitH},  %% determines starting view ("percentage")
   colorlinks=true,
-  linkcolor=blue,
+  linkcolor=RoyalBlue,
   anchorcolor=red,
   citecolor=green
 }%

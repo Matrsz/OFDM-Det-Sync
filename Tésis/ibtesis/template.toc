@@ -1,50 +1,78 @@
 \babel@toc {spanish}{}\relax 
 \contentsline {chapter}{\'{I}ndice de s{\'{\i }}mbolos}{\es@scroman {v}}{section*.1}%
 \contentsline {chapter}{\'{I}ndice de contenidos}{\es@scroman {vii}}{section*.3}%
-\contentsline {chapter}{\'{I}ndice de figuras}{\es@scroman {ix}}{section*.5}%
-\contentsline {chapter}{\'{I}ndice de tablas}{\es@scroman {xi}}{section*.7}%
-\contentsline {chapter}{Resumen}{\es@scroman {xiii}}{section*.9}%
-\contentsline {chapter}{Abstract}{\es@scroman {xv}}{section*.11}%
+\contentsline {chapter}{\'{I}ndice de figuras}{\es@scroman {xi}}{section*.5}%
+\contentsline {chapter}{\'{I}ndice de tablas}{\es@scroman {xiii}}{section*.7}%
+\contentsline {chapter}{Resumen}{\es@scroman {xv}}{section*.9}%
+\contentsline {chapter}{Abstract}{\es@scroman {xvii}}{section*.11}%
 \babel@toc {english}{}\relax 
 \babel@toc {spanish}{}\relax 
 \babel@toc {english}{}\relax 
 \babel@toc {spanish}{}\relax 
 \contentsline {chapter}{\numberline {1}Introducción}{1}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Antecedentes}{1}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Objetivos}{1}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Organización de la Tésis}{1}{section.1.3}%
-\contentsline {chapter}{\numberline {2}Transmisión OFDM en Estándar IEEE 802.11a}{3}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Símbolo OFDM}{3}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Duración Temporal del Símbolo}{4}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Definición de Subportadoras}{5}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}IFFT}{5}{subsection.2.1.3}%
-\contentsline {subsection}{\numberline {2.1.4}Prefijo Cíclico}{6}{subsection.2.1.4}%
-\contentsline {section}{\numberline {2.2}Estructura de la PPDU}{7}{section.2.2}%
-\contentsline {section}{\numberline {2.3}PHY Preamble}{7}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Símbolo Corto de Entrenamiento}{8}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Símbolo Largo de Entrenamiento}{9}{subsection.2.3.2}%
-\contentsline {section}{\numberline {2.4}Resumen del Capítulo}{10}{section.2.4}%
-\contentsline {chapter}{\numberline {3}Métodos de Sincronismo}{11}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Sincronismo en OFDM}{11}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Sincronismo en Tiempo}{11}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Sincronismo en Frecuencia}{12}{subsection.3.1.2}%
-\contentsline {section}{\numberline {3.2}Banco de Correladores}{13}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Estimación con una única referencia}{13}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Estimación de error en frecuencia}{14}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Implementación en LabVIEW}{16}{subsection.3.2.3}%
-\contentsline {section}{\numberline {3.3}Método \textit {Delay and Correlate}}{16}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Principio del Método}{16}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Implementación en LabVIEW}{16}{subsection.3.3.2}%
-\contentsline {chapter}{\numberline {4}Problema de Detección}{17}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Formulaci\'{o}n del problema}{17}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Definición de Hipótesis}{17}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Definición de Relación Señal a Ruido}{18}{subsection.4.2.1}%
-\contentsline {section}{\numberline {4.3}Selección del Estadístico}{18}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Regla de Decisión}{19}{subsection.4.3.1}%
-\contentsline {section}{\numberline {4.4}En caso de Hipótesis 0 cierta}{19}{section.4.4}%
-\contentsline {section}{\numberline {4.5}En caso de Hipótesis 1 cierta}{20}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Estimación del Varianza del Ruido}{21}{section.4.6}%
-\contentsline {chapter}{\numberline {A}Ejemplo de ap\'{e}ndice: El problema de la medida}{25}{appendix.Alph1}%
-\contentsline {chapter}{Bibliograf{\'{\i }}a}{27}{section*.32}%
-\contentsline {chapter}{Publicaciones asociadas}{29}{section*.34}%
-\contentsline {chapter}{Agradecimientos}{31}{section*.36}%
+\contentsline {section}{\numberline {1.1}Motivación y antecedentes}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Objetivos}{2}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Hardware disponible}{2}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Software disponible}{2}{subsection.1.2.2}%
+\contentsline {section}{\numberline {1.3}Organización del documento}{3}{section.1.3}%
+\contentsline {chapter}{\numberline {2}Transmisión OFDM en Estándar IEEE 802.11a}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Símbolo OFDM}{5}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Subportadoras}{6}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Duración temporal del símbolo}{6}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}IFFT}{7}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}Prefijo cíclico}{8}{subsection.2.1.4}%
+\contentsline {section}{\numberline {2.2}Estructura de la PPDU}{8}{section.2.2}%
+\contentsline {section}{\numberline {2.3}PHY Preamble}{9}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Secuencia de entrenamiento de símbolos cortos}{10}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Secuencia de entrenamiento de símbolos largos}{10}{subsection.2.3.2}%
+\contentsline {section}{\numberline {2.4}Resumen del capítulo}{11}{section.2.4}%
+\contentsline {chapter}{\numberline {3}Métodos de sincronismo}{13}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Sincronismo en sistemas OFDM}{13}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Desvío de temporización de símbolo}{14}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Desvío de frecuencia de portadora}{14}{subsection.3.1.2}%
+\contentsline {section}{\numberline {3.2}Algoritmos de sincronismo}{16}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Banco de correladores}{16}{subsection.3.2.1}%
+\contentsline {subsubsection}{Estimación de inicio de trama con una única referencia}{16}{section*.27}%
+\contentsline {subsubsection}{Estimación de desvío de frecuencia de portadora}{17}{section*.29}%
+\contentsline {subsection}{\numberline {3.2.2}Método \textit {delay and correlate}}{19}{subsection.3.2.2}%
+\contentsline {subsubsection}{Sincronización en tiempo y frecuencia}{19}{section*.33}%
+\contentsline {section}{\numberline {3.3}Implementaciones en LabVIEW}{20}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Implementación del banco de correladores}{21}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Implementación del método \textit {delay and correlate}}{22}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Complejidad computacional de las implementaciones}{23}{subsection.3.3.3}%
+\contentsline {section}{\numberline {3.4}Resumen del capítulo}{23}{section.3.4}%
+\contentsline {chapter}{\numberline {4}Algoritmo de detección}{25}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Prueba de hipótesis}{25}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Definición de hipótesis}{26}{subsection.4.1.1}%
+\contentsline {subsubsection}{Definición de SNR}{26}{section*.38}%
+\contentsline {subsection}{\numberline {4.1.2}Elección de estadístico de detección}{27}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Distribución del estadístico ante hipótesis nula}{28}{subsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.1.4}Distribución del estadístico ante hipótesis alternativa}{29}{subsection.4.1.4}%
+\contentsline {subsection}{\numberline {4.1.5}Regla de decisión}{30}{subsection.4.1.5}%
+\contentsline {subsection}{\numberline {4.1.6}Desempeño de la regla de decisión}{32}{subsection.4.1.6}%
+\contentsline {subsection}{\numberline {4.1.7}Aspectos prácticos para la implementación}{33}{subsection.4.1.7}%
+\contentsline {section}{\numberline {4.2}Estimación de varianza del ruido}{34}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Cálculo del MVUE de varianza del ruido}{35}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Desempeño del estimador}{36}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Implemetación en LabVIEW}{38}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Complejidad computacional de la implementación}{38}{subsection.4.3.1}%
+\contentsline {section}{\numberline {4.4}Resumen del capítulo}{39}{section.4.4}%
+\contentsline {chapter}{\numberline {5}Implementación de algoritmos de detección y sincronismo en SDR}{41}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Diseño general del sistema}{41}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Etapa de inicialización}{42}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Fuente de muestras}{43}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Registros de memoria}{43}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4}Ventana de evaluación}{44}{subsection.5.1.4}%
+\contentsline {section}{\numberline {5.2}Estrategia de detección}{45}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Estrategia de sincronismo}{46}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Visualización de la simulación}{47}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Implementación con procesamiento en \textit {host}}{49}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Limitaciones del diseño}{49}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Ensayo de velocidad de transmisión de datos}{49}{subsection.5.5.2}%
+\contentsline {subsection}{\numberline {5.5.3}Análisis de complejidad computacional}{50}{subsection.5.5.3}%
+\contentsline {subsection}{\numberline {5.5.4}Evaluación de compromisos para reducir la complejidad computacional}{51}{subsection.5.5.4}%
+\contentsline {section}{\numberline {5.6}Conclusiones del capítulo}{52}{section.5.6}%
+\contentsline {chapter}{\numberline {6}Conclusiones}{55}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Trabajo futuro}{56}{section.6.1}%
+\contentsline {chapter}{Bibliograf{\'{\i }}a}{57}{section*.53}%
+\contentsline {chapter}{Agradecimientos}{59}{section*.55}%

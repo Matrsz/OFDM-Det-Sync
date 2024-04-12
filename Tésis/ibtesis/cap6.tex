@@ -1,0 +1,19 @@
+\chapter{Conclusiones}
+\label{Ch:6}
+\graphicspath{{figs/}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+A lo largo de este trabajo se logró implementar en LabVIEW los algoritmos de detección y sincronismo para señales que emplean OFDM de acuerdo al estándar IEEE 802.11, y se consiguió integrar a estos en un sistema que es capaz de ejecución continua sobre una secuencia de muestras en banda base provenientes de la recepción. Durante el diseño de este sistema se identificaron posibles fuentes de error en los resultados de los algoritmos propias del funcionamiento en tiempo real, y se definieron e implementaron medidas para evitar tales errores. 
+
+El funcionamiento del sistema implementado se verificó por medio de un entorno de simulación que aproxima al problema real, validando que no se produzcan detecciones erroneas evitables y que los algoritmos de sincronismo se apliquen en un momento adecuado y retornen los resultados esperados. La ejecución del sistema implementado sobre el entorno de simulación resultó en una exitosa prueba de concepto a nivel lógico del sistema.
+
+En la etapa siguiente del desarrollo se buscó la implementación del sistema sobre señales reales, utilizando un dispositivo NI USRP-2953R para la adquisición de las muestras y realizando el procesamiento de las mismas dentro de la computadora. En esta etapa se identificaron las limitaciones del sistema al este ser ejecutado en la computadora, ya que en estas condiciones no es capaz de alcanzar la mínima tasa de iteraciones requerida para mantener la recepción en tiempo real de señales transmitidas de acuerdo al estándar IEEE 802.11. Fue posible determinar que el factor limitante es el tiempo de procesamiento en la computadora, y no el tiempo de comunicación por puerto serie entre la computadora y la USRP.
+
+Estos pasos se consideran necesarios para el eventual desarrollo de un sistema que cumpla los requisitos, ya que se identificó que el siguiente paso recomendado es la implementación de los algoritmos computacionalmente costosos en la FPGA interna del dispositivo USRP. En la última etapa del trabajo se llegó a analizar la posibilidad de la implementación en FPGA del sistema, pero esta demostró no ser problema menor, ya que requiere tanto de la descripción y síntesis de módulos LabVIEW FPGA personalizados como de modificaciones de la interfaz de \textit{device} a \textit{host} de la USRP para permitir acceso a los resultados de los algoritmos.
+
+\section{Trabajo futuro}
+\label{S:trabajo-futuro}
+
+En base a los resultados de este proyecto, una vía natural de trabajo a futuro es el estudio más extenso de las herramientas LabVIEW FPGA, ya que se considera que la implementación de los algoritmos en FPGA representa el siguiente paso requerido para alcanzar los objetivos de operación en tiempo real del sistema de detección y sincronismo que fue desarrollado.
+
+Otra vía de trabajo a futuro posible consiste en avanzar en las etapas de procesamiento requeridas para la recepción de señales genradas de acuerdo al estándar IEEE 802.11. Esta vía continuaría con un estudio en mayor profundidad de la secuencia de entrenamiento de símbolos largos, la cual no fue utilizada en los algoritmos implementados en este proyecto. En base a esa secuencia de entrenamiento se puede proceder a implementar algoritmos para la estimación del canal inalámbrico, y eventualmente incorporar los resultados de sincronismo y estimación del canal para la demodulación del símbolo SIGNAL. 

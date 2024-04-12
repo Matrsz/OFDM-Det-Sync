@@ -1,6 +1,13 @@
 \begin{resumen}%
-Este es el resumen en castellano.\\
-La tesis debe reflejar el trabajo desarrollado, mostrando la metodolog\'{\i}a utilizada, los resultados obtenidos y las conclusiones que pueden inferirse de dichos resultados.
+
+La recepción de señales inalámbricas en todo sistema de comunicaciones inicia con las etapas de detección y sincronismo, las cuales necesitan ejecutarse en línea durante la operación del sistema. En la transmisión empleando OFDM de acuerdo al estándar IEEE 802.11 se especifican las características que debe tener una trama transmitida para permitir que el receptor implemente estas etapas. En el presente trabajo se describe el desarrollo e implementación de algoritmos de detección y sincronismo diseñados para operar en línea sobre un dispositivo SDR utilizando LabVIEW. 
+
+En la primera etapa del trabajo se estudian las especificaciones para \color{Red}la transmisión de tramas OFDM definidas en el estándar IEEE 802.11a\color{black}, las cuales habilitan la detección y sincronismo por medio de la inclusión del preámbulo de capa física a las trama transmitidas. Además, se toma consideración de las especificaciones del estándar referentes a las escalas de tiempo y frecuencia usadas en la transmisión.
+
+La segunda y la tercera etapa se centran en estudiar los algoritmos de sincronismo y detección respectivamente, los cuales se desarrollan en base al conocimiento del preámbulo de capa física. Se verifica el correcto funcionamiento de los algoritmos y \color{Red}se detalla su implementación en LabVIEW.\color{black}
+
+La etapa final consiste en la implementación de un sistema que integra los algoritmos implementados durante la etapa anterior, analizando posibles fuentes de error propias de la operación en línea y aplicando estrategias para evitarlas. Se verifica una prueba de concepto del sistema diseñado, se prueba si este es capaz de alcanzar la tasa de iteraciones mínima requerida para la operación en tiempo real, y se analizan los pasos futuros requeridos para lograr que este diseño sea capaz de alcanzar la tasa de iteraciones necesaria.
+
 \end{resumen}
 
 \begin{abstract}%

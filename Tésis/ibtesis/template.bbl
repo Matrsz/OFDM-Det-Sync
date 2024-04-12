@@ -1,9 +1,67 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
 
+\bibitem{tesis-omelio}
+{Barba Leal}, O.
+\newblock Caracterizaci{\'o}n y detecci{\'o}n de interferencias {WLAN/RLAN} en radares metereol{\'o}gicos.
+\newblock Tesis de finalizaci{\'o}n de la carrera {Ingenier{\'\i}a} en {Telecomunicaciones}, Instituto Balseiro, UNCUYO-CNEA, San Carlos de Bariloche, Argentina, 2019.
+
+\bibitem{tesis-santiago}
+{Mallerman}, S.
+\newblock Estudio y simulaci{\'o}n de interferencia {Wi-Fi} en radares meteorol{\'o}gicos.
+\newblock Tesis de finalizaci{\'o}n de la carrera {Ingenier{\'\i}a} en {Telecomunicaciones}, UNRN, San Carlos de Bariloche, Argentina, 2022.
+
+\bibitem{tesis-david}
+{Benoit}, D.
+\newblock Mitigaci{\'o}n de interferencia wifi en radar meteorol{\'o}gico a partir de su efecto sobre la velocidad doppler.
+\newblock Tesis de {Maestr{\'\i}a} en {Ingenier{\'\i}a}, Instituto Balseiro, UNCUYO-CNEA, San Carlos de Bariloche, Argentina, 2023.
+
+\bibitem{tesis-daniel}
+{Milan{\'e}s Chau}, D.
+\newblock Demodulaci{\'o}n y s{\'\i}ntesis de se{\~n}ales {OFDM}, {IEEE} 802.11.
+\newblock Tesis de finalizaci{\'o}n de la carrera {Ingenier{\'\i}a} en {Telecomunicaciones}, Instituto Balseiro, UNCUYO-CNEA, San Carlos de Bariloche, Argentina, 2021.
+
+\bibitem{tesis-maia}
+{Desamo}, M.
+\newblock Sincronismo en sistemas de modulaci{\'o}n multiportadora que emplean ofdm.
+\newblock Tesis de {Maestr{\'\i}a} en {Ingenier{\'\i}a}, Instituto Balseiro, UNCUYO-CNEA, San Carlos de Bariloche, Argentina, 2023.
+
+\bibitem{usrp2953}
+{{National Instruments}}.
+\newblock {Device specifications {USRP-2953R 1.2 GHz to 6 GHz tunable RF transceiver}}, {2017}.
+
 \bibitem{ieee}
- IEEE Std 802.11-2016 (Revision of IEEE Std 802.11-2012).
-\newblock IEEE Standard for Information technology--- Telecommunications and information exchange between systems Local and metropolitan area networks--- Specific requirements. 3 Park Avenue New York, NY 10016-5997 USA: IEEE Computer Society, 2016.
+{IEEE} standard for information technology---telecommunications and information exchange between systems local and metropolitan area networks---specific requirements - part 11: Wireless {LAN} medium access control ({MAC}) and physical layer ({PHY}) specifications.
+\newblock Inf.\ t\'ec., IEEE, Piscataway, NJ, USA, 2016.
+
+\bibitem{chiueh}
+Chiueh, T.-D., Tsai, P.-Y.
+\newblock {OFDM} Baseband Receiver Design for Wireless Communications.
+\newblock Hoboken, NJ: Wiley-Blackwell, 2007.
+
+\bibitem{tse}
+Tse, D., Viswanath, P.
+\newblock Fundamentals of Wireless Communication.
+\newblock Cambridge: Cambridge University Press, 2005.
+
+\bibitem{richards}
+Richards, M.~A.
+\newblock Fundamentals of radar signal processing.
+\newblock 2\raise1ex\hbox{\underbar{\scriptsize a}} ed\raise1ex\hbox{\underbar{\scriptsize \'on}}. New York, NY: McGraw-Hill Professional, 2014.
+
+\bibitem{distributions}
+Krishnamoorthy, K.
+\newblock Handbook of statistical distributions with applications.
+\newblock \underline{En}: Statistics: A Series of Textbooks and Monographs, p\'ags. 335--344. Chapman and Hall/CRC, 2006.
+
+\bibitem{kay}
+Kay, S.~M.
+\newblock Fundamentals of statistical signal processing, volume {I}: Estimation theory.
+\newblock Philadelphia, PA: Prentice Hall, 1993.
+
+\bibitem{fog}
+Fog, A.
+\newblock The microarchitecture of Intel, AMD, and VIA CPUs, An optimization guide for assembly programmers and compiler makers, 5 2023.
 
 \end{thebibliography}

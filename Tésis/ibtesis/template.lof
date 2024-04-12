@@ -5,23 +5,46 @@
 \babel@toc {spanish}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Asignación de números según sus índices a subportadoras que constituyen un símbolo OFDM.\relax }}{5}{figure.caption.15}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Esquema de aplicación de IFFT de 64 puntos a una descripción en subportadoras de un símbolo OFDM.\relax }}{5}{figure.caption.16}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Esquema de aplicación de IFFT de 128 puntos a una descripción en subportadoras de un símbolo OFDM.\relax }}{6}{figure.caption.17}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Diagrama de aplicación de intervalo de guarda (prefijo cíclico) a un símbolo OFDM.\relax }}{6}{figure.caption.18}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Estructura de alto nivel de una PPDU según es definida en el estándar IEEE 802.11.\cite {ieee}\relax }}{7}{figure.caption.19}%
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Diagrama de aplicación de intervalo de guarda (prefijo cíclico) a una secuencia de entrenamiento del preámbulo.\relax }}{8}{figure.caption.20}%
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Asignación de subportadoras para la construcción del símbolo corto de entrenamiento.\relax }}{8}{figure.caption.21}%
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Secuencia de entrenamiento de símbolos cortos en el dominio temporal.\relax }}{9}{figure.caption.22}%
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Asignación de subportadoras para la construcción del símbolo largo de entrenamiento.\relax }}{9}{figure.caption.23}%
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Secuencia de entrenamiento de símbolos largos en el dominio temporal.\relax }}{10}{figure.caption.24}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Mapa de asignación de datos según sus índices a las subportadoras que constituyen un símbolo OFDM.\relax }}{6}{figure.caption.14}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Esquema de aplicación de IFFT a una descripción en subportadoras de un símbolo OFDM.\relax }}{7}{figure.caption.17}%
+\contentsline {subfigure}{\numberline {a}{\ignorespaces Aplicación de IFFT de 64 puntos.\caption@gobble {fig:ifft64}\relax }}{7}{figure.caption.17}%
+\contentsline {subfigure}{\numberline {b}{\ignorespaces Aplicación de IFFT de 128 puntos.\caption@gobble {fig:ifft128}\relax }}{7}{figure.caption.17}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Diagrama de aplicación de intervalo de guarda a un símbolo OFDM.\relax }}{8}{figure.caption.18}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Estructura de alto nivel de una PPDU en el estándar IEEE 802.11.\relax }}{8}{figure.caption.19}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Diagrama de aplicación de intervalo de guarda a una secuencia de entrenamiento del preámbulo.\relax }}{9}{figure.caption.20}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Asignación de subportadoras para la construcción de la secuencia de entrenamiento de símbolos cortos.\relax }}{10}{figure.caption.21}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Secuencia de entrenamiento de símbolos cortos en el dominio temporal.}}{10}{figure.caption.22}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Asignación de subportadoras para la construcción de la secuencia de entrenamiento de símbolos largos.\relax }}{11}{figure.caption.23}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Secuencia de entrenamiento de símbolos largos en el dominio temporal.}}{11}{figure.caption.24}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Secuencia de entrenamiento de símbolos cortos en el dominio temporal.\relax }}{11}{figure.caption.25}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Secuencia de entrenamiento de símbolos cortos en el dominio temporal.\relax }}{12}{figure.caption.26}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Secuencia de entrenamiento de símbolos cortos en el dominio temporal.\relax }}{13}{figure.caption.27}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Secuencia de entrenamiento de símbolos cortos en el dominio temporal.\relax }}{14}{figure.caption.28}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Secuencia de entrenamiento de símbolos cortos en el dominio temporal.\relax }}{15}{figure.caption.29}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Secuencia de entrenamiento de símbolos cortos en el dominio temporal.\relax }}{15}{figure.caption.30}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Diagrama temporal de aplicación de ventana FFT a una secuencia de símbolos OFDM recibidos.}}{14}{figure.caption.25}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Esquema de demodulador coherente, considerando un error de frecuencia entre la señal entrante y el oscilador local del demodulador.\relax }}{15}{figure.caption.26}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Aplicación del \color {RoyalBlue} funcional \color {black} $\Phi _{BC}$ a una señal recibida.}}{17}{figure.caption.28}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Factor de degradación del \color {RoyalBlue} funcional \color {black} $\Phi _{BC}$ en función del factor de rotación de fase.}}{18}{figure.caption.30}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Ejemplos de referencias para el \color {RoyalBlue} funcional \color {black} de banco de correladores.}}{18}{figure.caption.31}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Aplicación del \color {RoyalBlue} funcional \color {black} $\overline {\Phi }_{BC}$ a una señal recibida con error en frecuencia.}}{19}{figure.caption.32}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Aplicación del \color {RoyalBlue} funcional \color {black} $\Phi _{DC}$ a una señal recibida con error en frecuencia.}}{20}{figure.caption.34}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Diagrama dn bloques de la generación de la matriz de referencias implementada en LabVIEW.}}{21}{figure.caption.35}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Diagrama de bloques del cálculo de $\overline {\Phi }_{BC}$ implementado en LabVIEW.}}{22}{figure.caption.36}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Diagrama de bloques del cálculo de $\Phi _{DC}$ implementado en LabVIEW.}}{22}{figure.caption.37}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Resultados de simulación para verificar la correcta probabilidad de falsa alarma de la regla de decisión.\relax }}{31}{figure.caption.39}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Probabilidad de detección en función de la probabilidad de falsa alarma elegida a valores de SNR fijos.}}{32}{figure.caption.40}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Probabilidad de detección en función de la SNR elegida a valores de probabilidad de falsa alarma elegida fijos.}}{33}{figure.caption.41}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Simulación del estadístico de detección aplicado a una señal recibida que contiene un preámbulo localizado sobre ruido aditivo.}}{34}{figure.caption.42}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Error cuadrático medio del MVUE para la varianza del ruido.}}{36}{figure.caption.43}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Degradación del MSE normalizado del MVUE para la varianza del ruido ante presencia de señales en la ventana de evaluación.}}{37}{figure.caption.44}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Diagramas en bloques de las implementaciones en LabVIEW de las operaciones necesarias para el algoritmo de detección.\relax }}{38}{figure.caption.45}%
+\contentsline {subfigure}{\numberline {a}{\ignorespaces Cálculo del MVUE para la varianza del ruido.\caption@gobble {fig:noise-est-lv}\relax }}{38}{figure.caption.45}%
+\contentsline {subfigure}{\numberline {b}{\ignorespaces Cálculo del umbral de detección.\caption@gobble {fig:threshold-lv}\relax }}{38}{figure.caption.45}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces Una figura con algunos puntos experimentales y curva de datos te\'{o}ricos\relax }}{26}{figure.caption.31}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Diagrama de bloques \textit {top-level} del sistema que integra los algoritmos de detección y sincronismo implementado en LabVIEW.}}{42}{figure.caption.46}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Implementación en LabVIEW del módulo que obtiene una ventana de evaluación sobre una FIFO cíclica.}}{44}{figure.caption.47}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces implementación en LabVIEW del criterio de detección a partir de los registros de un estadístico y un umbral.}}{46}{figure.caption.48}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Implementación en LabVIEW del criterio de sincronismo a partir del registro del estadístico banco de correladores.}}{47}{figure.caption.49}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Implementación en LabVIEW del criterio de sincronismo a partir del registro del estadístico del método \textit {delay and correlate}.}}{47}{figure.caption.50}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Panel frontal de la simulación en LabVIEW del sistema de detección y sincronismo implementado.}}{48}{figure.caption.51}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Ejemplos de capturas del panel frontal del módulo LabVIEW utilizado para verificar la tasa de comunicación entre el USRP y el \textit {host} ante señales de frecuencia conocida.\relax }}{53}{figure.caption.52}%
+\contentsline {subfigure}{\numberline {a}{\ignorespaces Recepción de señal generada en RF tal que $N_T=1$.\caption@gobble {fig:sample-rate-1}\relax }}{53}{figure.caption.52}%
+\contentsline {subfigure}{\numberline {b}{\ignorespaces Recepción de señal generada en RF tal que $N_T=5$.\caption@gobble {fig:sample-rate-2}\relax }}{53}{figure.caption.52}%
+\addvspace {10\p@ }
